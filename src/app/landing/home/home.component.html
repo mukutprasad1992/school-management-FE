@@ -1,501 +1,809 @@
-<!--================Header Area =================-->
-<header class="header_area">
-    <div class="container">
-        <nav class="navbar navbar-expand-lg navbar-light">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <a class="navbar-brand logo_h" href="index.html"><img src="image/Logo.png" alt=""></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
-                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <!-- Collect the nav links, forms, and other content for toggling -->
-            <div class="collapse navbar-collapse offset" id="navbarSupportedContent">
-                <ul class="nav navbar-nav menu_nav ml-auto">
-                    <li class="nav-item active"><a class="nav-link" href="index.html">Home</a></li>
-                    <li class="nav-item"><a class="nav-link" href="about.html">About us</a></li>
-                    <li class="nav-item"><a class="nav-link" href="accomodation.html">Accomodation</a></li>
-                    <li class="nav-item"><a class="nav-link" href="gallery.html">Gallery</a></li>
-                    <li class="nav-item submenu dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown" role="button"
-                            aria-haspopup="true" aria-expanded="false">Blog</a>
-                        <ul class="dropdown-menu">
-                            <li class="nav-item"><a class="nav-link" href="blog.html">Blog</a></li>
-                            <li class="nav-item"><a class="nav-link" href="blog-single.html">Blog Details</a></li>
-                        </ul>
-                    </li>
-                    <li class="nav-item"><a class="nav-link" href="elements.html">Elemests</a></li>
-                    <li class="nav-item"><a class="nav-link" href="contact.html">Contact</a></li>
-                </ul>
-            </div>
-        </nav>
-    </div>
-</header>
-<!--================Header Area =================-->
-
-<!--================Banner Area =================-->
-<section class="banner_area">
-    <div class="booking_table d_flex align-items-center">
-        <div class="overlay bg-parallax" data-stellar-ratio="0.9" data-stellar-vertical-offset="0" data-background="">
+<!-- ======= Hero Section ======= -->
+<section id="hero" class="d-flex align-items-center">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-6 d-flex flex-column justify-content-center pt-4 pt-lg-0 order-2 order-lg-1" data-aos="fade-up"
+        data-aos-delay="200">
+        <h1>Better Solutions For Your Business</h1>
+        <h2>
+          We are team of talented designers making websites with Bootstrap
+        </h2>
+        <div class="d-flex justify-content-center justify-content-lg-start">
+          <a href="signin" class="btn-get-started scrollto">Register Now</a>
+          <!-- <a href="https://www.youtube.com/watch?v=jDDaplaOz7Q" class="glightbox btn-watch-video"><i
+              class="bi bi-play-circle"></i><span>Watch Video</span></a> -->
         </div>
-        <div class="container">
-            <div class="banner_content text-center">
-                <h6>Away from monotonous life</h6>
-                <h2>Relax Your Mind</h2>
-                <p>If you are looking at blank cassettes on the web, you may be very confused at the<br> difference in
-                    price. You may see some for as low as $.17 each.</p>
-                <a href="#" class="btn theme_btn button_hover">Get Started</a>
-            </div>
-        </div>
+      </div>
+      <div class="col-lg-6 order-1 order-lg-2 hero-img" data-aos="zoom-in" data-aos-delay="200">
+        <img src="assets/img/hero-img.png" class="img-fluid animated" alt="" />
+      </div>
     </div>
-    <div class="hotel_booking_area position">
-        <div class="container">
-            <div class="hotel_booking_table">
-                <div class="col-md-3">
-                    <h2>Book<br> Your Room</h2>
-                </div>
-                <div class="col-md-9">
-                    <div class="boking_table">
-                        <div class="row">
-                            <div class="col-md-4">
-                                <div class="book_tabel_item">
-                                    <div class="form-group">
-                                        <div class='input-group date' id='datetimepicker11'>
-                                            <input type='text' class="form-control" placeholder="Arrival Date" />
-                                            <span class="input-group-addon">
-                                                <i class="fa fa-calendar" aria-hidden="true"></i>
-                                            </span>
-                                        </div>
-                                    </div>
-                                    <div class="form-group">
-                                        <div class='input-group date' id='datetimepicker1'>
-                                            <input type='text' class="form-control" placeholder="Departure Date" />
-                                            <span class="input-group-addon">
-                                                <i class="fa fa-calendar" aria-hidden="true"></i>
-                                            </span>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="book_tabel_item">
-                                    <div class="input-group">
-                                        <select class="wide">
-                                            <option data-display="Adult">Adult</option>
-                                            <option value="1">Old</option>
-                                            <option value="2">Younger</option>
-                                            <option value="3">Potato</option>
-                                        </select>
-                                    </div>
-                                    <div class="input-group">
-                                        <select class="wide">
-                                            <option data-display="Child">Child</option>
-                                            <option value="1">Child</option>
-                                            <option value="2">Baby</option>
-                                            <option value="3">Child</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-md-4">
-                                <div class="book_tabel_item">
-                                    <div class="input-group">
-                                        <select class="wide">
-                                            <option data-display="Child">Number of Rooms</option>
-                                            <option value="1">Room 01</option>
-                                            <option value="2">Room 02</option>
-                                            <option value="3">Room 03</option>
-                                        </select>
-                                    </div>
-                                    <a class="book_now_btn button_hover" href="#">Book Now</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+  </div>
 </section>
-<!--================Banner Area =================-->
+<!-- End Hero -->
 
-<!--================ Accomodation Area  =================-->
-<section class="accomodation_area section_gap">
+<main id="main">
+  <!-- ======= Clients Section ======= -->
+  <section id="clients" class="clients section-bg">
     <div class="container">
-        <div class="section_title text-center">
-            <h2 class="title_color">Hotel Accomodation</h2>
-            <p>We all live in an age that belongs to the young at heart. Life that is becoming extremely fast, </p>
+      <div class="row" data-aos="zoom-in">
+        <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+          <img src="assets/img/clients/client-1.png" class="img-fluid" alt="" />
         </div>
-        <div class="row mb_30">
-            <div class="col-lg-3 col-sm-6">
-                <div class="accomodation_item text-center">
-                    <div class="hotel_img">
-                        <img src="image/room1.jpg" alt="">
-                        <a href="#" class="btn theme_btn button_hover">Book Now</a>
-                    </div>
-                    <a href="#">
-                        <h4 class="sec_h4">Double Deluxe Room</h4>
-                    </a>
-                    <h5>$250<small>/night</small></h5>
-                </div>
-            </div>
-            <div class="col-lg-3 col-sm-6">
-                <div class="accomodation_item text-center">
-                    <div class="hotel_img">
-                        <img src="image/room2.jpg" alt="">
-                        <a href="#" class="btn theme_btn button_hover">Book Now</a>
-                    </div>
-                    <a href="#">
-                        <h4 class="sec_h4">Single Deluxe Room</h4>
-                    </a>
-                    <h5>$200<small>/night</small></h5>
-                </div>
-            </div>
-            <div class="col-lg-3 col-sm-6">
-                <div class="accomodation_item text-center">
-                    <div class="hotel_img">
-                        <img src="image/room3.jpg" alt="">
-                        <a href="#" class="btn theme_btn button_hover">Book Now</a>
-                    </div>
-                    <a href="#">
-                        <h4 class="sec_h4">Honeymoon Suit</h4>
-                    </a>
-                    <h5>$750<small>/night</small></h5>
-                </div>
-            </div>
-            <div class="col-lg-3 col-sm-6">
-                <div class="accomodation_item text-center">
-                    <div class="hotel_img">
-                        <img src="image/room4.jpg" alt="">
-                        <a href="#" class="btn theme_btn button_hover">Book Now</a>
-                    </div>
-                    <a href="#">
-                        <h4 class="sec_h4">Economy Double</h4>
-                    </a>
-                    <h5>$200<small>/night</small></h5>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!--================ Accomodation Area  =================-->
 
-<!--================ Facilities Area  =================-->
-<section class="facilities_area section_gap">
-    <div class="overlay bg-parallax" data-stellar-ratio="0.8" data-stellar-vertical-offset="0" data-background="">
-    </div>
-    <div class="container">
-        <div class="section_title text-center">
-            <h2 class="title_w">Royal Facilities</h2>
-            <p>Who are in extremely love with eco friendly system.</p>
+        <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+          <img src="assets/img/clients/client-2.png" class="img-fluid" alt="" />
         </div>
-        <div class="row mb_30">
-            <div class="col-lg-4 col-md-6">
-                <div class="facilities_item">
-                    <h4 class="sec_h4"><i class="lnr lnr-dinner"></i>Restaurant</h4>
-                    <p>Usage of the Internet is becoming more common due to rapid advancement of technology and power.
-                    </p>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="facilities_item">
-                    <h4 class="sec_h4"><i class="lnr lnr-bicycle"></i>Sports CLub</h4>
-                    <p>Usage of the Internet is becoming more common due to rapid advancement of technology and power.
-                    </p>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="facilities_item">
-                    <h4 class="sec_h4"><i class="lnr lnr-shirt"></i>Swimming Pool</h4>
-                    <p>Usage of the Internet is becoming more common due to rapid advancement of technology and power.
-                    </p>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="facilities_item">
-                    <h4 class="sec_h4"><i class="lnr lnr-car"></i>Rent a Car</h4>
-                    <p>Usage of the Internet is becoming more common due to rapid advancement of technology and power.
-                    </p>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="facilities_item">
-                    <h4 class="sec_h4"><i class="lnr lnr-construction"></i>Gymnesium</h4>
-                    <p>Usage of the Internet is becoming more common due to rapid advancement of technology and power.
-                    </p>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="facilities_item">
-                    <h4 class="sec_h4"><i class="lnr lnr-coffee-cup"></i>Bar</h4>
-                    <p>Usage of the Internet is becoming more common due to rapid advancement of technology and power.
-                    </p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!--================ Facilities Area  =================-->
 
-<!--================ About History Area  =================-->
-<section class="about_history_area section_gap">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 d_flex align-items-center">
-                <div class="about_content ">
-                    <h2 class="title title_color">About Us <br>Our History<br>Mission & Vision</h2>
-                    <p>inappropriate behavior is often laughed off as “boys will be boys,” women face higher conduct
-                        standards especially in the workplace. That’s why it’s crucial that, as women, our behavior on
-                        the job is beyond reproach. inappropriate behavior is often laughed.</p>
-                    <a href="#" class="button_hover theme_btn_two">Request Custom Price</a>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <img class="img-fluid" src="image/about_bg.jpg" alt="img">
-            </div>
+        <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+          <img src="assets/img/clients/client-3.png" class="img-fluid" alt="" />
         </div>
-    </div>
-</section>
-<!--================ About History Area  =================-->
 
-<!--================ Testimonial Area  =================-->
-<section class="testimonial_area section_gap">
-    <div class="container">
-        <div class="section_title text-center">
-            <h2 class="title_color">Testimonial from our Clients</h2>
-            <p>The French Revolution constituted for the conscience of the dominant aristocratic class a fall from </p>
+        <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+          <img src="assets/img/clients/client-4.png" class="img-fluid" alt="" />
         </div>
-        <div class="testimonial_slider owl-carousel">
-            <div class="media testimonial_item">
-                <img class="rounded-circle" src="image/testtimonial-1.jpg" alt="">
-                <div class="media-body">
-                    <p>As conscious traveling Paupers we must always be concerned about our dear Mother Earth. If you
-                        think about it, you travel across her face, and She is the </p>
-                    <a href="#">
-                        <h4 class="sec_h4">Fanny Spencer</h4>
-                    </a>
-                    <div class="star">
-                        <a href="#"><i class="fa fa-star"></i></a>
-                        <a href="#"><i class="fa fa-star"></i></a>
-                        <a href="#"><i class="fa fa-star"></i></a>
-                        <a href="#"><i class="fa fa-star"></i></a>
-                        <a href="#"><i class="fa fa-star-half-o"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="media testimonial_item">
-                <img class="rounded-circle" src="image/testtimonial-1.jpg" alt="">
-                <div class="media-body">
-                    <p>As conscious traveling Paupers we must always be concerned about our dear Mother Earth. If you
-                        think about it, you travel across her face, and She is the </p>
-                    <a href="#">
-                        <h4 class="sec_h4">Fanny Spencer</h4>
-                    </a>
-                    <div class="star">
-                        <a href="#"><i class="fa fa-star"></i></a>
-                        <a href="#"><i class="fa fa-star"></i></a>
-                        <a href="#"><i class="fa fa-star"></i></a>
-                        <a href="#"><i class="fa fa-star"></i></a>
-                        <a href="#"><i class="fa fa-star-half-o"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="media testimonial_item">
-                <img class="rounded-circle" src="image/testtimonial-1.jpg" alt="">
-                <div class="media-body">
-                    <p>As conscious traveling Paupers we must always be concerned about our dear Mother Earth. If you
-                        think about it, you travel across her face, and She is the </p>
-                    <a href="#">
-                        <h4 class="sec_h4">Fanny Spencer</h4>
-                    </a>
-                    <div class="star">
-                        <a href="#"><i class="fa fa-star"></i></a>
-                        <a href="#"><i class="fa fa-star"></i></a>
-                        <a href="#"><i class="fa fa-star"></i></a>
-                        <a href="#"><i class="fa fa-star"></i></a>
-                        <a href="#"><i class="fa fa-star-half-o"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="media testimonial_item">
-                <img class="rounded-circle" src="image/testtimonial-1.jpg" alt="">
-                <div class="media-body">
-                    <p>As conscious traveling Paupers we must always be concerned about our dear Mother Earth. If you
-                        think about it, you travel across her face, and She is the </p>
-                    <a href="#">
-                        <h4 class="sec_h4">Fanny Spencer</h4>
-                    </a>
-                    <div class="star">
-                        <a href="#"><i class="fa fa-star"></i></a>
-                        <a href="#"><i class="fa fa-star"></i></a>
-                        <a href="#"><i class="fa fa-star"></i></a>
-                        <a href="#"><i class="fa fa-star"></i></a>
-                        <a href="#"><i class="fa fa-star-half-o"></i></a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!--================ Testimonial Area  =================-->
 
-<!--================ Latest Blog Area  =================-->
-<section class="latest_blog_area section_gap">
-    <div class="container">
-        <div class="section_title text-center">
-            <h2 class="title_color">latest posts from blog</h2>
-            <p>The French Revolution constituted for the conscience of the dominant aristocratic class a fall from </p>
+        <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+          <img src="assets/img/clients/client-5.png" class="img-fluid" alt="" />
         </div>
-        <div class="row mb_30">
-            <div class="col-lg-4 col-md-6">
-                <div class="single-recent-blog-post">
-                    <div class="thumb">
-                        <img class="img-fluid" src="image/blog/blog-1.jpg" alt="post">
-                    </div>
-                    <div class="details">
-                        <div class="tags">
-                            <a href="#" class="button_hover tag_btn">Travel</a>
-                            <a href="#" class="button_hover tag_btn">Life Style</a>
-                        </div>
-                        <a href="#">
-                            <h4 class="sec_h4">Low Cost Advertising</h4>
-                        </a>
-                        <p>Acres of Diamonds… you’ve read the famous story, or at least had it related to you. A farmer.
-                        </p>
-                        <h6 class="date title_color">31st January,2018</h6>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="single-recent-blog-post">
-                    <div class="thumb">
-                        <img class="img-fluid" src="image/blog/blog-2.jpg" alt="post">
-                    </div>
-                    <div class="details">
-                        <div class="tags">
-                            <a href="#" class="button_hover tag_btn">Travel</a>
-                            <a href="#" class="button_hover tag_btn">Life Style</a>
-                        </div>
-                        <a href="#">
-                            <h4 class="sec_h4">Creative Outdoor Ads</h4>
-                        </a>
-                        <p>Self-doubt and fear interfere with our ability to achieve or set goals. Self-doubt and fear
-                            are</p>
-                        <h6 class="date title_color">31st January,2018</h6>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="single-recent-blog-post">
-                    <div class="thumb">
-                        <img class="img-fluid" src="image/blog/blog-3.jpg" alt="post">
-                    </div>
-                    <div class="details">
-                        <div class="tags">
-                            <a href="#" class="button_hover tag_btn">Travel</a>
-                            <a href="#" class="button_hover tag_btn">Life Style</a>
-                        </div>
-                        <a href="#">
-                            <h4 class="sec_h4">It S Classified How To Utilize Free</h4>
-                        </a>
-                        <p>Why do you want to motivate yourself? Actually, just answering that question fully can </p>
-                        <h6 class="date title_color">31st January,2018</h6>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<!--================ Recent Area  =================-->
 
-<!--================ start footer Area  =================-->
-<footer class="footer-area section_gap">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-3  col-md-6 col-sm-6">
-                <div class="single-footer-widget">
-                    <h6 class="footer_title">About Agency</h6>
-                    <p>The world has become so fast paced that people don’t want to stand by reading a page of
-                        information, they would much rather look at a presentation and understand the message. It has
-                        come to a point </p>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6">
-                <div class="single-footer-widget">
-                    <h6 class="footer_title">Navigation Links</h6>
-                    <div class="row">
-                        <div class="col-4">
-                            <ul class="list_style">
-                                <li><a href="#">Home</a></li>
-                                <li><a href="#">Feature</a></li>
-                                <li><a href="#">Services</a></li>
-                                <li><a href="#">Portfolio</a></li>
-                            </ul>
-                        </div>
-                        <div class="col-4">
-                            <ul class="list_style">
-                                <li><a href="#">Team</a></li>
-                                <li><a href="#">Pricing</a></li>
-                                <li><a href="#">Blog</a></li>
-                                <li><a href="#">Contact</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6">
-                <div class="single-footer-widget">
-                    <h6 class="footer_title">Newsletter</h6>
-                    <p>For business professionals caught between high OEM price and mediocre print and graphic output,
-                    </p>
-                    <div id="mc_embed_signup">
-                        <form target="_blank"
-                            action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
-                            method="get" class="subscribe_form relative">
-                            <div class="input-group d-flex flex-row">
-                                <input name="EMAIL" placeholder="Email Address" onfocus="this.placeholder = ''"
-                                    onblur="this.placeholder = 'Email Address '" required="" type="email">
-                                <button class="btn sub-btn"><span class="lnr lnr-location"></span></button>
-                            </div>
-                            <div class="mt-10 info"></div>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            <div class="col-lg-3 col-md-6 col-sm-6">
-                <div class="single-footer-widget instafeed">
-                    <h6 class="footer_title">InstaFeed</h6>
-                    <ul class="list_style instafeed d-flex flex-wrap">
-                        <li><img src="image/instagram/Image-01.jpg" alt=""></li>
-                        <li><img src="image/instagram/Image-02.jpg" alt=""></li>
-                        <li><img src="image/instagram/Image-03.jpg" alt=""></li>
-                        <li><img src="image/instagram/Image-04.jpg" alt=""></li>
-                        <li><img src="image/instagram/Image-05.jpg" alt=""></li>
-                        <li><img src="image/instagram/Image-06.jpg" alt=""></li>
-                        <li><img src="image/instagram/Image-07.jpg" alt=""></li>
-                        <li><img src="image/instagram/Image-08.jpg" alt=""></li>
-                    </ul>
-                </div>
-            </div>
+        <div class="col-lg-2 col-md-4 col-6 d-flex align-items-center justify-content-center">
+          <img src="assets/img/clients/client-6.png" class="img-fluid" alt="" />
         </div>
-        <div class="border_line"></div>
-        <div class="row footer-bottom d-flex justify-content-between align-items-center">
-            <p class="col-lg-8 col-sm-12 footer-text m-0">
-                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                Copyright &copy;
-                <script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made
-                with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com"
-                    target="_blank">Colorlib</a>
-                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+      </div>
+    </div>
+  </section>
+  <!-- End Cliens Section -->
+
+  <!-- ======= About Us Section ======= -->
+  <section id="about" class="about">
+    <div class="container" data-aos="fade-up">
+      <div class="section-title">
+        <h2>About Us</h2>
+      </div>
+
+      <div class="row content">
+        <div class="col-lg-6">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </p>
+          <ul>
+            <li>
+              <i class="ri-check-double-line"></i> Ullamco laboris nisi ut
+              aliquip ex ea commodo consequat
+            </li>
+            <li>
+              <i class="ri-check-double-line"></i> Duis aute irure dolor in
+              reprehenderit in voluptate velit
+            </li>
+            <li>
+              <i class="ri-check-double-line"></i> Ullamco laboris nisi ut
+              aliquip ex ea commodo consequat
+            </li>
+          </ul>
+        </div>
+        <div class="col-lg-6 pt-4 pt-lg-0">
+          <p>
+            Ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute
+            irure dolor in reprehenderit in voluptate velit esse cillum dolore
+            eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+            proident, sunt in culpa qui officia deserunt mollit anim id est
+            laborum.
+          </p>
+          <a href="#" class="btn-learn-more">Learn More</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End About Us Section -->
+
+  <!-- ======= Why Us Section ======= -->
+  <section id="why-us" class="why-us section-bg">
+    <div class="container-fluid" data-aos="fade-up">
+      <div class="row">
+        <div class="col-lg-7 d-flex flex-column justify-content-center align-items-stretch order-2 order-lg-1">
+          <div class="content">
+            <h3>
+              Eum ipsam laborum deleniti
+              <strong>velit pariatur architecto aut nihil</strong>
+            </h3>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua. Duis
+              aute irure dolor in reprehenderit
             </p>
-            <div class="col-lg-4 col-sm-12 footer-social">
-                <a href="#"><i class="fa fa-facebook"></i></a>
-                <a href="#"><i class="fa fa-twitter"></i></a>
-                <a href="#"><i class="fa fa-dribbble"></i></a>
-                <a href="#"><i class="fa fa-behance"></i></a>
-            </div>
+          </div>
+
+          <div class="accordion-list">
+            <ul>
+              <li>
+                <a data-bs-toggle="collapse" class="collapse" data-bs-target="#accordion-list-1"><span>01</span> Non
+                  consectetur a erat nam at lectus urna
+                  duis? <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+                <div id="accordion-list-1" class="collapse show" data-bs-parent=".accordion-list">
+                  <p>
+                    Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id
+                    volutpat lacus laoreet non curabitur gravida. Venenatis
+                    lectus magna fringilla urna porttitor rhoncus dolor purus
+                    non.
+                  </p>
+                </div>
+              </li>
+
+              <li>
+                <a data-bs-toggle="collapse" data-bs-target="#accordion-list-2" class="collapsed"><span>02</span>
+                  Feugiat scelerisque varius morbi enim nunc?
+                  <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+                <div id="accordion-list-2" class="collapse" data-bs-parent=".accordion-list">
+                  <p>
+                    Dolor sit amet consectetur adipiscing elit pellentesque
+                    habitant morbi. Id interdum velit laoreet id donec ultrices.
+                    Fringilla phasellus faucibus scelerisque eleifend donec
+                    pretium. Est pellentesque elit ullamcorper dignissim. Mauris
+                    ultrices eros in cursus turpis massa tincidunt dui.
+                  </p>
+                </div>
+              </li>
+
+              <li>
+                <a data-bs-toggle="collapse" data-bs-target="#accordion-list-3" class="collapsed"><span>03</span> Dolor
+                  sit amet consectetur adipiscing elit?
+                  <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+                <div id="accordion-list-3" class="collapse" data-bs-parent=".accordion-list">
+                  <p>
+                    Eleifend mi in nulla posuere sollicitudin aliquam ultrices
+                    sagittis orci. Faucibus pulvinar elementum integer enim. Sem
+                    nulla pharetra diam sit amet nisl suscipit. Rutrum tellus
+                    pellentesque eu tincidunt. Lectus urna duis convallis
+                    convallis tellus. Urna molestie at elementum eu facilisis
+                    sed odio morbi quis
+                  </p>
+                </div>
+              </li>
+            </ul>
+          </div>
         </div>
+
+        <div class="col-lg-5 align-items-stretch order-1 order-lg-2 img"
+          style="background-image: url('assets/img/why-us.png')" data-aos="zoom-in" data-aos-delay="150">
+          &nbsp;
+        </div>
+      </div>
     </div>
-</footer>
-<!--================ End footer Area  =================-->
+  </section>
+  <!-- End Why Us Section -->
+
+  <!-- ======= Skills Section ======= -->
+  <section id="skills" class="skills">
+    <div class="container" data-aos="fade-up">
+      <div class="row">
+        <div class="col-lg-6 d-flex align-items-center" data-aos="fade-right" data-aos-delay="100">
+          <img src="assets/img/skills.png" class="img-fluid" alt="" />
+        </div>
+        <div class="col-lg-6 pt-4 pt-lg-0 content" data-aos="fade-left" data-aos-delay="100">
+          <h3>Voluptatem dignissimos provident quasi corporis voluptates</h3>
+          <p class="fst-italic">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          </p>
+
+          <div class="skills-content">
+            <div class="progress">
+              <span class="skill">HTML <i class="val">100%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"
+                  style="width: 100%;">
+                </div>
+              </div>
+            </div>
+
+            <div class="progress">
+              <span class="skill">CSS <i class="val">90%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100"
+                  style="width: 90%;">
+                </div>
+              </div>
+            </div>
+
+            <div class="progress">
+              <span class="skill">JavaScript <i class="val">75%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"
+                  style="width: 75%;">
+                </div>
+              </div>
+            </div>
+
+            <div class="progress">
+              <span class="skill">Photoshop <i class="val">55%</i></span>
+              <div class="progress-bar-wrap">
+                <div class="progress-bar" role="progressbar" aria-valuenow="55" aria-valuemin="0" aria-valuemax="100"
+                  style="width: 55%;">
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End Skills Section -->
+
+  <!-- ======= Services Section ======= -->
+  <section id="services" class="services section-bg">
+    <div class="container" data-aos="fade-up">
+      <div class="section-title">
+        <h2>Services</h2>
+        <p>
+          Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex
+          aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos
+          quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia
+          fugiat sit in iste officiis commodi quidem hic quas.
+        </p>
+      </div>
+
+      <div class="row">
+        <div class="col-xl-3 col-md-6 d-flex align-items-stretch" data-aos="zoom-in" data-aos-delay="100">
+          <div class="icon-box">
+            <div class="icon"><i class="bx bxl-dribbble"></i></div>
+            <h4><a href="">Lorem Ipsum</a></h4>
+            <p>
+              Voluptatum deleniti atque corrupti quos dolores et quas molestias
+              excepturi
+            </p>
+          </div>
+        </div>
+
+        <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-md-0" data-aos="zoom-in" data-aos-delay="200">
+          <div class="icon-box">
+            <div class="icon"><i class="bx bx-file"></i></div>
+            <h4><a href="">Sed ut perspici</a></h4>
+            <p>
+              Duis aute irure dolor in reprehenderit in voluptate velit esse
+              cillum dolore
+            </p>
+          </div>
+        </div>
+
+        <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in" data-aos-delay="300">
+          <div class="icon-box">
+            <div class="icon"><i class="bx bx-tachometer"></i></div>
+            <h4><a href="">Magni Dolores</a></h4>
+            <p>
+              Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
+              officia
+            </p>
+          </div>
+        </div>
+
+        <div class="col-xl-3 col-md-6 d-flex align-items-stretch mt-4 mt-xl-0" data-aos="zoom-in" data-aos-delay="400">
+          <div class="icon-box">
+            <div class="icon"><i class="bx bx-layer"></i></div>
+            <h4><a href="">Nemo Enim</a></h4>
+            <p>
+              At vero eos et accusamus et iusto odio dignissimos ducimus qui
+              blanditiis
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End Services Section -->
+
+  <!-- ======= Cta Section ======= -->
+  <section id="cta" class="cta">
+    <div class="container" data-aos="zoom-in">
+      <div class="row">
+        <div class="col-lg-9 text-center text-lg-start">
+          <h3>Call To Action</h3>
+          <p>
+            Duis aute irure dolor in reprehenderit in voluptate velit esse
+            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat
+            cupidatat non proident, sunt in culpa qui officia deserunt mollit
+            anim id est laborum.
+          </p>
+        </div>
+        <div class="col-lg-3 cta-btn-container text-center">
+          <a class="cta-btn align-middle" href="#">Call To Action</a>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End Cta Section -->
+
+  <!-- ======= Portfolio Section ======= -->
+  <section id="portfolio" class="portfolio">
+    <div class="container" data-aos="fade-up">
+      <div class="section-title">
+        <h2>Portfolio</h2>
+        <p>
+          Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex
+          aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos
+          quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia
+          fugiat sit in iste officiis commodi quidem hic quas.
+        </p>
+      </div>
+
+      <ul id="portfolio-flters" class="d-flex justify-content-center" data-aos="fade-up" data-aos-delay="100">
+        <li data-filter="*" class="filter-active">All</li>
+        <li data-filter=".filter-app">App</li>
+        <li data-filter=".filter-card">Card</li>
+        <li data-filter=".filter-web">Web</li>
+      </ul>
+
+      <div class="row portfolio-container" data-aos="fade-up" data-aos-delay="200">
+        <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+          <div class="portfolio-img">
+            <img src="assets/img/portfolio/portfolio-1.jpg" class="img-fluid" alt="" />
+          </div>
+          <div class="portfolio-info">
+            <h4>App 1</h4>
+            <p>App</p>
+            <a href="assets/img/portfolio/portfolio-1.jpg" data-gallery="portfolioGallery"
+              class="portfolio-lightbox preview-link" title="App 1"><i class="bx bx-plus"></i></a>
+            <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+          <div class="portfolio-img">
+            <img src="assets/img/portfolio/portfolio-2.jpg" class="img-fluid" alt="" />
+          </div>
+          <div class="portfolio-info">
+            <h4>Web 3</h4>
+            <p>Web</p>
+            <a href="assets/img/portfolio/portfolio-2.jpg" data-gallery="portfolioGallery"
+              class="portfolio-lightbox preview-link" title="Web 3"><i class="bx bx-plus"></i></a>
+            <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+          <div class="portfolio-img">
+            <img src="assets/img/portfolio/portfolio-3.jpg" class="img-fluid" alt="" />
+          </div>
+          <div class="portfolio-info">
+            <h4>App 2</h4>
+            <p>App</p>
+            <a href="assets/img/portfolio/portfolio-3.jpg" data-gallery="portfolioGallery"
+              class="portfolio-lightbox preview-link" title="App 2"><i class="bx bx-plus"></i></a>
+            <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+          <div class="portfolio-img">
+            <img src="assets/img/portfolio/portfolio-4.jpg" class="img-fluid" alt="" />
+          </div>
+          <div class="portfolio-info">
+            <h4>Card 2</h4>
+            <p>Card</p>
+            <a href="assets/img/portfolio/portfolio-4.jpg" data-gallery="portfolioGallery"
+              class="portfolio-lightbox preview-link" title="Card 2"><i class="bx bx-plus"></i></a>
+            <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+          <div class="portfolio-img">
+            <img src="assets/img/portfolio/portfolio-5.jpg" class="img-fluid" alt="" />
+          </div>
+          <div class="portfolio-info">
+            <h4>Web 2</h4>
+            <p>Web</p>
+            <a href="assets/img/portfolio/portfolio-5.jpg" data-gallery="portfolioGallery"
+              class="portfolio-lightbox preview-link" title="Web 2"><i class="bx bx-plus"></i></a>
+            <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 portfolio-item filter-app">
+          <div class="portfolio-img">
+            <img src="assets/img/portfolio/portfolio-6.jpg" class="img-fluid" alt="" />
+          </div>
+          <div class="portfolio-info">
+            <h4>App 3</h4>
+            <p>App</p>
+            <a href="assets/img/portfolio/portfolio-6.jpg" data-gallery="portfolioGallery"
+              class="portfolio-lightbox preview-link" title="App 3"><i class="bx bx-plus"></i></a>
+            <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+          <div class="portfolio-img">
+            <img src="assets/img/portfolio/portfolio-7.jpg" class="img-fluid" alt="" />
+          </div>
+          <div class="portfolio-info">
+            <h4>Card 1</h4>
+            <p>Card</p>
+            <a href="assets/img/portfolio/portfolio-7.jpg" data-gallery="portfolioGallery"
+              class="portfolio-lightbox preview-link" title="Card 1"><i class="bx bx-plus"></i></a>
+            <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 portfolio-item filter-card">
+          <div class="portfolio-img">
+            <img src="assets/img/portfolio/portfolio-8.jpg" class="img-fluid" alt="" />
+          </div>
+          <div class="portfolio-info">
+            <h4>Card 3</h4>
+            <p>Card</p>
+            <a href="assets/img/portfolio/portfolio-8.jpg" data-gallery="portfolioGallery"
+              class="portfolio-lightbox preview-link" title="Card 3"><i class="bx bx-plus"></i></a>
+            <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+          </div>
+        </div>
+
+        <div class="col-lg-4 col-md-6 portfolio-item filter-web">
+          <div class="portfolio-img">
+            <img src="assets/img/portfolio/portfolio-9.jpg" class="img-fluid" alt="" />
+          </div>
+          <div class="portfolio-info">
+            <h4>Web 3</h4>
+            <p>Web</p>
+            <a href="assets/img/portfolio/portfolio-9.jpg" data-gallery="portfolioGallery"
+              class="portfolio-lightbox preview-link" title="Web 3"><i class="bx bx-plus"></i></a>
+            <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End Portfolio Section -->
+
+  <!-- ======= Team Section ======= -->
+  <section id="team" class="team section-bg">
+    <div class="container" data-aos="fade-up">
+      <div class="section-title">
+        <h2>Team</h2>
+        <p>
+          Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex
+          aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos
+          quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia
+          fugiat sit in iste officiis commodi quidem hic quas.
+        </p>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-6">
+          <div class="member d-flex align-items-start" data-aos="zoom-in" data-aos-delay="100">
+            <div class="pic">
+              <img src="assets/img/team/team-1.jpg" class="img-fluid" alt="" />
+            </div>
+            <div class="member-info">
+              <h4>Walter White</h4>
+              <span>Chief Executive Officer</span>
+              <p>Explicabo voluptatem mollitia et repellat qui dolorum quasi</p>
+              <div class="social">
+                <a href=""><i class="ri-twitter-fill"></i></a>
+                <a href=""><i class="ri-facebook-fill"></i></a>
+                <a href=""><i class="ri-instagram-fill"></i></a>
+                <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6 mt-4 mt-lg-0">
+          <div class="member d-flex align-items-start" data-aos="zoom-in" data-aos-delay="200">
+            <div class="pic">
+              <img src="assets/img/team/team-2.jpg" class="img-fluid" alt="" />
+            </div>
+            <div class="member-info">
+              <h4>Sarah Jhonson</h4>
+              <span>Product Manager</span>
+              <p>
+                Aut maiores voluptates amet et quis praesentium qui senda para
+              </p>
+              <div class="social">
+                <a href=""><i class="ri-twitter-fill"></i></a>
+                <a href=""><i class="ri-facebook-fill"></i></a>
+                <a href=""><i class="ri-instagram-fill"></i></a>
+                <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6 mt-4">
+          <div class="member d-flex align-items-start" data-aos="zoom-in" data-aos-delay="300">
+            <div class="pic">
+              <img src="assets/img/team/team-3.jpg" class="img-fluid" alt="" />
+            </div>
+            <div class="member-info">
+              <h4>William Anderson</h4>
+              <span>CTO</span>
+              <p>Quisquam facilis cum velit laborum corrupti fuga rerum quia</p>
+              <div class="social">
+                <a href=""><i class="ri-twitter-fill"></i></a>
+                <a href=""><i class="ri-facebook-fill"></i></a>
+                <a href=""><i class="ri-instagram-fill"></i></a>
+                <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-6 mt-4">
+          <div class="member d-flex align-items-start" data-aos="zoom-in" data-aos-delay="400">
+            <div class="pic">
+              <img src="assets/img/team/team-4.jpg" class="img-fluid" alt="" />
+            </div>
+            <div class="member-info">
+              <h4>Amanda Jepson</h4>
+              <span>Accountant</span>
+              <p>
+                Dolorum tempora officiis odit laborum officiis et et accusamus
+              </p>
+              <div class="social">
+                <a href=""><i class="ri-twitter-fill"></i></a>
+                <a href=""><i class="ri-facebook-fill"></i></a>
+                <a href=""><i class="ri-instagram-fill"></i></a>
+                <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End Team Section -->
+
+  <!-- ======= Pricing Section ======= -->
+  <section id="pricing" class="pricing">
+    <div class="container" data-aos="fade-up">
+      <div class="section-title">
+        <h2>Pricing</h2>
+        <p>
+          Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex
+          aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos
+          quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia
+          fugiat sit in iste officiis commodi quidem hic quas.
+        </p>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-4" data-aos="fade-up" data-aos-delay="100">
+          <div class="box">
+            <h3>Free Plan</h3>
+            <h4><sup>$</sup>0<span>per month</span></h4>
+            <ul>
+              <li><i class="bx bx-check"></i> Quam adipiscing vitae proin</li>
+              <li><i class="bx bx-check"></i> Nec feugiat nisl pretium</li>
+              <li><i class="bx bx-check"></i> Nulla at volutpat diam uteera</li>
+              <li class="na">
+                <i class="bx bx-x"></i>
+                <span>Pharetra massa massa ultricies</span>
+              </li>
+              <li class="na">
+                <i class="bx bx-x"></i>
+                <span>Massa ultricies mi quis hendrerit</span>
+              </li>
+            </ul>
+            <a href="#" class="buy-btn">Get Started</a>
+          </div>
+        </div>
+
+        <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="200">
+          <div class="box featured">
+            <h3>Business Plan</h3>
+            <h4><sup>$</sup>29<span>per month</span></h4>
+            <ul>
+              <li><i class="bx bx-check"></i> Quam adipiscing vitae proin</li>
+              <li><i class="bx bx-check"></i> Nec feugiat nisl pretium</li>
+              <li><i class="bx bx-check"></i> Nulla at volutpat diam uteera</li>
+              <li>
+                <i class="bx bx-check"></i> Pharetra massa massa ultricies
+              </li>
+              <li>
+                <i class="bx bx-check"></i> Massa ultricies mi quis hendrerit
+              </li>
+            </ul>
+            <a href="#" class="buy-btn">Get Started</a>
+          </div>
+        </div>
+
+        <div class="col-lg-4 mt-4 mt-lg-0" data-aos="fade-up" data-aos-delay="300">
+          <div class="box">
+            <h3>Developer Plan</h3>
+            <h4><sup>$</sup>49<span>per month</span></h4>
+            <ul>
+              <li><i class="bx bx-check"></i> Quam adipiscing vitae proin</li>
+              <li><i class="bx bx-check"></i> Nec feugiat nisl pretium</li>
+              <li><i class="bx bx-check"></i> Nulla at volutpat diam uteera</li>
+              <li>
+                <i class="bx bx-check"></i> Pharetra massa massa ultricies
+              </li>
+              <li>
+                <i class="bx bx-check"></i> Massa ultricies mi quis hendrerit
+              </li>
+            </ul>
+            <a href="#" class="buy-btn">Get Started</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End Pricing Section -->
+
+  <!-- ======= Frequently Asked Questions Section ======= -->
+  <section id="faq" class="faq section-bg">
+    <div class="container" data-aos="fade-up">
+      <div class="section-title">
+        <h2>Frequently Asked Questions</h2>
+        <p>
+          Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex
+          aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos
+          quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia
+          fugiat sit in iste officiis commodi quidem hic quas.
+        </p>
+      </div>
+
+      <div class="faq-list">
+        <ul>
+          <li data-aos="fade-up" data-aos-delay="100">
+            <i class="bx bx-help-circle icon-help"></i>
+            <a data-bs-toggle="collapse" class="collapse" data-bs-target="#faq-list-1">Non consectetur a erat nam at
+              lectus urna duis?
+              <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+            <div id="faq-list-1" class="collapse show" data-bs-parent=".faq-list">
+              <p>
+                Feugiat pretium nibh ipsum consequat. Tempus iaculis urna id
+                volutpat lacus laoreet non curabitur gravida. Venenatis lectus
+                magna fringilla urna porttitor rhoncus dolor purus non.
+              </p>
+            </div>
+          </li>
+
+          <li data-aos="fade-up" data-aos-delay="200">
+            <i class="bx bx-help-circle icon-help"></i>
+            <a data-bs-toggle="collapse" data-bs-target="#faq-list-2" class="collapsed">Feugiat scelerisque varius morbi
+              enim nunc?
+              <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+            <div id="faq-list-2" class="collapse" data-bs-parent=".faq-list">
+              <p>
+                Dolor sit amet consectetur adipiscing elit pellentesque habitant
+                morbi. Id interdum velit laoreet id donec ultrices. Fringilla
+                phasellus faucibus scelerisque eleifend donec pretium. Est
+                pellentesque elit ullamcorper dignissim. Mauris ultrices eros in
+                cursus turpis massa tincidunt dui.
+              </p>
+            </div>
+          </li>
+
+          <li data-aos="fade-up" data-aos-delay="300">
+            <i class="bx bx-help-circle icon-help"></i>
+            <a data-bs-toggle="collapse" data-bs-target="#faq-list-3" class="collapsed">Dolor sit amet consectetur
+              adipiscing elit?
+              <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+            <div id="faq-list-3" class="collapse" data-bs-parent=".faq-list">
+              <p>
+                Eleifend mi in nulla posuere sollicitudin aliquam ultrices
+                sagittis orci. Faucibus pulvinar elementum integer enim. Sem
+                nulla pharetra diam sit amet nisl suscipit. Rutrum tellus
+                pellentesque eu tincidunt. Lectus urna duis convallis convallis
+                tellus. Urna molestie at elementum eu facilisis sed odio morbi
+                quis
+              </p>
+            </div>
+          </li>
+
+          <li data-aos="fade-up" data-aos-delay="400">
+            <i class="bx bx-help-circle icon-help"></i>
+            <a data-bs-toggle="collapse" data-bs-target="#faq-list-4" class="collapsed">Tempus quam pellentesque nec nam
+              aliquam sem et tortor consequat?
+              <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+            <div id="faq-list-4" class="collapse" data-bs-parent=".faq-list">
+              <p>
+                Molestie a iaculis at erat pellentesque adipiscing commodo.
+                Dignissim suspendisse in est ante in. Nunc vel risus commodo
+                viverra maecenas accumsan. Sit amet nisl suscipit adipiscing
+                bibendum est. Purus gravida quis blandit turpis cursus in.
+              </p>
+            </div>
+          </li>
+
+          <li data-aos="fade-up" data-aos-delay="500">
+            <i class="bx bx-help-circle icon-help"></i>
+            <a data-bs-toggle="collapse" data-bs-target="#faq-list-5" class="collapsed">Tortor vitae purus faucibus
+              ornare. Varius vel pharetra vel
+              turpis nunc eget lorem dolor?
+              <i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+            <div id="faq-list-5" class="collapse" data-bs-parent=".faq-list">
+              <p>
+                Laoreet sit amet cursus sit amet dictum sit amet justo. Mauris
+                vitae ultricies leo integer malesuada nunc vel. Tincidunt eget
+                nullam non nisi est sit amet. Turpis nunc eget lorem dolor sed.
+                Ut venenatis tellus in metus vulputate eu scelerisque.
+              </p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <!-- End Frequently Asked Questions Section -->
+
+  <!-- ======= Contact Section ======= -->
+  <section id="contact" class="contact">
+    <div class="container" data-aos="fade-up">
+      <div class="section-title">
+        <h2>Contact</h2>
+        <p>
+          Magnam dolores commodi suscipit. Necessitatibus eius consequatur ex
+          aliquid fuga eum quidem. Sit sint consectetur velit. Quisquam quos
+          quisquam cupiditate. Et nemo qui impedit suscipit alias ea. Quia
+          fugiat sit in iste officiis commodi quidem hic quas.
+        </p>
+      </div>
+
+      <div class="row">
+        <div class="col-lg-5 d-flex align-items-stretch">
+          <div class="info">
+            <div class="address">
+              <i class="bi bi-geo-alt"></i>
+              <h4>Location:</h4>
+              <p>A108 Adam Street, New York, NY 535022</p>
+            </div>
+
+            <div class="email">
+              <i class="bi bi-envelope"></i>
+              <h4>Email:</h4>
+              <p>info@example.com</p>
+            </div>
+
+            <div class="phone">
+              <i class="bi bi-phone"></i>
+              <h4>Call:</h4>
+              <p>+1 5589 55488 55s</p>
+            </div>
+
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d12097.433213460943!2d-74.0062269!3d40.7101282!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xb89d1fe6bc499443!2sDowntown+Conference+Center!5e0!3m2!1smk!2sbg!4v1539943755621"
+              frameborder="0" style="border: 0; width: 100%; height: 290px" allowfullscreen></iframe>
+          </div>
+        </div>
+
+        <div class="col-lg-7 mt-5 mt-lg-0 d-flex align-items-stretch">
+          <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+            <div class="row">
+              <div class="form-group col-md-6">
+                <label for="name">Your Name</label>
+                <input type="text" name="name" class="form-control" id="name" required />
+              </div>
+              <div class="form-group col-md-6">
+                <label for="name">Your Email</label>
+                <input type="email" class="form-control" name="email" id="email" required />
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="name">Subject</label>
+              <input type="text" class="form-control" name="subject" id="subject" required />
+            </div>
+            <div class="form-group">
+              <label for="name">Message</label>
+              <textarea class="form-control" name="message" rows="10" required></textarea>
+            </div>
+            <div class="my-3">
+              <div class="loading">Loading</div>
+              <div class="error-message"></div>
+              <div class="sent-message">
+                Your message has been sent. Thank you!
+              </div>
+            </div>
+            <div class="text-center">
+              <button type="submit">Send Message</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!-- End Contact Section -->
+</main>
+<!-- End #main -->
