@@ -1,57 +1,103 @@
 <section class="signup">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-6 contact-img d-flex flex-column justify-content-center hero-img aos-init aos-animate"
-                data-aos="zoom-in" data-aos-delay="200">
-                <img src="assets/img/form-image.png" class="img-fluid animated" alt="" />
-            </div>
-
-            <div class="col-lg-6 d-flex flex-column justify-content-center align-items-center">
-                <div class="form-container">
-                    <form method="post" role="form" class="php-email-form">
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="section-title">
-                                    <h2>REGISTER NOW</h2>
-                                </div>
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label for="first-name">First Name</label>
-                                <input type="text" name="name" class="form-control" id="first-name" required />
-                            </div>
-                            <div class="form-group col-md-6">
-                                <label for="last-name">Last Name</label>
-                                <input type="text" name="name" class="form-control" id="last-name" required />
-                            </div>
-                            <div class="form-group col-md-12">
-                                <label for="school-name">School Name</label>
-                                <input type="text" name="name" class="form-control" id="school-name" required />
-                            </div>
-                            <div class="form-group col-md-12">
-                                <label for="name">Your Email</label>
-                                <input type="email" class="form-control" name="email" id="email" required />
-                            </div>
-                            <div class="form-group col-md-12">
-                                <label for="password">Password</label>
-                                <input type="password" class="form-control" name="password" id="password" required />
-                            </div>
-                            <div class="form-group col-md-12">
-                                <label for="comfirm-password">Confirm Password</label>
-                                <input type="comfirm-password" class="form-control" name="comfirm-password"
-                                    id="comfirm-password" required />
-                            </div>
-                            <div class="form-group col-md-12">
-                                <input class="styled-checkbox" id="terms" type="checkbox" value="value2">
-                                <label for="terms">I accept <a href="#">terms and condition</a> and <a href="#">privacy
-                                        policy</a></label>
-                            </div>
-                        </div>
-                        <div class="text-center">
-                            <button type="submit">Send Message</button>
-                        </div>
-                    </form>
+  <div class="container-fluid">
+    <div class="row">
+      <div
+        class="col-lg-6 contact-img d-flex flex-column justify-content-center hero-img aos-init aos-animate"
+        data-aos="zoom-in"
+        data-aos-delay="200"
+      >
+        <img
+          src="assets/img/form-image.png"
+          class="img-fluid animated"
+          alt=""
+        />
+      </div>
+      <div
+        class="col-lg-6 d-flex flex-column justify-content-center align-items-center"
+      >
+        <div class="form-container">
+          <form method="post" role="form" class="php-email-form">
+            <div class="row">
+              <div class="col-md-12">
+                <div class="section-title">
+                  <h2>REGISTER NOW</h2>
                 </div>
+              </div>
+              <div class="form-group col-md-6">
+                <label for="first-name">First Name</label>
+                <input
+                  type="text"
+                  name="name"
+                  class="form-control"
+                  id="first-name"
+                  required
+                />
+              </div>
+              <div class="form-group col-md-6">
+                <label for="last-name">Last Name</label>
+                <input
+                  type="text"
+                  name="name"
+                  class="form-control"
+                  id="last-name"
+                  required
+                />
+              </div>
+              <div class="form-group col-md-12">
+                <label for="name">Your Email</label>
+                <input
+                  type="email"
+                  class="form-control"
+                  name="email"
+                  id="email"
+                  required
+                />
+              </div>
+              <div class="form-group col-md-12">
+                <label for="name">Your Mobile</label>
+                <input
+                  type="mobileNumber"
+                  class="form-control"
+                  name="mobileNumber"
+                  id="mobileNumber"
+                  required
+                />
+              </div>
+              <div class="form-group col-md-12">
+                <label for="password">Password</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  name="password"
+                  id="password"
+                  required
+                />
+              </div>
+              <div class="form-group col-md-12">
+                <label for="comfirm-password">Confirm Password</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  name="comfirmpassword"
+                  id="comfirmpassword"
+                />
+              </div>
+              <div class="form-group col-md-12">
+                <label for="comfirm-password">Select Role</label>
+                <select class="form-control" (change)="onRoleChange($event)">
+                  <option value="">Please select</option>
+                  <option *ngFor="let role of allRoles" [value]="role._id">
+                    {{ role.name.toLowerCase() }}
+                  </option>
+                </select>
+              </div>
             </div>
+            <div class="text-center">
+              <button type="submit">Register</button>
+            </div>
+          </form>
         </div>
+      </div>
     </div>
+  </div>
 </section>
