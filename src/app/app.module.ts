@@ -12,6 +12,7 @@ import { ForgotpasswordComponent } from './auth/forgotpassword/forgotpassword.co
 import { ResetpasswordComponent } from './auth/resetpassword/resetpassword.component';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
+import { GlobalHttpInterceptorService } from './interceptors/global.http.interceptor';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 
@@ -40,6 +41,11 @@ import { ToastrModule } from 'ngx-toastr';
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: GlobalHttpInterceptorService,
+      multi: true,
+    },
   ],
   bootstrap: [AppComponent],
 })

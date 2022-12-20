@@ -9,4 +9,14 @@ export const messages = {
       message: 'Something went wrong while fetch the roles',
     },
   },
+  user: {
+    success: {
+      title: 'SignUp',
+      message: 'User registered successfully',
+    },
+    error: {
+      title: 'SignUp',
+      message: 'Something went wrong while registering user',
+    },
+  },
 };
