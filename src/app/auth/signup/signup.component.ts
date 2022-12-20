@@ -12,6 +12,7 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 export class SignUpComponent {
   signUpForm!: FormGroup;
   allRoles: any = [];
+  getUser: any;
 
   constructor(
     private signupService: SignupService,
@@ -19,31 +20,8 @@ export class SignUpComponent {
   ) {}
 
   ngOnInit() {
-    this.signupService.getAllRoles('roles').subscribe((response) => {
-      console.log('data response', response);
-      if (response.status) {
-        this.allRoles = response.result;
-        this.taostrService.showSuccess(
-          messages.roles.success.title,
-          messages.roles.success.message
-        );
-      } else {
-        this.taostrService.showSuccess(
-          messages.roles.error.title,
-          messages.roles.error.message
-        );
-      }
-    });
-
-    this.signUpForm = new FormGroup({
-      firstName: new FormControl('', [Validators.required]),
-      lastName: new FormControl('', [Validators.required]),
-      email: new FormControl('', [Validators.required, Validators.email]),
-      mobileNumber: new FormControl('', [Validators.required]),
-      password: new FormControl('', [Validators.required]),
-      comfirmpassword: new FormControl('', [Validators.required]),
-      role: new FormControl('', [Validators.required]),
-    });
+    this.getAllRoles();
+    this.createFormBuilder();
   }
 
   get firstName() {
@@ -68,16 +46,58 @@ export class SignUpComponent {
     return this.signUpForm.get('role')!;
   }
 
-  onRoleChange(getRole: any) {
-    console.log(getRole.target.value);
+  createFormBuilder() {
+    this.signUpForm = new FormGroup({
+      firstName: new FormControl('', [Validators.required]),
+      lastName: new FormControl('', [Validators.required]),
+      email: new FormControl('', [Validators.required, Validators.email]),
+      mobileNumber: new FormControl('', [Validators.required]),
+      password: new FormControl('', [Validators.required]),
+      comfirmpassword: new FormControl('', [Validators.required]),
+      role: new FormControl('', [Validators.required]),
+    });
+  }
+
+  getAllRoles() {
+    this.signupService.getAllRoles('roles').subscribe((response) => {
+      if (response.status) {
+        this.allRoles = response.result;
+        this.taostrService.showSuccess(
+          messages.roles.success.title,
+          messages.roles.success.message
+        );
+      } else {
+        this.taostrService.showSuccess(
+          messages.roles.error.title,
+          messages.roles.error.message
+        );
+      }
+    });
   }
 
   onSubmit() {
     if (this.signUpForm.valid) {
-      alert(
-        'Form Submitted succesfully!!!\n Check the values in browser console.'
+      this.signupService
+        .signUp('users', this.signUpForm.value)
+        .subscribe((response) => {
+          if (response.status) {
+            this.getUser = response.result;
+            this.taostrService.showSuccess(
+              messages.user.success.title,
+              messages.user.success.message
+            );
+          } else {
+            this.taostrService.showSuccess(
+              messages.user.error.title,
+              messages.user.error.message
+            );
+          }
+        });
+    } else {
+      this.taostrService.showError(
+        messages.user.error.title,
+        messages.user.error.message
       );
-      console.table(this.signUpForm.value);
     }
   }
 }

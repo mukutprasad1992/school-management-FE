@@ -14,4 +14,10 @@ export class SignupService {
   public getAllRoles(url: string): Observable<any> {
     return this.http.get(`${API_URL}/${url}`).pipe(map((res) => res));
   }
+
+  public signUp(url: string, requestBody: any): Observable<any> {
+    return this.http
+      .post(`${API_URL}/${url}`, requestBody)
+      .pipe(map((res) => res));
+  }
 }
