@@ -4,8 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './common/header/header.component';
-import { FooterComponent } from './common/footer/footer.component';
+
 import { SignUpComponent } from './auth/signup/signup.component';
 import { SignInComponent } from './auth/signin/signin.component';
 import { ForgotpasswordComponent } from './auth/forgotpassword/forgotpassword.component';
@@ -16,12 +15,11 @@ import { GlobalHttpInterceptorService } from './interceptors/global.http.interce
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { DashboardModule } from './dashboard/dashboard.module';
+import { LandingModule } from './landing/landing.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
-    FooterComponent,
     SignUpComponent,
     SignInComponent,
     ForgotpasswordComponent,
@@ -33,6 +31,7 @@ import { DashboardModule } from './dashboard/dashboard.module';
     HttpClientModule,
     BrowserAnimationsModule,
     FormsModule,
+    LandingModule,
     ReactiveFormsModule,
     DashboardModule,
     ToastrModule.forRoot({

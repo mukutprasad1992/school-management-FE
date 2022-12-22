@@ -1,0 +1,100 @@
+<div id="mySidebar" class="sidebar">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
+    ><i class="bi bi-x-lg"></i
+  ></a>
+  <nav id="navbar" class="navbar">
+    <ul>
+      <li><a class="nav-link scrollto active" href="#hero">Dashboard</a></li>
+      <li><a class="nav-link scrollto" href="#about">Classes</a></li>
+      <li><a class="nav-link scrollto" href="#services">Teachers</a></li>
+      <li><a class="nav-link scrollto" href="#services">Staffs</a></li>
+      <li><a class="nav-link scrollto" href="#services">Students</a></li>
+      <li><a class="nav-link scrollto" href="#services">Attendance</a></li>
+      <li><a class="nav-link scrollto" href="#services">Leaves</a></li>
+      <li class="dropdown">
+        <a href="#"> Exams </a>
+        <ul>
+          <li><a href="#">Unit Test 1</a></li>
+          <li><a href="#">Unit Test 2</a></li>
+          <li><a href="#">Unit Test 3</a></li>
+          <li><a href="#">Half Yearly</a></li>
+          <li><a href="#">Yearly</a></li>
+        </ul>
+      </li>
+    </ul>
+    <i class="bi bi-list mobile-nav-toggle"></i>
+  </nav>
+  <!-- .navbar -->
+</div>
+
+<div id="main" class="dashboard-main">
+  <header id="header" class="dashboard-header">
+    <div class="container d-flex align-items-center">
+      <button class="openbtn" onclick="openNav()">
+        <i class="bi bi-list"></i>
+      </button>
+      <!-- <h1 class="logo me-auto"><a href="/landing/home">SmartSchool</a></h1> -->
+      <!-- Uncomment below if you prefer to use an image logo -->
+      <!-- <a href="index.html" class="logo me-auto"><img src="assets/img/logo.png" alt="" class="img-fluid"></a>-->
+
+      <nav id="navbar" class="navbar ms-auto">
+        <ul>
+          <li>
+            <a class="nav-link scrollto" href="javascript:void(0)"
+              ><i class="bi bi-chat-right-text"></i
+            ></a>
+          </li>
+          <li>
+            <a class="nav-link scrollto" href="javascript:void(0)"
+              ><i class="bi bi-bell"></i
+            ></a>
+          </li>
+          <li class="dropdown">
+            <a href="#">
+              <div class="avatar">
+                <img src="assets/img/team/team-4.jpg" class="avatar-img" />
+              </div>
+            </a>
+            <ul>
+              <li>
+                <a href="#"><i class="bi bi-box-arrow-right"></i> Logout</a>
+              </li>
+              <li>
+                <a href="#"><i class="bi bi-gear"></i> Settings</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav>
+      <!-- .navbar -->
+    </div>
+  </header>
+  <!-- End Header -->
+
+  <div class="main" style="align-items: flex-start">
+    <section id="services" class="services section-bg">
+      <div class="container aos-init aos-animate" data-aos="fade-up">
+        <div class="row">
+          <full-calendar [options]="calendarOptions"></full-calendar>
+        </div>
+      </div>
+    </section>
+  </div>
+  <footer id="footer">
+    <div class="container footer-bottom clearfix">
+      <div class="copyright">
+        &copy; Copyright <strong><span>Arsha</span></strong
+        >. All Rights Reserved
+      </div>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/arsha-free-bootstrap-html-template-corporate/ -->
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      </div>
+    </div>
+  </footer>
+  <!-- End Footer -->
+</div>
