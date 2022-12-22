@@ -56,3 +56,5 @@ export class LandingComponent {
     { data: [28, 48, 40, 19, 96, 27, 100], label: 'Series B' },
   ];
 }
+
+
