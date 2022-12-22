@@ -54,7 +54,6 @@
                   class="form-control"
                   id="lastName"
                   formControlName="lastName"
-                  required
                 />
                 <div
                   *ngIf="
@@ -74,7 +73,6 @@
                   class="form-control"
                   formControlName="email"
                   id="email"
-                  required
                 />
                 <div
                   *ngIf="email.invalid && (email.dirty || email.touched)"
@@ -115,7 +113,6 @@
                   class="form-control"
                   formControlName="password"
                   id="password"
-                  required
                 />
                 <div
                   *ngIf="

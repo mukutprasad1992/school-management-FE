@@ -83,20 +83,20 @@ export class SignUpComponent {
           if (response.status) {
             this.getUser = response.result;
             this.taostrService.showSuccess(
-              messages.user.success.title,
-              messages.user.success.message
+              messages.userSignUp.success.title,
+              messages.userSignUp.success.message
             );
           } else {
             this.taostrService.showSuccess(
-              messages.user.error.title,
-              messages.user.error.message
+              messages.userSignUp.error.title,
+              messages.userSignUp.error.message
             );
           }
         });
     } else {
       this.taostrService.showError(
-        messages.user.error.title,
-        messages.user.error.message
+        messages.userSignUp.error.title,
+        messages.userSignUp.error.message
       );
     }
   }
