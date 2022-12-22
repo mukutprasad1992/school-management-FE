@@ -3,16 +3,11 @@ import { CommonModule } from '@angular/common';
 
 import { DashboardRoutingModule } from './dashboard-routing.module';
 import { LandingComponent } from './landing/landing.component';
-
-
+import { AccountSettingsComponent } from './account-settings/account-settings.component';
+import { NgChartsModule } from 'ng2-charts';
 
 @NgModule({
-  declarations: [
-    LandingComponent
-  ],
-  imports: [
-    CommonModule,
-    DashboardRoutingModule
-  ]
+  declarations: [LandingComponent, AccountSettingsComponent],
+  imports: [CommonModule, DashboardRoutingModule, NgChartsModule],
 })
-export class DashboardModule { }
+export class DashboardModule {}
