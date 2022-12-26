@@ -1,7 +1,5 @@
 <div id="mySidebar" class="sidebar">
-  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
-    ><i class="bi bi-x-lg"></i
-  ></a>
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="bi bi-x-lg"></i></a>
   <nav id="navbar" class="navbar">
     <ul>
       <li><a class="nav-link scrollto active" href="#hero">Dashboard</a></li>
@@ -40,14 +38,10 @@
       <nav id="navbar" class="navbar ms-auto">
         <ul>
           <li>
-            <a class="nav-link scrollto" href="javascript:void(0)"
-              ><i class="bi bi-chat-right-text"></i
-            ></a>
+            <a class="nav-link scrollto" href="javascript:void(0)"><i class="bi bi-chat-right-text"></i></a>
           </li>
           <li>
-            <a class="nav-link scrollto" href="javascript:void(0)"
-              ><i class="bi bi-bell"></i
-            ></a>
+            <a class="nav-link scrollto" href="javascript:void(0)"><i class="bi bi-bell"></i></a>
           </li>
           <li class="dropdown">
             <a href="#">
@@ -73,19 +67,156 @@
   <!-- End Header -->
 
   <div class="main" style="align-items: flex-start">
-    <section id="services" class="services section-bg">
+    <section id="calendar" class="calendar pb-0">
       <div class="container aos-init aos-animate" data-aos="fade-up">
+        <div class="row justify-content-center">
+          <div class="col-xl-6 mb-4">
+            <div class="bg-light text-center rounded p-4">
+              <full-calendar [options]="calendarOptions"></full-calendar>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-5 mb-5">
+          <div class="col-12">
+            <ul class="classlist">
+              <li>
+                <input type="radio" id="class1st" name="classlist" value="class1st" checked>
+                <label for="class1st">Class 1st</label>
+              </li>
+              <li>
+                <input type="radio" id="class2nd" name="classlist" value="class2nd">
+                <label for="class2nd">Class 2nd</label>
+              </li>
+              <li>
+                <input type="radio" id="class3rd" name="classlist" value="class3rd">
+                <label for="class3rd">Class 3rd</label>
+              </li>
+              <li>
+                <input type="radio" id="class4th" name="classlist" value="class4th">
+                <label for="class4th">Class 4th</label>
+              </li>
+              <li>
+                <input type="radio" id="class5th" name="classlist" value="class5th">
+                <label for="class5th">Class 5th</label>
+              </li>
+              <li>
+                <input type="radio" id="class6th" name="classlist" value="class6th">
+                <label for="class6th">Class 6th</label>
+              </li>
+              <li>
+                <input type="radio" id="class7th" name="classlist" value="class7th">
+                <label for="class7th">Class 7th</label>
+              </li>
+              <li>
+                <input type="radio" id="class8th" name="classlist" value="class8th">
+                <label for="class8th">Class 8th</label>
+              </li>
+              <li>
+                <input type="radio" id="class9th" name="classlist" value="class9th">
+                <label for="class9th">Class 9th</label>
+              </li>
+              <li>
+                <input type="radio" id="class10th" name="classlist" value="class10th">
+                <label for="class10th">Class 10th</label>
+              </li>
+              <li>
+                <input type="radio" id="class11th" name="classlist" value="class11th">
+                <label for="class11th">Class 11th</label>
+              </li>
+              <li>
+                <input type="radio" id="class12th" name="classlist" value="class12th">
+                <label for="class12th">Class 12th</label>
+              </li>
+            </ul>
+          </div>
+        </div>
         <div class="row">
-          <full-calendar [options]="calendarOptions"></full-calendar>
+          <div class="col-md-12">
+            <div id="carouselExampleControls" class="carousel slide student-carousel" data-bs-ride="carousel">
+              <div class="carousel-inner">
+                <div class="carousel-item active">
+                  <div class="slide">
+                    <div class="avatar">
+                      <img src="assets/img/team/team-4.jpg" class="avatar-img" />
+                    </div>
+                    <div class="student-information">
+                      <h5 class="name">
+                        Student One
+                      </h5>
+                      <p class="rollno">
+                        001
+                      </p>
+                      <div class="action-buttons">
+                        <a class="button" href="#">Present</a>
+                        <a class="button" href="#">Absent</a>
+                        <a class="button" href="#">No Response</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <div class="slide">
+                    <div class="avatar">
+                      <img src="assets/img/team/team-4.jpg" class="avatar-img" />
+                    </div>
+                    <div class="student-information">
+                      <h5 class="name">
+                        Student Two
+                      </h5>
+                      <p class="rollno">
+                        002
+                      </p>
+                      <div class="action-buttons">
+                        <a class="button" href="#">Present</a>
+                        <a class="button" href="#">Absent</a>
+                        <a class="button" href="#">No Response</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="carousel-item">
+                  <div class="slide">
+                    <div class="avatar">
+                      <img src="assets/img/team/team-4.jpg" class="avatar-img" />
+                    </div>
+                    <div class="student-information">
+                      <h5 class="name">
+                        Student Three
+                      </h5>
+                      <p class="rollno">
+                        003
+                      </p>
+                      <div class="action-buttons">
+                        <a class="button" href="#">Present</a>
+                        <a class="button" href="#">Absent</a>
+                        <a class="button" href="#">No Response</a>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls"
+                data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls"
+                data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </section>
+
+
   </div>
   <footer id="footer">
     <div class="container footer-bottom clearfix">
       <div class="copyright">
-        &copy; Copyright <strong><span>Arsha</span></strong
-        >. All Rights Reserved
+        &copy; Copyright <strong><span>Arsha</span></strong>. All Rights Reserved
       </div>
       <div class="credits">
         <!-- All the links in the footer should remain intact. -->

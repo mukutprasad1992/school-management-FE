@@ -1,0 +1,46 @@
+ section.table {
+    .title {
+      font-weight: bold;
+      font-size: 24px;
+      color: #000000;
+    }
+
+    table {
+      .btn {
+        font-family: "Poppins", sans-serif;
+        font-weight: 500;
+        font-size: 18px;
+        letter-spacing: 1px;
+        display: inline-block;
+        padding: 2px 5px;
+        border-radius: 4px;
+        transition: 0.3s;
+        line-height: 1;
+        color: #47b2e4;
+        background: transparent;
+        margin-top: 0px;
+        border: 2px solid transparent;
+        margin-right: 15px;
+      }
+
+      th {
+        color: #37517e;
+      }
+
+      td {
+        white-space: nowrap;
+      }
+    }
+  }
+
+  section.chart {
+    width: 100%;
+    display: block;
+
+    .title {
+      font-weight: bold;
+      font-size: 24px;
+      color: #000000;
+    }
+  }
+

@@ -1,3 +1,6 @@
+@import 'ngx-owl-carousel-o/lib/styles/scss/owl.carousel';
+@import 'ngx-owl-carousel-o/lib/styles/scss/owl.theme.default';
+
 $color_1: #818181;
 $color_2: #f1f1f1;
 $color_3: white;
@@ -520,3 +523,178 @@ body {
     }
   }
 }
+
+
+.calendar{
+  width: 100%;
+  
+  .classlist{
+    display: flex;
+    align-items: center;
+    flex-wrap: nowrap;
+    list-style-type: none;
+    column-gap: 30px;
+    overflow: auto;
+    padding-bottom: 30px;
+    padding-left: 0px;
+
+    input[type="radio"]{
+      display: none;
+    }
+
+    input[type="radio"] + label{
+      display: inline-block;
+      padding: 12px 35px;
+      border-radius: 50px;
+      color: #47b2e4;
+      transition: none;
+      font-size: 16px;
+      font-weight: 500;
+      font-family: "Jost", sans-serif;
+      transition: 0.3s;
+      border: 1px solid #47b2e4;
+      white-space: nowrap;
+      cursor: pointer;
+    }
+
+    input[type="radio"]:checked + label{
+      background: #47b2e4;
+      color: #fff
+    }
+  }
+
+  .classlist::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+
+  .classlist::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey; 
+    border-radius: 10px;
+  }
+ 
+  .classlist::-webkit-scrollbar-thumb {
+    background: #47b2e4; 
+    border-radius: 10px;
+  }
+
+  .classlist::-webkit-scrollbar-thumb:hover {
+    background: #47b2e4; 
+  }
+
+  .student-carousel{
+    margin-bottom: 50px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+
+    .slide{
+      display: table;
+      margin: 0 auto;
+
+      .avatar{
+        position: relative;
+        display: block;
+        width: 100%;
+        max-width: 200px;
+        border-radius: 50%;
+        margin: 50px auto 20px;
+
+        &::after{
+          content: "";
+          position: relative;
+          display: block;
+          width: 100%;
+          padding-top: 100%;
+        }
+
+        &::before{
+          content: "";
+          position: absolute;
+          top: 50%;
+          left: 50%;
+          width: calc(100% + 12px);
+          height: calc(100% + 12px);
+          transform: translate(-50%, -50%);
+          border-radius: 50%;
+          border: 3px solid #47b2e4;
+        }
+
+        img{
+          position: absolute;
+          top: 0;
+          width: 100%;
+          display: block;
+          left: 0;
+          height: 100%;
+          object-fit: cover;
+          object-position: center;
+          overflow: hidden;
+          border-radius: 50%;
+        }
+
+      }
+
+      .name{
+        font-size: 24px;
+        font-weight: bold;
+        text-transform: uppercase;
+        position: relative;
+        color: #37517e;
+        text-align: center ;
+        margin-bottom: 0px;
+      }
+
+      .rollno{
+        font-size: 16px;
+        font-weight: 500;
+        text-transform: uppercase;
+        position: relative;
+        color: #000000;
+        text-align: center;
+      }
+
+      .action-buttons{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        column-gap: 20px;
+
+        a.button{
+            display: inline-block;
+            padding: 12px 35px;
+            border-radius: 50px;
+            color: #ffffff;
+            background-color: #47b2e4;
+            transition: none;
+            font-size: 16px;
+            font-weight: 500;
+            font-family: "Jost", sans-serif;
+            transition: 0.3s;
+            border: 1px solid #47b2e4;
+            white-space: nowrap;
+            cursor: pointer;
+        }
+      }
+    }
+
+    button.carousel-control-prev, button.carousel-control-next{
+      width: 50px;
+      height: 50px;
+      background: #47b2e4;
+      border-radius: 50%;
+      top: 50%;
+      transform: translateY(-50%);
+      opacity: 1;
+
+      span{
+        width: 24px;
+        height: 24px;
+        background-position: center center;
+      }
+    }
+
+  }
+}
+

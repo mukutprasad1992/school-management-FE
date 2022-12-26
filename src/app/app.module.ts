@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
+import { CarouselModule } from 'ngx-owl-carousel-o';
 
 import { SignUpComponent } from './auth/signup/signup.component';
 import { SignInComponent } from './auth/signin/signin.component';
@@ -24,6 +25,7 @@ import { LandingModule } from './landing/landing.module';
     SignInComponent,
     ForgotpasswordComponent,
     ResetpasswordComponent,
+
   ],
   imports: [
     BrowserModule,
@@ -34,6 +36,7 @@ import { LandingModule } from './landing/landing.module';
     LandingModule,
     ReactiveFormsModule,
     DashboardModule,
+    CarouselModule,
     ToastrModule.forRoot({
       timeOut: 10000,
       positionClass: 'toast-bottom-right',
@@ -50,4 +53,4 @@ import { LandingModule } from './landing/landing.module';
   ],
   bootstrap: [AppComponent],
 })
-export class AppModule {}
+export class AppModule { }

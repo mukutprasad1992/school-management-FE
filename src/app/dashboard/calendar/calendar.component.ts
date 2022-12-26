@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import { CalendarOptions } from '@fullcalendar/core';
 import interactionPlugin from '@fullcalendar/interaction';
+import { OwlOptions } from 'ngx-owl-carousel-o';
 
 @Component({
   selector: 'app-calendar',
@@ -26,8 +27,33 @@ export class CalendarComponent {
     dayMaxEvents: true,
     events: [{ title: 'Attendence Pending', start: new Date() }],
   };
-  constructor() {}
+  constructor() { }
   handleDateClick(arg: any) {
     console.info('date click! ' + arg.dateStr);
+  }
+
+  customOptions: OwlOptions = {
+    loop: true,
+    mouseDrag: false,
+    touchDrag: false,
+    pullDrag: false,
+    dots: false,
+    navSpeed: 700,
+    navText: ['', ''],
+    responsive: {
+      0: {
+        items: 1
+      },
+      400: {
+        items: 2
+      },
+      740: {
+        items: 3
+      },
+      940: {
+        items: 4
+      }
+    },
+    nav: true
   }
 }

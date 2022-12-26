@@ -154,6 +154,7 @@ h6 {
 */
 .navbar {
   padding: 0;
+  background: transparent;
 }
 
 .navbar ul {
@@ -215,7 +216,7 @@ h6 {
 .navbar .dropdown ul {
   display: block;
   position: absolute;
-  left: 14px;
+  left: auto;
   top: calc(100% + 30px);
   margin: 0;
   padding: 10px 0;
@@ -1860,3 +1861,10 @@ section {
     }
 }
 
+
+
+/* ========================== custom css ======================= */
+
+app-teachers{
+  flex-grow: 10;
+}

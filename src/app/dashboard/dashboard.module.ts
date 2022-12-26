@@ -13,6 +13,7 @@ import { SidebarComponent } from './common/sidebar/sidebar.component';
 import { MainComponent } from './main/main.component';
 import { ChartsComponent } from './common/charts/charts.component';
 import { TeachersComponent } from './components/teachers/teachers.component';
+import { CarouselModule } from 'ngx-owl-carousel-o';
 
 @NgModule({
   declarations: [LandingComponent, AccountSettingsComponent, CalendarComponent, HeaderComponent, FooterComponent, SidebarComponent, MainComponent, ChartsComponent, TeachersComponent],
@@ -21,6 +22,7 @@ import { TeachersComponent } from './components/teachers/teachers.component';
     FullCalendarModule,
     DashboardRoutingModule,
     NgChartsModule,
+    CarouselModule,
   ],
 })
-export class DashboardModule {}
+export class DashboardModule { }
