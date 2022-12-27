@@ -1865,6 +1865,6 @@ section {
 
 /* ========================== custom css ======================= */
 
-app-teachers{
+.dashboard-main > *:nth-child(2){
   flex-grow: 10;
 }

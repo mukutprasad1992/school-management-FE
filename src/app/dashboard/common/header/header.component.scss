@@ -1,0 +1,48 @@
+#header {
+    nav ul li i{
+        font-size: 16px;
+    }
+
+    .notification-dropdown ul {
+        padding-top: 0px;
+        padding-bottom: 0px;
+        
+
+    li{
+        min-width: 420px;
+
+        .notifiction{
+            width: 100%;
+            margin-bottom: 0px;
+            max-width: 100%;
+        }
+    }
+
+    }
+
+    .notifiction{
+        max-width: 400px;
+
+        .list-group-item{
+            align-items: flex-start;
+            white-space: pre-wrap;
+        }
+    }
+
+    .scrollto{
+    position: relative;
+
+    span{
+        position: absolute;
+        top: 6px;
+        right: 0px;
+        width: 6px;
+        height: 6px;
+        background: #FF5D5D;
+        border-radius: 50%;
+        transform: translateX(50%);
+    }
+
+    }
+}
+
