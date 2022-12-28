@@ -15,7 +15,7 @@ import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { GlobalHttpInterceptorService } from './interceptors/global.http.interceptor';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
-import { DashboardModule } from './dashboard/dashboard.module';
+import { AdminDashboardModule } from './admin-dashboard/admin-dashboard.module';
 import { LandingModule } from './landing/landing.module';
 
 @NgModule({
@@ -25,7 +25,6 @@ import { LandingModule } from './landing/landing.module';
     SignInComponent,
     ForgotpasswordComponent,
     ResetpasswordComponent,
-
   ],
   imports: [
     BrowserModule,
@@ -35,7 +34,7 @@ import { LandingModule } from './landing/landing.module';
     FormsModule,
     LandingModule,
     ReactiveFormsModule,
-    DashboardModule,
+    AdminDashboardModule,
     CarouselModule,
     ToastrModule.forRoot({
       timeOut: 10000,
@@ -53,4 +52,4 @@ import { LandingModule } from './landing/landing.module';
   ],
   bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

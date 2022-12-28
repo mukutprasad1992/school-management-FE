@@ -1,25 +1,36 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthRoutingModule } from './auth/auth-routing.module';
-import { DashboardRoutingModule } from "./dashboard/dashboard-routing.module"
+import { AdminDashboardRoutingModule } from './admin-dashboard/admin-dashboard-routing.module';
 
 const routes: Routes = [
   {
     path: 'auth',
-    loadChildren: () => import('./auth/auth-routing.module').then(m => m.AuthRoutingModule)
+    loadChildren: () =>
+      import('./auth/auth-routing.module').then((m) => m.AuthRoutingModule),
   },
   {
     path: 'landing',
-    loadChildren: () => import('./landing/landing-routing.module').then(m => m.LandingRoutingModule)
+    loadChildren: () =>
+      import('./landing/landing-routing.module').then(
+        (m) => m.LandingRoutingModule
+      ),
   },
   {
-    path: 'dashboard',
-    loadChildren: () => import('./dashboard/dashboard-routing.module').then(m => m.DashboardRoutingModule)
-  }
+    path: 'admin/dashboard',
+    loadChildren: () =>
+      import('./admin-dashboard/admin-dashboard-routing.module').then(
+        (m) => m.AdminDashboardRoutingModule
+      ),
+  },
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes), AuthRoutingModule, DashboardRoutingModule],
-  exports: [RouterModule]
+  imports: [
+    RouterModule.forRoot(routes),
+    AuthRoutingModule,
+    AdminDashboardRoutingModule,
+  ],
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

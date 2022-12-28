@@ -1,0 +1,89 @@
+section.table {
+  padding-top: 10px;
+
+  .title-box {
+    margin-top: 20px;
+
+    .title {
+      font-weight: bold;
+      font-size: 28px;
+      color: #37517e;
+      margin-bottom: 0px;
+    }
+
+    .message {
+      font-weight: medium;
+      font-size: 24px;
+      color: #37517e;
+      margin-bottom: 0px;
+    }
+  }
+
+  .title {
+    font-weight: bold;
+    font-size: 24px;
+    color: #000000;
+  }
+
+  table {
+    .btn {
+      font-family: "Poppins", sans-serif;
+      font-weight: 500;
+      font-size: 18px;
+      letter-spacing: 1px;
+      display: inline-block;
+      padding: 2px 5px;
+      border-radius: 4px;
+      transition: 0.3s;
+      line-height: 1;
+      color: #47b2e4;
+      background: transparent;
+      margin-top: 0px;
+      border: 2px solid transparent;
+      margin-right: 15px;
+    }
+
+    .approve {
+      background: #47b2e4;
+      color: #fff;
+      font-size: 15px;
+      padding: 5px 10px;
+      margin-right: 0px;
+    }
+
+    th {
+      color: #37517e;
+    }
+
+    td {
+      white-space: nowrap;
+    }
+  }
+
+  .pagination {
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 0px;
+
+    .page-link {
+      color: #47b2e4;
+    }
+
+    .page-link.active {
+      background: #47b2e4;
+      color: #fff;
+      border-color: #47b2e4;
+    }
+  }
+}
+
+section.chart {
+  width: 100%;
+  display: block;
+
+  .title {
+    font-weight: bold;
+    font-size: 24px;
+    color: #000000;
+  }
+}
