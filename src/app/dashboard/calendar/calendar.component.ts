@@ -1,8 +1,18 @@
 import { Component } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import { CalendarOptions } from '@fullcalendar/core';
 import interactionPlugin from '@fullcalendar/interaction';
 import { OwlOptions } from 'ngx-owl-carousel-o';
+import { throwError } from 'rxjs';
+
+export interface PhotosApi {
+  albumId?: number;
+  id?: number;
+  title?: string;
+  url?: string;
+  thumbnailUrl?: string;
+}
 
 @Component({
   selector: 'app-calendar',
@@ -10,6 +20,8 @@ import { OwlOptions } from 'ngx-owl-carousel-o';
   styleUrls: ['./calendar.component.scss'],
 })
 export class CalendarComponent {
+  constructor(private readonly http: HttpClient) {}
+  apiData: any;
   Events: any[] = [];
   calendarOptions: CalendarOptions = {
     headerToolbar: {
@@ -27,33 +39,47 @@ export class CalendarComponent {
     dayMaxEvents: true,
     events: [{ title: 'Attendence Pending', start: new Date() }],
   };
-  constructor() { }
+
   handleDateClick(arg: any) {
     console.info('date click! ' + arg.dateStr);
   }
 
+  limit: number = 10; // <==== Edit this number to limit API results
   customOptions: OwlOptions = {
     loop: true,
-    mouseDrag: false,
-    touchDrag: false,
-    pullDrag: false,
+    autoplay: true,
+    center: true,
     dots: false,
-    navSpeed: 700,
-    navText: ['', ''],
+    autoHeight: true,
+    autoWidth: true,
     responsive: {
       0: {
-        items: 1
+        items: 1,
       },
       400: {
-        items: 2
+        items: 2,
       },
       740: {
-        items: 3
+        items: 3,
       },
       940: {
-        items: 4
-      }
+        items: 4,
+      },
     },
-    nav: true
+    nav: true,
+  };
+
+  ngOnInit() {
+    this.fetch();
+  }
+
+  fetch() {
+    const api = `https://jsonplaceholder.typicode.com/albums/1/photos?_start=0&_limit=${this.limit}`;
+    const http$ = this.http.get<PhotosApi>(api);
+
+    http$.subscribe(
+      (res) => (this.apiData = res),
+      (err) => throwError(err)
+    );
   }
 }

@@ -1,6 +1,3 @@
-@import 'ngx-owl-carousel-o/lib/styles/scss/owl.carousel';
-@import 'ngx-owl-carousel-o/lib/styles/scss/owl.theme.default';
-
 $color_1: #818181;
 $color_2: #f1f1f1;
 $color_3: white;
@@ -524,11 +521,10 @@ body {
   }
 }
 
-
-.calendar{
+.calendar {
   width: 100%;
-  
-  .classlist{
+
+  .classlist {
     display: flex;
     align-items: center;
     flex-wrap: nowrap;
@@ -538,11 +534,11 @@ body {
     padding-bottom: 30px;
     padding-left: 0px;
 
-    input[type="radio"]{
+    input[type="radio"] {
       display: none;
     }
 
-    input[type="radio"] + label{
+    input[type="radio"] + label {
       display: inline-block;
       padding: 12px 35px;
       border-radius: 50px;
@@ -557,9 +553,9 @@ body {
       cursor: pointer;
     }
 
-    input[type="radio"]:checked + label{
+    input[type="radio"]:checked + label {
       background: #47b2e4;
-      color: #fff
+      color: #fff;
     }
   }
 
@@ -568,32 +564,31 @@ body {
     height: 10px;
   }
 
-
   .classlist::-webkit-scrollbar-track {
-    box-shadow: inset 0 0 5px grey; 
+    box-shadow: inset 0 0 5px grey;
     border-radius: 10px;
   }
- 
+
   .classlist::-webkit-scrollbar-thumb {
-    background: #47b2e4; 
+    background: #47b2e4;
     border-radius: 10px;
   }
 
   .classlist::-webkit-scrollbar-thumb:hover {
-    background: #47b2e4; 
+    background: #47b2e4;
   }
 
-  .student-carousel{
+  .student-carousel {
     margin-bottom: 50px;
     max-width: 500px;
     margin-left: auto;
     margin-right: auto;
 
-    .slide{
+    .slide {
       display: table;
       margin: 0 auto;
 
-      .avatar{
+      .avatar {
         position: relative;
         display: block;
         width: 100%;
@@ -601,7 +596,7 @@ body {
         border-radius: 50%;
         margin: 50px auto 20px;
 
-        &::after{
+        &::after {
           content: "";
           position: relative;
           display: block;
@@ -609,7 +604,7 @@ body {
           padding-top: 100%;
         }
 
-        &::before{
+        &::before {
           content: "";
           position: absolute;
           top: 50%;
@@ -621,7 +616,7 @@ body {
           border: 3px solid #47b2e4;
         }
 
-        img{
+        img {
           position: absolute;
           top: 0;
           width: 100%;
@@ -633,20 +628,19 @@ body {
           overflow: hidden;
           border-radius: 50%;
         }
-
       }
 
-      .name{
+      .name {
         font-size: 24px;
         font-weight: bold;
         text-transform: uppercase;
         position: relative;
         color: #37517e;
-        text-align: center ;
+        text-align: center;
         margin-bottom: 0px;
       }
 
-      .rollno{
+      .rollno {
         font-size: 16px;
         font-weight: 500;
         text-transform: uppercase;
@@ -655,31 +649,32 @@ body {
         text-align: center;
       }
 
-      .action-buttons{
+      .action-buttons {
         display: flex;
         align-items: center;
         justify-content: center;
         column-gap: 20px;
 
-        a.button{
-            display: inline-block;
-            padding: 12px 35px;
-            border-radius: 50px;
-            color: #ffffff;
-            background-color: #47b2e4;
-            transition: none;
-            font-size: 16px;
-            font-weight: 500;
-            font-family: "Jost", sans-serif;
-            transition: 0.3s;
-            border: 1px solid #47b2e4;
-            white-space: nowrap;
-            cursor: pointer;
+        a.button {
+          display: inline-block;
+          padding: 12px 35px;
+          border-radius: 50px;
+          color: #ffffff;
+          background-color: #47b2e4;
+          transition: none;
+          font-size: 16px;
+          font-weight: 500;
+          font-family: "Jost", sans-serif;
+          transition: 0.3s;
+          border: 1px solid #47b2e4;
+          white-space: nowrap;
+          cursor: pointer;
         }
       }
     }
 
-    button.carousel-control-prev, button.carousel-control-next{
+    button.carousel-control-prev,
+    button.carousel-control-next {
       width: 50px;
       height: 50px;
       background: #47b2e4;
@@ -688,13 +683,11 @@ body {
       transform: translateY(-50%);
       opacity: 1;
 
-      span{
+      span {
         width: 24px;
         height: 24px;
         background-position: center center;
       }
     }
-
   }
 }
-
