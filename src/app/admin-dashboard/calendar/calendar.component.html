@@ -12,14 +12,10 @@
       <nav id="navbar" class="navbar ms-auto">
         <ul>
           <li>
-            <a class="nav-link scrollto" href="javascript:void(0)"
-              ><i class="bi bi-chat-right-text"></i
-            ></a>
+            <a class="nav-link scrollto" href="javascript:void(0)"><i class="bi bi-chat-right-text"></i></a>
           </li>
           <li>
-            <a class="nav-link scrollto" href="javascript:void(0)"
-              ><i class="bi bi-bell"></i
-            ></a>
+            <a class="nav-link scrollto" href="javascript:void(0)"><i class="bi bi-bell"></i></a>
           </li>
           <li class="dropdown">
             <a href="#">
@@ -29,10 +25,13 @@
             </a>
             <ul>
               <li>
-                <a href="#"><i class="bi bi-box-arrow-right"></i> Logout</a>
+                <a href="#"><i class="bi bi-gear"></i> Reset Password</a>
               </li>
               <li>
                 <a href="#"><i class="bi bi-gear"></i> Settings</a>
+              </li>
+              <li>
+                <a href="#"><i class="bi bi-box-arrow-right"></i> Logout</a>
               </li>
             </ul>
           </li>
@@ -58,218 +57,284 @@
           <div class="col-12">
             <ul class="classlist">
               <li>
-                <input
-                  type="radio"
-                  id="class1st"
-                  name="classlist"
-                  value="class1st"
-                  checked
-                />
+                <input type="radio" id="class1st" name="classlist" value="class1st" checked />
                 <label for="class1st">Class 1st</label>
               </li>
               <li>
-                <input
-                  type="radio"
-                  id="class2nd"
-                  name="classlist"
-                  value="class2nd"
-                />
+                <input type="radio" id="class2nd" name="classlist" value="class2nd" />
                 <label for="class2nd">Class 2nd</label>
               </li>
               <li>
-                <input
-                  type="radio"
-                  id="class3rd"
-                  name="classlist"
-                  value="class3rd"
-                />
+                <input type="radio" id="class3rd" name="classlist" value="class3rd" />
                 <label for="class3rd">Class 3rd</label>
               </li>
               <li>
-                <input
-                  type="radio"
-                  id="class4th"
-                  name="classlist"
-                  value="class4th"
-                />
+                <input type="radio" id="class4th" name="classlist" value="class4th" />
                 <label for="class4th">Class 4th</label>
               </li>
               <li>
-                <input
-                  type="radio"
-                  id="class5th"
-                  name="classlist"
-                  value="class5th"
-                />
+                <input type="radio" id="class5th" name="classlist" value="class5th" />
                 <label for="class5th">Class 5th</label>
               </li>
               <li>
-                <input
-                  type="radio"
-                  id="class6th"
-                  name="classlist"
-                  value="class6th"
-                />
+                <input type="radio" id="class6th" name="classlist" value="class6th" />
                 <label for="class6th">Class 6th</label>
               </li>
               <li>
-                <input
-                  type="radio"
-                  id="class7th"
-                  name="classlist"
-                  value="class7th"
-                />
+                <input type="radio" id="class7th" name="classlist" value="class7th" />
                 <label for="class7th">Class 7th</label>
               </li>
               <li>
-                <input
-                  type="radio"
-                  id="class8th"
-                  name="classlist"
-                  value="class8th"
-                />
+                <input type="radio" id="class8th" name="classlist" value="class8th" />
                 <label for="class8th">Class 8th</label>
               </li>
               <li>
-                <input
-                  type="radio"
-                  id="class9th"
-                  name="classlist"
-                  value="class9th"
-                />
+                <input type="radio" id="class9th" name="classlist" value="class9th" />
                 <label for="class9th">Class 9th</label>
               </li>
               <li>
-                <input
-                  type="radio"
-                  id="class10th"
-                  name="classlist"
-                  value="class10th"
-                />
+                <input type="radio" id="class10th" name="classlist" value="class10th" />
                 <label for="class10th">Class 10th</label>
               </li>
               <li>
-                <input
-                  type="radio"
-                  id="class11th"
-                  name="classlist"
-                  value="class11th"
-                />
+                <input type="radio" id="class11th" name="classlist" value="class11th" />
                 <label for="class11th">Class 11th</label>
               </li>
               <li>
-                <input
-                  type="radio"
-                  id="class12th"
-                  name="classlist"
-                  value="class12th"
-                />
+                <input type="radio" id="class12th" name="classlist" value="class12th" />
                 <label for="class12th">Class 12th</label>
               </li>
             </ul>
           </div>
         </div>
         <div class="row">
-          <!--carousel-->
-          <div class="wrapper">
-            <owl-carousel-o [options]="customOptions">
-              <ng-container *ngFor="let slide of apiData">
-                <ng-template class="slide" carouselSlide [id]="slide.id">
-                  <img [src]="slide.url" [alt]="slide.id" [title]="slide.id" />
-                </ng-template>
-              </ng-container>
-            </owl-carousel-o>
-          </div>
-          <!--carousel End-->
           <div class="col-md-12">
-            <div
-              id="carouselExampleControls"
-              class="carousel slide student-carousel"
-              data-bs-ride="carousel"
-            >
-              <div class="carousel-inner">
-                <div class="carousel-item active">
-                  <div class="slide">
-                    <div class="avatar">
-                      <img
-                        src="assets/img/team/team-4.jpg"
-                        class="avatar-img"
-                      />
-                    </div>
-                    <div class="student-information">
-                      <h5 class="name">Student One</h5>
-                      <p class="rollno">001</p>
-                      <div class="action-buttons">
-                        <a class="button" href="#">Present</a>
-                        <a class="button" href="#">Absent</a>
-                        <a class="button" href="#">No Response</a>
+            <div class="student-carousel">
+              <!--carousel-->
+              <div class="wrapper">
+                <owl-carousel-o [options]="customOptions">
+                  <ng-container *ngFor="let slide of apiData">
+                    <ng-template class="slide" carouselSlide [id]="slide.id">
+                      <div class="avatar">
+                        <img src="assets/img/team/team-1.jpg" [alt]="slide.id" [title]="slide.id" />
                       </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="carousel-item">
-                  <div class="slide">
-                    <div class="avatar">
-                      <img
-                        src="assets/img/team/team-4.jpg"
-                        class="avatar-img"
-                      />
-                    </div>
-                    <div class="student-information">
-                      <h5 class="name">Student Two</h5>
-                      <p class="rollno">002</p>
-                      <div class="action-buttons">
-                        <a class="button" href="#">Present</a>
-                        <a class="button" href="#">Absent</a>
-                        <a class="button" href="#">No Response</a>
+                      <div class="student-information">
+                        <h5 class="name">Student One</h5>
+                        <p class="rollno">001</p>
                       </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="carousel-item">
-                  <div class="slide">
-                    <div class="avatar">
-                      <img
-                        src="assets/img/team/team-4.jpg"
-                        class="avatar-img"
-                      />
-                    </div>
-                    <div class="student-information">
-                      <h5 class="name">Student Three</h5>
-                      <p class="rollno">003</p>
-                      <div class="action-buttons">
-                        <a class="button" href="#">Present</a>
-                        <a class="button" href="#">Absent</a>
-                        <a class="button" href="#">No Response</a>
+                      <div class="status">
+                        status :
+                        <a href="javascript:void(0)" class="label text-success">
+                          Present
+                        </a>
                       </div>
-                    </div>
-                  </div>
-                </div>
+                      <a href="#" class="label attendance-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Attendance
+                      </a>
+                    </ng-template>
+                    <ng-template class="slide" carouselSlide [id]="slide.id">
+                      <div class="avatar">
+                        <img src="assets/img/team/team-2.jpg" [alt]="slide.id" [title]="slide.id" />
+                      </div>
+                      <div class="student-information">
+                        <h5 class="name">Student Two</h5>
+                        <p class="rollno">002</p>
+                      </div>
+                      <div class="status">
+                        status :
+                        <a href="javascript:void(0)" class="label text-danger">
+                          Absent
+                        </a>
+                      </div>
+                      <a href="#" class="label attendance-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Attendance
+                      </a>
+                    </ng-template>
+                    <ng-template class="slide" carouselSlide [id]="slide.id">
+                      <div class="avatar">
+                        <img src="assets/img/team/team-3.jpg" [alt]="slide.id" [title]="slide.id" />
+                      </div>
+                      <div class="student-information">
+                        <h5 class="name">Student Three</h5>
+                        <p class="rollno">003</p>
+                      </div>
+                      <div class="status">
+                        status :
+                        <a href="javascript:void(0)" class="label text-primary">
+                          No Response
+                        </a>
+                      </div>
+                      <a href="#" class="label attendance-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Attendance
+                      </a>
+                    </ng-template>
+                    <ng-template class="slide" carouselSlide [id]="slide.id">
+                      <div class="avatar">
+                        <img src="assets/img/team/team-4.jpg" [alt]="slide.id" [title]="slide.id" />
+                      </div>
+                      <div class="student-information">
+                        <h5 class="name">Student Four</h5>
+                        <p class="rollno">004</p>
+                      </div>
+                      <div class="status">
+                        status :
+                        <a href="javascript:void(0)" class="label text-success">
+                          Present
+                        </a>
+                      </div>
+                      <a href="#" class="label attendance-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Attendance
+                      </a>
+                    </ng-template>
+                    <ng-template class="slide" carouselSlide [id]="slide.id">
+                      <div class="avatar">
+                        <img src="assets/img/team/team-1.jpg" [alt]="slide.id" [title]="slide.id" />
+                      </div>
+                      <div class="student-information">
+                        <h5 class="name">Student One</h5>
+                        <p class="rollno">005</p>
+                      </div>
+                      <div class="status">
+                        status :
+                        <a href="javascript:void(0)" class="label text-danger">
+                          Absent
+                        </a>
+                      </div>
+                      <a href="#" class="label attendance-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Attendance
+                      </a>
+                    </ng-template>
+                    <ng-template class="slide" carouselSlide [id]="slide.id">
+                      <div class="avatar">
+                        <img src="assets/img/team/team-2.jpg" [alt]="slide.id" [title]="slide.id" />
+                      </div>
+                      <div class="student-information">
+                        <h5 class="name">Student Two</h5>
+                        <p class="rollno">006</p>
+                      </div>
+                      <div class="status">
+                        status :
+                        <a href="javascript:void(0)" class="label text-primary">
+                          No Response
+                        </a>
+                      </div>
+                      <a href="#" class="label attendance-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Attendance
+                      </a>
+                    </ng-template>
+                    <ng-template class="slide" carouselSlide [id]="slide.id">
+                      <div class="avatar">
+                        <img src="assets/img/team/team-3.jpg" [alt]="slide.id" [title]="slide.id" />
+                      </div>
+                      <div class="student-information">
+                        <h5 class="name">Student Three</h5>
+                        <p class="rollno">007</p>
+                      </div>
+                      <div class="status">
+                        status :
+                        <a href="javascript:void(0)" class="label text-success">
+                          Present
+                        </a>
+                      </div>
+                      <a href="#" class="label attendance-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Attendance
+                      </a>
+                    </ng-template>
+                    <ng-template class="slide" carouselSlide [id]="slide.id">
+                      <div class="avatar">
+                        <img src="assets/img/team/team-4.jpg" [alt]="slide.id" [title]="slide.id" />
+                      </div>
+                      <div class="student-information">
+                        <h5 class="name">Student Four</h5>
+                        <p class="rollno">008</p>
+                      </div>
+                      <div class="status">
+                        status :
+                        <a href="javascript:void(0)" class="label text-danger">
+                          Absent
+                        </a>
+                      </div>
+                      <a href="#" class="label attendance-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Attendance
+                      </a>
+                    </ng-template>
+                    <ng-template class="slide" carouselSlide [id]="slide.id">
+                      <div class="avatar">
+                        <img src="assets/img/team/team-1.jpg" [alt]="slide.id" [title]="slide.id" />
+                      </div>
+                      <div class="student-information">
+                        <h5 class="name">Student One</h5>
+                        <p class="rollno">009</p>
+                      </div>
+                      <div class="status">
+                        status :
+                        <a href="javascript:void(0)" class="label text-primary">
+                          No Response
+                        </a>
+                      </div>
+                      <a href="#" class="label attendance-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Attendance
+                      </a>
+                    </ng-template>
+                    <ng-template class="slide" carouselSlide [id]="slide.id">
+                      <div class="avatar">
+                        <img src="assets/img/team/team-2.jpg" [alt]="slide.id" [title]="slide.id" />
+                      </div>
+                      <div class="student-information">
+                        <h5 class="name">Student Two</h5>
+                        <p class="rollno">010</p>
+                      </div>
+                      <div class="status">
+                        status :
+                        <a href="javascript:void(0)" class="label text-success">
+                          Present
+                        </a>
+                      </div>
+                      <a href="#" class="label attendance-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Attendance
+                      </a>
+                    </ng-template>
+                    <ng-template class="slide" carouselSlide [id]="slide.id">
+                      <div class="avatar">
+                        <img src="assets/img/team/team-3.jpg" [alt]="slide.id" [title]="slide.id" />
+                      </div>
+                      <div class="student-information">
+                        <h5 class="name">Student Three</h5>
+                        <p class="rollno">011</p>
+                      </div>
+                      <div class="status">
+                        status :
+                        <a href="javascript:void(0)" class="label text-danger">
+                          Absent
+                        </a>
+
+                      </div>
+                      <a href="#" class="label attendance-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Attendance
+                      </a>
+                    </ng-template>
+                    <ng-template class="slide" carouselSlide [id]="slide.id">
+                      <div class="avatar">
+                        <img src="assets/img/team/team-4.jpg" [alt]="slide.id" [title]="slide.id" />
+                      </div>
+                      <div class="student-information">
+                        <h5 class="name">Student Four</h5>
+                        <p class="rollno">012</p>
+                      </div>
+                      <div class="status">
+                        status :
+                        <a href="javascript:void(0)" class="label text-primary">
+                          No Response
+                        </a>
+                      </div>
+                      <a href="#" class="label attendance-btn" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        Attendance
+                      </a>
+                    </ng-template>
+                  </ng-container>
+                </owl-carousel-o>
               </div>
-              <button
-                class="carousel-control-prev"
-                type="button"
-                data-bs-target="#carouselExampleControls"
-                data-bs-slide="prev"
-              >
-                <span
-                  class="carousel-control-prev-icon"
-                  aria-hidden="true"
-                ></span>
-                <span class="visually-hidden">Previous</span>
-              </button>
-              <button
-                class="carousel-control-next"
-                type="button"
-                data-bs-target="#carouselExampleControls"
-                data-bs-slide="next"
-              >
-                <span
-                  class="carousel-control-next-icon"
-                  aria-hidden="true"
-                ></span>
-                <span class="visually-hidden">Next</span>
-              </button>
+              <!--carousel End-->
             </div>
           </div>
         </div>
@@ -279,8 +344,7 @@
   <footer id="footer">
     <div class="container footer-bottom clearfix">
       <div class="copyright">
-        &copy; Copyright <strong><span>Arsha</span></strong
-        >. All Rights Reserved
+        &copy; Copyright <strong><span>Arsha</span></strong>. All Rights Reserved
       </div>
       <div class="credits">
         <!-- All the links in the footer should remain intact. -->
@@ -292,4 +356,22 @@
     </div>
   </footer>
   <!-- End Footer -->
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Attendance Status</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="button-box">
+          <a href="#" class="btn btn-success">Present</a>
+          <a href="#" class="btn btn-danger">Absent</a>
+          <a href="#" class="btn btn-primary">No Response</a>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

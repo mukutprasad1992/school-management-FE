@@ -20,7 +20,7 @@ export interface PhotosApi {
   styleUrls: ['./calendar.component.scss'],
 })
 export class CalendarComponent {
-  constructor(private readonly http: HttpClient) {}
+  constructor(private readonly http: HttpClient) { }
   apiData: any;
   Events: any[] = [];
   calendarOptions: CalendarOptions = {
@@ -44,11 +44,11 @@ export class CalendarComponent {
     console.info('date click! ' + arg.dateStr);
   }
 
-  limit: number = 10; // <==== Edit this number to limit API results
+  limit: number = 100; // <==== Edit this number to limit API results
   customOptions: OwlOptions = {
-    loop: true,
-    autoplay: true,
-    center: true,
+    loop: false,
+    autoplay: false,
+    center: false,
     dots: false,
     autoHeight: true,
     autoWidth: true,
@@ -56,14 +56,11 @@ export class CalendarComponent {
       0: {
         items: 1,
       },
-      400: {
+      500: {
         items: 2,
       },
-      740: {
-        items: 3,
-      },
       940: {
-        items: 4,
+        items: 3,
       },
     },
     nav: true,

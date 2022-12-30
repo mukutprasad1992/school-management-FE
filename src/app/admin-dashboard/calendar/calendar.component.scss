@@ -578,15 +578,8 @@ body {
     background: #47b2e4;
   }
 
-  .student-carousel {
+  .student-carousel{
     margin-bottom: 50px;
-    max-width: 500px;
-    margin-left: auto;
-    margin-right: auto;
-
-    .slide {
-      display: table;
-      margin: 0 auto;
 
       .avatar {
         position: relative;
@@ -630,23 +623,52 @@ body {
         }
       }
 
-      .name {
-        font-size: 24px;
-        font-weight: bold;
-        text-transform: uppercase;
-        position: relative;
-        color: #37517e;
-        text-align: center;
-        margin-bottom: 0px;
+      .student-information{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-left: 15px;
+        padding-right: 15px;
+        flex-flow: column;
+
+         .name {
+            font-size: 24px;
+            font-weight: bold;
+            text-transform: uppercase;
+            position: relative;
+            color: #37517e;
+            text-align: center;
+            margin-bottom: 0px;
+          }
+
+          .rollno {
+            font-size: 16px;
+            font-weight: 500;
+            text-transform: uppercase;
+            position: relative;
+            color: #000000;
+            text-align: center;
+            margin-bottom: 0;
+          }
       }
 
-      .rollno {
-        font-size: 16px;
-        font-weight: 500;
-        text-transform: uppercase;
-        position: relative;
-        color: #000000;
-        text-align: center;
+      .status{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-transform: capitalize;
+        margin-top: 5px;
+        margin-bottom: 10px;
+
+        a{
+          margin-left: 5px;
+
+          
+        }
+
+        .text-primary{
+          color: #47b2e4 !important;
+        }
       }
 
       .action-buttons {
@@ -671,23 +693,60 @@ body {
           cursor: pointer;
         }
       }
-    }
 
-    button.carousel-control-prev,
-    button.carousel-control-next {
-      width: 50px;
-      height: 50px;
-      background: #47b2e4;
-      border-radius: 50%;
-      top: 50%;
-      transform: translateY(-50%);
-      opacity: 1;
-
-      span {
-        width: 24px;
-        height: 24px;
-        background-position: center center;
+      .attendance-btn{
+        display: table;
+        margin: 5px auto 0;
+          padding: 12px 35px;
+          border-radius: 50px;
+          color: #ffffff;
+          background-color: #1a252f;
+          transition: none;
+          font-size: 16px;
+          font-weight: 500;
+          font-family: "Jost", sans-serif;
+          transition: 0.3s;
+          border: 1px solid #1a252f;
+          white-space: nowrap;
+          cursor: pointer;
       }
-    }
+    } 
+}
+
+.modal{ 
+
+  .modal-header .modal-title{
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+    position: relative;
+    color: #37517e;
+    text-align: center;
+    margin-bottom: 0px;
   }
+
+  .modal-body .button-box{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  .btn{
+    display: inline-block;
+    padding: 12px 35px;
+    border-radius: 50px;
+    color: #fff;
+    transition: none;
+    font-size: 16px;
+    font-weight: 500;
+    font-family: "Jost", sans-serif;
+    transition: 0.3s;
+    white-space: nowrap;
+    cursor: pointer;
+    border: none;
+  }
+
+  .btn-primary{
+    background: #47b2e4;
+  }
+}
 }
