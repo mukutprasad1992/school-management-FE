@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { SignInService } from '../../services/auth/signin.service';
+import { AuthService } from '../../services/auth/auth.service';
 import { TaostrService } from '../../services/common/taostr.service';
 import { messages } from '../../constant/auth/signup.messages';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
@@ -11,11 +12,11 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
 })
 export class SignInComponent {
   signInForm!: FormGroup;
-  getToken: any;
 
   constructor(
     private SigninService: SignInService,
-    private taostrService: TaostrService
+    private taostrService: TaostrService,
+    private authService: AuthService
   ) {}
 
   ngOnInit() {
@@ -42,8 +43,11 @@ export class SignInComponent {
       this.SigninService.signIn('users/login', this.signInForm.value).subscribe(
         (response) => {
           if (response.status) {
-            this.getToken = response.token;
-            console.info('this.getToken', this.getToken);
+            this.authService.saveAuthData(
+              response.userDetails.token,
+              response.userDetails.user,
+              new Date()
+            );
             this.taostrService.showSuccess(
               messages.userSignIn.success.title,
               messages.userSignIn.success.message
