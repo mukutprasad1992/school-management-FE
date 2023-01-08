@@ -524,6 +524,35 @@ body {
 .calendar {
   width: 100%;
 
+  .calendar-box{
+    overflow: auto;
+
+    .calendar-inner{
+      min-width: 550px;
+    }
+
+
+    &::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  &::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 5px grey;
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background: #47b2e4;
+    border-radius: 10px;
+  }
+
+  &::-webkit-scrollbar-thumb:hover {
+    background: #47b2e4;
+  }
+  }
+
+
   .classlist {
     display: flex;
     align-items: center;
@@ -578,15 +607,8 @@ body {
     background: #47b2e4;
   }
 
-  .student-carousel {
+  .student-carousel{
     margin-bottom: 50px;
-    max-width: 500px;
-    margin-left: auto;
-    margin-right: auto;
-
-    .slide {
-      display: table;
-      margin: 0 auto;
 
       .avatar {
         position: relative;
@@ -630,23 +652,52 @@ body {
         }
       }
 
-      .name {
-        font-size: 24px;
-        font-weight: bold;
-        text-transform: uppercase;
-        position: relative;
-        color: #37517e;
-        text-align: center;
-        margin-bottom: 0px;
+      .student-information{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding-left: 15px;
+        padding-right: 15px;
+        flex-flow: column;
+
+         .name {
+            font-size: 24px;
+            font-weight: bold;
+            text-transform: uppercase;
+            position: relative;
+            color: #37517e;
+            text-align: center;
+            margin-bottom: 0px;
+          }
+
+          .rollno {
+            font-size: 16px;
+            font-weight: 500;
+            text-transform: uppercase;
+            position: relative;
+            color: #000000;
+            text-align: center;
+            margin-bottom: 0;
+          }
       }
 
-      .rollno {
-        font-size: 16px;
-        font-weight: 500;
-        text-transform: uppercase;
-        position: relative;
-        color: #000000;
-        text-align: center;
+      .status{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-transform: capitalize;
+        margin-top: 5px;
+        margin-bottom: 10px;
+
+        a{
+          margin-left: 5px;
+
+          
+        }
+
+        .text-primary{
+          color: #47b2e4 !important;
+        }
       }
 
       .action-buttons {
@@ -671,22 +722,289 @@ body {
           cursor: pointer;
         }
       }
+
+      .attendance-btn{
+        display: table;
+        margin: 5px auto 0;
+          padding: 12px 35px;
+          border-radius: 50px;
+          color: #ffffff;
+          background-color: #1a252f;
+          transition: none;
+          font-size: 16px;
+          font-weight: 500;
+          font-family: "Jost", sans-serif;
+          transition: 0.3s;
+          border: 1px solid #1a252f;
+          white-space: nowrap;
+          cursor: pointer;
+      }
+    } 
+}
+
+.modal{ 
+
+  .modal-header .modal-title{
+    font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+    position: relative;
+    color: #37517e;
+    text-align: center;
+    margin-bottom: 0px;
+  }
+
+  .modal-body .button-box{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  .btn{
+    display: inline-block;
+    padding: 12px 35px;
+    border-radius: 50px;
+    color: #fff;
+    transition: none;
+    font-size: 16px;
+    font-weight: 500;
+    font-family: "Jost", sans-serif;
+    transition: 0.3s;
+    white-space: nowrap;
+    cursor: pointer;
+    border: none;
+    margin: 5px 10px;
+  }
+
+  .btn-primary{
+    background: #47b2e4;
+  }
+}
+}
+
+
+.dashboard-header .navbar ul{
+  display: flex;
+
+  .dropdown ul{
+    flex-flow: column;
+  }
+}
+
+.notification-dropdown ul{
+  padding-top: 0px;
+  padding-bottom: 0px;
+  width: 400px;
+
+  li{
+    width: 100%;
+
+    .notification{
+      width: 100%;
+      
+      .card{
+        border: none;
+
+        .card-header{
+          font-size: 24px;
+          font-weight: bold;
+          text-transform: uppercase;
+          position: relative;
+          color: #37517e;
+          text-align: center;
+          margin-bottom: 0px;
+        }
+
+        .card-body{
+          max-height: 400px;
+          overflow: auto;
+          padding: 0px;
+
+          
+          &::-webkit-scrollbar {
+            width: 10px;
+            height: 10px;
+          }
+
+          &::-webkit-scrollbar-track {
+            box-shadow: inset 0 0 5px grey;
+            border-radius: 10px;
+          }
+
+          &::-webkit-scrollbar-thumb {
+            background: #47b2e4;
+            border-radius: 10px;
+          }
+
+          &::-webkit-scrollbar-thumb:hover {
+            background: #47b2e4;
+          }
+
+          .notification-body {
+
+          .notification-div{
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 10px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+
+            .avatar{
+              width: 50px !important;
+              height: 50px !important;
+              margin-right: 15px;
+
+              img{
+                width: 100% !important;
+                height: 100% !important;
+                top: 0px !important;
+                left: 0px !important;
+              }
+            }
+
+
+
+            p.text{
+              margin-bottom: 0px;
+              color: #000;
+              opacity: .8;
+            }
+
+            p.time{
+              margin-bottom: 0px;
+              color: #000;
+              opacity: .5;
+              font-size: 13px;
+            }
+
+           
+          }
+
+          
+          }
+           
+        }
+
+        .notification-button{
+              width: 100%;
+              background: #47b2e4;
+              color: #fff;
+              padding: 15px;
+              text-align: center;
+              justify-content: center;
+              font-size: 16px;
+              font-weight: 500;
+              font-family: "Jost", sans-serif;
+            }
+      }
     }
+  }
+}
 
-    button.carousel-control-prev,
-    button.carousel-control-next {
-      width: 50px;
-      height: 50px;
-      background: #47b2e4;
-      border-radius: 50%;
-      top: 50%;
-      transform: translateY(-50%);
-      opacity: 1;
+.message-dropdown ul{
+  padding-top: 0px;
+  padding-bottom: 0px;
+  width: 400px;
 
-      span {
-        width: 24px;
-        height: 24px;
-        background-position: center center;
+  li{
+    width: 100%;
+
+    .message{
+      width: 100%;
+      
+      .card{
+        border: none;
+
+        .card-header{
+          font-size: 24px;
+          font-weight: bold;
+          text-transform: uppercase;
+          position: relative;
+          color: #37517e;
+          text-align: center;
+          margin-bottom: 0px;
+        }
+
+        .card-body{
+          max-height: 400px;
+          overflow: auto;
+          padding: 0px;
+
+          &::-webkit-scrollbar {
+            width: 10px;
+            height: 10px;
+          }
+
+          &::-webkit-scrollbar-track {
+            box-shadow: inset 0 0 5px grey;
+            border-radius: 10px;
+          }
+
+          &::-webkit-scrollbar-thumb {
+            background: #47b2e4;
+            border-radius: 10px;
+          }
+
+          &::-webkit-scrollbar-thumb:hover {
+            background: #47b2e4;
+          }
+
+          .message-body {
+
+          .message-div{
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            padding: 10px;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+
+            .avatar{
+              width: 50px !important;
+              height: 50px !important;
+              margin-right: 15px;
+
+              img{
+                width: 100% !important;
+                height: 100% !important;
+                top: 0px !important;
+                left: 0px !important;
+              }
+            }
+
+
+
+            p.text{
+              margin-bottom: 0px;
+              color: #000;
+              opacity: .8;
+            }
+
+            p.time{
+              margin-bottom: 0px;
+              color: #000;
+              opacity: .5;
+              font-size: 13px;
+            }
+
+           
+          }
+
+          
+          }
+           
+        }
+
+        .message-button{
+              width: 100%;
+              background: #47b2e4;
+              color: #fff;
+              padding: 15px;
+              text-align: center;
+              justify-content: center;
+              font-size: 16px;
+              font-weight: 500;
+              font-family: "Jost", sans-serif;
+            }
       }
     }
   }

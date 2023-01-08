@@ -16,10 +16,59 @@
           </nav>
         </div>
       </div>
+      <div class="row mb-3">
+        <div class="col-md-6">
+          <div class="text-left">
+            <form class="leave">
+              <div class="row">
+                <div class="form-group mb-0">
+                  <div class="row">
+                    <div class="form-group col-md-6">
+                      <label for="from-date">From Date</label>
+                      <input type="date" name="from-date" class="form-control" id="from-date" required="">
+                    </div>
+                    <div class="form-group col-md-6">
+                      <label for="to-date">To Date</label>
+                      <input type="date" class="form-control" name="to-date" id="to-date" required="">
+                    </div>
+                    <div class="form-group col-md-12">
+                      <label for="leave-type">Select type of Leave</label>
+                      <select name="leave-type" id="leave-type" class="form-control">
+                        <option value="paid">Paid</option>
+                        <option value="unpaid">Unpaid</option>
+                        <option value="sick">Sick</option>
+                      </select>
+                    </div>
+                    <div class="form-group">
+                      <label for="name">Reason</label>
+                      <textarea class="form-control" name="message" rows="4" required=""></textarea>
+                    </div>
+                    <div class="form-group col-md-12 mb-0">
+                      <label for="notify">Notify</label>
+                      <select name="notify" id="notify" class="form-control">
+                        <option value="Select">Select --</option>
+                        <option value="Mukut">Mukut</option>
+                        <option value="Tarun">Tarun</option>
+                      </select>
+                      <p class="notify-text"><span>Note:</span> These employees will be notified through through email
+                        when your
+                        leave request Approved</p>
+                    </div>
+                    <div class="my-3">
+                      <div class="loading">Loading</div>
+                      <div class="error-message"></div>
+                      <div class="sent-message">Your message has been sent. Thank you!</div>
+                    </div>
+                    <div class="text-center"><button type="submit">Send Message</button></div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
       <div class="row">
-        <div
-          class="col-md-12 d-flex align-items-center justify-content-between mb-3 title-box"
-        >
+        <div class="col-md-12 d-flex align-items-center justify-content-between mb-3 title-box">
           <h2 class="title">Hii, Mukut Prasad</h2>
           <h3 class="message">Good Morning</h3>
         </div>
@@ -32,9 +81,7 @@
               <a href="">Show All</a>
             </div>
             <div class="table-responsive">
-              <table
-                class="table text-start align-middle table-bordered table-hover mb-0"
-              >
+              <table class="table text-start align-middle table-bordered table-hover mb-0">
                 <thead>
                   <tr class="text-dark">
                     <th scope="col">
@@ -56,20 +103,12 @@
                     <td>Jhon Doe</td>
                     <td>$123</td>
                     <td class="text-center">
-                      <a class="approve btn btn-sm btn-primary" href="#"
-                        >Approve</a
-                      >
+                      <a class="approve btn btn-sm btn-primary" href="#">Approve</a>
                     </td>
                     <td>
-                      <a class="btn btn-sm btn-primary" href="#"
-                        ><i class="bi bi-pencil"></i
-                      ></a>
-                      <a class="btn btn-sm btn-primary" href="#"
-                        ><i class="bi bi-eye"></i
-                      ></a>
-                      <a class="btn btn-sm btn-primary" href="#"
-                        ><i class="bi bi-trash"></i
-                      ></a>
+                      <a class="btn btn-sm btn-primary" href="#"><i class="bi bi-pencil"></i></a>
+                      <a class="btn btn-sm btn-primary" href="#"><i class="bi bi-eye"></i></a>
+                      <a class="btn btn-sm btn-primary" href="#"><i class="bi bi-trash"></i></a>
                     </td>
                   </tr>
                   <tr>
@@ -79,20 +118,12 @@
                     <td>Jhon Doe</td>
                     <td>$123</td>
                     <td class="text-center">
-                      <a class="approve btn btn-sm btn-primary" href="#"
-                        >Approve</a
-                      >
+                      <a class="approve btn btn-sm btn-primary" href="#">Approve</a>
                     </td>
                     <td>
-                      <a class="btn btn-sm btn-primary" href="#"
-                        ><i class="bi bi-pencil"></i
-                      ></a>
-                      <a class="btn btn-sm btn-primary" href="#"
-                        ><i class="bi bi-eye"></i
-                      ></a>
-                      <a class="btn btn-sm btn-primary" href="#"
-                        ><i class="bi bi-trash"></i
-                      ></a>
+                      <a class="btn btn-sm btn-primary" href="#"><i class="bi bi-pencil"></i></a>
+                      <a class="btn btn-sm btn-primary" href="#"><i class="bi bi-eye"></i></a>
+                      <a class="btn btn-sm btn-primary" href="#"><i class="bi bi-trash"></i></a>
                     </td>
                   </tr>
                   <tr>
@@ -102,20 +133,12 @@
                     <td>Jhon Doe</td>
                     <td>$123</td>
                     <td class="text-center">
-                      <a class="approve btn btn-sm btn-primary" href="#"
-                        >Approve</a
-                      >
+                      <a class="approve btn btn-sm btn-primary" href="#">Approve</a>
                     </td>
                     <td>
-                      <a class="btn btn-sm btn-primary" href="#"
-                        ><i class="bi bi-pencil"></i
-                      ></a>
-                      <a class="btn btn-sm btn-primary" href="#"
-                        ><i class="bi bi-eye"></i
-                      ></a>
-                      <a class="btn btn-sm btn-primary" href="#"
-                        ><i class="bi bi-trash"></i
-                      ></a>
+                      <a class="btn btn-sm btn-primary" href="#"><i class="bi bi-pencil"></i></a>
+                      <a class="btn btn-sm btn-primary" href="#"><i class="bi bi-eye"></i></a>
+                      <a class="btn btn-sm btn-primary" href="#"><i class="bi bi-trash"></i></a>
                     </td>
                   </tr>
                   <tr>
@@ -125,20 +148,12 @@
                     <td>Jhon Doe</td>
                     <td>$123</td>
                     <td class="text-center">
-                      <a class="approve btn btn-sm btn-primary" href="#"
-                        >Approve</a
-                      >
+                      <a class="approve btn btn-sm btn-primary" href="#">Approve</a>
                     </td>
                     <td>
-                      <a class="btn btn-sm btn-primary" href="#"
-                        ><i class="bi bi-pencil"></i
-                      ></a>
-                      <a class="btn btn-sm btn-primary" href="#"
-                        ><i class="bi bi-eye"></i
-                      ></a>
-                      <a class="btn btn-sm btn-primary" href="#"
-                        ><i class="bi bi-trash"></i
-                      ></a>
+                      <a class="btn btn-sm btn-primary" href="#"><i class="bi bi-pencil"></i></a>
+                      <a class="btn btn-sm btn-primary" href="#"><i class="bi bi-eye"></i></a>
+                      <a class="btn btn-sm btn-primary" href="#"><i class="bi bi-trash"></i></a>
                     </td>
                   </tr>
                   <tr>
@@ -148,20 +163,12 @@
                     <td>Jhon Doe</td>
                     <td>$123</td>
                     <td class="text-center">
-                      <a class="approve btn btn-sm btn-primary" href="#"
-                        >Approve</a
-                      >
+                      <a class="approve btn btn-sm btn-primary" href="#">Approve</a>
                     </td>
                     <td>
-                      <a class="btn btn-sm btn-primary" href="#"
-                        ><i class="bi bi-pencil"></i
-                      ></a>
-                      <a class="btn btn-sm btn-primary" href="#"
-                        ><i class="bi bi-eye"></i
-                      ></a>
-                      <a class="btn btn-sm btn-primary" href="#"
-                        ><i class="bi bi-trash"></i
-                      ></a>
+                      <a class="btn btn-sm btn-primary" href="#"><i class="bi bi-pencil"></i></a>
+                      <a class="btn btn-sm btn-primary" href="#"><i class="bi bi-eye"></i></a>
+                      <a class="btn btn-sm btn-primary" href="#"><i class="bi bi-trash"></i></a>
                     </td>
                   </tr>
                 </tbody>
@@ -172,9 +179,7 @@
                 <ul class="pagination">
                   <li class="page-item">
                     <a class="page-link" href="#" aria-label="Previous">
-                      <span aria-hidden="true"
-                        ><i class="bi bi-chevron-left"></i
-                      ></span>
+                      <span aria-hidden="true"><i class="bi bi-chevron-left"></i></span>
                     </a>
                   </li>
                   <li class="page-item"><a class="page-link" href="#">1</a></li>
@@ -184,9 +189,7 @@
                   <li class="page-item"><a class="page-link" href="#">3</a></li>
                   <li class="page-item">
                     <a class="page-link" href="#" aria-label="Next">
-                      <span aria-hidden="true"
-                        ><i class="bi bi-chevron-right"></i
-                      ></span>
+                      <span aria-hidden="true"><i class="bi bi-chevron-right"></i></span>
                     </a>
                   </li>
                 </ul>

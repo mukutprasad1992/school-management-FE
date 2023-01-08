@@ -1868,3 +1868,44 @@ section {
 .dashboard-main > *:nth-child(2){
   flex-grow: 10;
 }
+
+.owl-nav .owl-prev, .owl-nav .owl-next{
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  background-color: #209dd8 !important;
+  border-radius: 50% !important;
+  background: #209dd8 !important;
+  font-size: 0px !important;
+  display: flex !important;
+  align-items: center;
+}
+
+.owl-nav .owl-prev{
+  left: 0 !important;
+}
+
+.owl-nav .owl-next{
+  right: 0 !important;
+}
+
+.owl-nav .owl-prev::after, .owl-nav .owl-next::after{
+  content: "";
+  width: 30px;
+  height: 30px;
+  background-image: url('../img/arrow.png');
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  display: inline-block;
+}
+
+.owl-nav .owl-next::after{
+  transform: rotate(180deg);
+}
+
+.modal-dialog{
+  max-width: 550px;
+}

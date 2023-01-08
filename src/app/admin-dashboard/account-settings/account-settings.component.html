@@ -12,14 +12,10 @@
       <nav id="navbar" class="navbar ms-auto">
         <ul>
           <li>
-            <a class="nav-link scrollto" href="javascript:void(0)"
-              ><i class="bi bi-chat-right-text"></i
-            ></a>
+            <a class="nav-link scrollto" href="javascript:void(0)"><i class="bi bi-chat-right-text"></i></a>
           </li>
           <li>
-            <a class="nav-link scrollto" href="javascript:void(0)"
-              ><i class="bi bi-bell"></i
-            ></a>
+            <a class="nav-link scrollto" href="javascript:void(0)"><i class="bi bi-bell"></i></a>
           </li>
           <li class="dropdown">
             <a href="#">
@@ -29,11 +25,15 @@
             </a>
             <ul>
               <li>
-                <a href="#"><i class="bi bi-box-arrow-right"></i> Logout</a>
+                <a href="#"><i class="bi bi-gear"></i> Reset Password</a>
               </li>
               <li>
                 <a href="#"><i class="bi bi-gear"></i> Settings</a>
               </li>
+              <li>
+                <a href="#"><i class="bi bi-box-arrow-right"></i> Logout</a>
+              </li>
+
             </ul>
           </li>
         </ul>
@@ -56,114 +56,52 @@
             </div>
             <div class="card-body">
               <div class="d-flex align-items-start">
-                <div
-                  class="nav flex-column nav-pills me-3"
-                  id="v-pills-tab"
-                  role="tablist"
-                  aria-orientation="vertical"
-                >
-                  <button
-                    class="nav-link active"
-                    id="v-pills-home-tab"
-                    data-bs-toggle="pill"
-                    data-bs-target="#v-pills-home"
-                    type="button"
-                    role="tab"
-                    aria-controls="v-pills-home"
-                    aria-selected="true"
-                  >
+                <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                  <button class="nav-link active" id="v-pills-home-tab" data-bs-toggle="pill"
+                    data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home"
+                    aria-selected="true">
                     Account Settings
                   </button>
-                  <button
-                    class="nav-link"
-                    id="v-pills-profile-tab"
-                    data-bs-toggle="pill"
-                    data-bs-target="#v-pills-profile"
-                    type="button"
-                    role="tab"
-                    aria-controls="v-pills-profile"
-                    aria-selected="false"
-                  >
+                  <button class="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill"
+                    data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile"
+                    aria-selected="false">
                     Reset Password
                   </button>
                 </div>
                 <div class="tab-content" id="v-pills-tabContent">
-                  <div
-                    class="tab-pane fade show active"
-                    id="v-pills-home"
-                    role="tabpanel"
-                    aria-labelledby="v-pills-home-tab"
-                  >
+                  <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel"
+                    aria-labelledby="v-pills-home-tab">
                     <div class="form-container">
                       <form method="post" role="form" class="Account-info">
                         <div class="row">
                           <div class="col-md-12">
                             <div class="avatar">
-                              <img
-                                src="assets/img/team/team-2.jpg"
-                                alt="image"
-                              />
+                              <img src="assets/img/team/team-2.jpg" alt="image" />
                             </div>
                           </div>
                           <div class="form-group col-md-6">
                             <label for="first-name">First Name</label>
-                            <input
-                              type="text"
-                              class="form-control"
-                              name="first-name"
-                              id="first-name"
-                              required
-                            />
+                            <input type="text" class="form-control" name="first-name" id="first-name" required />
                           </div>
                           <div class="form-group col-md-6">
                             <label for="last-name">Last Name</label>
-                            <input
-                              type="text"
-                              class="form-control"
-                              name="last-name"
-                              id="last-name"
-                              required
-                            />
+                            <input type="text" class="form-control" name="last-name" id="last-name" required />
                           </div>
                           <div class="form-group col-md-6">
                             <label for="name">Your Email</label>
-                            <input
-                              type="email"
-                              class="form-control"
-                              name="email"
-                              id="email"
-                              required
-                            />
+                            <input type="email" class="form-control" name="email" id="email" required />
                           </div>
                           <div class="form-group col-md-6">
                             <label for="number">Phone Number</label>
-                            <input
-                              type="number"
-                              class="form-control"
-                              name="number"
-                              id="number"
-                              required
-                            />
+                            <input type="number" class="form-control" name="number" id="number" required />
                           </div>
                           <div class="form-group col-md-6">
                             <label for="address">Address</label>
-                            <input
-                              type="text"
-                              class="form-control"
-                              name="address"
-                              id="address"
-                              required
-                            />
+                            <input type="text" class="form-control" name="address" id="address" required />
                           </div>
                           <div class="form-group col-md-6">
                             <label for="address">Permanent Address</label>
-                            <input
-                              type="text"
-                              class="form-control"
-                              name="permanent address"
-                              id="address"
-                              required
-                            />
+                            <input type="text" class="form-control" name="permanent address" id="address" required />
                           </div>
                           <div class="text-center">
                             <button type="submit">Edit</button>
@@ -172,36 +110,19 @@
                       </form>
                     </div>
                   </div>
-                  <div
-                    class="tab-pane fade"
-                    id="v-pills-profile"
-                    role="tabpanel"
-                    aria-labelledby="v-pills-profile-tab"
-                  >
+                  <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
                     <div class="form-container">
                       <form method="post" role="form" class="reset-password">
                         <div class="row">
                           <div class="form-group col-md-6">
                             <label for="new-password">New Password</label>
-                            <input
-                              type="password"
-                              class="form-control"
-                              name="new password"
-                              id="new-password"
-                              required
-                            />
+                            <input type="password" class="form-control" name="new password" id="new-password"
+                              required />
                           </div>
                           <div class="form-group col-md-6">
-                            <label for="confirm-password"
-                              >Confirm Password</label
-                            >
-                            <input
-                              type="text"
-                              class="form-control"
-                              name="confirm password"
-                              id="confirm-password"
-                              required
-                            />
+                            <label for="confirm-password">Confirm Password</label>
+                            <input type="text" class="form-control" name="confirm password" id="confirm-password"
+                              required />
                           </div>
                           <div class="text-center">
                             <button type="submit">Submit</button>
@@ -222,8 +143,7 @@
   <footer id="footer">
     <div class="container footer-bottom clearfix">
       <div class="copyright">
-        &copy; Copyright <strong><span>Arsha</span></strong
-        >. All Rights Reserved
+        &copy; Copyright <strong><span>Arsha</span></strong>. All Rights Reserved
       </div>
       <div class="credits">
         <!-- All the links in the footer should remain intact. -->
