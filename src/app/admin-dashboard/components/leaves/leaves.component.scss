@@ -87,3 +87,52 @@ section.chart {
     color: #000000;
   }
 }
+
+
+form.leave{
+  width: 100%;
+  border-top: 3px solid #47b2e4;
+  border-bottom: 3px solid #47b2e4;
+  padding: 30px;
+  background: #fff;
+  box-shadow: 0 0 24px 0 rgb(0 0 0 / 12%);
+
+  .form-group{
+    margin-bottom: 30px;
+    
+    label{
+      padding-bottom: 8px;
+    }
+
+    input, select{
+      border-radius: 0;
+      box-shadow: none;
+      font-size: 14px;
+      border-radius: 4px;
+      height: 44px;
+    }
+
+    p{
+      padding-top: 8px;
+      font-size: 14px;
+      opacity: 0.8;
+
+      span{
+        font-weight: 600;
+      }
+    }
+
+    .loading, .sent-message, .error-message{
+      display: none;
+    }
+
+    button[type="submit"]{
+      background: #47b2e4;
+      border: 0;
+      padding: 12px 34px;
+      color: #fff;
+      transition: 0.4s;
+      border-radius: 50px;
+    }
+  }
+}

@@ -1905,3 +1905,7 @@ section {
 .owl-nav .owl-next::after{
   transform: rotate(180deg);
 }
+
+.modal-dialog{
+  max-width: 550px;
+}

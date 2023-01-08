@@ -1,51 +1,30 @@
 <div id="mySidebar" class="sidebar">
-  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
-    ><i class="bi bi-x-lg"></i
-  ></a>
-  <nav id="navbar" class="navbar">
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="bi bi-x-lg"></i></a>
+  <nav id="sidebar" class="navbar">
     <ul>
       <li>
-        <a
-          class="nav-link scrollto active"
-          [routerLink]="['/admin/dashboard/landing']"
-          >Dashboard</a
-        >
+        <a class="nav-link active" [routerLink]="['/admin/dashboard/landing']">Dashboard</a>
       </li>
-      <li><a class="nav-link scrollto" href="#about">Classes</a></li>
+      <li><a class="nav-link" href="#about">Classes</a></li>
       <li>
-        <a
-          class="nav-link scrollto"
-          [routerLink]="['/admin/dashboard/teachers']"
-          >Teachers</a
-        >
+        <a class="nav-link" [routerLink]="['/admin/dashboard/teachers']">Teachers</a>
       </li>
       <li>
-        <a class="nav-link scrollto" [routerLink]="['/admin/dashboard/staffs']"
-          >Staffs</a
-        >
+        <a class="nav-link" [routerLink]="['/admin/dashboard/staffs']">Staffs</a>
       </li>
       <li>
-        <a
-          class="nav-link scrollto"
-          [routerLink]="['/admin/dashboard/students']"
-          >Students</a
-        >
+        <a class="nav-link" [routerLink]="['/admin/dashboard/students']">Students</a>
       </li>
       <li>
-        <a
-          class="nav-link scrollto"
-          [routerLink]="['/admin/dashboard/attendance']"
-          >Attendance</a
-        >
+        <a class="nav-link" [routerLink]="['/admin/dashboard/attendance']">Attendance</a>
       </li>
       <li>
-        <a class="nav-link scrollto" [routerLink]="['/admin/dashboard/leaves']"
-          >Leaves</a
-        >
+        <a class="nav-link" [routerLink]="['/admin/dashboard/leaves']">Leaves</a>
       </li>
       <li class="dropdown">
-        <a [routerLink]="['/admin/dashboard/exams']"> Exams </a>
+        <a [routerLink]="['javascript:void(0)']"> Exams </a>
         <ul>
+          <li><a [routerLink]="['/admin/dashboard/exams']">Exams</a></li>
           <li><a href="#">Unit Test 1</a></li>
           <li><a href="#">Unit Test 2</a></li>
           <li><a href="#">Unit Test 3</a></li>
@@ -54,7 +33,6 @@
         </ul>
       </li>
     </ul>
-    <i class="bi bi-list mobile-nav-toggle"></i>
   </nav>
   <!-- .navbar -->
 </div>
