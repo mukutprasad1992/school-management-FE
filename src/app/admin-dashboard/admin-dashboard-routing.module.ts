@@ -1,13 +1,14 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LandingComponent } from './landing/landing.component';
-import { CalendarComponent } from './calendar/calendar.component';
+import { CalendarComponent } from './components/calendar/calendar.component';
 import { TeachersComponent } from './components/teachers/teachers.component';
 import { StaffsComponent } from './components/staffs/staffs.component';
 import { StudentsComponent } from './components/students/students.component';
 import { AttendanceComponent } from './components/attendance/attendance.component';
 import { LeavesComponent } from './components/leaves/leaves.component';
 import { ExamsComponent } from './components/exams/exams.component';
+import { ClassesComponent } from './components/classes/classes.component';
 import { AccountSettingsComponent } from './account-settings/account-settings.component';
 
 const routes: Routes = [
@@ -46,6 +47,10 @@ const routes: Routes = [
   {
     path: 'exams',
     component: ExamsComponent,
+  },
+  {
+    path: 'classes',
+    component: ClassesComponent,
   },
 ];
 

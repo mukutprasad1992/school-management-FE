@@ -5,7 +5,7 @@ import { AdminDashboardRoutingModule } from './admin-dashboard-routing.module';
 import { LandingComponent } from './landing/landing.component';
 import { AccountSettingsComponent } from './account-settings/account-settings.component';
 import { NgChartsModule } from 'ng2-charts';
-import { CalendarComponent } from './calendar/calendar.component';
+import { CalendarComponent } from './components/calendar/calendar.component';
 import { FullCalendarModule } from '@fullcalendar/angular';
 import { HeaderComponent } from './common/header/header.component';
 import { FooterComponent } from './common/footer/footer.component';
@@ -18,6 +18,7 @@ import { StudentsComponent } from './components/students/students.component';
 import { AttendanceComponent } from './components/attendance/attendance.component';
 import { LeavesComponent } from './components/leaves/leaves.component';
 import { ExamsComponent } from './components/exams/exams.component';
+import { ClassesComponent } from './components/classes/classes.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { ExamsComponent } from './components/exams/exams.component';
     AttendanceComponent,
     LeavesComponent,
     ExamsComponent,
+    ClassesComponent,
   ],
   imports: [
     CommonModule,
