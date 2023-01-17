@@ -19,6 +19,7 @@ import { AttendanceComponent } from './components/attendance/attendance.componen
 import { LeavesComponent } from './components/leaves/leaves.component';
 import { ExamsComponent } from './components/exams/exams.component';
 import { ClassesComponent } from './components/classes/classes.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,8 @@ import { ClassesComponent } from './components/classes/classes.component';
   ],
   imports: [
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
     FullCalendarModule,
     AdminDashboardRoutingModule,
     NgChartsModule,

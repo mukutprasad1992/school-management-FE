@@ -4,7 +4,7 @@ import { AuthService } from '../../services/auth/auth.service';
 import { TaostrService } from '../../services/common/taostr.service';
 import { messages } from '../../constant/auth/signup.messages';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router, ActivatedRoute } from '@angular/router';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signin',
@@ -16,7 +16,6 @@ export class SignInComponent {
 
   constructor(
     private router: Router,
-    private route: ActivatedRoute,
     private SigninService: SignInService,
     private taostrService: TaostrService,
     private authService: AuthService
