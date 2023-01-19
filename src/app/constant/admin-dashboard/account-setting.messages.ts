@@ -31,4 +31,15 @@ export const messages = {
       message: 'Something went wrong while updaing user',
     },
   },
+
+  uploadProfilePic: {
+    success: {
+      title: 'User',
+      message: 'User profile pic upload successfully',
+    },
+    error: {
+      title: 'User',
+      message: 'Something went wrong while uploading profile pic',
+    },
+  },
 };

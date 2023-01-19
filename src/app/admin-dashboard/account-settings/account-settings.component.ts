@@ -11,9 +11,13 @@ import { Router } from '@angular/router';
   styleUrls: ['./account-settings.component.scss'],
 })
 export class AccountSettingsComponent {
+  profilePicUrl: any;
   getAllAccountSettingFetched: any;
   accountSettingForm!: FormGroup;
   allRoles: any = [];
+  profilePic: any;
+  imageBaseUrl: string =
+    'https://schoolmanagementimage.s3.ap-south-1.amazonaws.com';
 
   constructor(
     private router: Router,
@@ -25,6 +29,32 @@ export class AccountSettingsComponent {
     this.createFormBuilder();
     this.getAllAccountSetting();
     this.getAllRoles();
+  }
+
+  onProfilePicChoose(event: any) {
+    this.profilePic = event.target.files[0];
+    const profilePicFormData = new FormData(); // For convert in form data
+    profilePicFormData.append(
+      'profilePic',
+      this.profilePic,
+      this.profilePic.name
+    );
+    this.accountSettingService
+      .uploadProfilePic('users/profile-pic-upload', profilePicFormData)
+      .subscribe((response) => {
+        if (response.status) {
+          this.profilePicUrl = `${this.imageBaseUrl}/${response.result.profilePic}`;
+          this.taostrService.showSuccess(
+            messages.uploadProfilePic.success.title,
+            messages.uploadProfilePic.success.message
+          );
+        } else {
+          this.taostrService.showSuccess(
+            messages.uploadProfilePic.error.title,
+            messages.uploadProfilePic.error.message
+          );
+        }
+      });
   }
 
   getAllRoles() {
@@ -43,6 +73,7 @@ export class AccountSettingsComponent {
       }
     });
   }
+
   createFormBuilder() {
     this.accountSettingForm = new FormGroup({
       firstName: new FormControl('', [Validators.required]),
@@ -83,6 +114,7 @@ export class AccountSettingsComponent {
             messages.AccountSettings.success.message
           );
           this.getAllAccountSettingFetched = response.result;
+          this.profilePicUrl = `${this.imageBaseUrl}/${this.getAllAccountSettingFetched.profilePic}`;
           this.accountSettingForm.patchValue({
             firstName: this.getAllAccountSettingFetched.firstName,
             lastName: this.getAllAccountSettingFetched.lastName,

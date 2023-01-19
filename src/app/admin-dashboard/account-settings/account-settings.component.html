@@ -60,11 +60,12 @@
                         <div class="row">
                           <div class="col-md-12">
                             <div class="avatar">
-                              <img
-                                src="assets/img/team/team-2.jpg"
-                                alt="image"
-                              />
+                              <img src="{{ profilePicUrl }}" alt="image" />
                             </div>
+                            <input
+                              type="file"
+                              (change)="onProfilePicChoose($event)"
+                            />
                           </div>
                           <div class="form-group col-md-6">
                             <label for="first-name">First Name</label>
@@ -187,37 +188,7 @@
                     role="tabpanel"
                     aria-labelledby="v-pills-profile-tab"
                   >
-                    <div class="form-container">
-                      <form method="post" role="form" class="reset-password">
-                        <div class="row">
-                          <div class="form-group col-md-6">
-                            <label for="new-password">New Password</label>
-                            <input
-                              type="password"
-                              class="form-control"
-                              name="new password"
-                              id="new-password"
-                              required
-                            />
-                          </div>
-                          <div class="form-group col-md-6">
-                            <label for="confirm-password"
-                              >Confirm Password</label
-                            >
-                            <input
-                              type="text"
-                              class="form-control"
-                              name="confirm password"
-                              id="confirm-password"
-                              required
-                            />
-                          </div>
-                          <div class="text-center">
-                            <button type="submit">Submit</button>
-                          </div>
-                        </div>
-                      </form>
-                    </div>
+                    <app-resetpassword></app-resetpassword>
                   </div>
                 </div>
               </div>

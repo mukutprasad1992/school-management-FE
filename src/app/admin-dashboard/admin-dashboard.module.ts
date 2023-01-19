@@ -19,6 +19,7 @@ import { AttendanceComponent } from './components/attendance/attendance.componen
 import { LeavesComponent } from './components/leaves/leaves.component';
 import { ExamsComponent } from './components/exams/exams.component';
 import { ClassesComponent } from './components/classes/classes.component';
+import { ResetpasswordComponent } from '../auth/resetpassword/resetpassword.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
@@ -37,6 +38,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     LeavesComponent,
     ExamsComponent,
     ClassesComponent,
+    ResetpasswordComponent,
   ],
   imports: [
     CommonModule,

@@ -24,4 +24,10 @@ export class AccountSettingService {
       .put(`${API_URL}/${url}`, requestBody)
       .pipe(map((res) => res));
   }
+
+  public uploadProfilePic(url: string, requestBody: any): Observable<any> {
+    return this.http
+      .post(`${API_URL}/${url}`, requestBody)
+      .pipe(map((res) => res));
+  }
 }
