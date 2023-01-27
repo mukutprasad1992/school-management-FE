@@ -9,6 +9,8 @@ $font-family_1: "Lato", sans-serif;
 $background-color_1: #111;
 $background-color_2: #444;
 $border-color_1: #eeeeee transparent transparent transparent;
+$small: 767px;
+$medium: 1200px;
 
 /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
 /*============== header css =============*/
@@ -432,6 +434,8 @@ body {
 				margin-right: 0px !important;
 				width: 200px;
 
+				
+
 				.nav-link{
 					border: 1px solid #ced4da;
 					border-radius: 0px;
@@ -453,10 +457,21 @@ body {
 				}
 			}
 
+			
+
 			.tab-content{
 				width: calc(100% - 200px);
 				padding-left: 20px;
 				border-left: 1px solid #ced4da;
+
+				.avatar-box{
+						width: 100%;
+					max-width: 200px;
+					border-radius: 50%;
+					margin: 0 auto 30px;
+					position: relative;
+
+	
 
 				.avatar{
 					width: 100%;
@@ -488,6 +503,27 @@ body {
 						border-radius: 50%;
 						overflow: hidden;
 					}
+				}
+
+				#avatar-image{
+					display: none;
+				}
+
+				label{
+					width: 40px;
+					height: 40px;
+					background: #47b2e4;
+					border-radius: 50%;
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					position: absolute;
+					right: 10px;
+					bottom: 10px;
+					color: #fff;
+					font-size: 18px;
+				}
+
 				}
 
 				.form-group{
@@ -539,6 +575,33 @@ body {
 						border-radius: 50px;
 					}
 			}
+
+			@media screen and (max-width: $small) {
+				.nav-pills{		
+				width: 100%;
+
+					.nav-link{
+					border-right: 1px solid #ced4da;
+				}
+				}
+
+				.tab-content{
+					width: 100%;
+					padding-left: 0px;
+					border-left: none;
+					padding-top: 50px;
+				}
+
+			
+
+			
+			}
 		}
+	}
+}
+
+@media screen and (max-width: $small) {
+	#main{
+		margin-left: 0px !important;
 	}
 }

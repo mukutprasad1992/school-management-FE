@@ -12,76 +12,42 @@
               </div>
             </div>
             <div class="card-body">
-              <div class="d-flex align-items-start">
-                <div
-                  class="nav flex-column nav-pills me-3"
-                  id="v-pills-tab"
-                  role="tablist"
-                  aria-orientation="vertical"
-                >
-                  <button
-                    class="nav-link active"
-                    id="v-pills-home-tab"
-                    data-bs-toggle="pill"
-                    data-bs-target="#v-pills-home"
-                    type="button"
-                    role="tab"
-                    aria-controls="v-pills-home"
-                    aria-selected="true"
-                  >
+              <div class="d-flex align-items-start flex-wrap">
+                <div class="nav flex-column nav-pills me-3" id="v-pills-tab" role="tablist" aria-orientation="vertical">
+                  <button class="nav-link active" id="v-pills-home-tab" data-bs-toggle="pill"
+                    data-bs-target="#v-pills-home" type="button" role="tab" aria-controls="v-pills-home"
+                    aria-selected="true">
                     Account Settings
                   </button>
-                  <button
-                    class="nav-link"
-                    id="v-pills-profile-tab"
-                    data-bs-toggle="pill"
-                    data-bs-target="#v-pills-profile"
-                    type="button"
-                    role="tab"
-                    aria-controls="v-pills-profile"
-                    aria-selected="false"
-                  >
+                  <button class="nav-link" id="v-pills-profile-tab" data-bs-toggle="pill"
+                    data-bs-target="#v-pills-profile" type="button" role="tab" aria-controls="v-pills-profile"
+                    aria-selected="false">
                     Reset Password
                   </button>
                 </div>
                 <div class="tab-content" id="v-pills-tabContent">
-                  <div
-                    class="tab-pane fade show active"
-                    id="v-pills-home"
-                    role="tabpanel"
-                    aria-labelledby="v-pills-home-tab"
-                  >
+                  <div class="tab-pane fade show active" id="v-pills-home" role="tabpanel"
+                    aria-labelledby="v-pills-home-tab">
                     <div class="form-container">
-                      <form
-                        class="Account-info"
-                        [formGroup]="accountSettingForm"
-                        (ngSubmit)="onSubmit()"
-                      >
+                      <form class="Account-info" [formGroup]="accountSettingForm" (ngSubmit)="onSubmit()">
                         <div class="row">
                           <div class="col-md-12">
-                            <div class="avatar">
-                              <img src="{{ profilePicUrl }}" alt="image" />
+                            <div class="avatar-box">
+                              <div class="avatar">
+                                <img src="{{ profilePicUrl }}" alt="image" />
+                              </div>
+
+                              <input type="file" id="avatar-image" (change)="onProfilePicChoose($event)" />
+                              <label for="avatar-image"><i class="bi bi-camera"></i></label>
                             </div>
-                            <input
-                              type="file"
-                              (change)="onProfilePicChoose($event)"
-                            />
                           </div>
                           <div class="form-group col-md-6">
                             <label for="first-name">First Name</label>
-                            <input
-                              type="text"
-                              class="form-control"
-                              id="firstName"
-                              formControlName="firstName"
-                            />
-                            <div
-                              *ngIf="
+                            <input type="text" class="form-control" id="firstName" formControlName="firstName" />
+                            <div *ngIf="
                                 firstName.invalid &&
                                 (firstName.dirty || firstName.touched)
-                              "
-                              class="alert alert-danger"
-                            >
+                              " class="alert alert-danger">
                               <div *ngIf="firstName.errors?.['required']">
                                 Please enter first name*
                               </div>
@@ -89,19 +55,11 @@
                           </div>
                           <div class="form-group col-md-6">
                             <label for="last-name">Last Name</label>
-                            <input
-                              type="text"
-                              class="form-control"
-                              id="lastName"
-                              formControlName="lastName"
-                            />
-                            <div
-                              *ngIf="
+                            <input type="text" class="form-control" id="lastName" formControlName="lastName" />
+                            <div *ngIf="
                                 lastName.invalid &&
                                 (lastName.dirty || lastName.touched)
-                              "
-                              class="alert alert-danger"
-                            >
+                              " class="alert alert-danger">
                               <div *ngIf="lastName.errors?.['required']">
                                 Please enter last name*
                               </div>
@@ -109,18 +67,10 @@
                           </div>
                           <div class="form-group col-md-6">
                             <label for="name">Email</label>
-                            <input
-                              type="email"
-                              class="form-control"
-                              formControlName="email"
-                              id="email"
-                            />
-                            <div
-                              *ngIf="
+                            <input type="email" class="form-control" formControlName="email" id="email" />
+                            <div *ngIf="
                                 email.invalid && (email.dirty || email.touched)
-                              "
-                              class="alert alert-danger"
-                            >
+                              " class="alert alert-danger">
                               <div *ngIf="email.errors?.['required']">
                                 Please enter email address*
                               </div>
@@ -131,19 +81,12 @@
                           </div>
                           <div class="form-group col-md-6">
                             <label for="number">Mobile Number</label>
-                            <input
-                              type="number"
-                              class="form-control"
-                              formControlName="mobileNumber"
-                              id="mobileNumber"
-                            />
-                            <div
-                              *ngIf="
+                            <input type="number" class="form-control" formControlName="mobileNumber"
+                              id="mobileNumber" />
+                            <div *ngIf="
                                 mobileNumber.invalid &&
                                 (mobileNumber.dirty || mobileNumber.touched)
-                              "
-                              class="alert alert-danger"
-                            >
+                              " class="alert alert-danger">
                               <div *ngIf="mobileNumber.errors?.['required']">
                                 Please enter mobile number*
                               </div>
@@ -151,25 +94,16 @@
                           </div>
                           <div class="form-group col-md-6">
                             <label for="comfirm-password">Select Role</label>
-                            <select
-                              class="form-control"
-                              formControlName="roleId"
-                            >
+                            <select class="form-control" formControlName="roleId">
                               <option value="">Please select</option>
-                              <option
-                                *ngFor="let role of allRoles"
-                                [value]="role._id"
-                              >
+                              <option *ngFor="let role of allRoles" [value]="role._id">
                                 {{ role.name.toUpperCase() }}
                               </option>
                             </select>
-                            <div
-                              *ngIf="
+                            <div *ngIf="
                                 roleId.invalid &&
                                 (roleId.dirty || roleId.touched)
-                              "
-                              class="alert alert-danger"
-                            >
+                              " class="alert alert-danger">
                               <div *ngIf="roleId.errors?.['required']">
                                 Please select your role*
                               </div>
@@ -182,12 +116,7 @@
                       </form>
                     </div>
                   </div>
-                  <div
-                    class="tab-pane fade"
-                    id="v-pills-profile"
-                    role="tabpanel"
-                    aria-labelledby="v-pills-profile-tab"
-                  >
+                  <div class="tab-pane fade" id="v-pills-profile" role="tabpanel" aria-labelledby="v-pills-profile-tab">
                     <app-resetpassword></app-resetpassword>
                   </div>
                 </div>

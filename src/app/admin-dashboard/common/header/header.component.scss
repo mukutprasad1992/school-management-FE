@@ -46,3 +46,39 @@
     }
 }
 
+.dashboard-header .navbar.ms-auto{
+    i.mobile-nav-toggle{
+        display: none;
+    }
+    ul{
+        display: flex;
+
+        li{
+            padding-left: 30px;
+            padding-top: 10px;
+            padding-bottom: 10px;
+
+            a{
+                padding-left: 0px;
+                padding-top: 10px;
+                padding-bottom: 10px;
+            }
+        }
+
+        li.dropdown .avatar + ul{
+            display: flex;
+            flex-flow: column;
+
+            li{
+                padding-top: 0px;
+                padding-bottom: 0px;
+                padding-left: 15px;
+                padding-right: 15px;
+
+                a:focus{
+                    justify-content: flex-start;
+                }
+            }
+        }
+    }
+}

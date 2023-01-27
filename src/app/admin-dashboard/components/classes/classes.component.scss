@@ -25,40 +25,179 @@ section.table {
     color: #000000;
   }
 
-  table {
-    .btn {
-      font-family: "Poppins", sans-serif;
-      font-weight: 500;
-      font-size: 18px;
-      letter-spacing: 1px;
-      display: inline-block;
-      padding: 2px 5px;
-      border-radius: 4px;
-      transition: 0.3s;
-      line-height: 1;
-      color: #47b2e4;
-      background: transparent;
-      margin-top: 0px;
-      border: 2px solid transparent;
-      margin-right: 15px;
+  
+
+.table-box{
+  border: 1px solid  #e0e0e0;
+  padding: 0px !important;
+  border-radius: 8px !important;
+
+  .table-header{
+    margin-bottom: 0px !important;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 24px;
+
+    .title{
+      font-size: 20px;
+      color: #4f4f4f;
     }
 
-    .approve {
-      background: #47b2e4;
-      color: #fff;
-      font-size: 15px;
-      padding: 5px 10px;
-      margin-right: 0px;
-    }
-
-    th {
-      color: #37517e;
-    }
-
-    td {
-      white-space: nowrap;
+    a{
+      font-size: 14px;
     }
   }
+
+  .table-responsive{
+    padding: 24px;
+
+    table{
+      border: none;
+      border-collapse: collapse;
+
+      tr{
+        border: 0px;
+
+        td, th{
+          border-width: 0px !important;
+          padding: 16px 22.40px;
+          border-bottom: 1px solid #e0e0e0;
+          border-bottom-width: 1px !important;
+          font-family: 'Roboto', sans-serif;
+          font-size: 14.4px;
+          line-height: 23.04px;
+
+          &:last-child{
+            text-align: center;
+          }
+        }
+
+        th{
+          color: #4f4f4f;
+        }
+
+        td {
+        .label{
+          font-size: 11px;
+          padding: 4px 7px;
+          font-weight: 500;
+          border-width: 0px;
+          line-height: 11px;
+          display: inline-block;
+          border-radius: 10px;
+        }
+
+        .approve{
+          background-color: #d6f0e0;
+          color: #0d6832;
+        }
+
+        .reject{
+          background-color: #f8dbe0;
+          color: #73510d;
+        }
+
+        .pending{
+          background-color: #dfe7f6;
+          color: #2c58a0;
+        }
+
+        a.btn{
+          padding: 0px;
+          margin: 0 5px;
+          font-size: 16px;
+          font-family: "Poppins", sans-serif;
+          font-weight: 500;
+          letter-spacing: 1px;
+          display: inline-block;
+          padding: 2px 5px;
+          border-radius: 4px;
+          transition: 0.3s;
+          line-height: 1;
+          color: #47b2e4;
+          background: transparent;
+          margin-top: 0px;
+          border: 2px solid transparent;
+        }
+
+        .dropdown{
+          display: inline-block;
+
+          button{
+            margin-right: 0px;
+            color: #4f4f4f;
+            font-family: "Poppins", sans-serif;
+            font-weight: 500;
+            font-size: 18px;
+            letter-spacing: 1px;
+            display: inline-block;
+            padding: 2px 5px;
+            border-radius: 4px;
+            transition: 0.3s;
+            line-height: 1;
+            background: transparent;
+            margin-top: 0px;
+            border: 2px solid transparent;
+
+            &::after{
+              display: none;
+            }
+          }
+
+          ul.dropdown-menu{
+            border: 1px solid #e0e0e0;
+            padding: 4px 8px;
+            min-width: 110px;
+            max-width: 110px;
+
+            li{
+              padding: 4px 0;
+
+              a.dropdown-item{
+                font-size: 12px;
+                padding: 8px 12px;
+                font-weight: 500;
+                border-width: 0px;
+                line-height: 11px;
+                display: inline-block;
+                border-radius: 4px;
+                text-align: center;
+              }
+            }
+          }
+        }
+
+      }
+      }
+    }
+  }
+
+  div.pagination{
+    margin-top: 0px;
+    padding: 24px;
+    border-top: 1px solid #e0e0e0;
+
+    ul.pagination{
+      margin-top: 0px;
+
+      li{
+         a{
+          border: none;
+          color: #757575;
+          pointer-events: none;
+          background-color: #fff;
+          border-color: #e0e0e0;
+          font-size: 14px;
+          border-radius: 2px;
+        }
+
+        a.active{
+          background-color: #e3ebf7;
+          color: #285192;
+        }
+      }
+    }
+  }
+}
 
   .pagination {
     justify-content: center;
@@ -87,3 +226,5 @@ section.chart {
     color: #000000;
   }
 }
+
+
