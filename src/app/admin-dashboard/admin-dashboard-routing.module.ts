@@ -10,6 +10,7 @@ import { LeavesComponent } from './components/leaves/leaves.component';
 import { ExamsComponent } from './components/exams/exams.component';
 import { ClassesComponent } from './components/classes/classes.component';
 import { AccountSettingsComponent } from './account-settings/account-settings.component';
+import { MySchoolComponent } from './components/my-school/my-school.component';
 
 const routes: Routes = [
   {
@@ -51,6 +52,10 @@ const routes: Routes = [
   {
     path: 'classes',
     component: ClassesComponent,
+  },
+  {
+    path: 'my-school',
+    component: MySchoolComponent,
   },
 ];
 

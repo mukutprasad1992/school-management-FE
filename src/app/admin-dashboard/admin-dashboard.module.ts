@@ -21,6 +21,7 @@ import { ExamsComponent } from './components/exams/exams.component';
 import { ClassesComponent } from './components/classes/classes.component';
 import { ResetpasswordComponent } from '../auth/resetpassword/resetpassword.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MySchoolComponent } from './components/my-school/my-school.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ExamsComponent,
     ClassesComponent,
     ResetpasswordComponent,
+    MySchoolComponent,
   ],
   imports: [
     CommonModule,

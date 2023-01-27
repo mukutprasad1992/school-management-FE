@@ -108,7 +108,14 @@
               >
             </li>
             <li>
-              <a href="#"><i class="bi bi-box-arrow-right"></i> Logout</a>
+              <a routerLink="/admin/dashboard/my-school"
+                ><i class="bi bi-gear"></i>My school</a
+              >
+            </li>
+            <li>
+              <a (click)="onLogout()"
+                ><i class="bi bi-box-arrow-right"></i> Logout</a
+              >
             </li>
           </ul>
         </li>
