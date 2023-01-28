@@ -18,6 +18,7 @@ import { StudentsComponent } from './components/students/students.component';
 import { AttendanceComponent } from './components/attendance/attendance.component';
 import { LeavesComponent } from './components/leaves/leaves.component';
 import { ExamsComponent } from './components/exams/exams.component';
+import { CAAssosiationComponent } from './ca-assosiation/ca-assosiation.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { ExamsComponent } from './components/exams/exams.component';
     AttendanceComponent,
     LeavesComponent,
     ExamsComponent,
+    CAAssosiationComponent,
   ],
   imports: [
     CommonModule,

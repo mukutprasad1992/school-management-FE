@@ -9,11 +9,16 @@ import { AttendanceComponent } from './components/attendance/attendance.componen
 import { LeavesComponent } from './components/leaves/leaves.component';
 import { ExamsComponent } from './components/exams/exams.component';
 import { AccountSettingsComponent } from './account-settings/account-settings.component';
+import { CAAssosiationComponent } from './ca-assosiation/ca-assosiation.component'
 
 const routes: Routes = [
   {
     path: 'landing',
     component: LandingComponent,
+  },
+  {
+    path: 'ca-assosiation',
+    component: CAAssosiationComponent,
   },
   {
     path: 'account-settings',
@@ -53,4 +58,4 @@ const routes: Routes = [
   imports: [RouterModule.forChild(routes)],
   exports: [RouterModule],
 })
-export class AdminDashboardRoutingModule {}
+export class AdminDashboardRoutingModule { }

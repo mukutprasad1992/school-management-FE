@@ -7,174 +7,87 @@
         <div class="col-md-12">
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-              <li class="breadcrumb-item active" aria-current="page">
-                Teachers
+              <li class="breadcrumb-item">
+                <a routerLink="/landing/home">Home</a>
               </li>
+              <li class="breadcrumb-item">
+                <a routerLink="/admin/dashboard/landing">Dashboard</a>
+              </li>
+              <li class="breadcrumb-item active" aria-current="page">Staffs</li>
             </ol>
           </nav>
         </div>
       </div>
       <div class="row">
-        <div
-          class="col-md-12 d-flex align-items-center justify-content-between mb-3 title-box"
-        >
+        <div class="col-md-12 d-flex align-items-center justify-content-between mb-3 title-box">
           <h2 class="title">Hii, Mukut Prasad</h2>
           <h3 class="message">Good Morning</h3>
         </div>
       </div>
       <div class="row">
         <div class="col-12">
-          <div class="bg-light text-center rounded p-4">
-            <div class="d-flex align-items-center justify-content-between mb-3">
-              <h6 class="mb-0 title">Teachers</h6>
+          <div class="table-box text-center rounded p-4">
+            <div class="d-flex align-items-center justify-content-between mb-3 table-header">
+              <h6 class="mb-0 title">Staffs</h6>
               <a href="">Show All</a>
             </div>
             <div class="table-responsive">
-              <table
-                class="table text-start align-middle table-bordered table-hover mb-0"
-              >
+              <table class="table text-start align-middle table-bordered table-hover mb-0">
                 <thead>
                   <tr class="text-dark">
-                    <th scope="col">
-                      <input class="form-check-input" type="checkbox" />
-                    </th>
-                    <th scope="col">Date</th>
-                    <th scope="col">Invoice</th>
-                    <th scope="col">Customer</th>
-                    <th scope="col">Amount</th>
-                    <th scope="col" class="text-center">Status</th>
+                    <th scope="col">S No</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Email</th>
+                    <th scope="col">Mobile No</th>
+                    <th scope="col">Role</th>
+                    <th scope="col">Status</th>
                     <th scope="col" style="width: 200px">Action</th>
+                    <th scope="col" style="width: 110px;">Action</th>
                   </tr>
                 </thead>
                 <tbody>
+                  <!-- <tr *ngFor="let user of getAllStaffsFetched; index as i">
+                    <td>{{ i + 1 }}</td>
+                    <td>{{ user.firstName }} {{ user.lastName }}</td>
+                    <td>{{ user.email }}</td>
+                    <td>{{ user.mobileNumber }}</td>
+                    <td>{{ user.role.name }}</td> -->
                   <tr>
-                    <td><input class="form-check-input" type="checkbox" /></td>
-                    <td>01 Jan 2045</td>
-                    <td>INV-0123</td>
+                    <td>1</td>
                     <td>Jhon Doe</td>
-                    <td>$123</td>
-                    <td class="text-center">
-                      <a class="approve btn btn-sm btn-primary" href="#"
-                        >Approve</a
-                      >
+                    <td>john@gmail.com</td>
+                    <td>75527478522</td>
+                    <td>admin</td>
+                    <td>
+                      <div class="pending label" href="#">Pending</div>
                     </td>
                     <td>
-                      <a class="btn btn-sm btn-primary" href="#"
-                        ><i class="bi bi-pencil"></i
-                      ></a>
-                      <a class="btn btn-sm btn-primary" href="#"
-                        ><i class="bi bi-eye"></i
-                      ></a>
-                      <a class="btn btn-sm btn-primary" href="#"
-                        ><i class="bi bi-trash"></i
-                      ></a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td><input class="form-check-input" type="checkbox" /></td>
-                    <td>01 Jan 2045</td>
-                    <td>INV-0123</td>
-                    <td>Jhon Doe</td>
-                    <td>$123</td>
-                    <td class="text-center">
-                      <a class="approve btn btn-sm btn-primary" href="#"
-                        >Approve</a
-                      >
+                      <a class="btn btn-sm btn-primary" href="#"><i class="bi bi-eye"></i></a>
+                      <a class="btn btn-sm btn-primary" href="#"><i class="bi bi-trash"></i></a>
                     </td>
                     <td>
-                      <a class="btn btn-sm btn-primary" href="#"
-                        ><i class="bi bi-pencil"></i
-                      ></a>
-                      <a class="btn btn-sm btn-primary" href="#"
-                        ><i class="bi bi-eye"></i
-                      ></a>
-                      <a class="btn btn-sm btn-primary" href="#"
-                        ><i class="bi bi-trash"></i
-                      ></a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td><input class="form-check-input" type="checkbox" /></td>
-                    <td>01 Jan 2045</td>
-                    <td>INV-0123</td>
-                    <td>Jhon Doe</td>
-                    <td>$123</td>
-                    <td class="text-center">
-                      <a class="approve btn btn-sm btn-primary" href="#"
-                        >Approve</a
-                      >
-                    </td>
-                    <td>
-                      <a class="btn btn-sm btn-primary" href="#"
-                        ><i class="bi bi-pencil"></i
-                      ></a>
-                      <a class="btn btn-sm btn-primary" href="#"
-                        ><i class="bi bi-eye"></i
-                      ></a>
-                      <a class="btn btn-sm btn-primary" href="#"
-                        ><i class="bi bi-trash"></i
-                      ></a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td><input class="form-check-input" type="checkbox" /></td>
-                    <td>01 Jan 2045</td>
-                    <td>INV-0123</td>
-                    <td>Jhon Doe</td>
-                    <td>$123</td>
-                    <td class="text-center">
-                      <a class="approve btn btn-sm btn-primary" href="#"
-                        >Approve</a
-                      >
-                    </td>
-                    <td>
-                      <a class="btn btn-sm btn-primary" href="#"
-                        ><i class="bi bi-pencil"></i
-                      ></a>
-                      <a class="btn btn-sm btn-primary" href="#"
-                        ><i class="bi bi-eye"></i
-                      ></a>
-                      <a class="btn btn-sm btn-primary" href="#"
-                        ><i class="bi bi-trash"></i
-                      ></a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td><input class="form-check-input" type="checkbox" /></td>
-                    <td>01 Jan 2045</td>
-                    <td>INV-0123</td>
-                    <td>Jhon Doe</td>
-                    <td>$123</td>
-                    <td class="text-center">
-                      <a class="approve btn btn-sm btn-primary" href="#"
-                        >Approve</a
-                      >
-                    </td>
-                    <td>
-                      <a class="btn btn-sm btn-primary" href="#"
-                        ><i class="bi bi-pencil"></i
-                      ></a>
-                      <a class="btn btn-sm btn-primary" href="#"
-                        ><i class="bi bi-eye"></i
-                      ></a>
-                      <a class="btn btn-sm btn-primary" href="#"
-                        ><i class="bi bi-trash"></i
-                      ></a>
+                      <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                          aria-expanded="false">
+                          <i class="bi bi-three-dots-vertical"></i>
+                        </button>
+                        <ul class="dropdown-menu">
+                          <li><a class="dropdown-item pending" href="#">Pending</a></li>
+                          <li><a class="dropdown-item approve" href="#">Approve</a></li>
+                          <li><a class="dropdown-item reject" href="#">Reject</a></li>
+                        </ul>
+                      </div>
                     </td>
                   </tr>
                 </tbody>
               </table>
             </div>
-            <div class="pagination">
+            <div class="pagination justify-content-center">
               <nav aria-label="Page navigation example">
                 <ul class="pagination">
                   <li class="page-item">
                     <a class="page-link" href="#" aria-label="Previous">
-                      <span aria-hidden="true"
-                        ><i class="bi bi-chevron-left"></i
-                      ></span>
+                      <span aria-hidden="true">Previous</span>
                     </a>
                   </li>
                   <li class="page-item"><a class="page-link" href="#">1</a></li>
@@ -184,9 +97,7 @@
                   <li class="page-item"><a class="page-link" href="#">3</a></li>
                   <li class="page-item">
                     <a class="page-link" href="#" aria-label="Next">
-                      <span aria-hidden="true"
-                        ><i class="bi bi-chevron-right"></i
-                      ></span>
+                      <span aria-hidden="true">Next</span>
                     </a>
                   </li>
                 </ul>
