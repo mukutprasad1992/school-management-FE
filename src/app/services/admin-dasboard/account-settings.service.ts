@@ -8,14 +8,24 @@ const API_URL = 'http://13.232.89.251:3000';
 @Injectable({
   providedIn: 'root',
 })
-export class SignupService {
+export class AccountSettingService {
   constructor(private http: HttpClient) {}
+
+  public getAllAccountSetting(url: string): Observable<any> {
+    return this.http.get(`${API_URL}/${url}`).pipe(map((res) => res));
+  }
 
   public getAllRoles(url: string): Observable<any> {
     return this.http.get(`${API_URL}/${url}`).pipe(map((res) => res));
   }
 
-  public signUp(url: string, requestBody: any): Observable<any> {
+  public updateUser(url: string, requestBody: any): Observable<any> {
+    return this.http
+      .put(`${API_URL}/${url}`, requestBody)
+      .pipe(map((res) => res));
+  }
+
+  public uploadProfilePic(url: string, requestBody: any): Observable<any> {
     return this.http
       .post(`${API_URL}/${url}`, requestBody)
       .pipe(map((res) => res));

@@ -5,7 +5,7 @@ import { AdminDashboardRoutingModule } from './admin-dashboard-routing.module';
 import { LandingComponent } from './landing/landing.component';
 import { AccountSettingsComponent } from './account-settings/account-settings.component';
 import { NgChartsModule } from 'ng2-charts';
-import { CalendarComponent } from './calendar/calendar.component';
+import { CalendarComponent } from './components/calendar/calendar.component';
 import { FullCalendarModule } from '@fullcalendar/angular';
 import { HeaderComponent } from './common/header/header.component';
 import { FooterComponent } from './common/footer/footer.component';
@@ -19,6 +19,10 @@ import { AttendanceComponent } from './components/attendance/attendance.componen
 import { LeavesComponent } from './components/leaves/leaves.component';
 import { ExamsComponent } from './components/exams/exams.component';
 import { CAAssosiationComponent } from './ca-assosiation/ca-assosiation.component';
+import { ClassesComponent } from './components/classes/classes.component';
+import { ResetpasswordComponent } from '../auth/resetpassword/resetpassword.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { MySchoolComponent } from './components/my-school/my-school.component';
 
 @NgModule({
   declarations: [
@@ -36,13 +40,18 @@ import { CAAssosiationComponent } from './ca-assosiation/ca-assosiation.componen
     LeavesComponent,
     ExamsComponent,
     CAAssosiationComponent,
+    ClassesComponent,
+    ResetpasswordComponent,
+    MySchoolComponent,
   ],
   imports: [
     CommonModule,
+    FormsModule,
+    ReactiveFormsModule,
     FullCalendarModule,
     AdminDashboardRoutingModule,
     NgChartsModule,
     CarouselModule,
   ],
 })
-export class AdminDashboardModule {}
+export class AdminDashboardModule { }

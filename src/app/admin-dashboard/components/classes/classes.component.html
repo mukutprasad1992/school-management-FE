@@ -14,7 +14,7 @@
                 <a routerLink="/admin/dashboard/landing">Dashboard</a>
               </li>
               <li class="breadcrumb-item active" aria-current="page">
-                Teachers
+                Classes
               </li>
             </ol>
           </nav>
@@ -32,7 +32,7 @@
         <div class="col-12">
           <div class="bg-light text-center rounded p-4">
             <div class="d-flex align-items-center justify-content-between mb-3">
-              <h6 class="mb-0 title">Teachers</h6>
+              <h6 class="mb-0 title">Classes</h6>
               <a href="">Show All</a>
             </div>
             <div class="table-responsive">
@@ -42,21 +42,17 @@
                 <thead>
                   <tr class="text-dark">
                     <th scope="col">S No</th>
-                    <th scope="col">Name</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Mobile No</th>
-                    <th scope="col">Role</th>
+                    <th scope="col">Class</th>
+                    <th scope="col">Teacher</th>
                     <th scope="col" class="text-center">Status</th>
                     <th scope="col" style="width: 200px">Action</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr *ngFor="let user of getAllTeachersFetched; index as i">
+                  <tr *ngFor="let class of getAllClasesFetched; index as i">
                     <td>{{ i + 1 }}</td>
-                    <td>{{ user.firstName }} {{ user.lastName }}</td>
-                    <td>{{ user.email }}</td>
-                    <td>{{ user.mobileNumber }}</td>
-                    <td>{{ user.role.name }}</td>
+                    <td>{{ class.name }}</td>
+                    <td>{{ class.classTeacher }}</td>
                     <td class="text-center">
                       <a class="approve btn btn-sm btn-primary" href="#"
                         >Approve</a

@@ -9,7 +9,7 @@ import { CarouselModule } from 'ngx-owl-carousel-o';
 import { SignUpComponent } from './auth/signup/signup.component';
 import { SignInComponent } from './auth/signin/signin.component';
 import { ForgotpasswordComponent } from './auth/forgotpassword/forgotpassword.component';
-import { ResetpasswordComponent } from './auth/resetpassword/resetpassword.component';
+
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthInterceptor } from './interceptors/auth.interceptor';
 import { GlobalHttpInterceptorService } from './interceptors/global.http.interceptor';
@@ -24,7 +24,6 @@ import { LandingModule } from './landing/landing.module';
     SignUpComponent,
     SignInComponent,
     ForgotpasswordComponent,
-    ResetpasswordComponent,
   ],
   imports: [
     BrowserModule,

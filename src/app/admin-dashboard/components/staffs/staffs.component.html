@@ -26,8 +26,8 @@
       </div>
       <div class="row">
         <div class="col-12">
-          <div class="table-box text-center rounded p-4">
-            <div class="d-flex align-items-center justify-content-between mb-3 table-header">
+          <div class="bg-light text-center rounded p-4">
+            <div class="d-flex align-items-center justify-content-between mb-3">
               <h6 class="mb-0 title">Staffs</h6>
               <a href="">Show All</a>
             </div>
@@ -40,43 +40,24 @@
                     <th scope="col">Email</th>
                     <th scope="col">Mobile No</th>
                     <th scope="col">Role</th>
-                    <th scope="col">Status</th>
+                    <th scope="col" class="text-center">Status</th>
                     <th scope="col" style="width: 200px">Action</th>
                     <th scope="col" style="width: 110px;">Action</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <!-- <tr *ngFor="let user of getAllStaffsFetched; index as i">
+                  <tr *ngFor="let user of getAllStaffsFetched; index as i">
                     <td>{{ i + 1 }}</td>
                     <td>{{ user.firstName }} {{ user.lastName }}</td>
                     <td>{{ user.email }}</td>
                     <td>{{ user.mobileNumber }}</td>
-                    <td>{{ user.role.name }}</td> -->
-                  <tr>
-                    <td>1</td>
-                    <td>Jhon Doe</td>
-                    <td>john@gmail.com</td>
-                    <td>75527478522</td>
-                    <td>admin</td>
-                    <td>
-                      <div class="pending label" href="#">Pending</div>
+                    <td>{{ user.role.name }}</td>
+                    <td class="text-center">
+                      <a class="approve btn btn-sm btn-primary" href="#">Approve</a>
                     </td>
                     <td>
                       <a class="btn btn-sm btn-primary" href="#"><i class="bi bi-eye"></i></a>
                       <a class="btn btn-sm btn-primary" href="#"><i class="bi bi-trash"></i></a>
-                    </td>
-                    <td>
-                      <div class="dropdown">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                          aria-expanded="false">
-                          <i class="bi bi-three-dots-vertical"></i>
-                        </button>
-                        <ul class="dropdown-menu">
-                          <li><a class="dropdown-item pending" href="#">Pending</a></li>
-                          <li><a class="dropdown-item approve" href="#">Approve</a></li>
-                          <li><a class="dropdown-item reject" href="#">Reject</a></li>
-                        </ul>
-                      </div>
                     </td>
                   </tr>
                 </tbody>

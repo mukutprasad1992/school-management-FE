@@ -4,6 +4,7 @@ import { AuthService } from '../../services/auth/auth.service';
 import { TaostrService } from '../../services/common/taostr.service';
 import { messages } from '../../constant/auth/signup.messages';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signin',
@@ -14,6 +15,7 @@ export class SignInComponent {
   signInForm!: FormGroup;
 
   constructor(
+    private router: Router,
     private SigninService: SignInService,
     private taostrService: TaostrService,
     private authService: AuthService
@@ -52,6 +54,7 @@ export class SignInComponent {
               messages.userSignIn.success.title,
               messages.userSignIn.success.message
             );
+            this.router.navigate(['admin/dashboard/landing']);
           } else {
             this.taostrService.showSuccess(
               messages.userSignIn.error.title,
