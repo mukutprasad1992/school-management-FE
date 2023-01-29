@@ -22,6 +22,8 @@ import { ClassesComponent } from './components/classes/classes.component';
 import { ResetpasswordComponent } from '../auth/resetpassword/resetpassword.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MySchoolComponent } from './components/my-school/my-school.component';
+import { CSAssociationComponent } from './components/csassociation/csassociation.component';
+import { CTAssociationComponent } from './components/ctassociation/ctassociation.component';
 
 @NgModule({
   declarations: [
@@ -41,6 +43,8 @@ import { MySchoolComponent } from './components/my-school/my-school.component';
     ClassesComponent,
     ResetpasswordComponent,
     MySchoolComponent,
+    CSAssociationComponent,
+    CTAssociationComponent,
   ],
   imports: [
     CommonModule,
@@ -52,4 +56,4 @@ import { MySchoolComponent } from './components/my-school/my-school.component';
     CarouselModule,
   ],
 })
-export class AdminDashboardModule {}
+export class AdminDashboardModule { }

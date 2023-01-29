@@ -1,81 +1,82 @@
 #header {
-    nav ul li i{
+    nav ul li i {
         font-size: 16px;
     }
 
     .notification-dropdown ul {
         padding-top: 0px;
         padding-bottom: 0px;
-        
 
-    li{
-        min-width: 420px;
 
-        .notifiction{
-            width: 100%;
-            margin-bottom: 0px;
-            max-width: 100%;
+        li {
+            min-width: 420px;
+
+            .notifiction {
+                width: 100%;
+                margin-bottom: 0px;
+                max-width: 100%;
+            }
         }
-    }
 
     }
 
-    .notifiction{
+    .notifiction {
         max-width: 400px;
 
-        .list-group-item{
+        .list-group-item {
             align-items: flex-start;
             white-space: pre-wrap;
         }
     }
 
-    .scrollto{
-    position: relative;
+    .scrollto {
+        position: relative;
 
-    span{
-        position: absolute;
-        top: 6px;
-        right: 0px;
-        width: 6px;
-        height: 6px;
-        background: #FF5D5D;
-        border-radius: 50%;
-        transform: translateX(50%);
-    }
+        span {
+            position: absolute;
+            top: 6px;
+            right: 0px;
+            width: 6px;
+            height: 6px;
+            background: #FF5D5D;
+            border-radius: 50%;
+            transform: translateX(50%);
+        }
 
     }
 }
 
-.dashboard-header .navbar.ms-auto{
-    i.mobile-nav-toggle{
+.dashboard-header .navbar.ms-auto {
+    i.mobile-nav-toggle {
         display: none;
     }
-    ul{
+
+    ul {
         display: flex;
 
-        li{
+        li {
             padding-left: 30px;
             padding-top: 10px;
             padding-bottom: 10px;
 
-            a{
+            a {
                 padding-left: 0px;
                 padding-top: 10px;
                 padding-bottom: 10px;
             }
         }
 
-        li.dropdown .avatar + ul{
+        li.dropdown .avatar+ul {
             display: flex;
             flex-flow: column;
 
-            li{
+            li {
                 padding-top: 0px;
                 padding-bottom: 0px;
                 padding-left: 15px;
                 padding-right: 15px;
 
-                a:focus{
+                a:focus {
                     justify-content: flex-start;
                 }
             }
