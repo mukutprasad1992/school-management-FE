@@ -13,6 +13,8 @@ import { AccountSettingsComponent } from './account-settings/account-settings.co
 import { MySchoolComponent } from './components/my-school/my-school.component';
 import { CSAssociationComponent } from './components/csassociation/csassociation.component';
 import { CTAssociationComponent } from './components/ctassociation/ctassociation.component';
+import { AttendanceSheetComponent } from './components/attendance-sheet/attendance-sheet.component';
+import { AttendanceSubmitComponent } from './components/attendance-submit/attendance-submit.component';
 
 const routes: Routes = [
   {
@@ -66,6 +68,14 @@ const routes: Routes = [
   {
     path: 'ct-association',
     component: CTAssociationComponent,
+  },
+  {
+    path: 'attendance-sheet',
+    component: AttendanceSheetComponent,
+  },
+  {
+    path: 'attendance-submit',
+    component: AttendanceSubmitComponent,
   },
 ];
 

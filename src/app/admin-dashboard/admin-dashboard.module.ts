@@ -24,6 +24,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MySchoolComponent } from './components/my-school/my-school.component';
 import { CSAssociationComponent } from './components/csassociation/csassociation.component';
 import { CTAssociationComponent } from './components/ctassociation/ctassociation.component';
+import { AttendanceSheetComponent } from './components/attendance-sheet/attendance-sheet.component';
+import { AttendanceSubmitComponent } from './components/attendance-submit/attendance-submit.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +47,8 @@ import { CTAssociationComponent } from './components/ctassociation/ctassociation
     MySchoolComponent,
     CSAssociationComponent,
     CTAssociationComponent,
+    AttendanceSheetComponent,
+    AttendanceSubmitComponent,
   ],
   imports: [
     CommonModule,
