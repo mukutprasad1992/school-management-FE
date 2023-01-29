@@ -1,27 +1,14 @@
 <section class="signin">
   <div class="container-fluid">
     <div class="row">
-      <div
-        class="col-lg-6 contact-img d-flex flex-column justify-content-center hero-img aos-init aos-animate"
-        data-aos="zoom-in"
-        data-aos-delay="200"
-      >
-        <img
-          src="assets/img/form-image.png"
-          class="img-fluid animated"
-          alt=""
-        />
+      <div class="col-lg-6 contact-img d-flex flex-column justify-content-center hero-img aos-init aos-animate"
+        data-aos="zoom-in" data-aos-delay="200">
+        <img src="assets/img/form-image.png" class="img-fluid animated" alt="" />
       </div>
 
-      <div
-        class="col-lg-6 d-flex flex-column justify-content-center align-items-center"
-      >
+      <div class="col-lg-6 d-flex flex-column justify-content-center align-items-center">
         <div class="form-container">
-          <form
-            class="signin-form"
-            [formGroup]="signInForm"
-            (ngSubmit)="onSubmit()"
-          >
+          <form class="signin-form" [formGroup]="signInForm" (ngSubmit)="onSubmit()">
             <div class="row">
               <div class="col-md-12">
                 <div class="section-title">
@@ -30,15 +17,8 @@
               </div>
               <div class="form-group col-md-12">
                 <label for="name">Your Email</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  formControlName="email"
-                />
-                <div
-                  *ngIf="email.invalid && (email.dirty || email.touched)"
-                  class="alert alert-danger"
-                >
+                <input type="text" class="form-control" formControlName="email" />
+                <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
                   <div *ngIf="email.errors?.['required']">
                     Please enter email address *
                   </div>
@@ -49,32 +29,23 @@
               </div>
               <div class="form-group col-md-12 mb-0">
                 <label for="password">Password</label>
-                <input
-                  type="password"
-                  class="form-control"
-                  formControlName="password"
-                />
-                <div
-                  *ngIf="
+                <input type="password" class="form-control" formControlName="password" />
+                <div *ngIf="
                     password.invalid && (password.dirty || password.touched)
-                  "
-                  class="alert alert-danger"
-                >
+                  " class="alert alert-danger">
                   <div *ngIf="password.errors?.['required']">
                     Please enter password *
                   </div>
                 </div>
               </div>
-              <div class="form-group col-md-12">
+              <div class="form-group col-md-5">
                 <a class="forget" href="/forgotpassword">Forget Password ?</a>
               </div>
+              <div class="form-group col-md-7 d-flex justify-content-end">
+                <p class="mb-0">Don't have an account </p><a class="forget ms-2" href="/forgotpassword">Sign Up ?</a>
+              </div>
               <div class="form-group col-md-12">
-                <input
-                  class="styled-checkbox"
-                  id="remember"
-                  type="checkbox"
-                  value="remember"
-                />
+                <input class="styled-checkbox" id="remember" type="checkbox" value="remember" />
                 <label for="remember">Remember me</label>
               </div>
             </div>
