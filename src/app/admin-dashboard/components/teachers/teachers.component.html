@@ -22,7 +22,7 @@
       </div>
       <div class="row">
         <div class="col-md-12 d-flex align-items-center justify-content-between mb-3 title-box">
-          <h2 class="title">Hii, Mukut Prasad</h2>
+          <h2 class="title">{{ getUser.firstName }}</h2>
           <h3 class="message">Good Morning</h3>
         </div>
       </div>
@@ -43,23 +43,35 @@
                     <th scope="col">Mobile No</th>
                     <th scope="col">Role</th>
                     <th scope="col" class="text-center">Status</th>
+                    <th scope="col">Update Status</th>
                     <th scope="col" style="width: 200px">Action</th>
-                    <th scope="col">Action</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr *ngFor="let user of getAllTeachersFetched; index as i">
+                  <tr *ngFor="
+                      let user of getAllTeachersFetched
+                        | paginate
+                          : {
+                              itemsPerPage: tableSize,
+                              currentPage: page,
+                              totalItems: totalCount
+                            };
+                      index as i
+                    ">
                     <td>{{ i + 1 }}</td>
                     <td>{{ user.firstName }} {{ user.lastName }}</td>
                     <td>{{ user.email }}</td>
                     <td>{{ user.mobileNumber }}</td>
                     <td>{{ user.role.name }}</td>
                     <td class="text-center">
-                      <div class="pending label" href="#">Pending</div>
-                    </td>
-                    <td>
-                      <a class="btn btn-sm btn-primary" href="#"><i class="bi bi-eye"></i></a>
-                      <a class="btn btn-sm btn-primary" href="#"><i class="bi bi-trash"></i></a>
+                      <div [ngClass]="{
+                          approve: user.status === 'ACTIVATED',
+                          reject: user.status === 'INPROGRESS',
+                          pending: user.status === 'INITIATED',
+                          label: true
+                        }" href="#">
+                        {{ user.status.toLowerCase() }}
+                      </div>
                     </td>
                     <td>
                       <div class="dropdown">
@@ -68,36 +80,35 @@
                           <i class="bi bi-three-dots-vertical"></i>
                         </button>
                         <ul class="dropdown-menu">
-                          <li><a class="dropdown-item pending" href="#">Pending</a></li>
-                          <li><a class="dropdown-item approve" href="#">Approve</a></li>
-                          <li><a class="dropdown-item reject" href="#">Reject</a></li>
+                          <li>
+                            <a class="dropdown-item pending" (click)="
+                                getAllStatusUpdate(user._id, 'INITIATED')
+                              ">Pending</a>
+                          </li>
+                          <li>
+                            <a class="dropdown-item approve" (click)="
+                                getAllStatusUpdate(user._id, 'ACTIVATED')
+                              ">Approve</a>
+                          </li>
+                          <li>
+                            <a class="dropdown-item reject" (click)="
+                                getAllStatusUpdate(user._id, 'INPROGRESS')
+                              ">Reject</a>
+                          </li>
                         </ul>
                       </div>
+                    </td>
+                    <td>
+                      <a class="btn btn-sm btn-primary" href="#"><i class="bi bi-eye"></i></a>
+                      <a class="btn btn-sm btn-primary" href="#"><i class="bi bi-trash"></i></a>
                     </td>
                   </tr>
                 </tbody>
               </table>
             </div>
             <div class="pagination">
-              <nav aria-label="Page navigation example">
-                <ul class="pagination">
-                  <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Previous">
-                      <span aria-hidden="true">Previous</span>
-                    </a>
-                  </li>
-                  <li class="page-item"><a class="page-link" href="#">1</a></li>
-                  <li class="page-item">
-                    <a class="page-link active" href="#">2</a>
-                  </li>
-                  <li class="page-item"><a class="page-link" href="#">3</a></li>
-                  <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Next">
-                      <span aria-hidden="true">Next</span>
-                    </a>
-                  </li>
-                </ul>
-              </nav>
+              <pagination-controls previousLabel="Prev" nextLabel="Next" (pageChange)="onTableDataChange($event)">
+              </pagination-controls>
             </div>
           </div>
         </div>

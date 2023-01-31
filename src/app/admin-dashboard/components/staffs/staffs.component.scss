@@ -85,20 +85,13 @@ section.table {
           border-radius: 10px;
         }
 
-        .approve{
-          background-color: #d6f0e0;
-          color: #0d6832;
-        }
-
-        .reject{
-          background-color: #f8dbe0;
-          color: #73510d;
-        }
-
-        .pending{
-          background-color: #dfe7f6;
-          color: #2c58a0;
-        }
+       .approve{
+        background: #47b2e4;
+        color: #fff;
+        font-size: 12px;
+        padding: 5px 10px;
+        margin-right: 0px;
+      }
 
         a.btn{
           padding: 0px;

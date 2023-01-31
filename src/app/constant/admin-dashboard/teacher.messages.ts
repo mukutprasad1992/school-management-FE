@@ -9,4 +9,14 @@ export const messages = {
       message: 'Error while fetch the users',
     },
   },
+  updateStatus: {
+    success: {
+      title: 'User',
+      message: 'Status updatede successfully',
+    },
+    error: {
+      title: 'User',
+      message: 'Error while updating status',
+    },
+  },
 };

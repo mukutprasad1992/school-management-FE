@@ -10,17 +10,29 @@
     <nav id="navbar" class="navbar ms-auto">
       <ul>
         <li>
-          <a class="nav-link scrollto" href="javascript:void(0)"><i class="bi bi-chat-right-text"></i></a>
+          <a class="nav-link scrollto" href="javascript:void(0)"
+            ><i class="bi bi-chat-right-text"></i
+          ></a>
         </li>
         <li class="dropdown notification-dropdown">
-          <a class="nav-link scrollto" href="javascript:void(0)"><i class="bi bi-bell"></i><span
-              class="notifiction"></span></a>
+          <a class="nav-link scrollto" href="javascript:void(0)"
+            ><i class="bi bi-bell"></i><span class="notifiction"></span
+          ></a>
           <ul>
             <li>
               <div class="list-group w-auto notifiction">
-                <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
-                  <img src="assets/img/team/team-4.jpg" alt="twbs" width="32" height="32"
-                    class="rounded-circle flex-shrink-0" />
+                <a
+                  href="#"
+                  class="list-group-item list-group-item-action d-flex gap-3 py-3"
+                  aria-current="true"
+                >
+                  <img
+                    src="assets/img/team/team-4.jpg"
+                    alt="twbs"
+                    width="32"
+                    height="32"
+                    class="rounded-circle flex-shrink-0"
+                  />
                   <div class="d-flex gap-2 w-100 justify-content-between">
                     <div>
                       <h6 class="mb-0">List group item heading</h6>
@@ -29,9 +41,18 @@
                     <small class="opacity-50 text-nowrap">now</small>
                   </div>
                 </a>
-                <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
-                  <img src="assets/img/team/team-4.jpg" alt="twbs" width="32" height="32"
-                    class="rounded-circle flex-shrink-0" />
+                <a
+                  href="#"
+                  class="list-group-item list-group-item-action d-flex gap-3 py-3"
+                  aria-current="true"
+                >
+                  <img
+                    src="assets/img/team/team-4.jpg"
+                    alt="twbs"
+                    width="32"
+                    height="32"
+                    class="rounded-circle flex-shrink-0"
+                  />
                   <div class="d-flex gap-2 w-100 justify-content-between">
                     <div>
                       <h6 class="mb-0">Another title here</h6>
@@ -41,9 +62,18 @@
                     <small class="opacity-50 text-nowrap">3d</small>
                   </div>
                 </a>
-                <a href="#" class="list-group-item list-group-item-action d-flex gap-3 py-3" aria-current="true">
-                  <img src="assets/img/team/team-4.jpg" alt="twbs" width="32" height="32"
-                    class="rounded-circle flex-shrink-0" />
+                <a
+                  href="#"
+                  class="list-group-item list-group-item-action d-flex gap-3 py-3"
+                  aria-current="true"
+                >
+                  <img
+                    src="assets/img/team/team-4.jpg"
+                    alt="twbs"
+                    width="32"
+                    height="32"
+                    class="rounded-circle flex-shrink-0"
+                  />
                   <div class="d-flex gap-2 w-100 justify-content-between">
                     <div>
                       <h6 class="mb-0">Third heading</h6>
@@ -57,20 +87,25 @@
           </ul>
         </li>
         <li class="dropdown">
-
           <div class="avatar">
-            <img src="assets/img/team/team-4.jpg" class="avatar-img" />
+            <img src="{{ profilePicUrl }}" class="avatar-img" />
           </div>
 
           <ul>
             <li>
-              <a routerLink="/admin/dashboard/my-school"><i class="bi bi-buildings"></i>My School</a>
+              <a routerLink="/admin/dashboard/my-school"
+                ><i class="bi bi-buildings"></i>My School</a
+              >
             </li>
             <li>
-              <a routerLink="/admin/dashboard/account-settings"><i class="bi bi-person"></i>Profile Update</a>
+              <a routerLink="/admin/dashboard/account-settings"
+                ><i class="bi bi-person"></i>Profile Update</a
+              >
             </li>
             <li>
-              <a href="#"><i class="bi bi-box-arrow-right"></i> Logout</a>
+              <a (click)="onLogout()"
+                ><i class="bi bi-box-arrow-right"></i> Logout</a
+              >
             </li>
           </ul>
         </li>

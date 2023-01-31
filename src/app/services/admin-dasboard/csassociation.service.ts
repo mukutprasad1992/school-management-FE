@@ -8,14 +8,18 @@ const API_URL = 'http://13.232.89.251:3000';
 @Injectable({
   providedIn: 'root',
 })
-export class StudentService {
+export class CsAssociationService {
   constructor(private http: HttpClient) {}
+
+  public getAllClasses(url: string): Observable<any> {
+    return this.http.get(`${API_URL}/${url}`).pipe(map((res) => res));
+  }
 
   public getAllStudents(url: string): Observable<any> {
     return this.http.get(`${API_URL}/${url}`).pipe(map((res) => res));
   }
 
-  public getAllStatusUpdate(url: string, reqBody: any): Observable<any> {
-    return this.http.put(`${API_URL}/${url}`, reqBody).pipe(map((res) => res));
+  public getClassStudentAssociation(url: string): Observable<any> {
+    return this.http.get(`${API_URL}/${url}`).pipe(map((res) => res));
   }
 }

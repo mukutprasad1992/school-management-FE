@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { TeacherService } from '../../../services/admin-dasboard/teacher.service';
 import { TaostrService } from '../../../services/common/taostr.service';
 import { messages } from '../../../constant/admin-dashboard/teacher.messages';
+import { defaultPagination } from '../../../constant/admin-dashboard/pagination.constant';
 
 @Component({
   selector: 'app-teachers',
@@ -9,7 +10,13 @@ import { messages } from '../../../constant/admin-dashboard/teacher.messages';
   styleUrls: ['./teachers.component.scss'],
 })
 export class TeachersComponent {
+  page: number = defaultPagination.defaultPage;
+  totalCount: number = defaultPagination.defaultTotalCount;
+  tableSize: number = defaultPagination.defaultTableSize;
+
   getAllTeachersFetched: any;
+
+  public getUser: any;
 
   constructor(
     private teacherService: TeacherService,
@@ -18,11 +25,12 @@ export class TeachersComponent {
 
   ngOnInit() {
     this.getAllTeachers();
+    this.getUserByLocalStorage();
   }
 
   getAllTeachers() {
     this.teacherService
-      .getAllTeachers('users/all-users')
+      .getAllTeachers('users/all-users/6332d0c50c5e58b0b0e3c16e')
       .subscribe((response) => {
         if (response.status) {
           this.taostrService.showSuccess(
@@ -30,6 +38,7 @@ export class TeachersComponent {
             messages.users.success.message
           );
           this.getAllTeachersFetched = response.result;
+          this.totalCount = response.result.length;
         } else {
           this.taostrService.showSuccess(
             messages.users.error.title,
@@ -37,5 +46,41 @@ export class TeachersComponent {
           );
         }
       });
+  }
+
+  getAllStatusUpdate(userId: string, status: string) {
+    this.teacherService
+      .getAllStatusUpdate(`users/user-activation/${userId}`, {
+        status,
+      })
+      .subscribe((response) => {
+        if (response.status) {
+          this.taostrService.showSuccess(
+            messages.updateStatus.success.title,
+            messages.updateStatus.success.message
+          );
+          this.getAllTeachers();
+        } else {
+          this.taostrService.showSuccess(
+            messages.updateStatus.error.title,
+            messages.updateStatus.error.message
+          );
+        }
+      });
+  }
+
+  getUserByLocalStorage() {
+    this.getUser = localStorage.getItem('user');
+  }
+
+  onTableDataChange(event: any) {
+    this.page = event;
+    this.getAllTeachers();
+  }
+
+  onTableSizeChange(event: any): void {
+    this.tableSize = event.target.value;
+    this.page = 1;
+    this.getAllTeachers();
   }
 }

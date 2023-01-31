@@ -38,4 +38,25 @@ export class StudentsComponent {
         }
       });
   }
+
+  getAllStatusUpdate(userId: string, status: string) {
+    this.stuentsService
+      .getAllStatusUpdate(`users/user-activation/${userId}`, {
+        status,
+      })
+      .subscribe((response) => {
+        if (response.status) {
+          this.taostrService.showSuccess(
+            messages.updateStatus.success.title,
+            messages.updateStatus.success.message
+          );
+          this.getAllStudents();
+        } else {
+          this.taostrService.showSuccess(
+            messages.updateStatus.error.title,
+            messages.updateStatus.error.message
+          );
+        }
+      });
+  }
 }

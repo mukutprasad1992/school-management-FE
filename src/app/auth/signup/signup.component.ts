@@ -3,6 +3,7 @@ import { SignupService } from '../../services/auth/signup.service';
 import { TaostrService } from '../../services/common/taostr.service';
 import { messages } from '../../constant/auth/signup.messages';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -16,7 +17,8 @@ export class SignUpComponent {
 
   constructor(
     private signupService: SignupService,
-    private taostrService: TaostrService
+    private taostrService: TaostrService,
+    private router: Router
   ) {}
 
   ngOnInit() {
