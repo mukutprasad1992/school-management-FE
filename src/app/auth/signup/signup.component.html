@@ -150,7 +150,7 @@
                 <select class="form-control" formControlName="role">
                   <option value="">Please select</option>
                   <option *ngFor="let role of allRoles" [value]="role._id">
-                    {{ role.name.toLowerCase() }}
+                    {{ role.name.toUpperCase() }}
                   </option>
                 </select>
                 <div

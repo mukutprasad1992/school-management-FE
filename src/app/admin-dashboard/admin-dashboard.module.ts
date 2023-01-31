@@ -26,6 +26,7 @@ import { CSAssociationComponent } from './components/csassociation/csassociation
 import { CTAssociationComponent } from './components/ctassociation/ctassociation.component';
 import { AttendanceSheetComponent } from './components/attendance-sheet/attendance-sheet.component';
 import { AttendanceSubmitComponent } from './components/attendance-submit/attendance-submit.component';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -58,6 +59,7 @@ import { AttendanceSubmitComponent } from './components/attendance-submit/attend
     AdminDashboardRoutingModule,
     NgChartsModule,
     CarouselModule,
+    NgxPaginationModule,
   ],
 })
-export class AdminDashboardModule { }
+export class AdminDashboardModule {}

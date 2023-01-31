@@ -14,4 +14,7 @@ export class StaffService {
   public getAllStaffs(url: string): Observable<any> {
     return this.http.get(`${API_URL}/${url}`).pipe(map((res) => res));
   }
+  public getAllStatusUpdate(url: string, reqBody: any): Observable<any> {
+    return this.http.put(`${API_URL}/${url}`, reqBody).pipe(map((res) => res));
+  }
 }
