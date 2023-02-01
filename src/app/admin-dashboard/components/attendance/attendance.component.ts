@@ -25,9 +25,8 @@ export class AttendanceComponent {
   Events: any[] = [];
   calendarOptions: CalendarOptions = {
     headerToolbar: {
-      left: 'prev,next today',
-      center: 'title',
-      right: 'dayGridMonth',
+      left: 'title',
+      right: 'prev,next',
     },
     initialView: 'dayGridMonth',
     dateClick: this.handleDateClick.bind(this),
