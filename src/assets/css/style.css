@@ -2217,3 +2217,8 @@ section {
     transition: 0.4s;
     border-radius: 50px;
 }
+
+.dropdown ul li a svg{
+  margin-left: 5px;
+  margin-right: 5px;
+}
