@@ -8,10 +8,10 @@
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
               <li class="breadcrumb-item"><a href="#">Home</a></li>
-              <li class="breadcrumb-item"><a href="#">Dashboard</a></li>
-              <li class="breadcrumb-item active" aria-current="page">
-                Teachers
+              <li class="breadcrumb-item">
+                <a routerLink="/admin/dashboard/landing">Dashboard</a>
               </li>
+              <li class="breadcrumb-item active" aria-current="page">Leaves</li>
             </ol>
           </nav>
         </div>
@@ -25,16 +25,32 @@
                   <div class="row">
                     <div class="form-group col-md-4">
                       <label for="from-date">From Date</label>
-                      <input type="date" name="from-date" class="form-control" id="from-date" required=""
-                        placeholder="DD/MM/YYYY">
+                      <input
+                        type="date"
+                        name="from-date"
+                        class="form-control"
+                        id="from-date"
+                        required=""
+                        placeholder="DD/MM/YYYY"
+                      />
                     </div>
                     <div class="form-group col-md-4">
                       <label for="to-date">To Date</label>
-                      <input type="date" class="form-control" name="to-date" id="to-date" required="">
+                      <input
+                        type="date"
+                        class="form-control"
+                        name="to-date"
+                        id="to-date"
+                        required=""
+                      />
                     </div>
                     <div class="form-group col-md-4">
                       <label for="leave-type">Select type of Leave</label>
-                      <select name="leave-type" id="leave-type" class="form-control">
+                      <select
+                        name="leave-type"
+                        id="leave-type"
+                        class="form-control"
+                      >
                         <option value="paid">Paid</option>
                         <option value="unpaid">Unpaid</option>
                         <option value="sick">Sick</option>
@@ -47,21 +63,31 @@
                         <option value="Mukut">Mukut</option>
                         <option value="Tarun">Tarun</option>
                       </select>
-                      <p class="notify-text"><span>Note:</span> These employees will be notified through through email
-                        when your
-                        leave request Approved</p>
+                      <p class="notify-text">
+                        <span>Note:</span> These employees will be notified
+                        through through email when your leave request Approved
+                      </p>
                     </div>
                     <div class="form-group col-md-8">
                       <label for="name">Reason</label>
-                      <textarea class="form-control" name="message" rows="4" required=""></textarea>
+                      <textarea
+                        class="form-control"
+                        name="message"
+                        rows="4"
+                        required=""
+                      ></textarea>
                     </div>
 
                     <div class="my-3">
                       <div class="loading">Loading</div>
                       <div class="error-message"></div>
-                      <div class="sent-message">Your message has been sent. Thank you!</div>
+                      <div class="sent-message">
+                        Your message has been sent. Thank you!
+                      </div>
                     </div>
-                    <div class="text-center"><button type="submit">Apply Leave</button></div>
+                    <div class="text-center">
+                      <button type="submit">Apply Leave</button>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -70,20 +96,28 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-md-12 d-flex align-items-center justify-content-between mb-3 title-box">
-          <h2 class="title">Hii, Mukut Prasad</h2>
+        <div
+          class="col-md-12 d-flex align-items-center justify-content-between mb-3 title-box"
+        >
+          <h2 class="title">
+            Hi, {{ getUser.firstName }} {{ getUser.lastName }}
+          </h2>
           <h3 class="message">Good Morning</h3>
         </div>
       </div>
       <div class="row">
         <div class="col-12">
           <div class="text-center rounded p-4 table-box">
-            <div class="d-flex align-items-center justify-content-between mb-3 table-header">
-              <h6 class="mb-0 title">Teachers</h6>
+            <div
+              class="d-flex align-items-center justify-content-between mb-3 table-header"
+            >
+              <h6 class="mb-0 title">Leaves</h6>
               <a href="">Show All</a>
             </div>
             <div class="table-responsive">
-              <table class="table text-start align-middle table-bordered table-hover mb-0">
+              <table
+                class="table text-start align-middle table-bordered table-hover mb-0"
+              >
                 <thead>
                   <tr class="text-dark">
                     <th scope="col">Date</th>
@@ -91,8 +125,8 @@
                     <th scope="col">Customer</th>
                     <th scope="col">Amount</th>
                     <th scope="col">Status</th>
+                    <th scope="col" style="width: 200px">Update Status</th>
                     <th scope="col">Action</th>
-                    <th scope="col" style="width: 110px;">Action</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -105,22 +139,39 @@
                       <div class="pending label" href="#">Pending</div>
                     </td>
                     <td>
-                      <a class="btn btn-sm btn-primary" href="#"><i class="bi bi-pencil"></i></a>
-                      <a class="btn btn-sm btn-primary" href="#"><i class="bi bi-eye"></i></a>
-                      <a class="btn btn-sm btn-primary" href="#"><i class="bi bi-trash"></i></a>
-                    </td>
-                    <td>
                       <div class="dropdown">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                          aria-expanded="false">
+                        <button
+                          class="btn btn-secondary dropdown-toggle"
+                          type="button"
+                          data-bs-toggle="dropdown"
+                          aria-expanded="false"
+                        >
                           <i class="bi bi-three-dots-vertical"></i>
                         </button>
                         <ul class="dropdown-menu">
-                          <li><a class="dropdown-item pending" href="#">Pending</a></li>
-                          <li><a class="dropdown-item approve" href="#">Approve</a></li>
-                          <li><a class="dropdown-item reject" href="#">Reject</a></li>
+                          <li>
+                            <a class="dropdown-item pending" href="#"
+                              >Pending</a
+                            >
+                          </li>
+                          <li>
+                            <a class="dropdown-item approve" href="#"
+                              >Approve</a
+                            >
+                          </li>
+                          <li>
+                            <a class="dropdown-item reject" href="#">Reject</a>
+                          </li>
                         </ul>
                       </div>
+                    </td>
+                    <td>
+                      <a class="btn btn-sm btn-primary" href="#"
+                        ><i class="bi bi-eye"></i
+                      ></a>
+                      <a class="btn btn-sm btn-primary" href="#"
+                        ><i class="bi bi-trash"></i
+                      ></a>
                     </td>
                   </tr>
                   <tr>
@@ -132,22 +183,39 @@
                       <div class="approve label" href="#">Approve</div>
                     </td>
                     <td>
-                      <a class="btn btn-sm btn-primary" href="#"><i class="bi bi-pencil"></i></a>
-                      <a class="btn btn-sm btn-primary" href="#"><i class="bi bi-eye"></i></a>
-                      <a class="btn btn-sm btn-primary" href="#"><i class="bi bi-trash"></i></a>
-                    </td>
-                    <td>
                       <div class="dropdown">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                          aria-expanded="false">
+                        <button
+                          class="btn btn-secondary dropdown-toggle"
+                          type="button"
+                          data-bs-toggle="dropdown"
+                          aria-expanded="false"
+                        >
                           <i class="bi bi-three-dots-vertical"></i>
                         </button>
                         <ul class="dropdown-menu">
-                          <li><a class="dropdown-item pending" href="#">Pending</a></li>
-                          <li><a class="dropdown-item approve" href="#">Approve</a></li>
-                          <li><a class="dropdown-item reject" href="#">Reject</a></li>
+                          <li>
+                            <a class="dropdown-item pending" href="#"
+                              >Pending</a
+                            >
+                          </li>
+                          <li>
+                            <a class="dropdown-item approve" href="#"
+                              >Approve</a
+                            >
+                          </li>
+                          <li>
+                            <a class="dropdown-item reject" href="#">Reject</a>
+                          </li>
                         </ul>
                       </div>
+                    </td>
+                    <td>
+                      <a class="btn btn-sm btn-primary" href="#"
+                        ><i class="bi bi-eye"></i
+                      ></a>
+                      <a class="btn btn-sm btn-primary" href="#"
+                        ><i class="bi bi-trash"></i
+                      ></a>
                     </td>
                   </tr>
                   <tr>
@@ -159,22 +227,39 @@
                       <div class="reject label" href="#">Reject</div>
                     </td>
                     <td>
-                      <a class="btn btn-sm btn-primary" href="#"><i class="bi bi-pencil"></i></a>
-                      <a class="btn btn-sm btn-primary" href="#"><i class="bi bi-eye"></i></a>
-                      <a class="btn btn-sm btn-primary" href="#"><i class="bi bi-trash"></i></a>
-                    </td>
-                    <td>
                       <div class="dropdown">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                          aria-expanded="false">
+                        <button
+                          class="btn btn-secondary dropdown-toggle"
+                          type="button"
+                          data-bs-toggle="dropdown"
+                          aria-expanded="false"
+                        >
                           <i class="bi bi-three-dots-vertical"></i>
                         </button>
                         <ul class="dropdown-menu">
-                          <li><a class="dropdown-item pending" href="#">Pending</a></li>
-                          <li><a class="dropdown-item approve" href="#">Approve</a></li>
-                          <li><a class="dropdown-item reject" href="#">Reject</a></li>
+                          <li>
+                            <a class="dropdown-item pending" href="#"
+                              >Pending</a
+                            >
+                          </li>
+                          <li>
+                            <a class="dropdown-item approve" href="#"
+                              >Approve</a
+                            >
+                          </li>
+                          <li>
+                            <a class="dropdown-item reject" href="#">Reject</a>
+                          </li>
                         </ul>
                       </div>
+                    </td>
+                    <td>
+                      <a class="btn btn-sm btn-primary" href="#"
+                        ><i class="bi bi-eye"></i
+                      ></a>
+                      <a class="btn btn-sm btn-primary" href="#"
+                        ><i class="bi bi-trash"></i
+                      ></a>
                     </td>
                   </tr>
                   <tr>
@@ -186,22 +271,39 @@
                       <div class="approve label" href="#">Approve</div>
                     </td>
                     <td>
-                      <a class="btn btn-sm btn-primary" href="#"><i class="bi bi-pencil"></i></a>
-                      <a class="btn btn-sm btn-primary" href="#"><i class="bi bi-eye"></i></a>
-                      <a class="btn btn-sm btn-primary" href="#"><i class="bi bi-trash"></i></a>
-                    </td>
-                    <td>
                       <div class="dropdown">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                          aria-expanded="false">
+                        <button
+                          class="btn btn-secondary dropdown-toggle"
+                          type="button"
+                          data-bs-toggle="dropdown"
+                          aria-expanded="false"
+                        >
                           <i class="bi bi-three-dots-vertical"></i>
                         </button>
                         <ul class="dropdown-menu">
-                          <li><a class="dropdown-item pending" href="#">Pending</a></li>
-                          <li><a class="dropdown-item approve" href="#">Approve</a></li>
-                          <li><a class="dropdown-item reject" href="#">Reject</a></li>
+                          <li>
+                            <a class="dropdown-item pending" href="#"
+                              >Pending</a
+                            >
+                          </li>
+                          <li>
+                            <a class="dropdown-item approve" href="#"
+                              >Approve</a
+                            >
+                          </li>
+                          <li>
+                            <a class="dropdown-item reject" href="#">Reject</a>
+                          </li>
                         </ul>
                       </div>
+                    </td>
+                    <td>
+                      <a class="btn btn-sm btn-primary" href="#"
+                        ><i class="bi bi-eye"></i
+                      ></a>
+                      <a class="btn btn-sm btn-primary" href="#"
+                        ><i class="bi bi-trash"></i
+                      ></a>
                     </td>
                   </tr>
                   <tr>
@@ -213,22 +315,39 @@
                       <div class="approve label" href="#">Approve</div>
                     </td>
                     <td>
-                      <a class="btn btn-sm btn-primary" href="#"><i class="bi bi-pencil"></i></a>
-                      <a class="btn btn-sm btn-primary" href="#"><i class="bi bi-eye"></i></a>
-                      <a class="btn btn-sm btn-primary" href="#"><i class="bi bi-trash"></i></a>
-                    </td>
-                    <td>
                       <div class="dropdown">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                          aria-expanded="false">
+                        <button
+                          class="btn btn-secondary dropdown-toggle"
+                          type="button"
+                          data-bs-toggle="dropdown"
+                          aria-expanded="false"
+                        >
                           <i class="bi bi-three-dots-vertical"></i>
                         </button>
                         <ul class="dropdown-menu">
-                          <li><a class="dropdown-item pending" href="#">Pending</a></li>
-                          <li><a class="dropdown-item approve" href="#">Approve</a></li>
-                          <li><a class="dropdown-item reject" href="#">Reject</a></li>
+                          <li>
+                            <a class="dropdown-item pending" href="#"
+                              >Pending</a
+                            >
+                          </li>
+                          <li>
+                            <a class="dropdown-item approve" href="#"
+                              >Approve</a
+                            >
+                          </li>
+                          <li>
+                            <a class="dropdown-item reject" href="#">Reject</a>
+                          </li>
                         </ul>
                       </div>
+                    </td>
+                    <td>
+                      <a class="btn btn-sm btn-primary" href="#"
+                        ><i class="bi bi-eye"></i
+                      ></a>
+                      <a class="btn btn-sm btn-primary" href="#"
+                        ><i class="bi bi-trash"></i
+                      ></a>
                     </td>
                   </tr>
                 </tbody>

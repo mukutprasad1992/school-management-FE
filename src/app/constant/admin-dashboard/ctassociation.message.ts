@@ -20,4 +20,26 @@ export const messages = {
       message: 'Error while fetch the Teacher',
     },
   },
+
+  CTassociations: {
+    success: {
+      title: 'CTassociation',
+      message: 'CTassociation fetched successfully',
+    },
+    error: {
+      title: 'CTassociation',
+      message: 'CTassociation while fetch the Teacher',
+    },
+  },
+
+  Onsubmit: {
+    success: {
+      title: 'onsubmit',
+      message: 'Successfully submitted',
+    },
+    error: {
+      title: 'onsubmit',
+      message: 'Error while submit',
+    },
+  },
 };

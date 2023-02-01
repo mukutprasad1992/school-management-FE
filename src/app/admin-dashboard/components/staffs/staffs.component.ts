@@ -25,6 +25,7 @@ export class StaffsComponent {
 
   ngOnInit() {
     this.getAllStaffs();
+    this.getUserByLocalStorage();
   }
 
   getAllStaffs() {
@@ -68,7 +69,8 @@ export class StaffsComponent {
   }
 
   getUserByLocalStorage() {
-    this.getUser = localStorage.getItem('user');
+    const getStringifyUser: any = localStorage.getItem('user');
+    this.getUser = JSON.parse(getStringifyUser);
   }
 
   onTableDataChange(event: any) {

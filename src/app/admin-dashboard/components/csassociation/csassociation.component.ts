@@ -3,6 +3,7 @@ import { CsAssociationService } from '../../../services/admin-dasboard/csassocia
 import { TaostrService } from '../../../services/common/taostr.service';
 import { messages } from '../../../constant/admin-dashboard/csassociaton.messages';
 import { defaultPagination } from '../../../constant/admin-dashboard/pagination.constant';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-csassociation',
@@ -10,6 +11,8 @@ import { defaultPagination } from '../../../constant/admin-dashboard/pagination.
   styleUrls: ['./csassociation.component.scss'],
 })
 export class CSAssociationComponent {
+  csAssociationForm!: FormGroup;
+
   page: number = defaultPagination.defaultPage;
   totalCount: number = defaultPagination.defaultTotalCount;
   tableSize: number = defaultPagination.defaultTableSize;
@@ -19,7 +22,8 @@ export class CSAssociationComponent {
     private taostrService: TaostrService
   ) {}
 
-  selectedOption: any;
+  selectedOptionClass: any;
+  selectedOptionStudent: any;
   allClasses: any = [];
   allStudents: any = [];
   allClassStudentAssociation: any = [];
@@ -28,6 +32,25 @@ export class CSAssociationComponent {
     this.getAllClasses();
     this.getAllStudents();
     this.getClassStudentAssociation();
+    this.createFormBuilder();
+  }
+
+  createFormBuilder() {
+    this.csAssociationForm = new FormGroup({
+      class: new FormControl('', [Validators.required]),
+      student: new FormControl('', [Validators.required]),
+      rollNo: new FormControl('', [Validators.required]),
+    });
+  }
+
+  get class() {
+    return this.csAssociationForm.get('class')!;
+  }
+  get student() {
+    return this.csAssociationForm.get('student')!;
+  }
+  get rollNo() {
+    return this.csAssociationForm.get('rollNo')!;
   }
 
   getAllClasses() {
@@ -89,5 +112,29 @@ export class CSAssociationComponent {
   onTableDataChange(event: any) {
     this.page = event;
     this.getClassStudentAssociation();
+  }
+
+  onSubmit() {
+    if (this.csAssociationForm.valid) {
+      this.csAssociationService
+        .createClassStudent('classesStudents', this.csAssociationForm.value)
+        .subscribe((response) => {
+          if (response.status) {
+            this.getClassStudentAssociation();
+            this.taostrService.showSuccess;
+            messages.Onsubmit.success.title, messages.Onsubmit.success.message;
+          } else {
+            this.taostrService.showSuccess(
+              messages.Onsubmit.error.title,
+              messages.Onsubmit.error.message
+            );
+          }
+        });
+    } else {
+      this.taostrService.showError(
+        messages.Onsubmit.error.title,
+        messages.Onsubmit.error.message
+      );
+    }
   }
 }

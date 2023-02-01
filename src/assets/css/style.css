@@ -1953,7 +1953,13 @@ section {
 }
 .table-box .table-responsive table tr th {
   color: #4f4f4f;
+  white-space: nowrap;
 }
+
+.table-box .table-responsive table tr td{
+  white-space: nowrap;
+}
+
 .table-box .table-responsive table tr td .label {
   font-size: 11px;
   padding: 4px 7px;
