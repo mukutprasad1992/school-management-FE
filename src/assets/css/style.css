@@ -2039,6 +2039,7 @@ section {
   display: inline-block;
   border-radius: 4px;
   text-align: center;
+  cursor: pointer;
 }
 .table-box div.pagination {
   margin-top: 0px;
@@ -2060,6 +2061,38 @@ section {
 .table-box div.pagination ul.pagination li a.active {
   background-color: #e3ebf7;
   color: #285192;
+}
+
+.table-box .ngx-pagination{
+  padding-left: 0px;
+  margin-bottom: 0px;
+}
+
+.table-box .ngx-pagination li a, .table-box .ngx-pagination li span{
+  border: none;
+  color: #757575;
+  background-color: #fff;
+  border-color: #e0e0e0;
+  font-size: 14px;
+  border-radius: 2px;
+}
+
+.table-box .ngx-pagination li.current{
+  background-color: #e3ebf7;
+  color: #285192;
+}
+
+.table-box .ngx-pagination li.current a, .table-box .ngx-pagination li.current span{
+  background-color: #e3ebf7;
+  color: #285192;
+}
+
+.table-box .ngx-pagination li.pagination-next a::after, .table-box .ngx-pagination li.pagination-next::after{
+  display: none !important;
+}
+
+.table-box .ngx-pagination li.pagination-previous::after, .table-box .ngx-pagination li.pagination-previous::before, .table-box .ngx-pagination li.pagination-previous a::before{
+  display: none !important;
 }
 
 .pagination {
@@ -2112,50 +2145,86 @@ section {
   margin-bottom: 0;
 }
 
-.dropdown__ {
+/* ====================== student modal start ==================== */
+
+#studentModal .modal-dialog{
+  max-width: 450px;
+}
+
+#studentModal .modal-title{
+    font-size: 26px;
+    font-weight: bold;
+    text-transform: uppercase;
+    margin-bottom: 0px;
+    padding-bottom: 0px;
+    position: relative;
+    color: #37517e;
+}
+
+#studentModal .avatar{
+  width: 100%;
+  max-width: 150px;
+  border-radius: 50%;
+  margin: 0 auto 30px;
   position: relative;
-  cursor: pointer;
-  min-width: max-content;
-  max-width: 100%;
-  margin-right: 50px;
 }
 
-.dropdown__ .head {
-  padding: 10px 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: #f1f6f8;
-  border-radius: 4px;
-  color: #212428;
-  box-shadow: 0px 0px 3px rgb(147 147 147 / 30%);
-  border: 1px solid #ececec;
+#studentModal .avatar::after{
+  content: "";
+  position: relative;
+  display: block;
+  width: 100%;
+  padding-bottom: calc(100% - 6px);
+  border: 3px solid #47b2e4;
+  border-radius: 50%;
 }
 
-.dropdown__list__ {
+#studentModal .avatar img{
   position: absolute;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  min-width: 100%;
-  max-width: max-content;
-  z-index: 9999;
-  top: calc(100% + 10px);
-  background: #f1f6f8;
-  border-radius: 4px;
-  box-shadow: 0px 0px 3px rgb(107 118 123 / 30%);
-  transition: all 0.5s ease;
+  top: 50%;
+  left: 50%;
+  width: calc(100% - 14px);
+  height: calc(100% - 14px);
+  object-fit: cover;
+  object-position: center center;
+  transform: translate(-50% , -50%);
 }
 
-.dropdown__link__ {
-  display: flex;
-  width: 100%;
-  padding: 5px 10px;
-  text-decoration: none;
-  color: #FFF;
+#studentModal .student-detail{
+  max-width: 450px;
+  margin: 0 auto;
 }
 
-.dropdown__item__ {
-  width: 100%;
-  padding: 5px 10px;
+#studentModal .title{
+  display: block;
+    font-size: 18px;
+    padding-bottom: 0px;
+    position: relative;
+    font-weight: 600;
+    color: #37517e;
+}
+
+#studentModal p{
+  display: block;
+    font-size: 18px;
+    padding-bottom: 10px;
+    position: relative;
+    font-weight: 400;
+    margin-bottom: 0px;
+}
+
+#studentModal a{
+  display: table;
+  margin: 0 auto;
+  background: #47b2e4;
+    border: 0;
+    padding: 10px 34px;
+    color: #fff;
+    transition: 0.4s;
+    border-radius: 50px;
+}
+
+.dropdown ul li a svg{
+  margin-left: 5px;
+  margin-right: 5px;
 }

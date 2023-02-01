@@ -46,7 +46,7 @@
      .approve {
        background: #47b2e4;
        color: #fff;
-       font-size: 12px;
+       font-size: 11px;
        padding: 5px 10px;
        margin-right: 0px;
      }
@@ -57,6 +57,23 @@
 
      td {
        white-space: nowrap;
+     }
+   }
+
+   .pagination {
+     justify-content: center;
+     margin-top: 10px;
+     margin-bottom: 0px;
+
+
+     .page-link {
+       color: #47b2e4;
+     }
+
+     .page-link.active {
+       background: #47b2e4;
+       color: #fff;
+       border-color: #47b2e4;
      }
    }
  }
