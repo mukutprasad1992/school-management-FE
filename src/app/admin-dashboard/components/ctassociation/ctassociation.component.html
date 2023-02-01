@@ -6,15 +6,28 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <form class="cs-association-form form">
+          <form
+            class="ct-association-form form"
+            [formGroup]="ctAssociationForm"
+            (ngSubmit)="onSubmit()"
+          >
             <div class="row">
-              <div class="form-group col-md-5">
+              <div class="form-group col-md-4">
                 <label for="comfirm-password">Classes</label>
                 <select
                   class="form-control"
-                  formControlName="studentsid"
-                  [(ngModel)]="selectedOption"
+                  formControlName="class"
+                  [(ngModel)]="selectedOptionClass"
                 >
+                  <div
+                    *ngIf="class.invalid && (class.dirty || class.touched)"
+                    class="alert alert-danger"
+                  >
+                    <div *ngIf="class.errors?.['required']">
+                      Please enter class*
+                    </div>
+                  </div>
+
                   <option selected value="undefined">
                     Please select class
                   </option>
@@ -23,13 +36,23 @@
                   </option>
                 </select>
               </div>
-              <div class="form-group col-md-5">
+              <div class="form-group col-md-4">
                 <label for="comfirm-password">Teachers</label>
                 <select
                   class="form-control"
-                  formControlName="studentsid"
-                  [(ngModel)]="selectedOption"
+                  formControlName="teacher"
+                  [(ngModel)]="selectedOptionTeacher"
                 >
+                  <div
+                    *ngIf="
+                      teacher.invalid && (teacher.dirty || teacher.touched)
+                    "
+                    teacher="alert alert-danger"
+                  >
+                    <div *ngIf="teacher.errors?.['required']">
+                      Please enter tacher name*
+                    </div>
+                  </div>
                   <option selected value="undefined">
                     Please select teacher
                   </option>
@@ -42,6 +65,28 @@
                   </option>
                 </select>
               </div>
+
+              <div class="form-group col-md-2">
+                <label for="comfirm-password">Employee Id</label>
+                <input
+                  type="number"
+                  placeholder="Please enter EMP ID"
+                  class="form-control"
+                  formControlName="employeeId"
+                />
+                <div
+                  *ngIf="
+                    employeeId.invalid &&
+                    (employeeId.dirty || employeeId.touched)
+                  "
+                  class="alert alert-danger"
+                >
+                  <div *ngIf="employeeId.errors?.['required']">
+                    Please enter employee Id.*
+                  </div>
+                </div>
+              </div>
+
               <div class="button-box col-md-2">
                 <label class="d-block" for="comfirm-password">&nbsp;</label>
                 <button type="submit">Submit</button>
@@ -68,18 +113,31 @@
                     <th scope="col">S. No.</th>
                     <th scope="col">Class</th>
                     <th scope="col">Teacher</th>
-                    <th scope="col">Status</th>
-                    <th scope="col">Action</th>
-                    <th scope="col" style="width: 110px">Action</th>
+                    <th scope="col">Employee Id</th>
+                    <th scope="col" style="width: 200px">Action</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>1</td>
-                    <td>1st</td>
-                    <td>john doe</td>
+                  <tr
+                    *ngFor="
+                      let association of getClassTeacherAssociationData
+                        | paginate
+                          : {
+                              itemsPerPage: tableSize,
+                              currentPage: page,
+                              totalItems: totalCount
+                            };
+                      index as i
+                    "
+                  >
+                    <td>{{ i + 1 }}</td>
+                    <td>{{ association?.class?.name }}</td>
                     <td>
-                      <div class="pending label" href="#">Pending</div>
+                      {{ association?.teacher?.firstName }}
+                      {{ association?.teacher?.lastName }}
+                    </td>
+                    <td>
+                      {{ association?.employeeId }}
                     </td>
                     <td>
                       <a class="btn btn-sm btn-primary" href="#"
@@ -89,41 +147,13 @@
                         ><i class="bi bi-trash"></i
                       ></a>
                     </td>
-                    <td>
-                      <div class="dropdown">
-                        <button
-                          class="btn btn-secondary dropdown-toggle"
-                          type="button"
-                          data-bs-toggle="dropdown"
-                          aria-expanded="false"
-                        >
-                          <i class="bi bi-three-dots-vertical"></i>
-                        </button>
-                        <ul class="dropdown-menu">
-                          <li>
-                            <a class="dropdown-item pending" href="#"
-                              >Pending</a
-                            >
-                          </li>
-                          <li>
-                            <a class="dropdown-item approve" href="#"
-                              >Approve</a
-                            >
-                          </li>
-                          <li>
-                            <a class="dropdown-item reject" href="#">Reject</a>
-                          </li>
-                        </ul>
-                      </div>
-                    </td>
                   </tr>
-                  <tr>
+
+                  <!-- <tr>
                     <td>1</td>
                     <td>1st</td>
                     <td>john doe</td>
-                    <td>
-                      <div class="pending label" href="#">Pending</div>
-                    </td>
+
                     <td>
                       <a class="btn btn-sm btn-primary" href="#"
                         ><i class="bi bi-eye"></i
@@ -132,41 +162,12 @@
                         ><i class="bi bi-trash"></i
                       ></a>
                     </td>
-                    <td>
-                      <div class="dropdown">
-                        <button
-                          class="btn btn-secondary dropdown-toggle"
-                          type="button"
-                          data-bs-toggle="dropdown"
-                          aria-expanded="false"
-                        >
-                          <i class="bi bi-three-dots-vertical"></i>
-                        </button>
-                        <ul class="dropdown-menu">
-                          <li>
-                            <a class="dropdown-item pending" href="#"
-                              >Pending</a
-                            >
-                          </li>
-                          <li>
-                            <a class="dropdown-item approve" href="#"
-                              >Approve</a
-                            >
-                          </li>
-                          <li>
-                            <a class="dropdown-item reject" href="#">Reject</a>
-                          </li>
-                        </ul>
-                      </div>
-                    </td>
                   </tr>
                   <tr>
                     <td>1</td>
                     <td>1st</td>
                     <td>john doe</td>
-                    <td>
-                      <div class="pending label" href="#">Pending</div>
-                    </td>
+
                     <td>
                       <a class="btn btn-sm btn-primary" href="#"
                         ><i class="bi bi-eye"></i
@@ -175,41 +176,12 @@
                         ><i class="bi bi-trash"></i
                       ></a>
                     </td>
-                    <td>
-                      <div class="dropdown">
-                        <button
-                          class="btn btn-secondary dropdown-toggle"
-                          type="button"
-                          data-bs-toggle="dropdown"
-                          aria-expanded="false"
-                        >
-                          <i class="bi bi-three-dots-vertical"></i>
-                        </button>
-                        <ul class="dropdown-menu">
-                          <li>
-                            <a class="dropdown-item pending" href="#"
-                              >Pending</a
-                            >
-                          </li>
-                          <li>
-                            <a class="dropdown-item approve" href="#"
-                              >Approve</a
-                            >
-                          </li>
-                          <li>
-                            <a class="dropdown-item reject" href="#">Reject</a>
-                          </li>
-                        </ul>
-                      </div>
-                    </td>
                   </tr>
                   <tr>
                     <td>1</td>
                     <td>1st</td>
                     <td>john doe</td>
-                    <td>
-                      <div class="pending label" href="#">Pending</div>
-                    </td>
+
                     <td>
                       <a class="btn btn-sm btn-primary" href="#"
                         ><i class="bi bi-eye"></i
@@ -218,41 +190,12 @@
                         ><i class="bi bi-trash"></i
                       ></a>
                     </td>
-                    <td>
-                      <div class="dropdown">
-                        <button
-                          class="btn btn-secondary dropdown-toggle"
-                          type="button"
-                          data-bs-toggle="dropdown"
-                          aria-expanded="false"
-                        >
-                          <i class="bi bi-three-dots-vertical"></i>
-                        </button>
-                        <ul class="dropdown-menu">
-                          <li>
-                            <a class="dropdown-item pending" href="#"
-                              >Pending</a
-                            >
-                          </li>
-                          <li>
-                            <a class="dropdown-item approve" href="#"
-                              >Approve</a
-                            >
-                          </li>
-                          <li>
-                            <a class="dropdown-item reject" href="#">Reject</a>
-                          </li>
-                        </ul>
-                      </div>
-                    </td>
                   </tr>
                   <tr>
                     <td>1</td>
                     <td>1st</td>
                     <td>john doe</td>
-                    <td>
-                      <div class="pending label" href="#">Pending</div>
-                    </td>
+
                     <td>
                       <a class="btn btn-sm btn-primary" href="#"
                         ><i class="bi bi-eye"></i
@@ -261,63 +204,36 @@
                         ><i class="bi bi-trash"></i
                       ></a>
                     </td>
-                    <td>
-                      <div class="dropdown">
-                        <button
-                          class="btn btn-secondary dropdown-toggle"
-                          type="button"
-                          data-bs-toggle="dropdown"
-                          aria-expanded="false"
-                        >
-                          <i class="bi bi-three-dots-vertical"></i>
-                        </button>
-                        <ul class="dropdown-menu">
-                          <li>
-                            <a class="dropdown-item pending" href="#"
-                              >Pending</a
-                            >
-                          </li>
-                          <li>
-                            <a class="dropdown-item approve" href="#"
-                              >Approve</a
-                            >
-                          </li>
-                          <li>
-                            <a class="dropdown-item reject" href="#">Reject</a>
-                          </li>
-                        </ul>
-                      </div>
-                    </td>
                   </tr>
+                  <tr>
+                    <td>1</td>
+                    <td>1st</td>
+                    <td>john doe</td>
+
+                    <td>
+                      <a class="btn btn-sm btn-primary" href="#"
+                        ><i class="bi bi-eye"></i
+                      ></a>
+                      <a class="btn btn-sm btn-primary" href="#"
+                        ><i class="bi bi-trash"></i
+                      ></a>
+                    </td>
+                  </tr> -->
                 </tbody>
               </table>
             </div>
             <div class="pagination">
-              <nav aria-label="Page navigation example">
-                <ul class="pagination">
-                  <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Previous">
-                      <span aria-hidden="true">Previous</span>
-                    </a>
-                  </li>
-                  <li class="page-item"><a class="page-link" href="#">1</a></li>
-                  <li class="page-item">
-                    <a class="page-link active" href="#">2</a>
-                  </li>
-                  <li class="page-item"><a class="page-link" href="#">3</a></li>
-                  <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Next">
-                      <span aria-hidden="true">Next</span>
-                    </a>
-                  </li>
-                </ul>
-              </nav>
+              <pagination-controls
+                previousLabel="Prev"
+                nextLabel="Next"
+                (pageChange)="onTableDataChange($event)"
+              >
+              </pagination-controls>
             </div>
           </div>
         </div>
       </div>
     </div>
   </section>
-
   <app-footer></app-footer>
 </div>

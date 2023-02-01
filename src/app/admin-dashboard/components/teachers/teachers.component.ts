@@ -70,7 +70,8 @@ export class TeachersComponent {
   }
 
   getUserByLocalStorage() {
-    this.getUser = localStorage.getItem('user');
+    const getStringifyUser: any = localStorage.getItem('user');
+    this.getUser = JSON.parse(getStringifyUser);
   }
 
   onTableDataChange(event: any) {

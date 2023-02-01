@@ -18,4 +18,14 @@ export class CtAssociationService {
   public getAllTeachers(url: string): Observable<any> {
     return this.http.get(`${API_URL}/${url}`).pipe(map((res) => res));
   }
+
+  public getClassTeacherAssociation(url: string): Observable<any> {
+    return this.http.get(`${API_URL}/${url}`).pipe(map((res) => res));
+  }
+
+  public createClassTeacher(url: string, requestBody: any): Observable<any> {
+    return this.http
+      .post(`${API_URL}/${url}`, requestBody)
+      .pipe(map((res) => res));
+  }
 }

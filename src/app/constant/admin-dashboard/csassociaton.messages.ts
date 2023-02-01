@@ -31,4 +31,15 @@ export const messages = {
       message: 'Error while fetch the CSAssociation',
     },
   },
+
+  Onsubmit: {
+    success: {
+      title: 'onsubmit',
+      message: 'Successfully submitted',
+    },
+    error: {
+      title: 'onsubmit',
+      message: 'Error while submit',
+    },
+  },
 };

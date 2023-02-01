@@ -10,6 +10,7 @@ import { messages } from '../../../constant/admin-dashboard/student.messages';
 })
 export class StudentsComponent {
   getAllStudntsFetched: any;
+  public getUser: any;
 
   constructor(
     private stuentsService: StudentService,
@@ -18,6 +19,7 @@ export class StudentsComponent {
 
   ngOnInit() {
     this.getAllStudents();
+    this.getUserByLocalStorage();
   }
 
   getAllStudents() {
@@ -58,5 +60,10 @@ export class StudentsComponent {
           );
         }
       });
+  }
+
+  getUserByLocalStorage() {
+    const getStringifyUser: any = localStorage.getItem('user');
+    this.getUser = JSON.parse(getStringifyUser);
   }
 }

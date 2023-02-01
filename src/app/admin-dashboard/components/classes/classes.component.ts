@@ -10,6 +10,8 @@ import { messages } from '../../../constant/admin-dashboard/class.messages';
 })
 export class ClassesComponent {
   getAllClasesFetched: any;
+  public getUser: any;
+
   constructor(
     private classService: ClassService,
     private taostrService: TaostrService
@@ -17,6 +19,7 @@ export class ClassesComponent {
 
   ngOnInit() {
     this.getAllClasses();
+    this.getUserByLocalStorage();
   }
 
   getAllClasses() {
@@ -34,5 +37,10 @@ export class ClassesComponent {
         );
       }
     });
+  }
+
+  getUserByLocalStorage() {
+    const getStringifyUser: any = localStorage.getItem('user');
+    this.getUser = JSON.parse(getStringifyUser);
   }
 }
