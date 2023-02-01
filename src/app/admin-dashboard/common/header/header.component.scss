@@ -81,5 +81,21 @@
                 }
             }
         }
+
+        li.dropdown ul li {
+            padding: 0px;
+
+            .list-group-item {
+                padding-left: 15px;
+
+                p {
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    display: -webkit-box;
+                    -webkit-line-clamp: 2;
+                    -webkit-box-orient: vertical;
+                }
+            }
+        }
     }
 }
