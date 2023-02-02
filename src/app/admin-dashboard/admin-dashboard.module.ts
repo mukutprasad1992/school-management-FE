@@ -27,6 +27,7 @@ import { CTAssociationComponent } from './components/ctassociation/ctassociation
 import { AttendanceSheetComponent } from './components/attendance-sheet/attendance-sheet.component';
 import { AttendanceSubmitComponent } from './components/attendance-submit/attendance-submit.component';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { LeaveRequestsComponent } from './components/leave-requests/leave-requests.component';
 
 @NgModule({
   declarations: [
@@ -50,6 +51,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     CTAssociationComponent,
     AttendanceSheetComponent,
     AttendanceSubmitComponent,
+    LeaveRequestsComponent,
   ],
   imports: [
     CommonModule,
@@ -62,4 +64,4 @@ import { NgxPaginationModule } from 'ngx-pagination';
     NgxPaginationModule,
   ],
 })
-export class AdminDashboardModule {}
+export class AdminDashboardModule { }

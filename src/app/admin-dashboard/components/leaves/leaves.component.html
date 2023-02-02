@@ -26,19 +26,11 @@
                     <div class="form-group col-md-4">
                       <label for="from-date">From Date</label>
 
-                      <input
-                        type="date"
-                        class="form-control"
-                        placeholder="DD/MM/YYYY"
-                        formControlName="startDate"
-                      />
-                      <div
-                        *ngIf="
+                      <input type="date" class="form-control" placeholder="DD/MM/YYYY" formControlName="startDate" />
+                      <div *ngIf="
                           startDate.invalid &&
                           (startDate.dirty || startDate.touched)
-                        "
-                        class="alert alert-danger"
-                      >
+                        " class="alert alert-danger">
                         <div *ngIf="startDate.errors?.['required']">
                           Please enter from-date*
                         </div>
@@ -50,17 +42,10 @@
 
                     <div class="form-group col-md-4">
                       <label for="to-date">To Date</label>
-                      <input
-                        type="date"
-                        class="form-control"
-                        formControlName="endDate"
-                      />
-                      <div
-                        *ngIf="
+                      <input type="date" class="form-control" formControlName="endDate" />
+                      <div *ngIf="
                           endDate.invalid && (endDate.dirty || endDate.touched)
-                        "
-                        class="alert alert-danger"
-                      >
+                        " class="alert alert-danger">
                         <div *ngIf="endDate.errors?.['required']">
                           Please enter to-date*
                         </div>
@@ -71,20 +56,9 @@
                     </div>
                     <div class="form-group col-md-4">
                       <label for="leave-type">Type Of Leave</label>
-                      <select
-                        name="leave-type"
-                        id="leave-type"
-                        class="form-control"
-                        formControlName="leaveType"
-                        [(ngModel)]="selectedOptionleaveType"
-                      >
-                        <option
-                          disabled
-                          selected
-                          hidden
-                          selected
-                          value="undefined"
-                        >
+                      <select name="leave-type" id="leave-type" class="form-control" formControlName="leaveType"
+                        [(ngModel)]="selectedOptionleaveType">
+                        <option disabled selected hidden selected value="undefined">
                           Please select type of leave
                         </option>
                         <option value="SICK">SICK</option>
@@ -93,13 +67,10 @@
                         <option value="NORMAL">NORMAL</option>
                         <option value="PLANNED">PLANNED</option>
                       </select>
-                      <div
-                        *ngIf="
+                      <div *ngIf="
                           leaveType.invalid &&
                           (leaveType.dirty || leaveType.touched)
-                        "
-                        class="alert alert-danger"
-                      >
+                        " class="alert alert-danger">
                         <div *ngIf="leaveType.errors?.['required']">
                           Please enter leave type*
                         </div>
@@ -111,35 +82,18 @@
 
                     <div class="form-group col-md-4 mb-0">
                       <label for="notify">Notify</label>
-                      <select
-                        id="notify"
-                        class="form-control"
-                        formControlName="tag"
-                        [(ngModel)]="selectedOptiontag"
-                      >
-                        <option
-                          disabled
-                          selected
-                          hidden
-                          selected
-                          value="undefined"
-                        >
+                      <select id="notify" class="form-control" formControlName="tag" [(ngModel)]="selectedOptiontag">
+                        <option disabled selected hidden selected value="undefined">
                           Please select notify member
                         </option>
                         <option value="Select">Select --</option>
 
-                        <option
-                          *ngFor="let teacher of allTeachers"
-                          [value]="teacher._id"
-                        >
+                        <option *ngFor="let teacher of allTeachers" [value]="teacher._id">
                           {{ teacher.firstName.toUpperCase() }}
                           {{ teacher.lastName.toUpperCase() }}
                         </option>
 
-                        <div
-                          *ngIf="tag.invalid && (tag.dirty || tag.touched)"
-                          class="alert alert-danger"
-                        >
+                        <div *ngIf="tag.invalid && (tag.dirty || tag.touched)" class="alert alert-danger">
                           <div *ngIf="tag.errors?.['required']">
                             Please enter name*
                           </div>
@@ -155,18 +109,10 @@
                     </div>
                     <div class="form-group col-md-8">
                       <label for="name">Reason</label>
-                      <textarea
-                        class="form-control"
-                        name="message"
-                        rows="4"
-                        formControlName="reason"
-                      ></textarea>
-                      <div
-                        *ngIf="
+                      <textarea class="form-control" name="message" rows="4" formControlName="reason"></textarea>
+                      <div *ngIf="
                           reason.invalid && (reason.dirty || reason.touched)
-                        "
-                        class="alert alert-danger"
-                      >
+                        " class="alert alert-danger">
                         <div *ngIf="reason.errors?.['required']">
                           Please enter reason*
                         </div>
@@ -194,9 +140,7 @@
         </div>
       </div>
       <div class="row">
-        <div
-          class="col-md-12 d-flex align-items-center justify-content-between mb-3 title-box"
-        >
+        <div class="col-md-12 d-flex align-items-center justify-content-between mb-3 title-box">
           <h2 class="title">
             Hi, {{ getUser.firstName }} {{ getUser.lastName }}
           </h2>
@@ -206,16 +150,12 @@
       <div class="row">
         <div class="col-12">
           <div class="text-center rounded p-4 table-box">
-            <div
-              class="d-flex align-items-center justify-content-between mb-3 table-header"
-            >
+            <div class="d-flex align-items-center justify-content-between mb-3 table-header">
               <h6 class="mb-0 title">Leaves</h6>
               <a href="">Show All</a>
             </div>
             <div class="table-responsive">
-              <table
-                class="table text-start align-middle table-bordered table-hover mb-0"
-              >
+              <table class="table text-start align-middle table-bordered table-hover mb-0">
                 <thead>
                   <tr class="text-dark">
                     <th scope="col">Sr. No.</th>
@@ -228,8 +168,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr
-                    *ngFor="
+                  <tr *ngFor="
                       let leave of getLeaveData
                         | paginate
                           : {
@@ -238,8 +177,7 @@
                               totalItems: totalCount
                             };
                       index as i
-                    "
-                  >
+                    ">
                     <td>{{ i + 1 }}</td>
                     <td>{{ leave?.startDate }}</td>
                     <td>
@@ -250,15 +188,11 @@
                       {{ leave?.tag?.firstName }} {{ leave?.tag?.lastName }}
                     </td>
                     <td>
-                      <div class="approve" href="#">Approved</div>
+                      <div class="approve label" href="#">Approved</div>
                     </td>
                     <td>
-                      <a class="btn btn-sm btn-primary" href="#"
-                        ><i class="bi bi-eye"></i
-                      ></a>
-                      <a class="btn btn-sm btn-primary" href="#"
-                        ><i class="bi bi-trash"></i
-                      ></a>
+                      <a class="btn btn-sm btn-primary" href="#"><i class="bi bi-eye"></i></a>
+                      <a class="btn btn-sm btn-primary" href="#"><i class="bi bi-trash"></i></a>
                     </td>
                   </tr>
                 </tbody>
@@ -287,11 +221,7 @@
             </div> -->
 
             <div class="pagination">
-              <pagination-controls
-                previousLabel="Prev"
-                nextLabel="Next"
-                (pageChange)="onTableDataChange($event)"
-              >
+              <pagination-controls previousLabel="Prev" nextLabel="Next" (pageChange)="onTableDataChange($event)">
               </pagination-controls>
             </div>
           </div>
