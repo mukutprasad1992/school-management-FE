@@ -129,6 +129,9 @@ export class CSAssociationComponent {
               messages.Onsubmit.error.message
             );
           }
+          this.csAssociationForm.reset();
+          this.selectedOptionClass = undefined;
+          this.selectedOptionStudent = undefined;
         });
     } else {
       this.taostrService.showError(

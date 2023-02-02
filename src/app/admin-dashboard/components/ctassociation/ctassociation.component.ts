@@ -127,6 +127,9 @@ export class CTAssociationComponent {
               messages.Onsubmit.error.message
             );
           }
+          this.ctAssociationForm.reset();
+          this.selectedOptionTeacher = undefined;
+          this.selectedOptionClass = undefined;
         });
     } else {
       this.taostrService.showError(
