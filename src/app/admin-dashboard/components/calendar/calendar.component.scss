@@ -1,10 +1,11 @@
 $color_1: #818181;
 $color_2: #f1f1f1;
 $color_3: white;
-$color_4: #fff;
+$color_4: #ffffff;
 $color_5: #f3c300;
 $color_6: #222222;
 $color_7: #52c5fd;
+$color_8: #47b2e4;
 $font-family_1: "Lato",
 sans-serif;
 $background-color_1: #111;
@@ -41,7 +42,7 @@ body {
       border-radius: 50%;
       position: relative;
       overflow: hidden;
-      border: 2px solid #47b2e4;
+      border: 2px solid $color_8;
 
       img {
         position: absolute;
@@ -123,7 +124,7 @@ body {
     right: 15px;
     font-size: 22px;
     margin-left: 50px;
-    color: #fff;
+    color: $color_4;
   }
 }
 
@@ -214,7 +215,7 @@ body {
   padding: 0px;
   border: 0px;
   border-radius: 0px;
-  background: #fff;
+  background: $color_4;
   padding: 0px 25px;
 
   .logo_h {
@@ -292,7 +293,7 @@ body {
           margin-right: 0px;
           border-bottom: 1px solid #ededed;
           margin-left: 0px;
-          background: #fff;
+          background: $color_4;
           -webkit-transition: all 0.4s linear;
           -o-transition: all 0.4s linear;
           transition: all 0.4s linear;
@@ -348,7 +349,7 @@ body {
   position: fixed;
   width: 100%;
   left: 0;
-  background: #fff;
+  background: $color_4;
   top: 0;
   top: -50px;
   -webkit-transform: translateY(50px);
@@ -449,7 +450,7 @@ body {
         justify-content: flex-start;
 
         i {
-          color: #47b2e4;
+          color: $color_8;
           font-size: 36px;
           transition: 0.3s;
         }
@@ -471,8 +472,8 @@ body {
     .icon-box {
       width: 100%;
       text-align: center;
-      border-top: 3px solid #47b2e4;
-      border-bottom: 3px solid #47b2e4;
+      border-top: 3px solid $color_8;
+      border-bottom: 3px solid $color_8;
       background: linear-gradient(rgba(40, 58, 90, 0.9), rgba(40, 58, 90, 0.9));
       position: relative;
       z-index: 0;
@@ -498,14 +499,14 @@ body {
       }
 
       &:hover a {
-        color: #fff;
+        color: $color_4;
       }
 
       a {
         pointer-events: none;
         font-size: 32px;
         font-weight: bold;
-        color: #fff;
+        color: $color_4;
         position: relative;
         z-index: 1;
       }
@@ -515,11 +516,11 @@ body {
         display: block;
         position: relative;
         z-index: 1;
-        color: #fff;
+        color: $color_4;
       }
 
       i {
-        color: #fff;
+        color: $color_4;
         position: relative;
         z-index: 1;
       }
@@ -544,10 +545,10 @@ body {
         border-radius: 4px;
         transition: 0.3s;
         line-height: 1;
-        color: #fff;
-        background: #47b2e4;
+        color: $color_4;
+        background: $color_8;
         margin-top: 0px;
-        border: 2px solid #47b2e4;
+        border: 2px solid $color_8;
       }
 
       th {
@@ -578,12 +579,12 @@ body {
     }
 
     &::-webkit-scrollbar-thumb {
-      background: #47b2e4;
+      background: $color_8;
       border-radius: 10px;
     }
 
     &::-webkit-scrollbar-thumb:hover {
-      background: #47b2e4;
+      background: $color_8;
     }
   }
 
@@ -605,20 +606,20 @@ body {
       display: inline-block;
       padding: 12px 35px;
       border-radius: 50px;
-      color: #47b2e4;
+      color: $color_8;
       transition: none;
       font-size: 16px;
       font-weight: 500;
       font-family: "Jost", sans-serif;
       transition: 0.3s;
-      border: 1px solid #47b2e4;
+      border: 1px solid $color_8;
       white-space: nowrap;
       cursor: pointer;
     }
 
     input[type="radio"]:checked+label {
-      background: #47b2e4;
-      color: #fff;
+      background: $color_8;
+      color: $color_4;
     }
   }
 
@@ -633,12 +634,12 @@ body {
   }
 
   .classlist::-webkit-scrollbar-thumb {
-    background: #47b2e4;
+    background: $color_8;
     border-radius: 10px;
   }
 
   .classlist::-webkit-scrollbar-thumb:hover {
-    background: #47b2e4;
+    background: $color_8;
   }
 
   .student-carousel {
@@ -669,7 +670,7 @@ body {
         height: calc(100% + 12px);
         transform: translate(-50%, -50%);
         border-radius: 50%;
-        border: 3px solid #47b2e4;
+        border: 3px solid $color_8;
       }
 
       img {
@@ -728,7 +729,7 @@ body {
       }
 
       .text-primary {
-        color: #47b2e4 !important;
+        color: $color_8 !important;
       }
     }
 
@@ -742,14 +743,14 @@ body {
         display: inline-block;
         padding: 12px 35px;
         border-radius: 50px;
-        color: #ffffff;
-        background-color: #47b2e4;
+        color: $color_4;
+        background-color: $color_8;
         transition: none;
         font-size: 16px;
         font-weight: 500;
         font-family: "Jost", sans-serif;
         transition: 0.3s;
-        border: 1px solid #47b2e4;
+        border: 1px solid $color_8;
         white-space: nowrap;
         cursor: pointer;
       }
@@ -760,7 +761,7 @@ body {
       margin: 5px auto 0;
       padding: 12px 35px;
       border-radius: 50px;
-      color: #ffffff;
+      color: $color_4;
       background-color: #1a252f;
       transition: none;
       font-size: 16px;
@@ -795,7 +796,7 @@ body {
       display: inline-block;
       padding: 12px 35px;
       border-radius: 50px;
-      color: #fff;
+      color: $color_4;
       transition: none;
       font-size: 16px;
       font-weight: 500;
@@ -808,7 +809,7 @@ body {
     }
 
     .btn-primary {
-      background: #47b2e4;
+      background: $color_8;
     }
   }
 }
@@ -861,12 +862,12 @@ body {
           }
 
           &::-webkit-scrollbar-thumb {
-            background: #47b2e4;
+            background: $color_8;
             border-radius: 10px;
           }
 
           &::-webkit-scrollbar-thumb:hover {
-            background: #47b2e4;
+            background: $color_8;
           }
 
           .notification-body {
@@ -908,8 +909,8 @@ body {
 
         .notification-button {
           width: 100%;
-          background: #47b2e4;
-          color: #fff;
+          background: $color_8;
+          color: $color_4;
           padding: 15px;
           text-align: center;
           justify-content: center;
@@ -962,12 +963,12 @@ body {
           }
 
           &::-webkit-scrollbar-thumb {
-            background: #47b2e4;
+            background: $color_8;
             border-radius: 10px;
           }
 
           &::-webkit-scrollbar-thumb:hover {
-            background: #47b2e4;
+            background: $color_8;
           }
 
           .message-body {
@@ -1009,8 +1010,8 @@ body {
 
         .message-button {
           width: 100%;
-          background: #47b2e4;
-          color: #fff;
+          background: $color_8;
+          color: $color_4;
           padding: 15px;
           text-align: center;
           justify-content: center;

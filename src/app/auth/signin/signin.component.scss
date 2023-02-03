@@ -1,3 +1,7 @@
+$white: white;
+$primary: #47b2e4;
+
+
 .signin {
     padding-top: 160px;
     padding-bottom: 90px;
@@ -10,47 +14,47 @@
         margin: 0 auto;
     }
 
-    .form-container{
+    .form-container {
         width: 100%;
-        border-top: 3px solid #47b2e4;
-        border-bottom: 3px solid #47b2e4;
+        border-top: 3px solid $primary;
+        border-bottom: 3px solid $primary;
         padding: 30px;
         background: #fff;
         box-shadow: 0 0 24px 0 rgb(0 0 0 / 12%);
         max-width: 550px;
 
-        .form-group{
+        .form-group {
             margin-bottom: 20px;
             padding-bottom: 8px;
 
-            label{
+            label {
                 padding-bottom: 8px;
             }
 
-            input{
+            input {
                 height: 44px;
                 box-shadow: none;
                 font-size: 14px;
                 border-radius: 4px;
 
-                &:focus{
+                &:focus {
                     box-shadow: none;
                 }
             }
 
-            select{
+            select {
                 height: 44px;
                 box-shadow: none;
                 font-size: 14px;
                 border-radius: 4px;
 
-                &:focus{
+                &:focus {
                     box-shadow: none;
                 }
             }
 
-            
-            .alert-danger{
+
+            .alert-danger {
                 background: transparent;
                 padding: 0px;
                 border: none;
@@ -60,7 +64,7 @@
         }
 
         button[type=submit] {
-            background: #47b2e4;
+            background: $primary;
             border: 0;
             padding: 12px 34px;
             color: #fff;
@@ -72,67 +76,67 @@
             position: absolute; // take it out of document flow
             opacity: 0; // hide it
 
-            & + label {
+            &+label {
                 position: relative;
                 cursor: pointer;
                 padding: 0;
             }
 
             // Box.
-            & + label:before {
+            &+label:before {
                 content: '';
                 margin-right: 10px;
                 display: inline-block;
                 vertical-align: text-top;
                 width: 20px;
                 height: 20px;
-                background: white;
-                border: 2px solid #47b2e4;
+                background: $white;
+                border: 2px solid $primary;
             }
 
             // Box hover
-            &:hover + label:before {
-                background: #47b2e4;
+            &:hover+label:before {
+                background: $primary;
             }
-            
+
             // Box focus
-            &:focus + label:before {
+            &:focus+label:before {
                 box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.12);
             }
 
             // Box checked
-            &:checked + label:before {
-                background: #47b2e4;
+            &:checked+label:before {
+                background: $primary;
             }
-            
+
             // Disabled state label.
-            &:disabled + label {
+            &:disabled+label {
                 color: #b8b8b8;
                 cursor: auto;
             }
 
             // Disabled box.
-            &:disabled + label:before {
+            &:disabled+label:before {
                 box-shadow: none;
                 background: #ddd;
             }
 
             // Checkmark. Could be replaced with an image
-            &:checked + label:after {
+            &:checked+label:after {
                 content: '';
                 position: absolute;
                 left: 5px;
                 top: 9px;
-                background: white;
+                background: $white;
                 width: 2px;
                 height: 2px;
-                box-shadow: 
-                2px 0 0 white,
-                4px 0 0 white,
-                4px -2px 0 white,
-                4px -4px 0 white,
-                4px -6px 0 white,
-                4px -8px 0 white;
+                box-shadow:
+                    2px 0 0 $white,
+                    4px 0 0 $white,
+                    4px -2px 0 $white,
+                    4px -4px 0 $white,
+                    4px -6px 0 $white,
+                    4px -8px 0 $white;
                 transform: rotate(45deg);
             }
         }
