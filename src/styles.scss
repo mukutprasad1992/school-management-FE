@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
+
 $color_1: #818181;
 $color_2: #f1f1f1;
 $color_3: white;
@@ -579,9 +581,21 @@ body {
     display: block;
 
     .title {
-      font-weight: bold;
-      font-size: 24px;
-      color: $black;
+      font-size: 2rem;
+      font-family: "Jost", sans-serif;
+    }
+  }
+}
+
+
+@media (max-width: 768px) {
+  section.table .title-box {
+    .title {
+      font-size: 20px;
+    }
+
+    .message {
+      font-size: 16px;
     }
   }
 }

@@ -2,61 +2,41 @@
   <div class="container">
     <div class="row">
       <div class="col-xl-6 mb-4">
+        <div class="d-flex align-items-center justify-content-between mb-4">
+          <h6 class="mb-0 title">Worldwide Sales</h6>
+          <a href="">Show All</a>
+        </div>
         <div class="bg-light text-center rounded p-4">
-          <div class="d-flex align-items-center justify-content-between mb-4">
-            <h6 class="mb-0 title">Worldwide Sales</h6>
-            <a href="">Show All</a>
-          </div>
           <div class="chart">
-            <canvas
-              baseChart
-              [type]="'pie'"
-              [datasets]="pieChartDatasets"
-              [labels]="pieChartLabels"
-              [options]="pieChartOptions"
-              [plugins]="pieChartPlugins"
-              [legend]="pieChartLegend"
-              style="width: 100%"
-            >
+            <canvas baseChart [type]="'pie'" [datasets]="pieChartDatasets" [labels]="pieChartLabels"
+              [options]="pieChartOptions" [plugins]="pieChartPlugins" [legend]="pieChartLegend" style="width: 100%">
             </canvas>
           </div>
         </div>
       </div>
       <div class="col-xl-6 mb-4">
+        <div class="d-flex align-items-center justify-content-between mb-4">
+          <h6 class="mb-0 title">Worldwide Sales</h6>
+          <a href="">Show All</a>
+        </div>
         <div class="bg-light text-center rounded p-4">
-          <div class="d-flex align-items-center justify-content-between mb-4">
-            <h6 class="mb-0 title">Worldwide Sales</h6>
-            <a href="">Show All</a>
-          </div>
           <div class="chart">
-            <canvas
-              baseChart
-              [datasets]="radarChartDatasets"
-              [options]="radarChartOptions"
-              [labels]="radarChartLabels"
-              [type]="'radar'"
-              style="width: 100%"
-            >
+            <canvas baseChart [datasets]="radarChartDatasets" [options]="radarChartOptions" [labels]="radarChartLabels"
+              [type]="'radar'" style="width: 100%">
             </canvas>
           </div>
         </div>
       </div>
-      <div class="col-xl-12 mb-4">
+      <div class="col-xl-12 mb-4 mt-4">
+        <div class="d-flex align-items-center justify-content-between mb-4">
+          <h6 class="mb-0 title">Worldwide Sales</h6>
+          <a href="">Show All</a>
+        </div>
         <div class="bg-light text-center rounded p-4">
-          <div class="d-flex align-items-center justify-content-between mb-4">
-            <h6 class="mb-0 title">Worldwide Sales</h6>
-            <a href="">Show All</a>
-          </div>
+
           <div class="chart">
-            <canvas
-              baseChart
-              [data]="barChartData"
-              [options]="barChartOptions"
-              [plugins]="barChartPlugins"
-              [legend]="barChartLegend"
-              [type]="'bar'"
-              style="width: 100%"
-            >
+            <canvas baseChart [data]="barChartData" [options]="barChartOptions" [plugins]="barChartPlugins"
+              [legend]="barChartLegend" [type]="'bar'" style="width: 100%">
             </canvas>
           </div>
         </div>

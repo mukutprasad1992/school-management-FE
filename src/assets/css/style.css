@@ -9,6 +9,8 @@
 # General
 --------------------------------------------------------------*/
 
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&display=swap');
+
 :root {
   --primary: #47b2e4;
   --white: #ffffff;
@@ -2236,4 +2238,8 @@ section {
 .dropdown ul li a svg{
   margin-left: 5px;
   margin-right: 5px;
+}
+
+section.table {
+  padding-top: 10px;
 }
