@@ -17,7 +17,7 @@ export const messages = {
     },
     error: {
       title: 'Leave',
-      message: 'Error while Submit',
+      message: 'Error while leave Submit',
     },
   },
 

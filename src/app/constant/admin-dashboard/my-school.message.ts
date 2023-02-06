@@ -12,11 +12,11 @@ export const messages = {
   CreateSchool: {
     success: {
       title: 'School',
-      message: 'School create successfully',
+      message: 'School created successfully',
     },
     error: {
       title: 'School',
-      message: 'Error while create the Schools',
+      message: 'Error while create the School',
     },
   },
   SchoolLogo: {
@@ -26,7 +26,7 @@ export const messages = {
     },
     error: {
       title: 'School',
-      message: 'Error while changing the schools logo',
+      message: 'Error while changing the school logo',
     },
   },
   State: {

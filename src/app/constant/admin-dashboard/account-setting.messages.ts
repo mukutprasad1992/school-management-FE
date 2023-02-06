@@ -17,7 +17,7 @@ export const messages = {
     },
     error: {
       title: 'Role',
-      message: 'Something went wrong while fetch the roles',
+      message: 'Something went wrong while fetch the role',
     },
   },
 
@@ -35,7 +35,7 @@ export const messages = {
   uploadProfilePic: {
     success: {
       title: 'User',
-      message: 'User profile pic upload successfully',
+      message: 'User profile pic uploaded successfully',
     },
     error: {
       title: 'User',

@@ -109,7 +109,7 @@ export class MySchoolComponent {
 
   getSchool() {
     this.schoolService
-      .getSchool('schools/63d10ba6b7d93566cd279e4b')
+      .getSchool('schools/63ce7b90b7d93566cd279e0c')
       .subscribe((response) => {
         if (response.status) {
           console.log(response.result);
