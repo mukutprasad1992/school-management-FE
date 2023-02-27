@@ -42,8 +42,12 @@ const routes: Routes = [
     component: StudentsComponent,
   },
   {
-    path: 'attendance',
-    component: AttendanceComponent,
+    path: 'attendance-submit',
+    component: AttendanceSubmitComponent,
+  },
+  {
+    path: 'attendance-sheet',
+    component: AttendanceSheetComponent,
   },
   {
     path: 'leaves',
