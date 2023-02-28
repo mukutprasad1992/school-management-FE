@@ -60,7 +60,7 @@ export class StaffsComponent {
           );
           this.getAllStaffs();
         } else {
-          this.taostrService.showSuccess(
+          this.taostrService.showError(
             messages.updateStatus.error.title,
             messages.updateStatus.error.message
           );

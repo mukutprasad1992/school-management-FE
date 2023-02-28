@@ -6,6 +6,8 @@ import interactionPlugin from '@fullcalendar/interaction';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import { throwError } from 'rxjs';
 import { AttendanceService } from '../../../services/admin-dasboard/attendance.service';
+import { TaostrService } from '../../../services/common/taostr.service';
+import { messages } from '../../../constant/admin-dashboard/attendance-submit.message';
 
 export interface PhotosApi {
   albumId?: number;
@@ -23,14 +25,23 @@ export interface PhotosApi {
 export class AttendanceSubmitComponent {
   constructor(
     private readonly http: HttpClient,
-    private attendanceservice: AttendanceService
-  ) { }
+    private attendanceService: AttendanceService,
+    private taostrService: TaostrService
+  ) {}
 
+  StudentProfilePic: any;
   apiData: any;
   Events: any[] = [];
+  getSingleClass: any;
   allClasses: any = [];
   getClassData: any = [];
-  // getClassData: any = [];
+  getStudenstOfClass: any = [];
+  getAttendanceData: any = [];
+  getAttendanceClass: any;
+  getAttendanceDate: any;
+  studentPic: any;
+  imageBaseUrl: string =
+    'https://schoolmanagementimage.s3.ap-south-1.amazonaws.com';
 
   calendarOptions: CalendarOptions = {
     headerToolbar: {
@@ -50,6 +61,7 @@ export class AttendanceSubmitComponent {
 
   handleDateClick(arg: any) {
     console.info('date click! ' + arg.dateStr);
+    this.getAttendanceDate = arg.dateStr;
   }
 
   limit: number = 100; // <==== Edit this number to limit API results
@@ -77,44 +89,136 @@ export class AttendanceSubmitComponent {
   ngOnInit() {
     this.getClassAttendance();
     this.getAllClasses();
+    this.getClasesFetched();
     this.fetch();
   }
 
   getAllClasses() {
-    this.attendanceservice.getAllClasses('classes').subscribe((response) => {
+    this.attendanceService.getAllClasses('classes').subscribe((response) => {
       if (response.status) {
-        //   this.taostrService.showSuccess(
-        //     messages.Classes.success.title,
-        //     messages.Classes.success.message
-        //   );
+        this.taostrService.showSuccess(
+          messages.Classes.success.title,
+          messages.Classes.success.message
+        );
         this.allClasses = response.result;
       } else {
-        //   this.taostrService.showSuccess(
-        //     messages.Classes.error.title,
-        //     messages.Classes.error.message
-        //   );
+        this.taostrService.showError(
+          messages.Classes.error.title,
+          messages.Classes.error.message
+        );
       }
     });
   }
 
   getClassAttendance() {
-    this.attendanceservice
+    this.attendanceService
       .getClassAttendance('attendances')
       .subscribe((response) => {
-        // if (response.status) {
-        //   this.taostrService.showSuccess(
-        //     messages.CTassociations.success.title,
-        //     messages.CTassociations.success.message
-        //   );
-        this.getClassData = response.result;
-        // this.totalCount = response.result.length;
-        // } else {
-        //   this.taostrService.showSuccess(
-        //     messages.CTassociations.error.title,
-        //     messages.CTassociations.error.message
-        //   );
-        // }
+        if (response.status) {
+          this.taostrService.showSuccess(
+            messages.ClassAttendance.success.title,
+            messages.ClassAttendance.success.message
+          );
+          this.getClassData = response.result;
+          //this.totalCount = response.result.length;
+        } else {
+          this.taostrService.showError(
+            messages.ClassAttendance.error.title,
+            messages.ClassAttendance.error.message
+          );
+        }
       });
+  }
+
+  getClasesFetched() {
+    this.attendanceService
+      .getClasesFetched('classes/63343f2174d45978bfc7d0dd')
+      .subscribe((response) => {
+        if (response.status) {
+          this.taostrService.showSuccess(
+            messages.ClassFetched.success.title,
+            messages.ClassFetched.success.message
+          );
+          this.getClassData = response.result;
+          //this.totalCount = response.result.length;
+        } else {
+          this.taostrService.showError(
+            messages.ClassFetched.error.title,
+            messages.ClassFetched.error.message
+          );
+        }
+      });
+  }
+
+  onButtonClick(getClass: any) {
+    this.getAllClasses();
+    this.getSingleClass = getClass;
+    this.getAttendanceClass = getClass._id;
+    this.attendanceService
+      .classStudent(`classesStudents/getAllClassStudents/${getClass._id}`)
+      .subscribe((response) => {
+        if (response.status) {
+          this.getClassAttendance();
+          this.taostrService.showSuccess(
+            messages.Onsubmit.success.title,
+            messages.Onsubmit.success.message
+          );
+          this.getStudenstOfClass = response.result;
+        } else {
+          this.taostrService.showError(
+            messages.Onsubmit.error.title,
+            messages.Onsubmit.error.message
+          );
+        }
+      });
+  }
+
+  CreateAttendance() {
+    this.attendanceService
+      .CreateAttendance('attendances/633c04acf1ca3aedd2104fbd')
+
+      .subscribe((response) => {
+        if (response.status) {
+          // this.taostrService.showSuccess(
+          //   messages.updateStatus.success.title,
+          //   messages.updateStatus.success.message
+          // );
+          this.getAllClasses();
+          this.getAttendanceData = response.result;
+        } else {
+          // this.taostrService.showError(
+          //   messages.updateStatus.error.title,
+          //   messages.updateStatus.error.message
+          // );
+        }
+      });
+  }
+
+  // onStudentProfilePic(event: any) {
+  //   this.StudentProfilePic = event.target.files[0];
+  //   // schoolFormData.append('schoolLogo', this.studentPic, this.studentPic.name);
+  //   // schoolFormData.append('schoolId', '63d10ba6b7d93566cd279e4b');
+  //   this.attendanceService
+  //     .uploadStudentPic('schools/school-logo-upload')
+  //     .subscribe((response) => {
+  //       if (response.status) {
+  //         this.studentPic = `${this.imageBaseUrl}/${response.result.StudentProfilePic}`;
+  //   this.taostrService.showSuccess(
+  //     messages.SchoolLogo.success.title,
+  //     messages.SchoolLogo.success.message
+  //   );
+  // }
+  // else {
+  //   this.taostrService.showSuccess(
+  //     messages.SchoolLogo.error.title,
+  //     messages.SchoolLogo.error.message
+  //   );
+  // }
+  // });
+  // }
+
+  getStudentsId(studentId: string, status: string) {
+    console.log(studentId, status);
   }
 
   getClassRow(classRow: any) {

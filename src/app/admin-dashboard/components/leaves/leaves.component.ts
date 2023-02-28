@@ -111,11 +111,12 @@ export class LeavesComponent {
         .subscribe((response) => {
           if (response.status) {
             this.getLeave();
-            this.taostrService.showSuccess;
-            messages.SubmitMsg.success.title,
-              messages.SubmitMsg.success.message;
-          } else {
             this.taostrService.showSuccess(
+              messages.SubmitMsg.success.title,
+              messages.SubmitMsg.success.message
+            );
+          } else {
+            this.taostrService.showError(
               messages.SubmitMsg.error.title,
               messages.SubmitMsg.error.message
             );

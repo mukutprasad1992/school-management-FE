@@ -38,7 +38,7 @@ export class StudentsComponent {
           );
           this.getAllStudntsFetched = response.result;
         } else {
-          this.taostrService.showSuccess(
+          this.taostrService.showError(
             messages.users.error.title,
             messages.users.error.message
           );
@@ -59,7 +59,7 @@ export class StudentsComponent {
           );
           this.getAllStudents();
         } else {
-          this.taostrService.showSuccess(
+          this.taostrService.showError(
             messages.updateStatus.error.title,
             messages.updateStatus.error.message
           );
