@@ -5,6 +5,7 @@ import { CalendarOptions } from '@fullcalendar/core';
 import interactionPlugin from '@fullcalendar/interaction';
 import { OwlOptions } from 'ngx-owl-carousel-o';
 import { throwError } from 'rxjs';
+import { AttendanceService } from '../../../services/admin-dasboard/attendance.service';
 
 export interface PhotosApi {
   albumId?: number;
@@ -20,14 +21,21 @@ export interface PhotosApi {
   styleUrls: ['./attendance.component.scss'],
 })
 export class AttendanceComponent {
-  constructor(private readonly http: HttpClient) {}
+  constructor(
+    private readonly http: HttpClient,
+    private attendanceservice: AttendanceService
+  ) {}
+
   apiData: any;
   Events: any[] = [];
+  allClasses: any = [];
+  getClassData: any = [];
+  // getClassData: any = [];
+
   calendarOptions: CalendarOptions = {
     headerToolbar: {
-      left: 'prev,next today',
-      center: 'title',
-      right: 'dayGridMonth',
+      left: 'title',
+      right: 'prev,next',
     },
     initialView: 'dayGridMonth',
     dateClick: this.handleDateClick.bind(this),
@@ -67,16 +75,48 @@ export class AttendanceComponent {
   };
 
   ngOnInit() {
-    this.fetch();
+    this.getClassAttendance();
+    this.getAllClasses();
   }
 
-  fetch() {
-    const api = `https://jsonplaceholder.typicode.com/albums/1/photos?_start=0&_limit=${this.limit}`;
-    const http$ = this.http.get<PhotosApi>(api);
+  getAllClasses() {
+    this.attendanceservice.getAllClasses('classes').subscribe((response) => {
+      if (response.status) {
+        //   this.taostrService.showSuccess(
+        //     messages.Classes.success.title,
+        //     messages.Classes.success.message
+        //   );
+        this.allClasses = response.result;
+      } else {
+        //   this.taostrService.showSuccess(
+        //     messages.Classes.error.title,
+        //     messages.Classes.error.message
+        //   );
+      }
+    });
+  }
 
-    http$.subscribe(
-      (res) => (this.apiData = res),
-      (err) => throwError(err)
-    );
+  getClassAttendance() {
+    this.attendanceservice
+      .getClassAttendance('attendances')
+      .subscribe((response) => {
+        // if (response.status) {
+        //   this.taostrService.showSuccess(
+        //     messages.CTassociations.success.title,
+        //     messages.CTassociations.success.message
+        //   );
+        this.getClassData = response.result;
+        // this.totalCount = response.result.length;
+        // } else {
+        //   this.taostrService.showError(
+        //     messages.CTassociations.error.title,
+        //     messages.CTassociations.error.message
+        //   );
+        // }
+      });
+  }
+
+  getClassRow(classRow: any) {
+    //@TODO Get all students of this class and put in the below list
   }
 }

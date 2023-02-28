@@ -4,19 +4,22 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
 const API_URL = 'http://localhost:3000';
+
 @Injectable({
   providedIn: 'root',
 })
-export class AuthService {
+export class LeaveServices {
   constructor(private http: HttpClient) {}
 
-  public saveAuthData(token: string, user: any, expirationDate: Date) {
-    localStorage.setItem('token', token);
-    localStorage.setItem('user', JSON.stringify(user));
-    localStorage.setItem('expirationDate', expirationDate.toISOString());
+  public getAllTeachers(url: string): Observable<any> {
+    return this.http.get(`${API_URL}/${url}`).pipe(map((res) => res));
   }
 
-  public resetPasswod(url: string, requestBody: any): Observable<any> {
+  public getLeave(url: string): Observable<any> {
+    return this.http.get(`${API_URL}/${url}`).pipe(map((res) => res));
+  }
+
+  public CreateLeaves(url: string, requestBody: any): Observable<any> {
     return this.http
       .post(`${API_URL}/${url}`, requestBody)
       .pipe(map((res) => res));

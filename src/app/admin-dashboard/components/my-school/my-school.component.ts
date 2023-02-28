@@ -109,7 +109,7 @@ export class MySchoolComponent {
 
   getSchool() {
     this.schoolService
-      .getSchool('schools/63d10ba6b7d93566cd279e4b')
+      .getSchool('schools/63ce7b90b7d93566cd279e0c')
       .subscribe((response) => {
         if (response.status) {
           console.log(response.result);
@@ -136,7 +136,7 @@ export class MySchoolComponent {
             pinCode: this.getSchoolFetched.pinCode,
           });
         } else {
-          this.taostrService.showSuccess(
+          this.taostrService.showError(
             messages.MySchool.error.title,
             messages.MySchool.error.message
           );
@@ -153,7 +153,7 @@ export class MySchoolComponent {
         );
         this.allCountry = response.result;
       } else {
-        this.taostrService.showSuccess(
+        this.taostrService.showError(
           countryMessages.Country.error.title,
           countryMessages.Country.error.message
         );
@@ -170,7 +170,7 @@ export class MySchoolComponent {
         );
         this.allState = response.result;
       } else {
-        this.taostrService.showSuccess(
+        this.taostrService.showError(
           StateMessages.State.error.title,
           StateMessages.State.error.message
         );
@@ -187,7 +187,7 @@ export class MySchoolComponent {
         );
         this.allCity = response.result;
       } else {
-        this.taostrService.showSuccess(
+        this.taostrService.showError(
           CityMessages.City.error.title,
           CityMessages.City.error.message
         );
@@ -207,7 +207,7 @@ export class MySchoolComponent {
             );
             this.router.navigate(['admin/dashboard/landing']);
           } else {
-            this.taostrService.showSuccess(
+            this.taostrService.showError(
               messages.CreateSchool.error.title,
               messages.CreateSchool.error.message
             );

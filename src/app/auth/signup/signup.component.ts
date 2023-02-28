@@ -88,8 +88,9 @@ export class SignUpComponent {
               messages.userSignUp.success.title,
               messages.userSignUp.success.message
             );
+            this.router.navigate(['/landing/home']);
           } else {
-            this.taostrService.showSuccess(
+            this.taostrService.showError(
               messages.userSignUp.error.title,
               messages.userSignUp.error.message
             );

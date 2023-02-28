@@ -19,53 +19,138 @@
       <div class="row mb-3">
         <div class="col-md-12">
           <div class="text-left">
-            <form class="leave">
+            <form class="leave" [formGroup]="leaveForm" (ngSubmit)="onSubmit()">
               <div class="row">
                 <div class="form-group mb-0">
                   <div class="row">
                     <div class="form-group col-md-4">
                       <label for="from-date">From Date</label>
+
                       <input
                         type="date"
-                        name="from-date"
                         class="form-control"
-                        id="from-date"
-                        required=""
                         placeholder="DD/MM/YYYY"
+                        formControlName="startDate"
                       />
+                      <div
+                        *ngIf="
+                          startDate.invalid &&
+                          (startDate.dirty || startDate.touched)
+                        "
+                        class="alert alert-danger"
+                      >
+                        <div *ngIf="startDate.errors?.['required']">
+                          Please enter from-date*
+                        </div>
+                        <div *ngIf="startDate.errors?.['startDate']">
+                          Please enter from-date*
+                        </div>
+                      </div>
                     </div>
+
                     <div class="form-group col-md-4">
                       <label for="to-date">To Date</label>
                       <input
                         type="date"
                         class="form-control"
-                        name="to-date"
-                        id="to-date"
-                        required=""
+                        formControlName="endDate"
                       />
+                      <div
+                        *ngIf="
+                          endDate.invalid && (endDate.dirty || endDate.touched)
+                        "
+                        class="alert alert-danger"
+                      >
+                        <div *ngIf="endDate.errors?.['required']">
+                          Please enter to-date*
+                        </div>
+                        <div *ngIf="endDate.errors?.['endDate']">
+                          Please enter to- date*
+                        </div>
+                      </div>
                     </div>
                     <div class="form-group col-md-4">
-                      <label for="leave-type">Select type of Leave</label>
+                      <label for="leave-type">Type Of Leave</label>
                       <select
                         name="leave-type"
                         id="leave-type"
                         class="form-control"
+                        formControlName="leaveType"
+                        [(ngModel)]="selectedOptionleaveType"
                       >
-                        <option value="paid">Paid</option>
-                        <option value="unpaid">Unpaid</option>
-                        <option value="sick">Sick</option>
+                        <option
+                          disabled
+                          selected
+                          hidden
+                          selected
+                          value="undefined"
+                        >
+                          Please select type of leave
+                        </option>
+                        <option value="SICK">SICK</option>
+                        <option value="EMERGENCY">EMERGENCY</option>
+                        <option value="MEDICAL">MEDICAL</option>
+                        <option value="NORMAL">NORMAL</option>
+                        <option value="PLANNED">PLANNED</option>
                       </select>
+                      <div
+                        *ngIf="
+                          leaveType.invalid &&
+                          (leaveType.dirty || leaveType.touched)
+                        "
+                        class="alert alert-danger"
+                      >
+                        <div *ngIf="leaveType.errors?.['required']">
+                          Please enter leave type*
+                        </div>
+                        <div *ngIf="leaveType.errors?.['leaveType']">
+                          Please enter leave type*
+                        </div>
+                      </div>
                     </div>
+
                     <div class="form-group col-md-4 mb-0">
                       <label for="notify">Notify</label>
-                      <select name="notify" id="notify" class="form-control">
+                      <select
+                        id="notify"
+                        class="form-control"
+                        formControlName="tag"
+                        [(ngModel)]="selectedOptiontag"
+                      >
+                        <option
+                          disabled
+                          selected
+                          hidden
+                          selected
+                          value="undefined"
+                        >
+                          Please select notify member
+                        </option>
                         <option value="Select">Select --</option>
-                        <option value="Mukut">Mukut</option>
-                        <option value="Tarun">Tarun</option>
+
+                        <option
+                          *ngFor="let teacher of allTeachers"
+                          [value]="teacher._id"
+                        >
+                          {{ teacher.firstName.toUpperCase() }}
+                          {{ teacher.lastName.toUpperCase() }}
+                        </option>
+
+                        <div
+                          *ngIf="tag.invalid && (tag.dirty || tag.touched)"
+                          class="alert alert-danger"
+                        >
+                          <div *ngIf="tag.errors?.['required']">
+                            Please enter name*
+                          </div>
+                          <div *ngIf="tag.errors?.['tag']">
+                            Please enter name*
+                          </div>
+                        </div>
                       </select>
                       <p class="notify-text">
                         <span>Note:</span> These employees will be notified
-                        through through email when your leave request Approved
+                        through email when your leave request approved
                       </p>
                     </div>
                     <div class="form-group col-md-8">
@@ -74,8 +159,21 @@
                         class="form-control"
                         name="message"
                         rows="4"
-                        required=""
+                        formControlName="reason"
                       ></textarea>
+                      <div
+                        *ngIf="
+                          reason.invalid && (reason.dirty || reason.touched)
+                        "
+                        class="alert alert-danger"
+                      >
+                        <div *ngIf="reason.errors?.['required']">
+                          Please enter reason*
+                        </div>
+                        <div *ngIf="reason.errors?.['reason']">
+                          Please enter reason*
+                        </div>
+                      </div>
                     </div>
 
                     <div class="my-3">
@@ -112,7 +210,6 @@
               class="d-flex align-items-center justify-content-between mb-3 table-header"
             >
               <h6 class="mb-0 title">Leaves</h6>
-              <a href="">Show All</a>
             </div>
             <div class="table-responsive">
               <table
@@ -120,225 +217,47 @@
               >
                 <thead>
                   <tr class="text-dark">
-                    <th scope="col">Date</th>
-                    <th scope="col">Invoice</th>
-                    <th scope="col">Customer</th>
-                    <th scope="col">Amount</th>
-                    <th scope="col">Status</th>
-                    <th scope="col" style="width: 200px">Update Status</th>
+                    <th scope="col">Sr. No.</th>
+                    <th scope="col">From Date</th>
+                    <th scope="col">To Date</th>
+                    <th scope="col">Leave Type</th>
+                    <th scope="col">Reported To</th>
+                    <th scope="col" style="width: 200px">Status</th>
                     <th scope="col">Action</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>01 Jan 2045</td>
-                    <td>INV-0123</td>
-                    <td>Jhon Doe</td>
-                    <td>$123</td>
+                  <tr
+                    *ngFor="
+                      let leave of getLeaveData
+                        | paginate
+                          : {
+                              itemsPerPage: tableSize,
+                              currentPage: page,
+                              totalItems: totalCount
+                            };
+                      index as i
+                    "
+                  >
+                    <td>{{ i + 1 }}</td>
+                    <td>{{ leave?.startDate }}</td>
                     <td>
-                      <div class="pending label" href="#">Pending</div>
+                      {{ leave?.endDate }}
+                    </td>
+                    <td>{{ leave?.leaveType }}</td>
+                    <td>
+                      {{ leave?.tag?.firstName }} {{ leave?.tag?.lastName }}
                     </td>
                     <td>
-                      <div class="dropdown">
-                        <button
-                          class="btn btn-secondary dropdown-toggle"
-                          type="button"
-                          data-bs-toggle="dropdown"
-                          aria-expanded="false"
-                        >
-                          <i class="bi bi-three-dots-vertical"></i>
-                        </button>
-                        <ul class="dropdown-menu">
-                          <li>
-                            <a class="dropdown-item pending" href="#"
-                              >Pending</a
-                            >
-                          </li>
-                          <li>
-                            <a class="dropdown-item approve" href="#"
-                              >Approve</a
-                            >
-                          </li>
-                          <li>
-                            <a class="dropdown-item reject" href="#">Reject</a>
-                          </li>
-                        </ul>
-                      </div>
-                    </td>
-                    <td>
-                      <a class="btn btn-sm btn-primary" href="#"
-                        ><i class="bi bi-eye"></i
-                      ></a>
-                      <a class="btn btn-sm btn-primary" href="#"
-                        ><i class="bi bi-trash"></i
-                      ></a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>01 Jan 2045</td>
-                    <td>INV-0123</td>
-                    <td>Jhon Doe</td>
-                    <td>$123</td>
-                    <td>
-                      <div class="approve label" href="#">Approve</div>
-                    </td>
-                    <td>
-                      <div class="dropdown">
-                        <button
-                          class="btn btn-secondary dropdown-toggle"
-                          type="button"
-                          data-bs-toggle="dropdown"
-                          aria-expanded="false"
-                        >
-                          <i class="bi bi-three-dots-vertical"></i>
-                        </button>
-                        <ul class="dropdown-menu">
-                          <li>
-                            <a class="dropdown-item pending" href="#"
-                              >Pending</a
-                            >
-                          </li>
-                          <li>
-                            <a class="dropdown-item approve" href="#"
-                              >Approve</a
-                            >
-                          </li>
-                          <li>
-                            <a class="dropdown-item reject" href="#">Reject</a>
-                          </li>
-                        </ul>
-                      </div>
-                    </td>
-                    <td>
-                      <a class="btn btn-sm btn-primary" href="#"
-                        ><i class="bi bi-eye"></i
-                      ></a>
-                      <a class="btn btn-sm btn-primary" href="#"
-                        ><i class="bi bi-trash"></i
-                      ></a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>01 Jan 2045</td>
-                    <td>INV-0123</td>
-                    <td>Jhon Doe</td>
-                    <td>$123</td>
-                    <td>
-                      <div class="reject label" href="#">Reject</div>
-                    </td>
-                    <td>
-                      <div class="dropdown">
-                        <button
-                          class="btn btn-secondary dropdown-toggle"
-                          type="button"
-                          data-bs-toggle="dropdown"
-                          aria-expanded="false"
-                        >
-                          <i class="bi bi-three-dots-vertical"></i>
-                        </button>
-                        <ul class="dropdown-menu">
-                          <li>
-                            <a class="dropdown-item pending" href="#"
-                              >Pending</a
-                            >
-                          </li>
-                          <li>
-                            <a class="dropdown-item approve" href="#"
-                              >Approve</a
-                            >
-                          </li>
-                          <li>
-                            <a class="dropdown-item reject" href="#">Reject</a>
-                          </li>
-                        </ul>
-                      </div>
-                    </td>
-                    <td>
-                      <a class="btn btn-sm btn-primary" href="#"
-                        ><i class="bi bi-eye"></i
-                      ></a>
-                      <a class="btn btn-sm btn-primary" href="#"
-                        ><i class="bi bi-trash"></i
-                      ></a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>01 Jan 2045</td>
-                    <td>INV-0123</td>
-                    <td>Jhon Doe</td>
-                    <td>$123</td>
-                    <td>
-                      <div class="approve label" href="#">Approve</div>
-                    </td>
-                    <td>
-                      <div class="dropdown">
-                        <button
-                          class="btn btn-secondary dropdown-toggle"
-                          type="button"
-                          data-bs-toggle="dropdown"
-                          aria-expanded="false"
-                        >
-                          <i class="bi bi-three-dots-vertical"></i>
-                        </button>
-                        <ul class="dropdown-menu">
-                          <li>
-                            <a class="dropdown-item pending" href="#"
-                              >Pending</a
-                            >
-                          </li>
-                          <li>
-                            <a class="dropdown-item approve" href="#"
-                              >Approve</a
-                            >
-                          </li>
-                          <li>
-                            <a class="dropdown-item reject" href="#">Reject</a>
-                          </li>
-                        </ul>
-                      </div>
-                    </td>
-                    <td>
-                      <a class="btn btn-sm btn-primary" href="#"
-                        ><i class="bi bi-eye"></i
-                      ></a>
-                      <a class="btn btn-sm btn-primary" href="#"
-                        ><i class="bi bi-trash"></i
-                      ></a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>01 Jan 2045</td>
-                    <td>INV-0123</td>
-                    <td>Jhon Doe</td>
-                    <td>$123</td>
-                    <td>
-                      <div class="approve label" href="#">Approve</div>
-                    </td>
-                    <td>
-                      <div class="dropdown">
-                        <button
-                          class="btn btn-secondary dropdown-toggle"
-                          type="button"
-                          data-bs-toggle="dropdown"
-                          aria-expanded="false"
-                        >
-                          <i class="bi bi-three-dots-vertical"></i>
-                        </button>
-                        <ul class="dropdown-menu">
-                          <li>
-                            <a class="dropdown-item pending" href="#"
-                              >Pending</a
-                            >
-                          </li>
-                          <li>
-                            <a class="dropdown-item approve" href="#"
-                              >Approve</a
-                            >
-                          </li>
-                          <li>
-                            <a class="dropdown-item reject" href="#">Reject</a>
-                          </li>
-                        </ul>
+                      <div
+                        [ngClass]="{
+                          approve: leave.status === 'APPROVED',
+                          reject: leave.status === 'REJECTED',
+                          pending: leave.status === 'PENDING',
+                          label: true
+                        }"
+                      >
+                        {{ leave.status.toLowerCase() }}
                       </div>
                     </td>
                     <td>
@@ -353,7 +272,7 @@
                 </tbody>
               </table>
             </div>
-            <div class="pagination">
+            <!-- <div class="pagination">
               <nav aria-label="Page navigation example">
                 <ul class="pagination">
                   <li class="page-item">
@@ -373,6 +292,15 @@
                   </li>
                 </ul>
               </nav>
+            </div> -->
+
+            <div class="pagination">
+              <pagination-controls
+                previousLabel="Prev"
+                nextLabel="Next"
+                (pageChange)="onTableDataChange($event)"
+              >
+              </pagination-controls>
             </div>
           </div>
         </div>

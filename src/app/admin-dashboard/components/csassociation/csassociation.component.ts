@@ -121,14 +121,19 @@ export class CSAssociationComponent {
         .subscribe((response) => {
           if (response.status) {
             this.getClassStudentAssociation();
-            this.taostrService.showSuccess;
-            messages.Onsubmit.success.title, messages.Onsubmit.success.message;
-          } else {
             this.taostrService.showSuccess(
+              messages.Onsubmit.success.title,
+              messages.Onsubmit.success.message
+            );
+          } else {
+            this.taostrService.showError(
               messages.Onsubmit.error.title,
               messages.Onsubmit.error.message
             );
           }
+          this.csAssociationForm.reset();
+          this.selectedOptionClass = undefined;
+          this.selectedOptionStudent = undefined;
         });
     } else {
       this.taostrService.showError(

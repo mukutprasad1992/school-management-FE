@@ -1,240 +1,192 @@
 <app-sidebar></app-sidebar>
 <div id="main" class="dashboard-main">
-    <app-header></app-header>
-
-
-    <section class="table">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <form class="cs-association-form form">
-                        <div class="row">
-                            <div class="form-group col-md-5">
-                                <label for="comfirm-password">Select Class</label>
-                                <select class="form-control" formControlName="studentsid">
-                                    <option value="">Please select</option>
-                                    <option value="">Please select</option>
-                                    <option value="">Please select</option>
-                                    <option value="">Please select</option>
-                                    <option value="">Please select</option>
-                                </select>
-                                <div class="alert alert-danger">
-                                    <div>
-                                        Please select your Classs*
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="form-group col-md-5">
-                                <label for="comfirm-password">Select Date</label>
-                                <input type="date" class="form-control">
-                                <div class="alert alert-danger">
-                                    <div>
-                                        Please enter valid date*
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="button-box col-md-2">
-                                <label class="d-block" for="comfirm-password">&nbsp;</label>
-                                <button type="submit">Update</button>
-                            </div>
-                        </div>
-                    </form>
-                </div>
+  <app-header></app-header>
+  <div class="main" style="align-items: flex-start">
+    <section id="calendar" class="calendar pb-0">
+      <div class="container aos-init aos-animate" data-aos="fade-up">
+        <div class="row justify-content-center">
+          <div class="col-md-12 text-center mb-4">
+            <div class="section-title">
+              <h2 class="title">Attendance</h2>
+              <p class="text-danger text-center">
+                Lorem Ipsum is simply dummy text of the printing and typesetting
+                industry. Lorem Ipsum has been the industry's standard dummy
+                text ever since the 1500s, when an unknown printer took a galley
+                of type and scrambled it to make a type specimen book. It has
+                survived not only five centuries,
+              </p>
             </div>
-            <div class="row">
-                <div class="col-12">
-                    <div class="text-center rounded p-4 table-box">
-                        <div class="d-flex align-items-center justify-content-between mb-3 table-header">
-                            <h6 class="mb-0 title">Attendance Submit</h6>
-                            <a href="">Show All</a>
+          </div>
+          <div class="col-xl-6 mb-4">
+            <div class="calendar-box">
+              <div class="calendar-inner">
+                <div class="bg-light text-center rounded p-4">
+                  <full-calendar [options]="calendarOptions"></full-calendar>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="row mt-5 mb-5">
+          <div class="col-12">
+            <ul class="classlist">
+              <li *ngFor="let class of allClasses; index as i">
+                <input
+                  type="radio"
+                  id="class1st"
+                  name="classlist"
+                  value="class1st"
+                  [checked]="getSingleClass?._id === class?._id"
+                />
+                <label for="class1st" (click)="onButtonClick(class)">{{
+                  class?.name
+                }}</label>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="student-carousel">
+              <!--carousel-->
+              <div class="wrapper">
+                <owl-carousel-o [options]="customOptions">
+                  <ng-container *ngFor="let student of getStudenstOfClass">
+                    <div
+                      class="modal fade"
+                      id="exampleModal-{{ student._id }}"
+                      tabindex="-1"
+                      aria-labelledby="exampleModalLabel"
+                      aria-hidden="true"
+                    >
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h1 class="modal-title fs-5" id="exampleModalLabel">
+                              Attendance Status
+                            </h1>
+                            <button
+                              type="button"
+                              class="btn-close"
+                              data-bs-dismiss="modal"
+                              aria-label="Close"
+                            ></button>
+                          </div>
+                          <div class="modal-body">
+                            <div class="button-box">
+                              <a
+                                href="#"
+                                class="btn btn-success"
+                                (click)="getStudentsId(student._id, 'PRESENT')"
+                                >Present</a
+                              >
+                              <a
+                                href="#"
+                                class="btn btn-danger"
+                                (click)="getStudentsId(student._id, 'ABSENT')"
+                                >Absent</a
+                              >
+                              <a
+                                href="#"
+                                class="btn btn-primary"
+                                (click)="
+                                  getStudentsId(student._id, 'NORESPONSE')
+                                "
+                                >No Response</a
+                              >
+                            </div>
+                          </div>
                         </div>
-                        <div class="table-responsive">
-                            <table class="table text-start align-middle table-bordered table-hover mb-0">
-                                <thead>
-                                    <tr class="text-dark">
-                                        <th scope="col">S. No.</th>
-                                        <th scope="col">Class</th>
-                                        <th scope="col">Student Name</th>
-                                        <th scope="col">Status</th>
-                                        <th scope="col">Action</th>
-                                        <th scope="col" style="width: 110px;">Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>1st</td>
-                                        <td>john doe</td>
-                                        <td>
-                                            <div class="absent label text-danger" href="#">Absent</div>
-                                        </td>
-                                        <td>
-                                            <a class="btn btn-sm btn-primary" href="#" data-bs-toggle="modal"
-                                                data-bs-target="#exampleModal"><i class="bi bi-eye"></i></a>
-                                            <a class="btn btn-sm btn-primary" href="#"><i class="bi bi-trash"></i></a>
-                                        </td>
-                                        <td>
-                                            <div class="dropdown">
-                                                <button class="btn btn-secondary dropdown-toggle" type="button"
-                                                    data-bs-toggle="dropdown" aria-expanded="false">
-                                                    <i class="bi bi-three-dots-vertical"></i>
-                                                </button>
-                                                <ul class="dropdown-menu">
-                                                    <li><a class="dropdown-item pending" href="#">Pending</a></li>
-                                                    <li><a class="dropdown-item approve" href="#">Approve</a></li>
-                                                    <li><a class="dropdown-item reject" href="#">Reject</a></li>
-                                                </ul>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>1st</td>
-                                        <td>john doe</td>
-                                        <td>
-                                            <div class="no-response text-primary label" href="#">No Response</div>
-                                        </td>
-                                        <td>
-                                            <a class="btn btn-sm btn-primary" href="#" data-bs-toggle="modal"
-                                                data-bs-target="#exampleModal"><i class="bi bi-eye"></i></a>
-                                            <a class="btn btn-sm btn-primary" href="#"><i class="bi bi-trash"></i></a>
-                                        </td>
-                                        <td>
-                                            <div class="dropdown">
-                                                <button class="btn btn-secondary dropdown-toggle" type="button"
-                                                    data-bs-toggle="dropdown" aria-expanded="false">
-                                                    <i class="bi bi-three-dots-vertical"></i>
-                                                </button>
-                                                <ul class="dropdown-menu">
-                                                    <li><a class="dropdown-item pending" href="#">Pending</a></li>
-                                                    <li><a class="dropdown-item approve" href="#">Approve</a></li>
-                                                    <li><a class="dropdown-item reject" href="#">Reject</a></li>
-                                                </ul>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>1st</td>
-                                        <td>john doe</td>
-                                        <td>
-                                            <div class="absent label text-danger" href="#">Absent</div>
-                                        </td>
-                                        <td>
-                                            <a class="btn btn-sm btn-primary" href="#" data-bs-toggle="modal"
-                                                data-bs-target="#exampleModal"><i class="bi bi-eye"></i></a>
-                                            <a class="btn btn-sm btn-primary" href="#"><i class="bi bi-trash"></i></a>
-                                        </td>
-                                        <td>
-                                            <div class="dropdown">
-                                                <button class="btn btn-secondary dropdown-toggle" type="button"
-                                                    data-bs-toggle="dropdown" aria-expanded="false">
-                                                    <i class="bi bi-three-dots-vertical"></i>
-                                                </button>
-                                                <ul class="dropdown-menu">
-                                                    <li><a class="dropdown-item pending" href="#">Pending</a></li>
-                                                    <li><a class="dropdown-item approve" href="#">Approve</a></li>
-                                                    <li><a class="dropdown-item reject" href="#">Reject</a></li>
-                                                </ul>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>1st</td>
-                                        <td>john doe</td>
-                                        <td>
-                                            <div class="present label text-success" href="#">Present</div>
-                                        </td>
-                                        <td>
-                                            <a class="btn btn-sm btn-primary" href="#" data-bs-toggle="modal"
-                                                data-bs-target="#exampleModal"><i class="bi bi-eye"></i></a>
-                                            <a class="btn btn-sm btn-primary" href="#"><i class="bi bi-trash"></i></a>
-                                        </td>
-                                        <td>
-                                            <div class="dropdown">
-                                                <button class="btn btn-secondary dropdown-toggle" type="button"
-                                                    data-bs-toggle="dropdown" aria-expanded="false">
-                                                    <i class="bi bi-three-dots-vertical"></i>
-                                                </button>
-                                                <ul class="dropdown-menu">
-                                                    <li><a class="dropdown-item pending" href="#">Pending</a></li>
-                                                    <li><a class="dropdown-item approve" href="#">Approve</a></li>
-                                                    <li><a class="dropdown-item reject" href="#">Reject</a></li>
-                                                </ul>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>1st</td>
-                                        <td>john doe</td>
-                                        <td>
-                                            <div class="present label text-success" href="#">Present</div>
-                                        </td>
-                                        <td>
-                                            <a class="btn btn-sm btn-primary" href="#" data-bs-toggle="modal"
-                                                data-bs-target="#exampleModal"><i class="bi bi-eye"></i></a>
-                                            <a class="btn btn-sm btn-primary" href="#"><i class="bi bi-trash"></i></a>
-                                        </td>
-                                        <td>
-                                            <div class="dropdown">
-                                                <button class="btn btn-secondary dropdown-toggle" type="button"
-                                                    data-bs-toggle="dropdown" aria-expanded="false">
-                                                    <i class="bi bi-three-dots-vertical"></i>
-                                                </button>
-                                                <ul class="dropdown-menu">
-                                                    <li><a class="dropdown-item pending" href="#">Pending</a></li>
-                                                    <li><a class="dropdown-item approve" href="#">Approve</a></li>
-                                                    <li><a class="dropdown-item reject" href="#">Reject</a></li>
-                                                </ul>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                        <div class="pagination">
-                            <nav aria-label="Page navigation example">
-                                <ul class="pagination">
-                                    <li class="page-item">
-                                        <a class="page-link" href="#" aria-label="Previous">
-                                            <span aria-hidden="true">Previous</span>
-                                        </a>
-                                    </li>
-                                    <li class="page-item"><a class="page-link" href="#">1</a></li>
-                                    <li class="page-item">
-                                        <a class="page-link active" href="#">2</a>
-                                    </li>
-                                    <li class="page-item"><a class="page-link" href="#">3</a></li>
-                                    <li class="page-item">
-                                        <a class="page-link" href="#" aria-label="Next">
-                                            <span aria-hidden="true">Next</span>
-                                        </a>
-                                    </li>
-                                </ul>
-                            </nav>
-                        </div>
+                      </div>
                     </div>
-                </div>
+                    <ng-template class="slide" carouselSlide [id]="student._id">
+                      <div class="avatar">
+                        <!-- <div>
+                         <img
+                          src="{{StudentProfilePic}}"
+                          alt="image"
+                        
+                        />
+                      </div> -->
+                        <input
+                          type="file"
+                          id="file-upload"
+                          (change)="StudentProfilePic($event)"
+                        />
+
+                        <img
+                          src="assets/img/team/team-1.jpg"
+                          [alt]="student._id"
+                          [title]="student._id"
+                        />
+                      </div>
+                      <div class="student-information">
+                        <h5 class="name">
+                          {{ student?.student?.firstName }}
+                          {{ student?.student?.lastName }}
+                        </h5>
+                        <p class="rollno">{{ student?.rollNo }}</p>
+                      </div>
+                      <div class="status">
+                        status :
+                        <!-- <a href="javascript:void(0)" class="label text-success">
+                          Present
+                        </a> -->
+
+                        <a
+                          class="label text-success"
+                          (click)="CreateAttendance()"
+                          >Present</a
+                        >
+                        <a class="text-danger" (click)="CreateAttendance()"
+                          >Absent</a
+                        >
+                        <a class="text-primary" (click)="CreateAttendance()"
+                          >No Response</a
+                        >
+
+                        <div
+                          [ngClass]="{
+                            present: student.status === 'PRESENT',
+                            absent: student.status === 'ABSENT',
+                            noResponce: student.status === 'NORESPONSE',
+                            label: true
+                          }"
+                        ></div>
+                      </div>
+                      <a
+                        href="#"
+                        class="label attendance-btn"
+                        data-bs-toggle="modal"
+                        [attr.data-target]="'#exampleModal-' + student._id"
+                      >
+                        Attendance
+                      </a>
+                    </ng-template>
+                  </ng-container>
+                </owl-carousel-o>
+              </div>
+              <!--carousel End-->
             </div>
+          </div>
         </div>
+      </div>
     </section>
-
-    <app-footer></app-footer>
-</div>
-
-<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h1 class="modal-title fs-5" id="exampleModalLabel">
-                    Modal Tilte
-                </h1>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-
-            </div>
-        </div>
+  </div>
+  <footer id="footer">
+    <div class="container footer-bottom clearfix">
+      <div class="copyright">
+        &copy; Copyright <strong><span>Arsha</span></strong
+        >. All Rights Reserved
+      </div>
+      <div class="credits">
+        <!-- All the links in the footer should remain intact. -->
+        <!-- You can delete the links only if you purchased the pro version. -->
+        <!-- Licensing information: https://bootstrapmade.com/license/ -->
+        <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/arsha-free-bootstrap-html-template-corporate/ -->
+        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+      </div>
     </div>
+  </footer>
+  <!-- End Footer -->
+</div>

@@ -56,7 +56,7 @@ export class SignInComponent {
             );
             this.router.navigate(['admin/dashboard/landing']);
           } else {
-            this.taostrService.showSuccess(
+            this.taostrService.showError(
               messages.userSignIn.error.title,
               messages.userSignIn.error.message
             );
