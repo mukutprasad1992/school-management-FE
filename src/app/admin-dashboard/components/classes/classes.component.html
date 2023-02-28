@@ -21,111 +21,172 @@
         </div>
       </div>
       <div class="row">
-        <div
-          class="col-md-12 d-flex align-items-center justify-content-between mb-3 title-box"
+        <form
+          class="ct-association-form form"
+          [formGroup]="classForm"
+          (ngSubmit)="onSubmit()"
         >
-          <h2 class="title">
-            Hi, {{ getUser.firstName }} {{ getUser.lastName }}
-          </h2>
-          <h3 class="message">Good Morning</h3>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-12">
-          <div class="text-center rounded p-4 table-box">
-            <div
-              class="d-flex align-items-center justify-content-between mb-3 table-header"
-            >
-              <h6 class="mb-0 title">Classes</h6>
-              <a href="">Show All</a>
-            </div>
-            <div class="table-responsive">
-              <table
-                class="table text-start align-middle table-bordered table-hover mb-0"
+          <div class="row">
+            <div class="form-group col-md-4">
+              <label for="class">Class Name</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="name"
+                placeholder="Enter Class"
+              />
+              <div
+                *ngIf="name.invalid && (name.dirty || name.touched)"
+                class="alert alert-danger"
               >
-                <thead>
-                  <tr class="text-dark">
-                    <th scope="col">S. No.</th>
-                    <th scope="col">Class</th>
-                    <th scope="col">Created By</th>
-                    <th scope="col">Status</th>
-                    <th scope="col" style="width: 200px">Update Status</th>
-                    <th scope="col">Action</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr *ngFor="let class of getAllClasesFetched; index as i">
-                    <td>{{ i + 1 }}</td>
-                    <td>{{ class.name }}</td>
-                    <td>{{ class.classTeacher }}</td>
-                    <td>
-                      <div class="pending label" href="#">Pending</div>
-                    </td>
-                    <td>
-                      <div class="dropdown">
-                        <button
-                          class="btn btn-secondary dropdown-toggle"
-                          type="button"
-                          data-bs-toggle="dropdown"
-                          aria-expanded="false"
-                        >
-                          <i class="bi bi-three-dots-vertical"></i>
-                        </button>
-                        <ul class="dropdown-menu">
-                          <li>
-                            <a class="dropdown-item pending" href="#"
-                              >Pending</a
-                            >
-                          </li>
-                          <li>
-                            <a class="dropdown-item approve" href="#"
-                              >Approve</a
-                            >
-                          </li>
-                          <li>
-                            <a class="dropdown-item reject" href="#">Reject</a>
-                          </li>
-                        </ul>
-                      </div>
-                    </td>
+                <div *ngIf="name.errors?.['required']">
+                  Please enter class name*
+                </div>
+              </div>
+            </div>
+            <div class="form-group col-md-4">
+              <label for="select-school">School</label>
+              <select
+                class="form-control"
+                formControlName="school"
+                [(ngModel)]="selectedOptionSchool"
+              >
+                <option selected value="undefined">Please select school</option>
+                <option *ngFor="let school of allSchools" [value]="school._id">
+                  {{ school.name }}
+                </option>
+              </select>
+              <div
+                *ngIf="school.invalid && (school.dirty || school.touched)"
+                class="alert alert-danger"
+              >
+                <div *ngIf="school.errors?.['required']">
+                  Please select school*
+                </div>
+              </div>
+            </div>
+            <div class="button-box col-md-4">
+              <label class="d-block" for="comfirm-password">&nbsp;</label>
+              <button type="submit">Submit</button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <div class="text-center rounded p-4 table-box">
+          <div
+            class="d-flex align-items-center justify-content-between mb-3 table-header"
+          >
+            <h6 class="mb-0 title">Classes</h6>
+          </div>
+          <div class="table-responsive">
+            <table
+              class="table text-start align-middle table-bordered table-hover mb-0"
+            >
+              <thead>
+                <tr class="text-dark">
+                  <th scope="col">S. No.</th>
+                  <th scope="col">Class</th>
+                  <th scope="col">Created By</th>
+                  <th scope="col">Status</th>
+                  <th scope="col" style="width: 200px">Update Status</th>
+                  <th scope="col">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr
+                  *ngFor="
+                    let class of getAllClasesFetched
+                      | paginate
+                        : {
+                            itemsPerPage: tableSize,
+                            currentPage: page,
+                            totalItems: totalCount
+                          };
+                    index as i
+                  "
+                >
+                  <td>{{ i + 1 }}</td>
+                  <td>{{ class.name }}</td>
+                  <td>
+                    {{ class?.createdBy?.firstName }}
+                    {{ class?.createdBy?.lastName }}
+                  </td>
+                  <td>
+                    <div
+                      [ngClass]="{
+                        approve: class.status === 'ACTIVATED',
+                        reject: class.status === 'INPROGRESS',
+                        pending: class.status === 'INITIATED',
+                        label: true
+                      }"
+                    >
+                      {{ class.status.toLowerCase() }}
+                    </div>
+                  </td>
+                  <td>
+                    <div class="dropdown">
+                      <button
+                        class="btn btn-secondary dropdown-toggle"
+                        type="button"
+                        data-bs-toggle="dropdown"
+                        aria-expanded="false"
+                      >
+                        <i class="bi bi-three-dots-vertical"></i>
+                      </button>
+                      <ul class="dropdown-menu">
+                        <li>
+                          <a
+                            class="dropdown-item pending"
+                            (click)="getAllStatusUpdate(class._id, 'INITIATED')"
+                            >Pending</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            class="dropdown-item approve"
+                            (click)="getAllStatusUpdate(class._id, 'ACTIVATED')"
+                            >Approve</a
+                          >
+                        </li>
+                        <li>
+                          <a
+                            class="dropdown-item reject"
+                            (click)="
+                              getAllStatusUpdate(class._id, 'INPROGRESS')
+                            "
+                            >Reject</a
+                          >
+                        </li>
+                      </ul>
+                    </div>
+                  </td>
 
-                    <td>
-                      <a class="btn btn-sm btn-primary" href="#"
-                        ><i class="bi bi-eye"></i
-                      ></a>
-                      <a class="btn btn-sm btn-primary" href="#"
-                        ><i class="bi bi-trash"></i
-                      ></a>
-                    </td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div class="pagination">
-              <nav aria-label="Page navigation example">
-                <ul class="pagination">
-                  <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Previous">
-                      <span aria-hidden="true">Previous</span>
-                    </a>
-                  </li>
-                  <li class="page-item"><a class="page-link" href="#">1</a></li>
-                  <li class="page-item">
-                    <a class="page-link active" href="#">2</a>
-                  </li>
-                  <li class="page-item"><a class="page-link" href="#">3</a></li>
-                  <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Next">
-                      <span aria-hidden="true">Next</span>
-                    </a>
-                  </li>
-                </ul>
-              </nav>
-            </div>
+                  <td>
+                    <a class="btn btn-sm btn-primary" href="#"
+                      ><i class="bi bi-eye"></i
+                    ></a>
+                    <a class="btn btn-sm btn-primary" href="#"
+                      ><i class="bi bi-trash"></i
+                    ></a>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="pagination">
+            <pagination-controls
+              previousLabel="Prev"
+              nextLabel="Next"
+              (pageChange)="onTableDataChange($event)"
+            >
+            </pagination-controls>
           </div>
         </div>
       </div>
     </div>
+    <app-footer></app-footer>
   </section>
-  <app-footer></app-footer>
 </div>

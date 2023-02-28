@@ -108,7 +108,7 @@ export class AttendanceComponent {
         this.getClassData = response.result;
         // this.totalCount = response.result.length;
         // } else {
-        //   this.taostrService.showSuccess(
+        //   this.taostrService.showError(
         //     messages.CTassociations.error.title,
         //     messages.CTassociations.error.message
         //   );

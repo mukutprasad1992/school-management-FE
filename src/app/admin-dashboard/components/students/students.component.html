@@ -37,7 +37,6 @@
               class="d-flex align-items-center justify-content-between mb-3 table-header"
             >
               <h6 class="mb-0 title">Students</h6>
-              <a href="">Show All</a>
             </div>
             <div class="table-responsive">
               <table
@@ -51,12 +50,92 @@
                     <th scope="col">Mobile No</th>
                     <th scope="col">Role</th>
                     <th scope="col" class="text-center">Status</th>
+                    <th scope="col" style="width: 110px">Update Status</th>
                     <th scope="col">Action</th>
-                    <th scope="col" style="width: 110px">Action</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
+                  <tr
+                    *ngFor="
+                      let student of getAllStudntsFetched
+                        | paginate
+                          : {
+                              itemsPerPage: tableSize,
+                              currentPage: page,
+                              totalItems: totalCount
+                            };
+                      index as i
+                    "
+                  >
+                    <td>{{ i + 1 }}</td>
+                    <td>{{ student.firstName }} {{ student.lastName }}</td>
+                    <td>{{ student.email }}</td>
+                    <td>{{ student.mobileNumber }}</td>
+                    <td>{{ student.role.name }}</td>
+                    <td>
+                      <div
+                        [ngClass]="{
+                          approve: student.status === 'ACTIVATED',
+                          reject: student.status === 'INPROGRESS',
+                          pending: student.status === 'INITIATED',
+                          label: true
+                        }"
+                      >
+                        {{ student.status.toLowerCase() }}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="dropdown">
+                        <button
+                          class="btn btn-secondary dropdown-toggle"
+                          type="button"
+                          data-bs-toggle="dropdown"
+                          aria-expanded="false"
+                        >
+                          <i class="bi bi-three-dots-vertical"></i>
+                        </button>
+                        <ul class="dropdown-menu">
+                          <li>
+                            <a
+                              class="dropdown-item pending"
+                              (click)="
+                                getAllStatusUpdate(student._id, 'INITIATED')
+                              "
+                              >Pending</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              class="dropdown-item approve"
+                              (click)="
+                                getAllStatusUpdate(student._id, 'ACTIVATED')
+                              "
+                              >Approve</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              class="dropdown-item reject"
+                              (click)="
+                                getAllStatusUpdate(student._id, 'INPROGRESS')
+                              "
+                              >Reject</a
+                            >
+                          </li>
+                        </ul>
+                      </div>
+                    </td>
+                    <td>
+                      <a class="btn btn-sm btn-primary" href="#"
+                        ><i class="bi bi-eye"></i
+                      ></a>
+                      <a class="btn btn-sm btn-primary" href="#"
+                        ><i class="bi bi-trash"></i
+                      ></a>
+                    </td>
+                  </tr>
+
+                  <!-- <tr>
                     <td>1</td>
                     <td>01 Jan 2045</td>
                     <td>INV-0123</td>
@@ -64,17 +143,6 @@
                     <td>$123</td>
                     <td class="text-center">
                       <div class="pending label" href="#">Pending</div>
-                    </td>
-                    <td>
-                      <a class="btn btn-sm btn-primary" href="#"
-                        ><i class="bi bi-pencil"></i
-                      ></a>
-                      <a class="btn btn-sm btn-primary" href="#"
-                        ><i class="bi bi-eye"></i
-                      ></a>
-                      <a class="btn btn-sm btn-primary" href="#"
-                        ><i class="bi bi-trash"></i
-                      ></a>
                     </td>
                     <td>
                       <div class="dropdown">
@@ -103,11 +171,19 @@
                         </ul>
                       </div>
                     </td>
-                  </tr>
+                    <td>
+                      <a class="btn btn-sm btn-primary" href="#"
+                        ><i class="bi bi-eye"></i
+                      ></a>
+                      <a class="btn btn-sm btn-primary" href="#"
+                        ><i class="bi bi-trash"></i
+                      ></a>
+                    </td>
+                  </tr> -->
                 </tbody>
               </table>
             </div>
-            <div class="pagination">
+            <!-- <div class="pagination">
               <nav aria-label="Page navigation example">
                 <ul class="pagination">
                   <li class="page-item">
@@ -127,6 +203,14 @@
                   </li>
                 </ul>
               </nav>
+            </div> -->
+            <div class="pagination">
+              <pagination-controls
+                previousLabel="Prev"
+                nextLabel="Next"
+                (pageChange)="onTableDataChange($event)"
+              >
+              </pagination-controls>
             </div>
           </div>
         </div>

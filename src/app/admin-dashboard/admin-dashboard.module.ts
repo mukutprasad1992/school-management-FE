@@ -64,4 +64,4 @@ import { LeaveRequestsComponent } from './components/leave-requests/leave-reques
     NgxPaginationModule,
   ],
 })
-export class AdminDashboardModule { }
+export class AdminDashboardModule {}

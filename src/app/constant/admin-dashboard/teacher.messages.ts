@@ -1,12 +1,12 @@
 export const messages = {
   users: {
     success: {
-      title: 'User',
-      message: 'User fetched successfully',
+      title: 'Teacher',
+      message: 'Teacher fetched successfully',
     },
     error: {
-      title: 'User',
-      message: 'Error while fetch the users',
+      title: 'Teacher',
+      message: 'Error while fetch the Teacher',
     },
   },
   updateStatus: {

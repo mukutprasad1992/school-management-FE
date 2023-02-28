@@ -32,12 +32,12 @@ export class HeaderComponent {
     this.headerService.getUser('users').subscribe((response) => {
       if (response.status) {
         this.taostrService.showSuccess(
-          messages.ProfilePic.success.title,
-          messages.ProfilePic.success.message
+          messages.ProfilePic.fetched.title,
+          messages.ProfilePic.fetched.message
         );
         this.profilePicUrl = `${this.imageBaseUrl}/${response.result.profilePic}`;
       } else {
-        this.taostrService.showSuccess(
+        this.taostrService.showError(
           messages.ProfilePic.error.title,
           messages.ProfilePic.error.message
         );

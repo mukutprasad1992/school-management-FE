@@ -40,7 +40,7 @@ export class TeachersComponent {
           this.getAllTeachersFetched = response.result;
           this.totalCount = response.result.length;
         } else {
-          this.taostrService.showSuccess(
+          this.taostrService.showError(
             messages.users.error.title,
             messages.users.error.message
           );
@@ -61,7 +61,7 @@ export class TeachersComponent {
           );
           this.getAllTeachers();
         } else {
-          this.taostrService.showSuccess(
+          this.taostrService.showError(
             messages.updateStatus.error.title,
             messages.updateStatus.error.message
           );
