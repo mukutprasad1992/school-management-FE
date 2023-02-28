@@ -8,7 +8,7 @@ import { throwError } from 'rxjs';
 import { AttendanceService } from '../../../services/admin-dasboard/attendance.service';
 import { TaostrService } from '../../../services/common/taostr.service';
 import { messages } from '../../../constant/admin-dashboard/attendance-submit.message';
-
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 export interface PhotosApi {
   albumId?: number;
   id?: number;
@@ -23,6 +23,8 @@ export interface PhotosApi {
   styleUrls: ['./attendance-submit.component.scss'],
 })
 export class AttendanceSubmitComponent {
+  attedanceSubmitForm!: FormGroup;
+
   constructor(
     private readonly http: HttpClient,
     private attendanceService: AttendanceService,
@@ -91,6 +93,20 @@ export class AttendanceSubmitComponent {
     this.getAllClasses();
     this.getClasesFetched();
     this.fetch();
+  }
+
+  createFormBuilder() {
+    this.attedanceSubmitForm = new FormGroup({
+      class: new FormControl('', [Validators.required]),
+      dateOfAttendance: new FormControl('', [Validators.required]),
+    });
+  }
+
+  get class() {
+    return this.attedanceSubmitForm.get('class')!;
+  }
+  get dateOfAttendance() {
+    return this.attedanceSubmitForm.get('dateOfAttendance')!;
   }
 
   getAllClasses() {
@@ -176,7 +192,6 @@ export class AttendanceSubmitComponent {
   CreateAttendance() {
     this.attendanceService
       .CreateAttendance('attendances/633c04acf1ca3aedd2104fbd')
-
       .subscribe((response) => {
         if (response.status) {
           // this.taostrService.showSuccess(
@@ -233,5 +248,11 @@ export class AttendanceSubmitComponent {
       (res) => (this.apiData = res),
       (err) => throwError(err)
     );
+  }
+
+  onSubmit() {
+    if (this.attedanceSubmitForm) {
+      console.log(this.attedanceSubmitForm.value);
+    }
   }
 }

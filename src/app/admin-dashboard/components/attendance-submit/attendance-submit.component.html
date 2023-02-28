@@ -1,6 +1,7 @@
 <app-sidebar></app-sidebar>
 <div id="main" class="dashboard-main">
   <app-header></app-header>
+
   <div class="main" style="align-items: flex-start">
     <section id="calendar" class="calendar pb-0">
       <div class="container aos-init aos-animate" data-aos="fade-up">
@@ -17,7 +18,7 @@
               </p>
             </div>
           </div>
-          <div class="col-xl-6 mb-4">
+          <div class="col-xl-6 mb-4" (ngSubmit)="onSubmit()">
             <div class="calendar-box">
               <div class="calendar-inner">
                 <div class="bg-light text-center rounded p-4">
@@ -27,6 +28,7 @@
             </div>
           </div>
         </div>
+        <button type="submit">Submit</button>
         <div class="row mt-5 mb-5">
           <div class="col-12">
             <ul class="classlist">
@@ -34,7 +36,7 @@
                 <input
                   type="radio"
                   id="class1st"
-                  name="classlist"
+                  name="class"
                   value="class1st"
                   [checked]="getSingleClass?._id === class?._id"
                 />
@@ -58,6 +60,7 @@
                       tabindex="-1"
                       aria-labelledby="exampleModalLabel"
                       aria-hidden="true"
+                      formControlName="class"
                     >
                       <div class="modal-dialog">
                         <div class="modal-content">
