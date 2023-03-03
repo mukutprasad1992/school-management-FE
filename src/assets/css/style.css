@@ -2247,7 +2247,7 @@ section.table {
   
 
 @media (max-width: 991px){
-  .navbar ul{
+  .header-scrolled .navbar ul{
     position: absolute;
     top: 100%;
     left: 0;
@@ -2262,7 +2262,7 @@ section.table {
     transition: opacity 0.25s ease-in-out;
   }
 
-  .navbar.opennav ul{
+  .header-scrolled .navbar.opennav ul{
     height: calc(100vh - 80px);
     padding: 15px;
     display: flex;
@@ -2273,17 +2273,48 @@ section.table {
     opacity: 1;
   }
 
-  .navbar.opennav ul li{
+  .header-scrolled .navbar.opennav ul li{
     width: 100%;
   }
 
-  .navbar.opennav ul li a{
+  .header-scrolled .navbar.opennav ul li a{
     margin-left: 0px;
     margin-bottom: 15px;
     justify-content: center;
   }
 
-  .navbar{
+  .header-scrolled .navbar{
     position: inherit;
   }
+
+}
+
+
+.btn.btn-primary{
+  display: inline-block;
+    padding: 12px 35px;
+    border-radius: 50px;
+    transition: none;
+    font-size: 16px;
+    font-weight: 500;
+    font-family: "Jost", sans-serif;
+    transition: 0.3s;
+    border: 1px solid var(--primary);
+    background: var(--primary);
+    color: var(--white);
+}
+
+.attendance-modal .student-info p strong{
+  font-weight: bold;
+  text-transform: uppercase;
+  position: relative;
+  color: var(--secondary);
+}
+
+.attendance-modal .student-info p{
+  text-transform: uppercase;
+}
+
+.attendance-modal .student-info .roll-no{
+  text-align: right;
 }

@@ -27,7 +27,7 @@ export class AttendanceService {
     return this.http.get(`${API_URL}/${url}`).pipe(map((res) => res));
   }
 
-  public CreateAttendance(url: string): Observable<any> {
+  public getAttendance(url: string): Observable<any> {
     return this.http.get(`${API_URL}/${url}`).pipe(map((res) => res));
   }
 
@@ -36,6 +36,12 @@ export class AttendanceService {
   }
 
   public uploadStudentPic(url: string, requestBody: any): Observable<any> {
+    return this.http
+      .post(`${API_URL}/${url}`, requestBody)
+      .pipe(map((res) => res));
+  }
+
+  public createAttendance(url: string, requestBody: any): Observable<any> {
     return this.http
       .post(`${API_URL}/${url}`, requestBody)
       .pipe(map((res) => res));

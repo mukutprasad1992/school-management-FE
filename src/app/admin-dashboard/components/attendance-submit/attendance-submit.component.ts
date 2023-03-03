@@ -179,36 +179,36 @@ export class AttendanceSubmitComponent {
       .subscribe((response) => {
         if (response.status) {
           this.getClassAttendance();
-          this.taostrService.showSuccess(
-            messages.Onsubmit.success.title,
-            messages.Onsubmit.success.message
-          );
+          // this.taostrService.showSuccess(
+          //   messages.Onsubmit.success.title,
+          //   messages.Onsubmit.success.message
+          // );
           this.getStudenstOfClass = response.result;
         } else {
-          this.taostrService.showError(
-            messages.Onsubmit.error.title,
-            messages.Onsubmit.error.message
-          );
+          // this.taostrService.showError(
+          //   messages.Onsubmit.error.title,
+          //   messages.Onsubmit.error.message
+          // );
         }
       });
   }
 
-  CreateAttendance() {
+  getAttendance() {
     this.attendanceService
-      .CreateAttendance('attendances/633c04acf1ca3aedd2104fbd')
+      .getAttendance('attendances/633c04acf1ca3aedd2104fbd')
       .subscribe((response) => {
         if (response.status) {
-          // this.taostrService.showSuccess(
-          //   messages.updateStatus.success.title,
-          //   messages.updateStatus.success.message
-          // );
+          this.taostrService.showSuccess(
+            messages.GetAttendance.success.title,
+            messages.GetAttendance.success.message
+          );
           this.getAllClasses();
           this.getAttendanceData = response.result;
         } else {
-          // this.taostrService.showError(
-          //   messages.updateStatus.error.title,
-          //   messages.updateStatus.error.message
-          // );
+          this.taostrService.showError(
+            messages.GetAttendance.error.title,
+            messages.GetAttendance.error.message
+          );
         }
       });
   }
@@ -254,9 +254,24 @@ export class AttendanceSubmitComponent {
     );
   }
 
-  onSubmit() {
+  createAttendance() {
     this.onSubmitValidation = true;
-    console.info('Get Data', this.prepareAttendanceSheet);
+    //console.info('Get Data', this.prepareAttendanceSheet);
+    this.attendanceService
+      .createAttendance('attendances', this.prepareAttendanceSheet)
+      .subscribe((response) => {
+        if (response.status) {
+          this.taostrService.showSuccess(
+            messages.CreateAttendance.success.title,
+            messages.CreateAttendance.success.message
+          );
+        } else {
+          this.taostrService.showError(
+            messages.CreateAttendance.error.title,
+            messages.CreateAttendance.error.message
+          );
+        }
+      });
   }
 
   onClick(student: any) {
