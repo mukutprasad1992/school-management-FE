@@ -32,13 +32,24 @@ export const messages = {
     },
   },
 
-  Onsubmit: {
+  GetAttendance: {
     success: {
-      title: 'Submit',
+      title: 'getAttendance',
+      message: 'Attendance create successfully',
+    },
+    error: {
+      title: 'getAttendance',
+      message: 'Error while create the Attendance',
+    },
+  },
+
+  CreateAttendance: {
+    success: {
+      title: 'CreateAttendance',
       message: 'Attendance Submited successfully',
     },
     error: {
-      title: 'Submit',
+      title: 'SubCreateAttendancemit',
       message: 'Error while Submit the Attendance',
     },
   },

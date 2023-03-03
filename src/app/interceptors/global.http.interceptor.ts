@@ -22,7 +22,15 @@ export class GlobalHttpInterceptorService implements HttpInterceptor {
     return next.handle(req).pipe(
       catchError((error) => {
         if (error.error.status === false) {
-          this.taostrService.showError('HTTP ERROR', error.error.result);
+          console.info(error.error.result);
+          if (error.error.result && Array.isArray(error.error.result)) {
+            this.taostrService.showError(
+              'HTTP ERROR',
+              error.error.result[0].msg
+            );
+          } else {
+            this.taostrService.showError('HTTP ERROR', error.error.result);
+          }
         } else {
           this.taostrService.showError(
             'HTTP ERROR',

@@ -10,15 +10,15 @@
             <div class="section-title">
               <h2 class="title">Attendance</h2>
               <p class="text-danger text-center">
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy
-                text ever since the 1500s, when an unknown printer took a galley
-                of type and scrambled it to make a type specimen book. It has
-                survived not only five centuries,
+                To take attendance you must have to select date, class and class
+                of student and when you click on attendance you got attendance
+                status after selecting status response please close explict
+                window and then submit. If you leave any one of these field
+                blank, your attendance will not be created.
               </p>
             </div>
           </div>
-          <div class="col-xl-6 mb-4" (ngSubmit)="onSubmit()">
+          <div class="col-xl-6 mb-4" (ngSubmit)="createAttendance()">
             <div class="calendar-box">
               <div class="calendar-inner">
                 <div class="bg-light text-center rounded p-4">
@@ -116,7 +116,8 @@
                         <p class="rollno">{{ student?.rollNo }}</p>
                       </div>
                       <div class="status">
-                        status : N/A
+                        status :
+
                         <!-- <a
                           class="label text-success"
                           (click)="CreateAttendance()"
@@ -151,12 +152,12 @@
                   </ng-container>
                 </owl-carousel-o>
               </div>
-              <button (click)="onSubmit()">Submit</button>
+              <button (click)="createAttendance()">Submit</button>
               <div *ngIf="!selectClass && onSubmitValidation">
-                Error: Clss is empty!
+                Error: Please select class!
               </div>
               <div *ngIf="!selectDate && onSubmitValidation">
-                Error: Date is empty!
+                Error: Please select date!
               </div>
               <!--carousel End-->
             </div>
