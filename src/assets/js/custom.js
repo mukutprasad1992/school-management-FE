@@ -13,4 +13,7 @@ function closeNav() {
     document.getElementById("main").style.marginLeft = "0";
 }
 
-
+function togglenav() {
+    var element = document.getElementById("navbar");
+    element.classList.toggle("opennav");
+}

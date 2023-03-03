@@ -2243,3 +2243,47 @@ section {
 section.table {
   padding-top: 10px;
 }
+
+  
+
+@media (max-width: 991px){
+  .navbar ul{
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: rgba(40, 58, 90, 0.9);
+    right: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+    height: 0;
+    display: block;
+    overflow: hidden;
+    padding: 0px;
+    opacity: 0;
+    transition: opacity 0.25s ease-in-out;
+  }
+
+  .navbar.opennav ul{
+    height: calc(100vh - 80px);
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+  }
+
+  .navbar.opennav ul li{
+    width: 100%;
+  }
+
+  .navbar.opennav ul li a{
+    margin-left: 0px;
+    margin-bottom: 15px;
+    justify-content: center;
+  }
+
+  .navbar{
+    position: inherit;
+  }
+}
