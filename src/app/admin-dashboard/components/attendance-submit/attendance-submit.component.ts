@@ -8,7 +8,7 @@ import { throwError } from 'rxjs';
 import { AttendanceService } from '../../../services/admin-dasboard/attendance.service';
 import { TaostrService } from '../../../services/common/taostr.service';
 import { messages } from '../../../constant/admin-dashboard/attendance-submit.message';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
+
 export interface PhotosApi {
   albumId?: number;
   id?: number;
@@ -17,14 +17,17 @@ export interface PhotosApi {
   thumbnailUrl?: string;
 }
 
+export interface Student {
+  student?: string;
+  status?: string;
+  rollNo?: string;
+}
 @Component({
   selector: 'app-attendance-submit',
   templateUrl: './attendance-submit.component.html',
   styleUrls: ['./attendance-submit.component.scss'],
 })
 export class AttendanceSubmitComponent {
-  attedanceSubmitForm!: FormGroup;
-
   constructor(
     private readonly http: HttpClient,
     private attendanceService: AttendanceService,
@@ -45,6 +48,17 @@ export class AttendanceSubmitComponent {
   imageBaseUrl: string =
     'https://schoolmanagementimage.s3.ap-south-1.amazonaws.com';
 
+  selectClass: any;
+  selectDate: any;
+  onSubmitValidation: boolean = false;
+  getCurrentStudent: any;
+
+  prepareAttendanceSheet = {
+    class: '',
+    dateOfAttendance: '',
+    students: [] as Object[],
+  };
+
   calendarOptions: CalendarOptions = {
     headerToolbar: {
       left: 'title',
@@ -62,8 +76,10 @@ export class AttendanceSubmitComponent {
   };
 
   handleDateClick(arg: any) {
-    console.info('date click! ' + arg.dateStr);
+    console.info('date click! ' + typeof arg.dateStr);
     this.getAttendanceDate = arg.dateStr;
+    this.prepareAttendanceSheet.dateOfAttendance = arg.dateStr;
+    this.selectDate = arg.dateStr;
   }
 
   limit: number = 100; // <==== Edit this number to limit API results
@@ -93,20 +109,6 @@ export class AttendanceSubmitComponent {
     this.getAllClasses();
     this.getClasesFetched();
     this.fetch();
-  }
-
-  createFormBuilder() {
-    this.attedanceSubmitForm = new FormGroup({
-      class: new FormControl('', [Validators.required]),
-      dateOfAttendance: new FormControl('', [Validators.required]),
-    });
-  }
-
-  get class() {
-    return this.attedanceSubmitForm.get('class')!;
-  }
-  get dateOfAttendance() {
-    return this.attedanceSubmitForm.get('dateOfAttendance')!;
   }
 
   getAllClasses() {
@@ -170,6 +172,8 @@ export class AttendanceSubmitComponent {
     this.getAllClasses();
     this.getSingleClass = getClass;
     this.getAttendanceClass = getClass._id;
+    this.prepareAttendanceSheet.class = getClass._id;
+    this.selectClass = this.getAttendanceClass;
     this.attendanceService
       .classStudent(`classesStudents/getAllClassStudents/${getClass._id}`)
       .subscribe((response) => {
@@ -251,8 +255,22 @@ export class AttendanceSubmitComponent {
   }
 
   onSubmit() {
-    if (this.attedanceSubmitForm) {
-      console.log(this.attedanceSubmitForm.value);
-    }
+    this.onSubmitValidation = true;
+    console.info('Get Data', this.prepareAttendanceSheet);
+  }
+
+  onClick(student: any) {
+    console.log(student);
+    this.getCurrentStudent = student;
+  }
+
+  makeAttendance(status: string, getCurrentStudent: any) {
+    console.log(status, getCurrentStudent);
+    let data = {
+      student: getCurrentStudent.student._id,
+      status: status,
+      rollNo: getCurrentStudent.rollNo,
+    };
+    this.prepareAttendanceSheet.students.push(data);
   }
 }
