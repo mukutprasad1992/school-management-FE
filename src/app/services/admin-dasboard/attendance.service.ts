@@ -46,4 +46,8 @@ export class AttendanceService {
       .post(`${API_URL}/${url}`, requestBody)
       .pipe(map((res) => res));
   }
+
+  public getAttendanceData(url: string): Observable<any> {
+    return this.http.get(`${API_URL}/${url}`).pipe(map((res) => res));
+  }
 }

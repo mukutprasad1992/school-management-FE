@@ -86,27 +86,40 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>1</td>
-                    <td>1st</td>
-                    <td>john doe</td>
+                  <tr
+                    *ngFor="
+                      let getClassAttendanceData of getClassStudentAttendance
+                        | paginate
+                          : {
+                              itemsPerPage: tableSize,
+                              currentPage: page,
+                              totalItems: totalCount
+                            };
+                      index as i
+                    "
+                  >
+                    <td>{{ i + 1 }}</td>
+                    <td>{{ getClassAttendanceData.class.name }}</td>
                     <td>
-                      <div class="absent label text-danger" href="#">
-                        Absent
-                      </div>
+                      {{ getClassAttendanceData.firstName }}
+                      {{ getClassAttendanceData.lastName }}
                     </td>
-                    <td>
-                      <a
-                        class="btn btn-sm btn-primary"
+                    <!-- <td class="text-center">
+                      <div
+                        [ngClass]="{
+                          approve:
+                            getClassAttendanceData.status === 'ACTIVATED',
+                          reject:
+                            getClassAttendanceData.status === 'INPROGRESS',
+                          pending:
+                            getClassAttendanceData.status === 'INITIATED',
+                          label: true
+                        }"
                         href="#"
-                        data-bs-toggle="modal"
-                        data-bs-target="#exampleModal"
-                        ><i class="bi bi-eye"></i
-                      ></a>
-                      <a class="btn btn-sm btn-primary" href="#"
-                        ><i class="bi bi-trash"></i
-                      ></a>
-                    </td>
+                      >
+                        {{ getClassAttendanceData.status.toLowerCase() }}
+                      </div>
+                    </td> -->
                     <td>
                       <div class="dropdown">
                         <button
@@ -119,248 +132,42 @@
                         </button>
                         <ul class="dropdown-menu">
                           <li>
-                            <a class="dropdown-item pending" href="#"
-                              >Pending</a
-                            >
+                            <a class="dropdown-item pending">Pending</a>
                           </li>
                           <li>
-                            <a class="dropdown-item approve" href="#"
-                              >Approve</a
-                            >
+                            <a class="dropdown-item approve">Approve</a>
                           </li>
                           <li>
-                            <a class="dropdown-item reject" href="#">Reject</a>
+                            <a class="dropdown-item reject">Reject</a>
                           </li>
                         </ul>
                       </div>
                     </td>
-                  </tr>
-                  <tr>
-                    <td>1</td>
-                    <td>1st</td>
-                    <td>john doe</td>
                     <td>
-                      <div class="no-response text-primary label" href="#">
-                        No Response
-                      </div>
-                    </td>
-                    <td>
-                      <a
-                        class="btn btn-sm btn-primary"
-                        href="#"
-                        data-bs-toggle="modal"
-                        data-bs-target="#exampleModal"
+                      <a class="btn btn-sm btn-primary" href="#"
                         ><i class="bi bi-eye"></i
                       ></a>
                       <a class="btn btn-sm btn-primary" href="#"
                         ><i class="bi bi-trash"></i
                       ></a>
-                    </td>
-                    <td>
-                      <div class="dropdown">
-                        <button
-                          class="btn btn-secondary dropdown-toggle"
-                          type="button"
-                          data-bs-toggle="dropdown"
-                          aria-expanded="false"
-                        >
-                          <i class="bi bi-three-dots-vertical"></i>
-                        </button>
-                        <ul class="dropdown-menu">
-                          <li>
-                            <a class="dropdown-item pending" href="#"
-                              >Pending</a
-                            >
-                          </li>
-                          <li>
-                            <a class="dropdown-item approve" href="#"
-                              >Approve</a
-                            >
-                          </li>
-                          <li>
-                            <a class="dropdown-item reject" href="#">Reject</a>
-                          </li>
-                        </ul>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>1</td>
-                    <td>1st</td>
-                    <td>john doe</td>
-                    <td>
-                      <div class="absent label text-danger" href="#">
-                        Absent
-                      </div>
-                    </td>
-                    <td>
-                      <a
-                        class="btn btn-sm btn-primary"
-                        href="#"
-                        data-bs-toggle="modal"
-                        data-bs-target="#exampleModal"
-                        ><i class="bi bi-eye"></i
-                      ></a>
-                      <a class="btn btn-sm btn-primary" href="#"
-                        ><i class="bi bi-trash"></i
-                      ></a>
-                    </td>
-                    <td>
-                      <div class="dropdown">
-                        <button
-                          class="btn btn-secondary dropdown-toggle"
-                          type="button"
-                          data-bs-toggle="dropdown"
-                          aria-expanded="false"
-                        >
-                          <i class="bi bi-three-dots-vertical"></i>
-                        </button>
-                        <ul class="dropdown-menu">
-                          <li>
-                            <a class="dropdown-item pending" href="#"
-                              >Pending</a
-                            >
-                          </li>
-                          <li>
-                            <a class="dropdown-item approve" href="#"
-                              >Approve</a
-                            >
-                          </li>
-                          <li>
-                            <a class="dropdown-item reject" href="#">Reject</a>
-                          </li>
-                        </ul>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>1</td>
-                    <td>1st</td>
-                    <td>john doe</td>
-                    <td>
-                      <div class="present label text-success" href="#">
-                        Present
-                      </div>
-                    </td>
-                    <td>
-                      <a
-                        class="btn btn-sm btn-primary"
-                        href="#"
-                        data-bs-toggle="modal"
-                        data-bs-target="#exampleModal"
-                        ><i class="bi bi-eye"></i
-                      ></a>
-                      <a class="btn btn-sm btn-primary" href="#"
-                        ><i class="bi bi-trash"></i
-                      ></a>
-                    </td>
-                    <td>
-                      <div class="dropdown">
-                        <button
-                          class="btn btn-secondary dropdown-toggle"
-                          type="button"
-                          data-bs-toggle="dropdown"
-                          aria-expanded="false"
-                        >
-                          <i class="bi bi-three-dots-vertical"></i>
-                        </button>
-                        <ul class="dropdown-menu">
-                          <li>
-                            <a class="dropdown-item pending" href="#"
-                              >Pending</a
-                            >
-                          </li>
-                          <li>
-                            <a class="dropdown-item approve" href="#"
-                              >Approve</a
-                            >
-                          </li>
-                          <li>
-                            <a class="dropdown-item reject" href="#">Reject</a>
-                          </li>
-                        </ul>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>1</td>
-                    <td>1st</td>
-                    <td>john doe</td>
-                    <td>
-                      <div class="present label text-success" href="#">
-                        Present
-                      </div>
-                    </td>
-                    <td>
-                      <a
-                        class="btn btn-sm btn-primary"
-                        href="#"
-                        data-bs-toggle="modal"
-                        data-bs-target="#exampleModal"
-                        ><i class="bi bi-eye"></i
-                      ></a>
-                      <a class="btn btn-sm btn-primary" href="#"
-                        ><i class="bi bi-trash"></i
-                      ></a>
-                    </td>
-                    <td>
-                      <div class="dropdown">
-                        <button
-                          class="btn btn-secondary dropdown-toggle"
-                          type="button"
-                          data-bs-toggle="dropdown"
-                          aria-expanded="false"
-                        >
-                          <i class="bi bi-three-dots-vertical"></i>
-                        </button>
-                        <ul class="dropdown-menu">
-                          <li>
-                            <a class="dropdown-item pending" href="#"
-                              >Pending</a
-                            >
-                          </li>
-                          <li>
-                            <a class="dropdown-item approve" href="#"
-                              >Approve</a
-                            >
-                          </li>
-                          <li>
-                            <a class="dropdown-item reject" href="#">Reject</a>
-                          </li>
-                        </ul>
-                      </div>
                     </td>
                   </tr>
                 </tbody>
               </table>
             </div>
             <div class="pagination">
-              <nav aria-label="Page navigation example">
-                <ul class="pagination">
-                  <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Previous">
-                      <span aria-hidden="true">Previous</span>
-                    </a>
-                  </li>
-                  <li class="page-item"><a class="page-link" href="#">1</a></li>
-                  <li class="page-item">
-                    <a class="page-link active" href="#">2</a>
-                  </li>
-                  <li class="page-item"><a class="page-link" href="#">3</a></li>
-                  <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Next">
-                      <span aria-hidden="true">Next</span>
-                    </a>
-                  </li>
-                </ul>
-              </nav>
+              <pagination-controls
+                previousLabel="Prev"
+                nextLabel="Next"
+                (pageChange)="onTableDataChange($event)"
+              >
+              </pagination-controls>
             </div>
           </div>
         </div>
       </div>
     </div>
   </section>
-
   <app-footer></app-footer>
 </div>
 
