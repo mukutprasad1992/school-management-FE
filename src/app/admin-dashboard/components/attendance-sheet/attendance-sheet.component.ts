@@ -72,6 +72,7 @@ export class AttendanceSheetComponent {
       .getAttendanceData('attendances')
       //console.info('Get Data', this.prepareAttendanceSheet);
       .subscribe((response) => {
+        console.log(response.result[0].students);
         if (response.status) {
           //   this.taostrService.showSuccess(
           //     messages.CreateAttendance.success.title,
@@ -81,6 +82,7 @@ export class AttendanceSheetComponent {
           this.getClassStudentAttendance = response.result;
           // this.getAllAttendance = response.result;
           this.totalCount = response.result.length;
+          console.log(this.getClassStudentAttendance);
           // } else {
           //   this.taostrService.showError(
           //     messages.CreateAttendance.error.title,

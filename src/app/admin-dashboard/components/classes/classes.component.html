@@ -73,116 +73,122 @@
         </form>
       </div>
     </div>
-    <div class="row">
-      <div class="col-12">
-        <div class="text-center rounded p-4 table-box">
-          <div
-            class="d-flex align-items-center justify-content-between mb-3 table-header"
-          >
-            <h6 class="mb-0 title">Classes</h6>
-          </div>
-          <div class="table-responsive">
-            <table
-              class="table text-start align-middle table-bordered table-hover mb-0"
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <div class="text-center rounded p-4 table-box">
+            <div
+              class="d-flex align-items-center justify-content-between mb-3 table-header"
             >
-              <thead>
-                <tr class="text-dark">
-                  <th scope="col">S. No.</th>
-                  <th scope="col">Class</th>
-                  <th scope="col">Created By</th>
-                  <th scope="col">Status</th>
-                  <th scope="col" style="width: 200px">Update Status</th>
-                  <th scope="col">Action</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr
-                  *ngFor="
-                    let class of getAllClasesFetched
-                      | paginate
-                        : {
-                            itemsPerPage: tableSize,
-                            currentPage: page,
-                            totalItems: totalCount
-                          };
-                    index as i
-                  "
-                >
-                  <td>{{ i + 1 }}</td>
-                  <td>{{ class.name }}</td>
-                  <td>
-                    {{ class?.createdBy?.firstName }}
-                    {{ class?.createdBy?.lastName }}
-                  </td>
-                  <td>
-                    <div
-                      [ngClass]="{
-                        approve: class.status === 'ACTIVATED',
-                        reject: class.status === 'INPROGRESS',
-                        pending: class.status === 'INITIATED',
-                        label: true
-                      }"
-                    >
-                      {{ class.status.toLowerCase() }}
-                    </div>
-                  </td>
-                  <td>
-                    <div class="dropdown">
-                      <button
-                        class="btn btn-secondary dropdown-toggle"
-                        type="button"
-                        data-bs-toggle="dropdown"
-                        aria-expanded="false"
+              <h6 class="mb-0 title">Classes</h6>
+            </div>
+            <div class="table-responsive">
+              <table
+                class="table text-start align-middle table-bordered table-hover mb-0"
+              >
+                <thead>
+                  <tr class="text-dark">
+                    <th scope="col">S. No.</th>
+                    <th scope="col">Class</th>
+                    <th scope="col">Created By</th>
+                    <th scope="col">Status</th>
+                    <th scope="col" style="width: 200px">Update Status</th>
+                    <th scope="col">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr
+                    *ngFor="
+                      let class of getAllClasesFetched
+                        | paginate
+                          : {
+                              itemsPerPage: tableSize,
+                              currentPage: page,
+                              totalItems: totalCount
+                            };
+                      index as i
+                    "
+                  >
+                    <td>{{ i + 1 }}</td>
+                    <td>{{ class.name }}</td>
+                    <td>
+                      {{ class?.createdBy?.firstName }}
+                      {{ class?.createdBy?.lastName }}
+                    </td>
+                    <td>
+                      <div
+                        [ngClass]="{
+                          approve: class.status === 'ACTIVATED',
+                          reject: class.status === 'INPROGRESS',
+                          pending: class.status === 'INITIATED',
+                          label: true
+                        }"
                       >
-                        <i class="bi bi-three-dots-vertical"></i>
-                      </button>
-                      <ul class="dropdown-menu">
-                        <li>
-                          <a
-                            class="dropdown-item pending"
-                            (click)="getAllStatusUpdate(class._id, 'INITIATED')"
-                            >Pending</a
-                          >
-                        </li>
-                        <li>
-                          <a
-                            class="dropdown-item approve"
-                            (click)="getAllStatusUpdate(class._id, 'ACTIVATED')"
-                            >Approve</a
-                          >
-                        </li>
-                        <li>
-                          <a
-                            class="dropdown-item reject"
-                            (click)="
-                              getAllStatusUpdate(class._id, 'INPROGRESS')
-                            "
-                            >Reject</a
-                          >
-                        </li>
-                      </ul>
-                    </div>
-                  </td>
+                        {{ class.status.toLowerCase() }}
+                      </div>
+                    </td>
+                    <td>
+                      <div class="dropdown">
+                        <button
+                          class="btn btn-secondary dropdown-toggle"
+                          type="button"
+                          data-bs-toggle="dropdown"
+                          aria-expanded="false"
+                        >
+                          <i class="bi bi-three-dots-vertical"></i>
+                        </button>
+                        <ul class="dropdown-menu">
+                          <li>
+                            <a
+                              class="dropdown-item pending"
+                              (click)="
+                                getAllStatusUpdate(class._id, 'INITIATED')
+                              "
+                              >Pending</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              class="dropdown-item approve"
+                              (click)="
+                                getAllStatusUpdate(class._id, 'ACTIVATED')
+                              "
+                              >Approve</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              class="dropdown-item reject"
+                              (click)="
+                                getAllStatusUpdate(class._id, 'INPROGRESS')
+                              "
+                              >Reject</a
+                            >
+                          </li>
+                        </ul>
+                      </div>
+                    </td>
 
-                  <td>
-                    <a class="btn btn-sm btn-primary" href="#"
-                      ><i class="bi bi-eye"></i
-                    ></a>
-                    <a class="btn btn-sm btn-primary" href="#"
-                      ><i class="bi bi-trash"></i
-                    ></a>
-                  </td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="pagination">
-            <pagination-controls
-              previousLabel="Prev"
-              nextLabel="Next"
-              (pageChange)="onTableDataChange($event)"
-            >
-            </pagination-controls>
+                    <td>
+                      <a class="btn btn-sm btn-primary" href="#"
+                        ><i class="bi bi-eye"></i
+                      ></a>
+                      <a class="btn btn-sm btn-primary" href="#"
+                        ><i class="bi bi-trash"></i
+                      ></a>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="pagination">
+              <pagination-controls
+                previousLabel="Prev"
+                nextLabel="Next"
+                (pageChange)="onTableDataChange($event)"
+              >
+              </pagination-controls>
+            </div>
           </div>
         </div>
       </div>
