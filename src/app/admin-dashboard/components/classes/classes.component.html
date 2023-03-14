@@ -33,7 +33,7 @@
                 type="text"
                 class="form-control"
                 formControlName="name"
-                placeholder="Enter Class"
+                placeholder="Plese Enter Class Name"
               />
               <div
                 *ngIf="name.invalid && (name.dirty || name.touched)"
@@ -170,7 +170,11 @@
                     </td>
 
                     <td>
-                      <a class="btn btn-sm btn-primary" href="#"
+                      <a
+                        class="btn btn-sm btn-primary"
+                        href="#"
+                        data-bs-toggle="modal"
+                        data-bs-target="#statusmodal"
                         ><i class="bi bi-eye"></i
                       ></a>
                       <a class="btn btn-sm btn-primary" href="#"
@@ -193,6 +197,49 @@
         </div>
       </div>
     </div>
-    <app-footer></app-footer>
   </section>
+  <app-footer></app-footer>
+</div>
+
+<div
+  class="modal fade statusmodal"
+  id="statusmodal"
+  tabindex="-1"
+  aria-labelledby="statusmodal"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="statusmodal">Class Status</h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body student-info">
+        <div class="row px-4">
+          <div class="col-sm-12">
+            <div class="avatar">
+              <img src="assets/img/team/team-2.jpg" class="avatar-img" />
+            </div>
+          </div>
+          <div class="col-sm-6">
+            <p><strong>Class :</strong>1st</p>
+          </div>
+          <div class="col-sm-6">
+            <p><strong>Created By :</strong>Test Admin</p>
+          </div>
+          <!-- <div class="col-sm-6">
+            <p><strong>No :</strong>+1234567890</p>
+          </div> -->
+          <div class="col-sm-6">
+            <p><strong>Status :</strong>approved</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

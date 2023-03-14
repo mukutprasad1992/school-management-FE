@@ -2,6 +2,8 @@ import { Component } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { AttendanceService } from '../../../services/admin-dasboard/attendance.service';
 import { defaultPagination } from '../../../constant/admin-dashboard/pagination.constant';
+import { TaostrService } from '../../../services/common/taostr.service';
+import { messages } from '../../../constant/admin-dashboard/attendance-sheet.message';
 
 @Component({
   selector: 'app-attendance-sheet',
@@ -10,10 +12,12 @@ import { defaultPagination } from '../../../constant/admin-dashboard/pagination.
 })
 export class AttendanceSheetComponent {
   public getClassStudentAttendance: any;
+  finalClassStudentAttendence: any = [];
 
   page: number = defaultPagination.defaultPage;
   totalCount: number = defaultPagination.defaultTotalCount;
   tableSize: number = defaultPagination.defaultTableSize;
+
   attedanceSheetForm!: FormGroup;
 
   getAllClassStudentAttendance: any;
@@ -21,7 +25,10 @@ export class AttendanceSheetComponent {
   allClasses: any = [];
   getAllAttendance: any;
 
-  constructor(private attendanceService: AttendanceService) {}
+  constructor(
+    private attendanceService: AttendanceService,
+    private taostrService: TaostrService
+  ) {}
 
   ngOnInit() {
     this.getAllClasses();
@@ -47,16 +54,16 @@ export class AttendanceSheetComponent {
   getAllClasses() {
     this.attendanceService.getAllClasses('classes').subscribe((response) => {
       if (response.status) {
-        // this.taostrService.showSuccess(
-        //   messages.Classes.success.title,
-        //   messages.Classes.success.message
-        // );
+        this.taostrService.showSuccess(
+          messages.Classes.success.title,
+          messages.Classes.success.message
+        );
         this.allClasses = response.result;
-        // } else {
-        // this.taostrService.showSuccess(
-        //   messages.Classes.error.title,
-        //   messages.Classes.error.message
-        // );
+      } else {
+        this.taostrService.showError(
+          messages.Classes.error.title,
+          messages.Classes.error.message
+        );
       }
     });
   }
@@ -74,20 +81,52 @@ export class AttendanceSheetComponent {
       .subscribe((response) => {
         console.log(response.result[0].students);
         if (response.status) {
-          //   this.taostrService.showSuccess(
-          //     messages.CreateAttendance.success.title,
-          //     messages.CreateAttendance.success.message
-          //   );
-
           this.getClassStudentAttendance = response.result;
-          // this.getAllAttendance = response.result;
-          this.totalCount = response.result.length;
+          for (
+            let attendance = 0;
+            attendance < this.getClassStudentAttendance.length;
+            attendance++
+          ) {
+            if (
+              this.getClassStudentAttendance[attendance] &&
+              this.getClassStudentAttendance[attendance].students.length
+            ) {
+              for (
+                let student = 0;
+                student <
+                this.getClassStudentAttendance[attendance].students.length;
+                student++
+              ) {
+                this.finalClassStudentAttendence.push({
+                  class: this.getClassStudentAttendance[attendance].class.name,
+                  dateOfAttendance:
+                    this.getClassStudentAttendance[attendance].dateOfAttendance,
+                  status:
+                    this.getClassStudentAttendance[attendance].students[student]
+                      .status,
+                  firstName:
+                    this.getClassStudentAttendance[attendance].students[student]
+                      .student.firstName,
+                  lastName:
+                    this.getClassStudentAttendance[attendance].students[student]
+                      .student.lastName,
+                  rollNo:
+                    this.getClassStudentAttendance[attendance].students[student]
+                      .rollNo,
+                });
+              }
+            }
+          }
           console.log(this.getClassStudentAttendance);
-          // } else {
-          //   this.taostrService.showError(
-          //     messages.CreateAttendance.error.title,
-          //     messages.CreateAttendance.error.message
-          //   );
+          this.taostrService.showSuccess(
+            messages.GetAttendance.success.title,
+            messages.GetAttendance.success.message
+          );
+        } else {
+          this.taostrService.showError(
+            messages.GetAttendance.error.title,
+            messages.GetAttendance.error.message
+          );
         }
       });
   }
@@ -99,12 +138,7 @@ export class AttendanceSheetComponent {
 
   onTableDataChange(event: any) {
     this.page = event;
-    this.getAttendanceData();
-  }
-
-  onTableSizeChange(event: any): void {
-    this.tableSize = event.target.value;
-    this.page = 1;
+    console.info('this.page', this.page);
     this.getAttendanceData();
   }
 }

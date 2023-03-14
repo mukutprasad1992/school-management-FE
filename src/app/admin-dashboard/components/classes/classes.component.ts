@@ -61,7 +61,7 @@ export class ClassesComponent {
         );
         this.getAllClasesFetched = response.result;
       } else {
-        this.taostrService.showSuccess(
+        this.taostrService.showError(
           messages.Classes.error.title,
           messages.Classes.error.message
         );
@@ -83,7 +83,7 @@ export class ClassesComponent {
         );
         this.allSchools = response.result;
       } else {
-        this.taostrService.showSuccess(
+        this.taostrService.showError(
           messages.Classes.error.title,
           messages.Classes.error.message
         );

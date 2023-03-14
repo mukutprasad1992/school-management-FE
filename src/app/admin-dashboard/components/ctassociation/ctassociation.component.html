@@ -13,11 +13,12 @@
           >
             <div class="row">
               <div class="form-group col-md-4">
-                <label for="comfirm-password">Classes</label>
+                <label for="classes">Classes</label>
                 <select
                   class="form-control"
                   formControlName="class"
                   [(ngModel)]="selectedOptionClass"
+                  id="classes"
                 >
                   <div
                     *ngIf="class.invalid && (class.dirty || class.touched)"
@@ -37,11 +38,12 @@
                 </select>
               </div>
               <div class="form-group col-md-4">
-                <label for="comfirm-password">Teachers</label>
+                <label for="teachers">Teachers</label>
                 <select
                   class="form-control"
                   formControlName="teacher"
                   [(ngModel)]="selectedOptionTeacher"
+                  id="teachers"
                 >
                   <div
                     *ngIf="
@@ -67,12 +69,13 @@
               </div>
 
               <div class="form-group col-md-2">
-                <label for="comfirm-password">Employee Id</label>
+                <label for="employeeId">Employee Id</label>
                 <input
                   type="number"
                   placeholder="Please enter EMP ID"
                   class="form-control"
                   formControlName="employeeId"
+                  id="employeeId"
                 />
                 <div
                   *ngIf="
@@ -88,7 +91,7 @@
               </div>
 
               <div class="button-box col-md-2">
-                <label class="d-block" for="comfirm-password">&nbsp;</label>
+                <label class="d-block" for="submit">&nbsp;</label>
                 <button type="submit">Submit</button>
               </div>
             </div>

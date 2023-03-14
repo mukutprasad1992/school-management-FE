@@ -76,30 +76,6 @@
                               aria-label="Close"
                             ></button>
                           </div>
-                          <!-- <div class="modal-body">
-                            <div class="button-box">
-                              <a
-                                href="#"
-                                class="btn btn-success"
-                                (click)="getStudentsId(student._id, 'PRESENT')"
-                                >Present</a
-                              >
-                              <a
-                                href="#"
-                                class="btn btn-danger"
-                                (click)="getStudentsId(student._id, 'ABSENT')"
-                                >Absent</a
-                              >
-                              <a
-                                href="#"
-                                class="btn btn-primary"
-                                (click)="
-                                  getStudentsId(student._id, 'NORESPONSE')
-                                "
-                                >No Response</a
-                              >
-                            </div>
-                          </div> -->
                         </div>
                       </div>
                     </div>
@@ -155,7 +131,7 @@
                   </ng-container>
                 </owl-carousel-o>
               </div>
-              <div class="text-center mt-3">
+              <div class="text-center mt-5">
                 <button
                   (click)="createAttendance()"
                   class="btn btn-primary"
@@ -224,14 +200,14 @@
       </div>
       <div class="modal-body student-info">
         <div class="row px-4">
-          <div class="col-md-6">
+          <div class="col-sm-6">
             <p>
               <strong>Name :</strong>
               {{ getCurrentStudent?.student?.firstName }}
               {{ getCurrentStudent?.student?.lastName }}
             </p>
           </div>
-          <div class="col-md-6 roll-no">
+          <div class="col-sm-6 roll-no">
             <p><strong>Roll No :</strong> {{ getCurrentStudent?.rollNo }}</p>
           </div>
         </div>

@@ -81,14 +81,14 @@
                     <th scope="col">Class</th>
                     <th scope="col">Student Name</th>
                     <th scope="col">Status</th>
-                    <th scope="col">Action</th>
+                    <th scope="col">Date Of Attendance</th>
                     <th scope="col" style="width: 110px">Action</th>
                   </tr>
                 </thead>
                 <tbody>
                   <tr
                     *ngFor="
-                      let getClassAttendanceData of getClassStudentAttendance
+                      let getClassAttendanceData of finalClassStudentAttendence
                         | paginate
                           : {
                               itemsPerPage: tableSize,
@@ -99,49 +99,32 @@
                     "
                   >
                     <td>{{ i + 1 }}</td>
-                    <td>{{ getClassAttendanceData.class.name }}</td>
+                    <td>{{ getClassAttendanceData.class }}</td>
+
                     <td>
                       {{ getClassAttendanceData.firstName }}
                       {{ getClassAttendanceData.lastName }}
                     </td>
-                    <!-- <td class="text-center">
+
+                    <td>
                       <div
                         [ngClass]="{
-                          approve:
-                            getClassAttendanceData.status === 'ACTIVATED',
-                          reject:
-                            getClassAttendanceData.status === 'INPROGRESS',
-                          pending:
-                            getClassAttendanceData.status === 'INITIATED',
+                          present: getClassAttendanceData.status === 'PRESENT',
+                          absent: getClassAttendanceData.status === 'ABSENT',
+                          noresponse:
+                            getClassAttendanceData.status === 'NORESPONSE',
                           label: true
                         }"
-                        href="#"
                       >
-                        {{ getClassAttendanceData.status.toLowerCase() }}
+                        {{ getClassAttendanceData.status | titlecase }}
                       </div>
-                    </td> -->
+                    </td>
+
                     <td>
-                      <div class="dropdown">
-                        <button
-                          class="btn btn-secondary dropdown-toggle"
-                          type="button"
-                          data-bs-toggle="dropdown"
-                          aria-expanded="false"
-                        >
-                          <i class="bi bi-three-dots-vertical"></i>
-                        </button>
-                        <ul class="dropdown-menu">
-                          <li>
-                            <a class="dropdown-item pending">Pending</a>
-                          </li>
-                          <li>
-                            <a class="dropdown-item approve">Approve</a>
-                          </li>
-                          <li>
-                            <a class="dropdown-item reject">Reject</a>
-                          </li>
-                        </ul>
-                      </div>
+                      {{
+                        getClassAttendanceData.dateOfAttendance
+                          | date : "dd/MM/yyyy"
+                      }}
                     </td>
                     <td>
                       <a class="btn btn-sm btn-primary" href="#"
@@ -169,27 +152,4 @@
     </div>
   </section>
   <app-footer></app-footer>
-</div>
-
-<div
-  class="modal fade"
-  id="exampleModal"
-  tabindex="-1"
-  aria-labelledby="exampleModalLabel"
-  aria-hidden="true"
->
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal Tilte</h1>
-        <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="modal"
-          aria-label="Close"
-        ></button>
-      </div>
-      <div class="modal-body"></div>
-    </div>
-  </div>
 </div>

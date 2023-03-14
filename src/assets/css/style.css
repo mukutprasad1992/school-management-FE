@@ -1957,6 +1957,11 @@ section {
   font-size: 14.4px;
   line-height: 23.04px;
 }
+
+.table-box .table-responsive table tr:last-child td{
+  border-bottom: none;
+}
+
 .table-box .table-responsive table tr td:last-child, .table-box .table-responsive table tr th:last-child {
   text-align: center;
 }
@@ -2252,17 +2257,108 @@ section {
     color: var(--white);
 }
 
-.attendance-modal .student-info p strong{
+.attendance-modal .student-info p strong, .statusmodal .student-info p strong{
   font-weight: bold;
   text-transform: uppercase;
   position: relative;
   color: var(--secondary);
 }
 
-.attendance-modal .student-info p{
+.attendance-modal .student-info p, .statusmodal .student-info p{
   text-transform: uppercase;
+}
+
+.statusmodal .student-info p{
+  font-size: 14px;
+  margin-bottom: 10px;
 }
 
 .attendance-modal .student-info .roll-no{
   text-align: right;
 }
+
+select, input[type="date"]{
+  cursor: pointer;
+}
+
+.statusmodal .avatar{
+  width: 100%;
+  max-width: 150px;
+  border-radius: 50%;
+  margin: 0 auto 30px;
+  position: relative;
+}
+
+.statusmodal .avatar::after{
+  content: "";
+  position: relative;
+  display: block;
+  width: 100%;
+  padding-bottom: calc(100% - 6px);
+  border: 3px solid var(--primary);
+  border-radius: 50%;
+}
+
+.statusmodal .avatar img{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: calc(100% - 14px);
+  height: calc(100% - 14px);
+  object-fit: cover;
+  object-position: center center;
+  transform: translate(-50% , -50%);
+}
+
+
+@media (max-width: 991px){
+  .header-scrolled .navbar ul{
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background: rgba(40, 58, 90, 0.9);
+    right: 0;
+    border-top: 1px solid rgba(255, 255, 255, 0.5);
+    height: 0;
+    display: block;
+    overflow: hidden;
+    padding: 0px;
+    opacity: 0;
+    transition: opacity 0.25s ease-in-out;
+  }
+
+  .header-scrolled .navbar.opennav ul{
+    height: calc(100vh - 80px);
+    padding: 15px;
+    display: flex;
+    align-items: center;
+    flex-flow: column;
+    align-items: center;
+    justify-content: center;
+    opacity: 1;
+  }
+
+  .header-scrolled .navbar.opennav ul li{
+    width: 100%;
+  }
+
+  .header-scrolled .navbar.opennav ul li a{
+    margin-left: 0px;
+    margin-bottom: 15px;
+    justify-content: center;
+  }
+
+  .header-scrolled .navbar{
+    position: inherit;
+  }
+
+}
+
+
+
+@media (max-width: 576px) {
+  .attendance-modal .student-info .col-sm-6{
+    text-align: center;
+  }
+}
+
