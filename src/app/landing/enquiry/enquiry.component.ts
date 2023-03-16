@@ -9,12 +9,16 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 export class EnquiryComponent {
   enquiryForm!: FormGroup;
 
+  ngOnInit() {
+    this.createFormBuilder();
+  }
+
   createFormBuilder() {
     this.enquiryForm = new FormGroup({
       firstName: new FormControl('', [Validators.required]),
       lastName: new FormControl('', [Validators.required]),
       email: new FormControl('', [Validators.required]),
-      number: new FormControl('', [Validators.required]),
+      mobileNumber: new FormControl('', [Validators.required]),
     });
   }
 
@@ -33,7 +37,7 @@ export class EnquiryComponent {
 
   onSubmit() {
     if (this.enquiryForm.valid) {
-      console.log(this.enquiryForm.value);
+      console.log('this.enquiryForm.value', this.enquiryForm.value);
     }
   }
 }

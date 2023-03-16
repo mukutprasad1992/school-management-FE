@@ -17,6 +17,7 @@ export class TeachersComponent {
   getAllTeachersFetched: any;
 
   public getUser: any;
+  getTeacherUpdate: any;
 
   constructor(
     private teacherService: TeacherService,
@@ -83,5 +84,11 @@ export class TeachersComponent {
     this.tableSize = event.target.value;
     this.page = 1;
     this.getAllTeachers();
+  }
+
+  onTeacherSelect(getTeacher: any) {
+    // console.log(getTeacher);
+    this.getTeacherUpdate = getTeacher;
+    console.log(this.getTeacherUpdate);
   }
 }

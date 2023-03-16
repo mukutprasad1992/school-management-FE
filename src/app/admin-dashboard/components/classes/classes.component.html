@@ -175,8 +175,9 @@
                         href="#"
                         data-bs-toggle="modal"
                         data-bs-target="#statusmodal"
-                        ><i class="bi bi-eye"></i
-                      ></a>
+                        (click)="onClassSelect(class)"
+                        ><i class="bi bi-eye"></i>
+                      </a>
                       <a class="btn btn-sm btn-primary" href="#"
                         ><i class="bi bi-trash"></i
                       ></a>
@@ -211,7 +212,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="statusmodal">Class Status</h1>
+        <h1 class="modal-title fs-5" id="statusmodal">Classes</h1>
         <button
           type="button"
           class="btn-close"
@@ -221,22 +222,18 @@
       </div>
       <div class="modal-body student-info">
         <div class="row px-4">
-          <div class="col-sm-12">
-            <div class="avatar">
-              <img src="assets/img/team/team-2.jpg" class="avatar-img" />
-            </div>
+          <div class="col-sm-6">
+            <p><strong>Class:</strong> {{ getClassesUpdate?.name }}</p>
           </div>
           <div class="col-sm-6">
-            <p><strong>Class :</strong>1st</p>
+            <p>
+              <strong>Created By:</strong>
+              {{ getClassesUpdate?.createdBy?.firstName }}
+              {{ getClassesUpdate?.createdBy?.lastName }}
+            </p>
           </div>
           <div class="col-sm-6">
-            <p><strong>Created By :</strong>Test Admin</p>
-          </div>
-          <!-- <div class="col-sm-6">
-            <p><strong>No :</strong>+1234567890</p>
-          </div> -->
-          <div class="col-sm-6">
-            <p><strong>Status :</strong>approved</p>
+            <p><strong>Status:</strong> {{ getClassesUpdate?.status }}</p>
           </div>
         </div>
       </div>

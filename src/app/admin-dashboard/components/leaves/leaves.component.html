@@ -261,7 +261,12 @@
                       </div>
                     </td>
                     <td>
-                      <a class="btn btn-sm btn-primary" href="#"
+                      <a
+                        class="btn btn-sm btn-primary"
+                        href="#"
+                        data-bs-toggle="modal"
+                        data-bs-target="#statusmodal"
+                        (click)="onLeaveSelect(leave)"
                         ><i class="bi bi-eye"></i
                       ></a>
                       <a class="btn btn-sm btn-primary" href="#"
@@ -272,28 +277,6 @@
                 </tbody>
               </table>
             </div>
-            <!-- <div class="pagination">
-              <nav aria-label="Page navigation example">
-                <ul class="pagination">
-                  <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Previous">
-                      <span aria-hidden="true">Previous</span>
-                    </a>
-                  </li>
-                  <li class="page-item"><a class="page-link" href="#">1</a></li>
-                  <li class="page-item">
-                    <a class="page-link active" href="#">2</a>
-                  </li>
-                  <li class="page-item"><a class="page-link" href="#">3</a></li>
-                  <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Next">
-                      <span aria-hidden="true">Next</span>
-                    </a>
-                  </li>
-                </ul>
-              </nav>
-            </div> -->
-
             <div class="pagination">
               <pagination-controls
                 previousLabel="Prev"
@@ -308,4 +291,42 @@
     </div>
   </section>
   <app-footer></app-footer>
+</div>
+
+<div
+  class="modal fade statusmodal"
+  id="statusmodal"
+  tabindex="-1"
+  aria-labelledby="statusmodal"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="statusmodal">Leave</h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body student-info">
+        <div class="row px-4">
+          <div class="col-sm-6">
+            <p><strong>From Date:</strong> {{ getLeaveUpdate?.startDate }}</p>
+          </div>
+          <div class="col-sm-6">
+            <p><strong>To Date:</strong> {{ getLeaveUpdate?.endDate }}</p>
+          </div>
+          <div class="col-sm-6">
+            <p><strong>Leave Type:</strong> {{ getLeaveUpdate?.leaveType }}</p>
+          </div>
+          <div class="col-sm-6">
+            <p><strong>Status:</strong> {{ getLeaveUpdate?.status }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

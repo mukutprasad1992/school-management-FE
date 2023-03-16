@@ -26,6 +26,7 @@ export class CTAssociationComponent {
   allClasses: any = [];
   allTeachers: any = [];
   getClassTeacherAssociationData: any = [];
+  teacherAssociation: any;
 
   ngOnInit() {
     this.getAllClasses();
@@ -140,5 +141,11 @@ export class CTAssociationComponent {
         messages.Onsubmit.error.message
       );
     }
+  }
+
+  onTeacherAssociation(classTeacherAssociation: any) {
+    // console.log(getTeacher);
+    this.teacherAssociation = classTeacherAssociation;
+    //console.log(this.teacherAssociation);
   }
 }

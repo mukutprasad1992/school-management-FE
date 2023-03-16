@@ -27,6 +27,7 @@ export class LeavesComponent {
   getLeaveData: any = [];
   selectedOptionleaveType: any;
   selectedOptiontag: any;
+  getLeaveUpdate: any;
 
   ngOnInit() {
     this.getUserByLocalStorage();
@@ -131,5 +132,10 @@ export class LeavesComponent {
         messages.SubmitMsg.error.message
       );
     }
+  }
+
+  onLeaveSelect(leaveUpdate: any) {
+    // console.log(leaveUpdate);
+    this.getLeaveUpdate = leaveUpdate;
   }
 }

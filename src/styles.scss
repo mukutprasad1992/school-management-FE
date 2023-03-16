@@ -116,6 +116,15 @@ body {
 
         a {
           width: 100%;
+          color: #fff;
+
+          &:hover{
+            color: #47b2e4;
+          }
+        }
+
+        .dropdown ul a{
+          color: #444444;
         }
       }
     }

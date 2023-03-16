@@ -187,6 +187,7 @@ h6 {
   color: var(--white);
   white-space: nowrap;
   transition: 0.3s;
+  cursor: pointer;
 }
 
 .navbar a i,
@@ -245,7 +246,7 @@ h6 {
   font-size: 14px;
   text-transform: none;
   font-weight: 500;
-  color: #0c3c53;
+  color: #0c3c53 !important;
 }
 
 .navbar .dropdown ul a i {
@@ -2161,11 +2162,11 @@ section {
 
 /* ====================== student modal start ==================== */
 
-#studentModal .modal-dialog{
+#studentModal .modal-dialog, #classteachermodal .modal-dialog{
   max-width: 450px;
 }
 
-#studentModal .modal-title{
+#studentModal .modal-title, #classteachermodal .modal-title{
     font-size: 26px;
     font-weight: bold;
     text-transform: uppercase;
@@ -2175,7 +2176,7 @@ section {
     color: var(--secondary);
 }
 
-#studentModal .avatar{
+#studentModal .avatar, #classteachermodal .avatar{
   width: 100%;
   max-width: 150px;
   border-radius: 50%;
@@ -2183,7 +2184,7 @@ section {
   position: relative;
 }
 
-#studentModal .avatar::after{
+#studentModal .avatar::after, #classteachermodal .avatar::after{
   content: "";
   position: relative;
   display: block;
@@ -2193,7 +2194,7 @@ section {
   border-radius: 50%;
 }
 
-#studentModal .avatar img{
+#studentModal .avatar img, #classteachermodal .avatar img{
   position: absolute;
   top: 50%;
   left: 50%;
@@ -2204,12 +2205,12 @@ section {
   transform: translate(-50% , -50%);
 }
 
-#studentModal .student-detail{
+#studentModal .student-detail, #classteachermodal .student-detail{
   max-width: 450px;
   margin: 0 auto;
 }
 
-#studentModal .title{
+#studentModal .title, #classteachermodal .title{
   display: block;
     font-size: 18px;
     padding-bottom: 0px;
@@ -2218,7 +2219,7 @@ section {
     color: var(--secondary);
 }
 
-#studentModal p{
+#studentModal p, #classteachermodal p{
   display: block;
     font-size: 18px;
     padding-bottom: 10px;
@@ -2227,7 +2228,7 @@ section {
     margin-bottom: 0px;
 }
 
-#studentModal a{
+#studentModal a, #classteachermodal a{
   display: table;
   margin: 0 auto;
   background: var(--primary);
@@ -2281,6 +2282,16 @@ select, input[type="date"]{
   cursor: pointer;
 }
 
+.attendance-modal .modal-header .modal-title, .statusmodal .modal-header .modal-title{
+  font-size: 24px;
+    font-weight: bold;
+    text-transform: uppercase;
+    position: relative;
+    color: #37517e;
+    text-align: center;
+    margin-bottom: 0px;
+}
+
 .statusmodal .avatar{
   width: 100%;
   max-width: 150px;
@@ -2308,6 +2319,7 @@ select, input[type="date"]{
   object-fit: cover;
   object-position: center center;
   transform: translate(-50% , -50%);
+  border-radius: 50%;
 }
 
 
@@ -2362,3 +2374,6 @@ select, input[type="date"]{
   }
 }
 
+app-enquiry{
+  width: 100%;
+}

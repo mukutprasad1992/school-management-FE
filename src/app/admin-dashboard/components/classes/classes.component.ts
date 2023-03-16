@@ -31,6 +31,8 @@ export class ClassesComponent {
   allSchools: any = [];
   selectedOptionSchool: any;
 
+  getClassesUpdate: any;
+
   ngOnInit() {
     this.getAllClasses();
     this.getUserByLocalStorage();
@@ -141,5 +143,10 @@ export class ClassesComponent {
         messages.Createclass.error.message
       );
     }
+  }
+
+  onClassSelect(getClass: any) {
+    // console.log(getClass);
+    this.getClassesUpdate = getClass;
   }
 }

@@ -1,16 +1,13 @@
-<form class="php-email-form" [formGroup]="enquiryForm">
+<form class="php-email-form" [formGroup]="enquiryForm" (ngSubmit)="onSubmit()">
   <div class="row">
     <div class="form-group col-md-6">
       <label for="firstname">First Name</label>
       <input
         type="text"
-        name="name"
         class="form-control"
-        id="firstName"
+        placeholder="First Name"
         formControlName="firstName"
-        required
       />
-
       <div
         *ngIf="firstName.invalid && (firstName.dirty || firstName.touched)"
         class="alert alert-danger"
@@ -25,11 +22,9 @@
       <label for="lastname">Last Name</label>
       <input
         type="text"
-        name="lastName"
         class="form-control"
         formControlName="lastName"
-        id="lastName"
-        required
+        placeholder="Last Name"
       />
       <div
         *ngIf="lastName.invalid && (lastName.dirty || lastName.touched)"
@@ -46,17 +41,15 @@
         <input
           type="email"
           class="form-control"
-          name="email"
           formControlName="email"
-          id="email"
-          required
+          placeholder="E-mail Address"
         />
         <div
           *ngIf="email.invalid && (email.dirty || email.touched)"
           class="alert alert-danger"
         >
           <div *ngIf="email.errors?.['required']">
-            Please enter email address*
+            Please enter e-mail address*
           </div>
           <div *ngIf="email.errors?.['email']">
             Please enter valid email address*
@@ -69,10 +62,8 @@
         <input
           type="number"
           class="form-control"
-          name="mobileNumber"
           formControlName="mobileNumber"
-          id="mobileNumber"
-          required
+          placeholder="Mobile Number"
         />
         <div
           *ngIf="
@@ -81,24 +72,15 @@
           class="alert alert-danger"
         >
           <div *ngIf="mobileNumber.errors?.['required']">
-            Please enter mobile number*
+            Enter valid mobile number*
           </div>
         </div>
       </div>
     </div>
   </div>
-  <!-- <div class="form-group">
-              <label for="name">Subject</label>
-              <input
-                type="text"
-                class="form-control"
-                name="subject"
-                id="subject"
-                required
-              />
-            </div> -->
+
   <div class="form-group">
-    <label for="name">Message</label>
+    <label for="name">Message (Optional)</label>
     <textarea class="form-control" name="message" rows="10" required></textarea>
   </div>
   <div class="my-3">

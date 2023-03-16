@@ -21,6 +21,7 @@ export class AttendanceSheetComponent {
   attedanceSheetForm!: FormGroup;
 
   getAllClassStudentAttendance: any;
+  getAttendanceUpdate: any;
 
   allClasses: any = [];
   getAllAttendance: any;
@@ -140,5 +141,9 @@ export class AttendanceSheetComponent {
     this.page = event;
     console.info('this.page', this.page);
     this.getAttendanceData();
+  }
+
+  onAttendanceUpdate(getAttendanceUpdate: any) {
+    this.getAttendanceUpdate = getAttendanceUpdate;
   }
 }
