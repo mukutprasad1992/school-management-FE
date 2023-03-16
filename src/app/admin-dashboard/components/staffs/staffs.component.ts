@@ -11,6 +11,7 @@ import { defaultPagination } from '../../../constant/admin-dashboard/pagination.
 })
 export class StaffsComponent {
   getAllStaffsFetched: any;
+  getStaffUpdate: any;
 
   page: number = defaultPagination.defaultPage;
   totalCount: number = defaultPagination.defaultTotalCount;
@@ -82,5 +83,9 @@ export class StaffsComponent {
     this.tableSize = event.target.value;
     this.page = 1;
     this.getAllStaffs();
+  }
+
+  onStaffSelect(getstaff: any) {
+    this.getStaffUpdate = getstaff;
   }
 }

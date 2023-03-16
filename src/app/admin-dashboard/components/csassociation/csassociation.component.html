@@ -13,11 +13,12 @@
           >
             <div class="row">
               <div class="form-group col-md-4">
-                <label for="comfirm-password">Classes</label>
+                <label for="classes">Classes</label>
                 <select
                   class="form-control"
                   formControlName="class"
                   [(ngModel)]="selectedOptionClass"
+                  id="classes"
                 >
                   <div
                     *ngIf="class.invalid && (class.dirty || class.touched)"
@@ -37,11 +38,12 @@
                 </select>
               </div>
               <div class="form-group col-md-4">
-                <label for="comfirm-password">Students</label>
+                <label for="students">Students</label>
                 <select
                   class="form-control"
                   formControlName="student"
                   [(ngModel)]="selectedOptionStudent"
+                  id="students"
                 >
                   <div
                     *ngIf="
@@ -67,12 +69,13 @@
               </div>
 
               <div class="form-group col-md-2">
-                <label for="comfirm-password">Roll No</label>
+                <label for="roll-no">Roll No</label>
                 <input
                   type="number"
                   placeholder="Please enter roll no"
                   class="form-control"
                   formControlName="rollNo"
+                  id="roll-no"
                 />
                 <div
                   *ngIf="rollNo.invalid && (rollNo.dirty || rollNo.touched)"
@@ -84,7 +87,7 @@
                 </div>
               </div>
               <div class="button-box col-md-2">
-                <label class="d-block" for="comfirm-password">&nbsp;</label>
+                <label class="d-block" for="submit">&nbsp;</label>
                 <button type="submit">Submit</button>
               </div>
             </div>
@@ -140,6 +143,7 @@
                         href="javascript:void(0)"
                         data-bs-toggle="modal"
                         data-bs-target="#studentModal"
+                        (click)="onStudentAssociation(association)"
                         ><i class="bi bi-eye"></i
                       ></a>
                       <a class="btn btn-sm btn-primary" href="#"
@@ -177,7 +181,7 @@
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="studentModalLabel">Student Details</h5>
+        <h5 class="modal-title" id="studentModalLabel">Student Association</h5>
         <button
           type="button"
           class="btn-close"
@@ -185,43 +189,20 @@
           aria-label="Close"
         ></button>
       </div>
-      <div class="modal-body">
-        <div class="py-3 px-2">
-          <div class="avatar">
-            <img src="https://i.imgur.com/hczKIze.jpg" class="rounded-circle" />
+      <div class="modal-body student-info">
+        <div class="row px-4">
+          <div class="col-sm-6">
+            <p><strong>Class:</strong> {{ studentAssociation?.class?.name }}</p>
           </div>
-          <div class="student-detail">
-            <div class="row">
-              <div class="col-4">
-                <h4 class="title">Name :</h4>
-              </div>
-              <div class="col-8">
-                <p>Arpit Mishra</p>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-4">
-                <h4 class="title">Class :</h4>
-              </div>
-              <div class="col-8">
-                <p>1st</p>
-              </div>
-            </div>
-            <div class="row mb-3">
-              <div class="col-4">
-                <h4 class="title">Roll No :</h4>
-              </div>
-              <div class="col-8">
-                <p>1</p>
-              </div>
-            </div>
-            <div class="row">
-              <div class="col-12">
-                <a href="javascript:void(0)" class="link btn"
-                  >View Full Details</a
-                >
-              </div>
-            </div>
+          <div class="col-sm-6">
+            <p>
+              <strong>Name:</strong>
+              {{ studentAssociation?.student?.firstName }}
+              {{ studentAssociation?.student?.lastName }}
+            </p>
+          </div>
+          <div class="col-sm-6">
+            <p><strong>Roll No:</strong> {{ studentAssociation?.rollNo }}</p>
           </div>
         </div>
       </div>

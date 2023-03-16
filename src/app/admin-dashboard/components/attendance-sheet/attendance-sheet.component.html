@@ -81,300 +81,95 @@
                     <th scope="col">Class</th>
                     <th scope="col">Student Name</th>
                     <th scope="col">Status</th>
-                    <th scope="col">Action</th>
+                    <th scope="col">Date Of Attendance</th>
                     <th scope="col" style="width: 110px">Action</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>1</td>
-                    <td>1st</td>
-                    <td>john doe</td>
+                  <tr
+                    *ngFor="
+                      let getClassAttendanceData of finalClassStudentAttendence
+                        | paginate
+                          : {
+                              itemsPerPage: tableSize,
+                              currentPage: page,
+                              totalItems: totalCount
+                            };
+                      index as i
+                    "
+                  >
+                    <td>{{ i + 1 }}</td>
+                    <td>{{ getClassAttendanceData.class }}</td>
+
                     <td>
-                      <div class="absent label text-danger" href="#">
-                        Absent
+                      {{ getClassAttendanceData.firstName }}
+                      {{ getClassAttendanceData.lastName }}
+                    </td>
+
+                    <td>
+                      <div
+                        [ngClass]="{
+                          present: getClassAttendanceData.status === 'PRESENT',
+                          absent: getClassAttendanceData.status === 'ABSENT',
+                          noresponse:
+                            getClassAttendanceData.status === 'NORESPONSE',
+                          label: true
+                        }"
+                      >
+                        {{ getClassAttendanceData.status | titlecase }}
                       </div>
+                    </td>
+
+                    <td>
+                      {{
+                        getClassAttendanceData.dateOfAttendance
+                          | date : "dd/MM/yyyy"
+                      }}
                     </td>
                     <td>
                       <a
                         class="btn btn-sm btn-primary"
                         href="#"
                         data-bs-toggle="modal"
-                        data-bs-target="#exampleModal"
+                        data-bs-target="#statusmodal"
+                        (click)="onAttendanceUpdate(getClassAttendanceData)"
                         ><i class="bi bi-eye"></i
                       ></a>
                       <a class="btn btn-sm btn-primary" href="#"
                         ><i class="bi bi-trash"></i
                       ></a>
-                    </td>
-                    <td>
-                      <div class="dropdown">
-                        <button
-                          class="btn btn-secondary dropdown-toggle"
-                          type="button"
-                          data-bs-toggle="dropdown"
-                          aria-expanded="false"
-                        >
-                          <i class="bi bi-three-dots-vertical"></i>
-                        </button>
-                        <ul class="dropdown-menu">
-                          <li>
-                            <a class="dropdown-item pending" href="#"
-                              >Pending</a
-                            >
-                          </li>
-                          <li>
-                            <a class="dropdown-item approve" href="#"
-                              >Approve</a
-                            >
-                          </li>
-                          <li>
-                            <a class="dropdown-item reject" href="#">Reject</a>
-                          </li>
-                        </ul>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>1</td>
-                    <td>1st</td>
-                    <td>john doe</td>
-                    <td>
-                      <div class="no-response text-primary label" href="#">
-                        No Response
-                      </div>
-                    </td>
-                    <td>
-                      <a
-                        class="btn btn-sm btn-primary"
-                        href="#"
-                        data-bs-toggle="modal"
-                        data-bs-target="#exampleModal"
-                        ><i class="bi bi-eye"></i
-                      ></a>
-                      <a class="btn btn-sm btn-primary" href="#"
-                        ><i class="bi bi-trash"></i
-                      ></a>
-                    </td>
-                    <td>
-                      <div class="dropdown">
-                        <button
-                          class="btn btn-secondary dropdown-toggle"
-                          type="button"
-                          data-bs-toggle="dropdown"
-                          aria-expanded="false"
-                        >
-                          <i class="bi bi-three-dots-vertical"></i>
-                        </button>
-                        <ul class="dropdown-menu">
-                          <li>
-                            <a class="dropdown-item pending" href="#"
-                              >Pending</a
-                            >
-                          </li>
-                          <li>
-                            <a class="dropdown-item approve" href="#"
-                              >Approve</a
-                            >
-                          </li>
-                          <li>
-                            <a class="dropdown-item reject" href="#">Reject</a>
-                          </li>
-                        </ul>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>1</td>
-                    <td>1st</td>
-                    <td>john doe</td>
-                    <td>
-                      <div class="absent label text-danger" href="#">
-                        Absent
-                      </div>
-                    </td>
-                    <td>
-                      <a
-                        class="btn btn-sm btn-primary"
-                        href="#"
-                        data-bs-toggle="modal"
-                        data-bs-target="#exampleModal"
-                        ><i class="bi bi-eye"></i
-                      ></a>
-                      <a class="btn btn-sm btn-primary" href="#"
-                        ><i class="bi bi-trash"></i
-                      ></a>
-                    </td>
-                    <td>
-                      <div class="dropdown">
-                        <button
-                          class="btn btn-secondary dropdown-toggle"
-                          type="button"
-                          data-bs-toggle="dropdown"
-                          aria-expanded="false"
-                        >
-                          <i class="bi bi-three-dots-vertical"></i>
-                        </button>
-                        <ul class="dropdown-menu">
-                          <li>
-                            <a class="dropdown-item pending" href="#"
-                              >Pending</a
-                            >
-                          </li>
-                          <li>
-                            <a class="dropdown-item approve" href="#"
-                              >Approve</a
-                            >
-                          </li>
-                          <li>
-                            <a class="dropdown-item reject" href="#">Reject</a>
-                          </li>
-                        </ul>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>1</td>
-                    <td>1st</td>
-                    <td>john doe</td>
-                    <td>
-                      <div class="present label text-success" href="#">
-                        Present
-                      </div>
-                    </td>
-                    <td>
-                      <a
-                        class="btn btn-sm btn-primary"
-                        href="#"
-                        data-bs-toggle="modal"
-                        data-bs-target="#exampleModal"
-                        ><i class="bi bi-eye"></i
-                      ></a>
-                      <a class="btn btn-sm btn-primary" href="#"
-                        ><i class="bi bi-trash"></i
-                      ></a>
-                    </td>
-                    <td>
-                      <div class="dropdown">
-                        <button
-                          class="btn btn-secondary dropdown-toggle"
-                          type="button"
-                          data-bs-toggle="dropdown"
-                          aria-expanded="false"
-                        >
-                          <i class="bi bi-three-dots-vertical"></i>
-                        </button>
-                        <ul class="dropdown-menu">
-                          <li>
-                            <a class="dropdown-item pending" href="#"
-                              >Pending</a
-                            >
-                          </li>
-                          <li>
-                            <a class="dropdown-item approve" href="#"
-                              >Approve</a
-                            >
-                          </li>
-                          <li>
-                            <a class="dropdown-item reject" href="#">Reject</a>
-                          </li>
-                        </ul>
-                      </div>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>1</td>
-                    <td>1st</td>
-                    <td>john doe</td>
-                    <td>
-                      <div class="present label text-success" href="#">
-                        Present
-                      </div>
-                    </td>
-                    <td>
-                      <a
-                        class="btn btn-sm btn-primary"
-                        href="#"
-                        data-bs-toggle="modal"
-                        data-bs-target="#exampleModal"
-                        ><i class="bi bi-eye"></i
-                      ></a>
-                      <a class="btn btn-sm btn-primary" href="#"
-                        ><i class="bi bi-trash"></i
-                      ></a>
-                    </td>
-                    <td>
-                      <div class="dropdown">
-                        <button
-                          class="btn btn-secondary dropdown-toggle"
-                          type="button"
-                          data-bs-toggle="dropdown"
-                          aria-expanded="false"
-                        >
-                          <i class="bi bi-three-dots-vertical"></i>
-                        </button>
-                        <ul class="dropdown-menu">
-                          <li>
-                            <a class="dropdown-item pending" href="#"
-                              >Pending</a
-                            >
-                          </li>
-                          <li>
-                            <a class="dropdown-item approve" href="#"
-                              >Approve</a
-                            >
-                          </li>
-                          <li>
-                            <a class="dropdown-item reject" href="#">Reject</a>
-                          </li>
-                        </ul>
-                      </div>
                     </td>
                   </tr>
                 </tbody>
               </table>
             </div>
             <div class="pagination">
-              <nav aria-label="Page navigation example">
-                <ul class="pagination">
-                  <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Previous">
-                      <span aria-hidden="true">Previous</span>
-                    </a>
-                  </li>
-                  <li class="page-item"><a class="page-link" href="#">1</a></li>
-                  <li class="page-item">
-                    <a class="page-link active" href="#">2</a>
-                  </li>
-                  <li class="page-item"><a class="page-link" href="#">3</a></li>
-                  <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Next">
-                      <span aria-hidden="true">Next</span>
-                    </a>
-                  </li>
-                </ul>
-              </nav>
+              <pagination-controls
+                previousLabel="Prev"
+                nextLabel="Next"
+                (pageChange)="onTableDataChange($event)"
+              >
+              </pagination-controls>
             </div>
           </div>
         </div>
       </div>
     </div>
   </section>
-
   <app-footer></app-footer>
 </div>
 
 <div
-  class="modal fade"
-  id="exampleModal"
+  class="modal fade statusmodal"
+  id="statusmodal"
   tabindex="-1"
-  aria-labelledby="exampleModalLabel"
+  aria-labelledby="statusmodal"
   aria-hidden="true"
 >
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Modal Tilte</h1>
+        <h1 class="modal-title fs-5" id="statusmodal">Attendance Status</h1>
         <button
           type="button"
           class="btn-close"
@@ -382,7 +177,28 @@
           aria-label="Close"
         ></button>
       </div>
-      <div class="modal-body"></div>
+      <div class="modal-body student-info">
+        <div class="row px-4">
+          <div class="col-sm-6">
+            <p><strong>Class :</strong>{{ getAttendanceUpdate?.class }}</p>
+          </div>
+          <div class="col-sm-6">
+            <p>
+              <strong>Name:</strong>{{ getAttendanceUpdate?.firstName }}
+              {{ getAttendanceUpdate?.lastName }}
+            </p>
+          </div>
+          <div class="col-sm-6">
+            <p>
+              <strong>Date Of Attendance:</strong
+              >{{ getAttendanceUpdate?.dateOfAttendance | date : "dd/MM/yyyy" }}
+            </p>
+          </div>
+          <div class="col-sm-6">
+            <p><strong>Status :</strong>{{ getAttendanceUpdate?.status }}</p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </div>

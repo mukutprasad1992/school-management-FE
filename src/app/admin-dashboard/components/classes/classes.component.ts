@@ -31,6 +31,8 @@ export class ClassesComponent {
   allSchools: any = [];
   selectedOptionSchool: any;
 
+  getClassesUpdate: any;
+
   ngOnInit() {
     this.getAllClasses();
     this.getUserByLocalStorage();
@@ -61,7 +63,7 @@ export class ClassesComponent {
         );
         this.getAllClasesFetched = response.result;
       } else {
-        this.taostrService.showSuccess(
+        this.taostrService.showError(
           messages.Classes.error.title,
           messages.Classes.error.message
         );
@@ -83,7 +85,7 @@ export class ClassesComponent {
         );
         this.allSchools = response.result;
       } else {
-        this.taostrService.showSuccess(
+        this.taostrService.showError(
           messages.Classes.error.title,
           messages.Classes.error.message
         );
@@ -141,5 +143,10 @@ export class ClassesComponent {
         messages.Createclass.error.message
       );
     }
+  }
+
+  onClassSelect(getClass: any) {
+    // console.log(getClass);
+    this.getClassesUpdate = getClass;
   }
 }

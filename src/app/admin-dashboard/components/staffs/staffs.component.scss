@@ -56,6 +56,8 @@ section.table {
       tr{
         border: 0px;
 
+        
+
         td, th{
           border-width: 0px !important;
           padding: 16px 22.40px;
@@ -68,6 +70,10 @@ section.table {
           &:last-child{
             text-align: center;
           }
+        }
+
+        &:last-child td{
+          border-bottom: none;
         }
 
         th{

@@ -13,11 +13,12 @@
           >
             <div class="row">
               <div class="form-group col-md-4">
-                <label for="comfirm-password">Classes</label>
+                <label for="classes">Classes</label>
                 <select
                   class="form-control"
                   formControlName="class"
                   [(ngModel)]="selectedOptionClass"
+                  id="classes"
                 >
                   <div
                     *ngIf="class.invalid && (class.dirty || class.touched)"
@@ -37,11 +38,12 @@
                 </select>
               </div>
               <div class="form-group col-md-4">
-                <label for="comfirm-password">Teachers</label>
+                <label for="teachers">Teachers</label>
                 <select
                   class="form-control"
                   formControlName="teacher"
                   [(ngModel)]="selectedOptionTeacher"
+                  id="teachers"
                 >
                   <div
                     *ngIf="
@@ -67,12 +69,13 @@
               </div>
 
               <div class="form-group col-md-2">
-                <label for="comfirm-password">Employee Id</label>
+                <label for="employeeId">Employee Id</label>
                 <input
                   type="number"
                   placeholder="Please enter EMP ID"
                   class="form-control"
                   formControlName="employeeId"
+                  id="employeeId"
                 />
                 <div
                   *ngIf="
@@ -88,7 +91,7 @@
               </div>
 
               <div class="button-box col-md-2">
-                <label class="d-block" for="comfirm-password">&nbsp;</label>
+                <label class="d-block" for="submit">&nbsp;</label>
                 <button type="submit">Submit</button>
               </div>
             </div>
@@ -139,7 +142,12 @@
                       {{ association?.employeeId }}
                     </td>
                     <td>
-                      <a class="btn btn-sm btn-primary" href="#"
+                      <a
+                        class="btn btn-sm btn-primary"
+                        href="#"
+                        data-bs-toggle="modal"
+                        data-bs-target="#classteachermodal"
+                        (click)="onTeacherAssociation(association)"
                         ><i class="bi bi-eye"></i
                       ></a>
                       <a class="btn btn-sm btn-primary" href="#"
@@ -165,3 +173,108 @@
   </section>
   <app-footer></app-footer>
 </div>
+
+<div
+  class="modal fade"
+  id="classteachermodal"
+  tabindex="-1"
+  aria-labelledby="classteachermodal"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="classteachermodal">Teacher Association</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body">
+        <div class="py-3 px-2">
+          <!-- <div class="avatar">
+            <img src="https://i.imgur.com/hczKIze.jpg" class="rounded-circle" />
+          </div> -->
+          <div class="student-detail">
+            <div class="row">
+              <div class="col-4">
+                <h4 class="title">Class:</h4>
+              </div>
+              <div class="col-8">
+                <p>{{ teacherAssociation?.class?.name }}</p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-4">
+                <h4 class="title">Name:</h4>
+              </div>
+              <div class="col-8">
+                <p>
+                  {{ teacherAssociation?.teacher?.firstName }}
+                  {{ teacherAssociation?.teacher?.firstName }}
+                </p>
+              </div>
+            </div>
+
+            <div class="row mb-3">
+              <div class="col-4">
+                <h4 class="title">Employee Id:</h4>
+              </div>
+              <div class="col-8">
+                <p>{{ teacherAssociation?.employeeId }}</p>
+              </div>
+            </div>
+            <!-- <div class="row">
+              <div class="col-12">
+                <a href="javascript:void(0)" class="link btn"
+                  >View Full Details</a
+                >
+              </div>
+            </div> -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- <div
+  class="modal fade"
+  id="studentModal"
+  tabindex="-1"
+  aria-labelledby="studentModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="studentModalLabel">Student Details</h5>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body student-info">
+        <div class="row px-4">
+          <div class="col-sm-6">
+            <p><strong>Class:</strong> {{ studentAssociation?.class?.name }}</p>
+          </div>
+          <div class="col-sm-6">
+            <p>
+              <strong>Name:</strong>
+              {{ studentAssociation?.student?.firstName }}
+              {{ studentAssociation?.student?.lastName }}
+            </p>
+          </div>
+          <div class="col-sm-6">
+            <p><strong>Roll No:</strong> {{ studentAssociation?.rollNo }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->

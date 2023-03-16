@@ -25,7 +25,7 @@
           <div class="row">
             <div class="form-group col-md-4">
               <label for="class">Class Name</label>
-              <input type="text" class="form-control" formControlName="name" placeholder="Enter Class" />
+              <input type="text" class="form-control" formControlName="name" placeholder="Plese Enter Class Name" />
               <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
                 <div *ngIf="name.errors?.['required']">
                   Please enter class name*
@@ -53,7 +53,8 @@
           </div>
         </form>
       </div>
-
+    </div>
+    <div class="container">
       <div class="row">
         <div class="col-12">
           <div class="text-center rounded p-4 table-box">
@@ -74,15 +75,15 @@
                 </thead>
                 <tbody>
                   <tr *ngFor="
-                    let class of getAllClasesFetched
-                      | paginate
-                        : {
-                            itemsPerPage: tableSize,
-                            currentPage: page,
-                            totalItems: totalCount
-                          };
-                    index as i
-                  ">
+                      let class of getAllClasesFetched
+                        | paginate
+                          : {
+                              itemsPerPage: tableSize,
+                              currentPage: page,
+                              totalItems: totalCount
+                            };
+                      index as i
+                    ">
                     <td>{{ i + 1 }}</td>
                     <td>{{ class.name }}</td>
                     <td>
@@ -91,11 +92,11 @@
                     </td>
                     <td>
                       <div [ngClass]="{
-                        approve: class.status === 'ACTIVATED',
-                        reject: class.status === 'INPROGRESS',
-                        pending: class.status === 'INITIATED',
-                        label: true
-                      }">
+                          approve: class.status === 'ACTIVATED',
+                          reject: class.status === 'INPROGRESS',
+                          pending: class.status === 'INITIATED',
+                          label: true
+                        }">
                         {{ class.status.toLowerCase() }}
                       </div>
                     </td>
@@ -107,24 +108,28 @@
                         </button>
                         <ul class="dropdown-menu">
                           <li>
-                            <a class="dropdown-item pending"
-                              (click)="getAllStatusUpdate(class._id, 'INITIATED')">Pending</a>
+                            <a class="dropdown-item pending" (click)="
+                                getAllStatusUpdate(class._id, 'INITIATED')
+                              ">Pending</a>
                           </li>
                           <li>
-                            <a class="dropdown-item approve"
-                              (click)="getAllStatusUpdate(class._id, 'ACTIVATED')">Approve</a>
+                            <a class="dropdown-item approve" (click)="
+                                getAllStatusUpdate(class._id, 'ACTIVATED')
+                              ">Approve</a>
                           </li>
                           <li>
                             <a class="dropdown-item reject" (click)="
-                              getAllStatusUpdate(class._id, 'INPROGRESS')
-                            ">Reject</a>
+                                getAllStatusUpdate(class._id, 'INPROGRESS')
+                              ">Reject</a>
                           </li>
                         </ul>
                       </div>
                     </td>
 
                     <td>
-                      <a class="btn btn-sm btn-primary" href="#"><i class="bi bi-eye"></i></a>
+                      <a class="btn btn-sm btn-primary" href="#" data-bs-toggle="modal" data-bs-target="#statusmodal"
+                        (click)="onClassSelect(class)"><i class="bi bi-eye"></i>
+                      </a>
                       <a class="btn btn-sm btn-primary" href="#"><i class="bi bi-trash"></i></a>
                     </td>
                   </tr>
@@ -139,7 +144,34 @@
         </div>
       </div>
     </div>
-
   </section>
   <app-footer></app-footer>
+</div>
+
+<div class="modal fade statusmodal" id="statusmodal" tabindex="-1" aria-labelledby="statusmodal" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h1 class="modal-title fs-5" id="statusmodal">Classes</h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body student-info">
+        <div class="row px-4">
+          <div class="col-sm-6">
+            <p><strong>Class:</strong> {{ getClassesUpdate?.name }}</p>
+          </div>
+          <div class="col-sm-6">
+            <p>
+              <strong>Created By:</strong>
+              {{ getClassesUpdate?.createdBy?.firstName }}
+              {{ getClassesUpdate?.createdBy?.lastName }}
+            </p>
+          </div>
+          <div class="col-sm-6">
+            <p><strong>Status:</strong> {{ getClassesUpdate?.status }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>

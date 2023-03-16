@@ -28,6 +28,8 @@ export class CSAssociationComponent {
   allStudents: any = [];
   allClassStudentAssociation: any = [];
 
+  studentAssociation: any;
+
   ngOnInit() {
     this.getAllClasses();
     this.getAllStudents();
@@ -141,5 +143,10 @@ export class CSAssociationComponent {
         messages.Onsubmit.error.message
       );
     }
+  }
+
+  onStudentAssociation(classStudentAssociation: any) {
+    this.studentAssociation = classStudentAssociation;
+    // console.log(this.studentAssociation);
   }
 }

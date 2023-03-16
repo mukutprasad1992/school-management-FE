@@ -285,6 +285,8 @@ export class AttendanceSubmitComponent {
       student: getCurrentStudent.student._id,
       status: status,
       rollNo: getCurrentStudent.rollNo,
+      firstName: getCurrentStudent.student.firstName,
+      lastName: getCurrentStudent.student.lastName,
     };
     this.prepareAttendanceSheet.students.push(data);
   }

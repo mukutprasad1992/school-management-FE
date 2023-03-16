@@ -1,0 +1,20 @@
+
+.modal {
+    .modal-header .modal-title {
+        font-size: 24px;
+        font-weight: bold;
+        text-transform: uppercase;
+        position: relative;
+        color: #37517e;
+        text-align: center;
+        margin-bottom: 0px;
+    }
+
+    img {
+        width: calc(100% - 6px);
+        height: calc(100% - 6px);
+        object-fit: cover;
+        border-radius: 50%;
+      }
+    
+}

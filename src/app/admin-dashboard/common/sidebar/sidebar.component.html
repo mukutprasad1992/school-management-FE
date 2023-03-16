@@ -1,49 +1,74 @@
 <div id="mySidebar" class="sidebar">
-  <a routerLink="/landing/home" class="logo me-auto"><img src="assets/img/SmartSchoolLogo.png" alt=""
-      class="img-fluid" /></a>
-  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"><i class="bi bi-x-lg"></i></a>
+  <a routerLink="/landing/home" class="logo me-auto"
+    ><img src="assets/img/SmartSchoolLogo.png" alt="" class="img-fluid"
+  /></a>
+  <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
+    ><i class="bi bi-x-lg"></i
+  ></a>
   <nav id="sidebar" class="navbar">
     <ul>
       <li>
-        <a class="nav-link active" [routerLink]="['/admin/dashboard/landing']">Dashboard</a>
+        <a class="nav-link active" [routerLink]="['/admin/dashboard/landing']"
+          >Dashboard</a
+        >
       </li>
       <li>
-        <a class="nav-link" [routerLink]="['/admin/dashboard/classes']">Classes</a>
+        <a class="nav-link" [routerLink]="['/admin/dashboard/classes']"
+          >Classes</a
+        >
       </li>
       <li>
-        <a class="nav-link" [routerLink]="['/admin/dashboard/teachers']">Teachers</a>
+        <a class="nav-link" [routerLink]="['/admin/dashboard/teachers']"
+          >Teachers</a
+        >
       </li>
       <li>
-        <a class="nav-link" [routerLink]="['/admin/dashboard/staffs']">Staffs</a>
+        <a class="nav-link" [routerLink]="['/admin/dashboard/staffs']"
+          >Staffs</a
+        >
       </li>
       <li>
-        <a class="nav-link" [routerLink]="['/admin/dashboard/students']">Students</a>
+        <a class="nav-link" [routerLink]="['/admin/dashboard/students']"
+          >Students</a
+        >
       </li>
       <li>
-        <a class="nav-link" [routerLink]="['/admin/dashboard/attendance-submit']">Attendance Submit</a>
+        <a
+          class="nav-link"
+          [routerLink]="['/admin/dashboard/attendance-submit']"
+          >Attendance Submit</a
+        >
       </li>
       <li>
-        <a class="nav-link" [routerLink]="['/admin/dashboard/attendance-sheet']">Attendance Sheet</a>
+        <a class="nav-link" [routerLink]="['/admin/dashboard/attendance-sheet']"
+          >Attendance Sheet</a
+        >
       </li>
       <li>
-        <a class="nav-link" [routerLink]="['/admin/dashboard/leaves']">Leaves</a>
+        <a class="nav-link" [routerLink]="['/admin/dashboard/leaves']"
+          >Leaves</a
+        >
       </li>
       <li>
-        <a class="nav-link" [routerLink]="['/admin/dashboard/cs-association']">CS Association</a>
+        <a class="nav-link" [routerLink]="['/admin/dashboard/cs-association']"
+          >CS Association</a
+        >
       </li>
       <li>
-        <a class="nav-link" [routerLink]="['/admin/dashboard/ct-association']">CT Association</a>
+        <a class="nav-link" [routerLink]="['/admin/dashboard/ct-association']"
+          >CT Association</a
+        >
       </li>
 
       <li class="dropdown">
         <a [routerLink]="['javascript:void(0)']"> Exams </a>
         <ul>
           <li><a [routerLink]="['/admin/dashboard/exams']">Exams</a></li>
-          <li><a href="#">Unit Test 1</a></li>
-          <li><a href="#">Unit Test 2</a></li>
-          <li><a href="#">Unit Test 3</a></li>
-          <li><a href="#">Half Yearly</a></li>
-          <li><a href="#">Yearly</a></li>
+          <li><a href="#">Quarter yearly</a></li>
+          <li><a href="#">Half yearly</a></li>
+          <li><a href="#">Annual </a></li>
+          <!-- <li><a href="#">Half Yearly</a></li>
+          <li><a href="#">Yearly</a></li> -->
         </ul>
       </li>
     </ul>

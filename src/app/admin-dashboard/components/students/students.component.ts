@@ -12,6 +12,7 @@ import { defaultPagination } from '../../../constant/admin-dashboard/pagination.
 export class StudentsComponent {
   getAllStudntsFetched: any;
   public getUser: any;
+  getStudentUpdate: any;
 
   page: number = defaultPagination.defaultPage;
   totalCount: number = defaultPagination.defaultTotalCount;
@@ -81,5 +82,10 @@ export class StudentsComponent {
     this.tableSize = event.target.value;
     this.page = 1;
     this.getAllStudents();
+  }
+
+  onStudentSelect(getStudent: any) {
+    // console.log(getTeacher);
+    this.getStudentUpdate = getStudent;
   }
 }
