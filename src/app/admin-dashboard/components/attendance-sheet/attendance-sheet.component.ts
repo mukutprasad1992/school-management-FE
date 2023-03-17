@@ -80,7 +80,7 @@ export class AttendanceSheetComponent {
       .getAttendanceData('attendances')
       //console.info('Get Data', this.prepareAttendanceSheet);
       .subscribe((response) => {
-        console.log(response.result[0].students);
+        //console.log(response.result[0].students);
         if (response.status) {
           this.getClassStudentAttendance = response.result;
           for (

@@ -144,8 +144,6 @@ export class CTAssociationComponent {
   }
 
   onTeacherAssociation(classTeacherAssociation: any) {
-    // console.log(getTeacher);
     this.teacherAssociation = classTeacherAssociation;
-    //console.log(this.teacherAssociation);
   }
 }
