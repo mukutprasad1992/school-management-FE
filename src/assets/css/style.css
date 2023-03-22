@@ -2377,3 +2377,25 @@ select, input[type="date"]{
 app-enquiry{
   width: 100%;
 }
+
+/* ===== Scrollbar CSS ===== */
+  /* Firefox */
+  * {
+    scrollbar-width: auto;
+    scrollbar-color: #47b2e4 transparent;
+  }
+
+  /* Chrome, Edge, and Safari */
+  *::-webkit-scrollbar {
+    width: 5px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background-color: #47b2e4;
+    border-radius: 10px;
+    border: 0px solid transparent;
+  }

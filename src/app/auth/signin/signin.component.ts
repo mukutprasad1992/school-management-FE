@@ -23,6 +23,10 @@ export class SignInComponent {
 
   ngOnInit() {
     this.createFormBuilder();
+    const getToken = localStorage.getItem('token');
+    if (getToken) {
+      this.router.navigate(['/admin/dashboard/landing']);
+    }
   }
 
   createFormBuilder() {
