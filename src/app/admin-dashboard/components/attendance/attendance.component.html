@@ -71,23 +71,24 @@
                         Attendance
                       </a>
                     </ng-template>
-                    <div class="avatar">
-                      <img src="assets/img/team/team-3.jpg" [alt]="slide.id" [title]="slide.id" />
-                    </div>
-                    <div class="student-information">
-                      <h5 class="name">Student Three</h5>
-                      <p class="rollno">003</p>
-                    </div>
-                    <div class="status">
-                      status :
-                      <a href="javascript:void(0)" class="label text-primary">
-                        No Response
+                    <ng-template class="slide" carouselSlide [id]="slide.id">
+                      <div class="avatar">
+                        <img src="assets/img/team/team-3.jpg" [alt]="slide.id" [title]="slide.id" />
+                      </div>
+                      <div class="student-information">
+                        <h5 class="name">Student Three</h5>
+                        <p class="rollno">003</p>
+                      </div>
+                      <div class="status">
+                        status :
+                        <a href="javascript:void(0)" class="label text-primary">
+                          No Response
+                        </a>
+                      </div>
+                      <a href="#" class="label attendance-btn" data-bs-toggle="modal"
+                        data-bs-target="#attendanc_status_modal">
+                        Attendance
                       </a>
-                    </div>
-                    <a href="#" class="label attendance-btn" data-bs-toggle="modal"
-                      data-bs-target="#attendanc_status_modal">
-                      Attendance
-                    </a>
                     </ng-template>
                     <ng-template class="slide" carouselSlide [id]="slide.id">
                       <div class="avatar">
