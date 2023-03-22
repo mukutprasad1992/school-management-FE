@@ -6,24 +6,13 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <form
-            class="cs-association-form form"
-            [formGroup]="csAssociationForm"
-            (ngSubmit)="onSubmit()"
-          >
+          <form class="cs-association-form form" [formGroup]="csAssociationForm" (ngSubmit)="onSubmit()"
+            data-aos="zoom-in" data-aos-delay="100">
             <div class="row">
               <div class="form-group col-md-4">
                 <label for="classes">Classes</label>
-                <select
-                  class="form-control"
-                  formControlName="class"
-                  [(ngModel)]="selectedOptionClass"
-                  id="classes"
-                >
-                  <div
-                    *ngIf="class.invalid && (class.dirty || class.touched)"
-                    class="alert alert-danger"
-                  >
+                <select class="form-control" formControlName="class" [(ngModel)]="selectedOptionClass" id="classes">
+                  <div *ngIf="class.invalid && (class.dirty || class.touched)" class="alert alert-danger">
                     <div *ngIf="class.errors?.['required']">
                       Please enter class*
                     </div>
@@ -39,18 +28,11 @@
               </div>
               <div class="form-group col-md-4">
                 <label for="students">Students</label>
-                <select
-                  class="form-control"
-                  formControlName="student"
-                  [(ngModel)]="selectedOptionStudent"
-                  id="students"
-                >
-                  <div
-                    *ngIf="
+                <select class="form-control" formControlName="student" [(ngModel)]="selectedOptionStudent"
+                  id="students">
+                  <div *ngIf="
                       student.invalid && (student.dirty || student.touched)
-                    "
-                    student="alert alert-danger"
-                  >
+                    " student="alert alert-danger">
                     <div *ngIf="student.errors?.['required']">
                       Please enter student name*
                     </div>
@@ -58,10 +40,7 @@
                   <option selected value="undefined">
                     Please select student
                   </option>
-                  <option
-                    *ngFor="let Student of allStudents"
-                    [value]="Student._id"
-                  >
+                  <option *ngFor="let Student of allStudents" [value]="Student._id">
                     {{ Student.firstName.toUpperCase() }}
                     {{ Student.lastName.toUpperCase() }}
                   </option>
@@ -70,17 +49,9 @@
 
               <div class="form-group col-md-2">
                 <label for="roll-no">Roll No</label>
-                <input
-                  type="number"
-                  placeholder="Please enter roll no"
-                  class="form-control"
-                  formControlName="rollNo"
-                  id="roll-no"
-                />
-                <div
-                  *ngIf="rollNo.invalid && (rollNo.dirty || rollNo.touched)"
-                  class="alert alert-danger"
-                >
+                <input type="number" placeholder="Please enter roll no" class="form-control" formControlName="rollNo"
+                  id="roll-no" />
+                <div *ngIf="rollNo.invalid && (rollNo.dirty || rollNo.touched)" class="alert alert-danger">
                   <div *ngIf="rollNo.errors?.['required']">
                     Please enter roll no.*
                   </div>
@@ -96,16 +67,12 @@
       </div>
       <div class="row">
         <div class="col-12">
-          <div class="text-center rounded p-4 table-box">
-            <div
-              class="d-flex align-items-center justify-content-between mb-3 table-header"
-            >
+          <div class="text-center rounded p-4 table-box" data-aos="fade-up" data-aos-delay="200">
+            <div class="d-flex align-items-center justify-content-between mb-3 table-header">
               <h6 class="mb-0 title">CS Association</h6>
             </div>
             <div class="table-responsive">
-              <table
-                class="table text-start align-middle table-bordered table-hover mb-0"
-              >
+              <table class="table text-start align-middle table-bordered table-hover mb-0">
                 <thead>
                   <tr class="text-dark">
                     <th scope="col">S. No.</th>
@@ -116,8 +83,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr
-                    *ngFor="
+                  <tr *ngFor="
                       let association of allClassStudentAssociation
                         | paginate
                           : {
@@ -126,8 +92,7 @@
                               totalItems: totalCount
                             };
                       index as i
-                    "
-                  >
+                    ">
                     <td>{{ i + 1 }}</td>
                     <td>{{ association?.class?.name }}</td>
                     <td>
@@ -138,28 +103,17 @@
                       {{ association?.rollNo }}
                     </td>
                     <td>
-                      <a
-                        class="btn btn-sm btn-primary"
-                        href="javascript:void(0)"
-                        data-bs-toggle="modal"
-                        data-bs-target="#studentModal"
-                        (click)="onStudentAssociation(association)"
-                        ><i class="bi bi-eye"></i
-                      ></a>
-                      <a class="btn btn-sm btn-primary" href="#"
-                        ><i class="bi bi-trash"></i
-                      ></a>
+                      <a class="btn btn-sm btn-primary" href="javascript:void(0)" data-bs-toggle="modal"
+                        data-bs-target="#studentModal" (click)="onStudentAssociation(association)"><i
+                          class="bi bi-eye"></i></a>
+                      <a class="btn btn-sm btn-primary" href="#"><i class="bi bi-trash"></i></a>
                     </td>
                   </tr>
                 </tbody>
               </table>
             </div>
             <div class="pagination">
-              <pagination-controls
-                previousLabel="Prev"
-                nextLabel="Next"
-                (pageChange)="onTableDataChange($event)"
-              >
+              <pagination-controls previousLabel="Prev" nextLabel="Next" (pageChange)="onTableDataChange($event)">
               </pagination-controls>
             </div>
           </div>
@@ -171,23 +125,12 @@
   <app-footer></app-footer>
 </div>
 
-<div
-  class="modal fade"
-  id="studentModal"
-  tabindex="-1"
-  aria-labelledby="studentModalLabel"
-  aria-hidden="true"
->
+<div class="modal fade" id="studentModal" tabindex="-1" aria-labelledby="studentModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="studentModalLabel">Student Association</h5>
-        <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="modal"
-          aria-label="Close"
-        ></button>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body student-info">
         <div class="row px-4">

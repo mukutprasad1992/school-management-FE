@@ -6,28 +6,18 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <form
-            class="cs-association-form form"
-            [formGroup]="attedanceSheetForm"
-            (ngSubmit)="onSubmit()"
-          >
+          <form class="cs-association-form form" [formGroup]="attedanceSheetForm" (ngSubmit)="onSubmit()"
+            data-aos="zoom-in" data-aos-delay="100">
             <div class="row">
               <div class="form-group col-md-5">
                 <label for="select-class">Select Class</label>
-                <select
-                  class="form-control"
-                  formControlName="class"
-                  id="select-class"
-                >
+                <select class="form-control" formControlName="class" id="select-class">
                   <option value="">Please select class</option>
                   <option *ngFor="let class of allClasses" [value]="class._id">
                     {{ class.name.toUpperCase() }}
                   </option>
                 </select>
-                <div
-                  *ngIf="class.invalid && (class.dirty || class.touched)"
-                  class="alert alert-danger"
-                >
+                <div *ngIf="class.invalid && (class.dirty || class.touched)" class="alert alert-danger">
                   <div *ngIf="class.errors?.['required']">
                     Please select class*
                   </div>
@@ -35,20 +25,12 @@
               </div>
               <div class="form-group col-md-5">
                 <label for="select-date">Select Date</label>
-                <input
-                  type="date"
-                  class="form-control"
-                  id="select-date"
-                  formControlName="dateOfAttendance"
-                />
+                <input type="date" class="form-control" id="select-date" formControlName="dateOfAttendance" />
 
-                <div
-                  *ngIf="
+                <div *ngIf="
                     dateOfAttendance.invalid &&
                     (dateOfAttendance.dirty || dateOfAttendance.touched)
-                  "
-                  class="alert alert-danger"
-                >
+                  " class="alert alert-danger">
                   <div *ngIf="dateOfAttendance.errors?.['required']">
                     Please select valid date*
                   </div>
@@ -64,17 +46,13 @@
       </div>
       <div class="row">
         <div class="col-12">
-          <div class="text-center rounded p-4 table-box">
-            <div
-              class="d-flex align-items-center justify-content-between mb-3 table-header"
-            >
+          <div class="text-center rounded p-4 table-box" data-aos="fade-up" data-aos-delay="200">
+            <div class="d-flex align-items-center justify-content-between mb-3 table-header">
               <h6 class="mb-0 title">Attendance Sheet</h6>
               <a href="">Show All</a>
             </div>
             <div class="table-responsive">
-              <table
-                class="table text-start align-middle table-bordered table-hover mb-0"
-              >
+              <table class="table text-start align-middle table-bordered table-hover mb-0">
                 <thead>
                   <tr class="text-dark">
                     <th scope="col">S. No.</th>
@@ -86,8 +64,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr
-                    *ngFor="
+                  <tr *ngFor="
                       let getClassAttendanceData of finalClassStudentAttendence
                         | paginate
                           : {
@@ -96,8 +73,7 @@
                               totalItems: totalCount
                             };
                       index as i
-                    "
-                  >
+                    ">
                     <td>{{ i + 1 }}</td>
                     <td>{{ getClassAttendanceData.class }}</td>
 
@@ -107,48 +83,34 @@
                     </td>
 
                     <td>
-                      <div
-                        [ngClass]="{
+                      <div [ngClass]="{
                           present: getClassAttendanceData.status === 'PRESENT',
                           absent: getClassAttendanceData.status === 'ABSENT',
                           noresponse:
                             getClassAttendanceData.status === 'NORESPONSE',
                           label: true
-                        }"
-                      >
+                        }">
                         {{ getClassAttendanceData.status | titlecase }}
                       </div>
                     </td>
 
                     <td>
                       {{
-                        getClassAttendanceData.dateOfAttendance
-                          | date : "dd/MM/yyyy"
+                      getClassAttendanceData.dateOfAttendance
+                      | date : "dd/MM/yyyy"
                       }}
                     </td>
                     <td>
-                      <a
-                        class="btn btn-sm btn-primary"
-                        href="#"
-                        data-bs-toggle="modal"
-                        data-bs-target="#statusmodal"
-                        (click)="onAttendanceUpdate(getClassAttendanceData)"
-                        ><i class="bi bi-eye"></i
-                      ></a>
-                      <a class="btn btn-sm btn-primary" href="#"
-                        ><i class="bi bi-trash"></i
-                      ></a>
+                      <a class="btn btn-sm btn-primary" href="#" data-bs-toggle="modal" data-bs-target="#statusmodal"
+                        (click)="onAttendanceUpdate(getClassAttendanceData)"><i class="bi bi-eye"></i></a>
+                      <a class="btn btn-sm btn-primary" href="#"><i class="bi bi-trash"></i></a>
                     </td>
                   </tr>
                 </tbody>
               </table>
             </div>
             <div class="pagination">
-              <pagination-controls
-                previousLabel="Prev"
-                nextLabel="Next"
-                (pageChange)="onTableDataChange($event)"
-              >
+              <pagination-controls previousLabel="Prev" nextLabel="Next" (pageChange)="onTableDataChange($event)">
               </pagination-controls>
             </div>
           </div>
@@ -159,23 +121,12 @@
   <app-footer></app-footer>
 </div>
 
-<div
-  class="modal fade statusmodal"
-  id="statusmodal"
-  tabindex="-1"
-  aria-labelledby="statusmodal"
-  aria-hidden="true"
->
+<div class="modal fade statusmodal" id="statusmodal" tabindex="-1" aria-labelledby="statusmodal" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="statusmodal">Attendance Status</h1>
-        <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="modal"
-          aria-label="Close"
-        ></button>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body student-info">
         <div class="row px-4">
@@ -190,8 +141,7 @@
           </div>
           <div class="col-sm-6">
             <p>
-              <strong>Date Of Attendance:</strong
-              >{{ getAttendanceUpdate?.dateOfAttendance | date : "dd/MM/yyyy" }}
+              <strong>Date Of Attendance:</strong>{{ getAttendanceUpdate?.dateOfAttendance | date : "dd/MM/yyyy" }}
             </p>
           </div>
           <div class="col-sm-6">

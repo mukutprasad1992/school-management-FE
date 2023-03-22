@@ -3,17 +3,8 @@
   <app-header></app-header>
   <div class="main" style="align-items: flex-start">
     <section id="calendar" class="calendar pb-0">
-      <div class="container aos-init aos-animate" data-aos="fade-up">
+      <div class="container" data-aos="fade-up">
         <div class="row justify-content-center">
-          <div class="col-md-12 text-center mb-4">
-            <div class="section-title">
-              <h2 class="title">Attendance</h2>
-              <p class="text-danger text-center">Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown
-                printer took a galley of type and scrambled it to make a type specimen book. It has survived not only
-                five centuries,</p>
-            </div>
-          </div>
           <div class="col-xl-6 mb-4">
             <div class="calendar-box">
               <div class="calendar-inner">
@@ -27,53 +18,11 @@
         <div class="row mt-5 mb-5">
           <div class="col-12">
             <ul class="classlist">
-              <li>
-                <input type="radio" id="class1st" name="classlist" value="class1st" checked />
-                <label for="class1st">Class 1st</label>
-              </li>
-              <li>
-                <input type="radio" id="class2nd" name="classlist" value="class2nd" />
-                <label for="class2nd">Class 2nd</label>
-              </li>
-              <li>
-                <input type="radio" id="class3rd" name="classlist" value="class3rd" />
-                <label for="class3rd">Class 3rd</label>
-              </li>
-              <li>
-                <input type="radio" id="class4th" name="classlist" value="class4th" />
-                <label for="class4th">Class 4th</label>
-              </li>
-              <li>
-                <input type="radio" id="class5th" name="classlist" value="class5th" />
-                <label for="class5th">Class 5th</label>
-              </li>
-              <li>
-                <input type="radio" id="class6th" name="classlist" value="class6th" />
-                <label for="class6th">Class 6th</label>
-              </li>
-              <li>
-                <input type="radio" id="class7th" name="classlist" value="class7th" />
-                <label for="class7th">Class 7th</label>
-              </li>
-              <li>
-                <input type="radio" id="class8th" name="classlist" value="class8th" />
-                <label for="class8th">Class 8th</label>
-              </li>
-              <li>
-                <input type="radio" id="class9th" name="classlist" value="class9th" />
-                <label for="class9th">Class 9th</label>
-              </li>
-              <li>
-                <input type="radio" id="class10th" name="classlist" value="class10th" />
-                <label for="class10th">Class 10th</label>
-              </li>
-              <li>
-                <input type="radio" id="class11th" name="classlist" value="class11th" />
-                <label for="class11th">Class 11th</label>
-              </li>
-              <li>
-                <input type="radio" id="class12th" name="classlist" value="class12th" />
-                <label for="class12th">Class 12th</label>
+              <li *ngFor="let class of allClasses; index as i">
+                <div (click)="getClassRow(class)">
+                  <input type="radio" [checked]="false" [value]="class?._id" />
+                  <label for="{{ class?.name }}">{{ class?.name }}</label>
+                </div>
               </li>
             </ul>
           </div>

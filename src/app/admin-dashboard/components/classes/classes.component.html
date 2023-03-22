@@ -21,17 +21,8 @@
         </div>
       </div>
       <div class="row">
-<<<<<<< HEAD
-        <form class="ct-association-form form" [formGroup]="classForm" (ngSubmit)="onSubmit()">
-=======
-        <form
-          class="ct-association-form form"
-          [formGroup]="classForm"
-          (ngSubmit)="onSubmit()"
-          data-aos="zoom-in"
-          data-aos-delay="100"
-        >
->>>>>>> 0bea7921a2a2c2dd6056b27ddbe73a9d1a27375a
+        <form class="ct-association-form form" [formGroup]="classForm" (ngSubmit)="onSubmit()" data-aos="zoom-in"
+          data-aos-delay="100">
           <div class="row">
             <div class="form-group col-md-4">
               <label for="class">Class Name</label>
@@ -67,19 +58,8 @@
     <div class="container">
       <div class="row">
         <div class="col-12">
-<<<<<<< HEAD
-          <div class="text-center rounded p-4 table-box">
+          <div class="text-center rounded p-4 table-box" data-aos="fade-up" data-aos-delay="200">
             <div class="d-flex align-items-center justify-content-between mb-3 table-header">
-=======
-          <div
-            class="text-center rounded p-4 table-box"
-            data-aos="fade-up"
-            data-aos-delay="200"
-          >
-            <div
-              class="d-flex align-items-center justify-content-between mb-3 table-header"
-            >
->>>>>>> 0bea7921a2a2c2dd6056b27ddbe73a9d1a27375a
               <h6 class="mb-0 title">Classes</h6>
             </div>
             <div class="table-responsive">
@@ -151,16 +131,7 @@
                       <a class="btn btn-sm btn-primary" href="#" data-bs-toggle="modal" data-bs-target="#statusmodal"
                         (click)="onClassSelect(class)"><i class="bi bi-eye"></i>
                       </a>
-<<<<<<< HEAD
-                      <a class="btn btn-sm btn-primary" href="#"><i class="bi bi-trash"></i></a>
-=======
-                      <a
-                        class="btn btn-sm btn-primary"
-                        href="#"
-                        (click)="deleteRow()"
-                        ><i class="bi bi-trash"></i
-                      ></a>
->>>>>>> 0bea7921a2a2c2dd6056b27ddbe73a9d1a27375a
+                      <a class="btn btn-sm btn-primary" href="#" (click)="deleteRow()"><i class="bi bi-trash"></i></a>
                     </td>
                   </tr>
                 </tbody>
