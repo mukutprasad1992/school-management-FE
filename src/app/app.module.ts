@@ -17,6 +17,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ToastrModule } from 'ngx-toastr';
 import { AdminDashboardModule } from './admin-dashboard/admin-dashboard.module';
 import { LandingModule } from './landing/landing.module';
+import { AuthGuard } from './services/auth/auth.guard';
 
 @NgModule({
   declarations: [

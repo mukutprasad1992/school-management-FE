@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AuthRoutingModule } from './auth/auth-routing.module';
 import { AdminDashboardRoutingModule } from './admin-dashboard/admin-dashboard-routing.module';
+import { AuthGuard } from './services/auth/auth.guard';
 
 const routes: Routes = [
   {
@@ -22,6 +23,7 @@ const routes: Routes = [
       import('./admin-dashboard/admin-dashboard-routing.module').then(
         (m) => m.AdminDashboardRoutingModule
       ),
+    canActivate: [AuthGuard],
   },
 ];
 

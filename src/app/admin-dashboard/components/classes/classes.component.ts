@@ -149,4 +149,11 @@ export class ClassesComponent {
     // console.log(getClass);
     this.getClassesUpdate = getClass;
   }
+
+  deleteRow() {
+    let delBtn = confirm('Do you want to delete this row?');
+    if (delBtn == true) {
+      console.log('row is deleted');
+    }
+  }
 }
