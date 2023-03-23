@@ -578,27 +578,7 @@ body {
                         padding-bottom: 8px;
                     }
 
-                    input {
-                        height: 44px;
-                        box-shadow: none;
-                        font-size: 14px;
-                        border-radius: 4px;
 
-                        &:focus {
-                            box-shadow: none;
-                        }
-                    }
-
-                    select {
-                        height: 44px;
-                        box-shadow: none;
-                        font-size: 14px;
-                        border-radius: 4px;
-
-                        &:focus {
-                            box-shadow: none;
-                        }
-                    }
 
                     .alert-danger {
                         background: transparent;
