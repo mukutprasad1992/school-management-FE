@@ -24,4 +24,8 @@ export class LeaveServices {
       .post(`${API_URL}/${url}`, requestBody)
       .pipe(map((res) => res));
   }
+
+  public deleteleave(Id: string): Observable<any> {
+    return this.http.delete(`${API_URL}/${Id}`).pipe(map((res) => res));
+  }
 }

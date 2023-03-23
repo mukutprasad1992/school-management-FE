@@ -42,4 +42,15 @@ export const messages = {
       message: 'Error while submit',
     },
   },
+
+  deleteCS: {
+    success: {
+      title: 'CSAssociation',
+      message: 'CSAssociation delete Successfully',
+    },
+    error: {
+      title: 'CSAssociation',
+      message: 'Error while deleting CSAssociation',
+    },
+  },
 };

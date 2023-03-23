@@ -19,4 +19,15 @@ export const messages = {
       message: 'Error while updating status',
     },
   },
+
+  deleteTeacher: {
+    success: {
+      title: 'Teacher',
+      message: 'Teacher deleted successfully',
+    },
+    error: {
+      title: 'Teacher',
+      message: 'Error while deleting teacher',
+    },
+  },
 };

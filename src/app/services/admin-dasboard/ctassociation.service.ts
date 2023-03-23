@@ -28,4 +28,8 @@ export class CtAssociationService {
       .post(`${API_URL}/${url}`, requestBody)
       .pipe(map((res) => res));
   }
+
+  public deleteCTAssociation(Id: string): Observable<any> {
+    return this.http.delete(`${API_URL}/${Id}`).pipe(map((res) => res));
+  }
 }

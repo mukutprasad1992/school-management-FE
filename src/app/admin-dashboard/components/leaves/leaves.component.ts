@@ -69,7 +69,7 @@ export class LeavesComponent {
 
   getAllTeachers() {
     this.leaveService
-      .getAllTeachers('users/all-users/6332d0c50c5e58b0b0e3c16e')
+      .getAllTeachers('users/all-users/641c4d6411e9ec35f85831ae')
       .subscribe((response) => {
         if (response.status) {
           this.taostrService.showSuccess;
@@ -137,5 +137,25 @@ export class LeavesComponent {
   onLeaveSelect(leaveUpdate: any) {
     // console.log(leaveUpdate);
     this.getLeaveUpdate = leaveUpdate;
+  }
+
+  deleteLeave(leave: any) {
+    this.leaveService
+      .deleteleave(`leaves/63bd1de6b7b68ec2d081b65e`)
+      .subscribe((response) => {
+        console.log('Leave is deleted');
+        // if (response.status) {
+        //   this.taostrService.showSuccess(
+        //     messages.deleteTeacher.success.title,
+        //     messages.deleteTeacher.success.message
+        //   );
+        // } else {
+        //   this.taostrService.showError(
+        //     messages.deleteTeacher.error.title,
+        //     messages.deleteTeacher.error.message
+        //   );
+        // }
+        this.getLeave();
+      });
   }
 }

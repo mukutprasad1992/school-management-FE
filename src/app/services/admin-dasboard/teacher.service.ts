@@ -18,4 +18,8 @@ export class TeacherService {
   public getAllStatusUpdate(url: string, reqBody: any): Observable<any> {
     return this.http.put(`${API_URL}/${url}`, reqBody).pipe(map((res) => res));
   }
+
+  public deleteTeacher(Id: string): Observable<any> {
+    return this.http.delete(`${API_URL}/${Id}`).pipe(map((res) => res));
+  }
 }

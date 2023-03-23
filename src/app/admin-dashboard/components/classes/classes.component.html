@@ -21,13 +21,26 @@
         </div>
       </div>
       <div class="row">
-        <form class="ct-association-form form" [formGroup]="classForm" (ngSubmit)="onSubmit()" data-aos="zoom-in"
-          data-aos-delay="100">
+        <form
+          class="ct-association-form form"
+          [formGroup]="classForm"
+          (ngSubmit)="onSubmit()"
+          data-aos="zoom-in"
+          data-aos-delay="100"
+        >
           <div class="row">
             <div class="form-group col-md-5">
               <label for="class">Class Name</label>
-              <input type="text" class="form-control" formControlName="name" placeholder="Plese Enter Class Name" />
-              <div *ngIf="name.invalid && (name.dirty || name.touched)" class="alert alert-danger">
+              <input
+                type="text"
+                class="form-control"
+                formControlName="name"
+                placeholder="Plese Enter Class Name"
+              />
+              <div
+                *ngIf="name.invalid && (name.dirty || name.touched)"
+                class="alert alert-danger"
+              >
                 <div *ngIf="name.errors?.['required']">
                   Please enter class name*
                 </div>
@@ -35,13 +48,20 @@
             </div>
             <div class="form-group col-md-5">
               <label for="select-school">School</label>
-              <select class="form-control" formControlName="school" [(ngModel)]="selectedOptionSchool">
+              <select
+                class="form-control"
+                formControlName="school"
+                [(ngModel)]="selectedOptionSchool"
+              >
                 <option selected value="undefined">Please select school</option>
                 <option *ngFor="let school of allSchools" [value]="school._id">
                   {{ school.name }}
                 </option>
               </select>
-              <div *ngIf="school.invalid && (school.dirty || school.touched)" class="alert alert-danger">
+              <div
+                *ngIf="school.invalid && (school.dirty || school.touched)"
+                class="alert alert-danger"
+              >
                 <div *ngIf="school.errors?.['required']">
                   Please select school*
                 </div>
@@ -58,12 +78,20 @@
     <div class="container">
       <div class="row">
         <div class="col-12">
-          <div class="text-center rounded p-4 table-box" data-aos="fade-up" data-aos-delay="200">
-            <div class="d-flex align-items-center justify-content-between mb-3 table-header">
+          <div
+            class="text-center rounded p-4 table-box"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <div
+              class="d-flex align-items-center justify-content-between mb-3 table-header"
+            >
               <h6 class="mb-0 title">Classes</h6>
             </div>
             <div class="table-responsive">
-              <table class="table text-start align-middle table-bordered table-hover mb-0">
+              <table
+                class="table text-start align-middle table-bordered table-hover mb-0"
+              >
                 <thead>
                   <tr class="text-dark">
                     <th scope="col">S. No.</th>
@@ -75,7 +103,8 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr *ngFor="
+                  <tr
+                    *ngFor="
                       let class of getAllClasesFetched
                         | paginate
                           : {
@@ -84,7 +113,8 @@
                               totalItems: totalCount
                             };
                       index as i
-                    ">
+                    "
+                  >
                     <td>{{ i + 1 }}</td>
                     <td>{{ class.name }}</td>
                     <td>
@@ -92,53 +122,84 @@
                       {{ class?.createdBy?.lastName }}
                     </td>
                     <td>
-                      <div [ngClass]="{
+                      <div
+                        [ngClass]="{
                           approve: class.status === 'ACTIVATED',
                           reject: class.status === 'INPROGRESS',
                           pending: class.status === 'INITIATED',
                           label: true
-                        }">
+                        }"
+                      >
                         {{ class.status.toLowerCase() }}
                       </div>
                     </td>
                     <td>
                       <div class="dropdown">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                          aria-expanded="false">
+                        <button
+                          class="btn btn-secondary dropdown-toggle"
+                          type="button"
+                          data-bs-toggle="dropdown"
+                          aria-expanded="false"
+                        >
                           <i class="bi bi-three-dots-vertical"></i>
                         </button>
                         <ul class="dropdown-menu">
                           <li>
-                            <a class="dropdown-item pending" (click)="
+                            <a
+                              class="dropdown-item pending"
+                              (click)="
                                 getAllStatusUpdate(class._id, 'INITIATED')
-                              ">Pending</a>
+                              "
+                              >Pending</a
+                            >
                           </li>
                           <li>
-                            <a class="dropdown-item approve" (click)="
+                            <a
+                              class="dropdown-item approve"
+                              (click)="
                                 getAllStatusUpdate(class._id, 'ACTIVATED')
-                              ">Approve</a>
+                              "
+                              >Approve</a
+                            >
                           </li>
                           <li>
-                            <a class="dropdown-item reject" (click)="
+                            <a
+                              class="dropdown-item reject"
+                              (click)="
                                 getAllStatusUpdate(class._id, 'INPROGRESS')
-                              ">Reject</a>
+                              "
+                              >Reject</a
+                            >
                           </li>
                         </ul>
                       </div>
                     </td>
 
                     <td>
-                      <a class="btn btn-sm btn-primary" href="#" data-bs-toggle="modal" data-bs-target="#statusmodal"
-                        (click)="onClassSelect(class)"><i class="bi bi-eye"></i>
+                      <a
+                        class="btn btn-sm btn-primary"
+                        href="#"
+                        data-bs-toggle="modal"
+                        data-bs-target="#statusmodal"
+                        (click)="onClassSelect(class)"
+                        ><i class="bi bi-eye"></i>
                       </a>
-                      <a class="btn btn-sm btn-primary" href="#" (click)="deleteRow()"><i class="bi bi-trash"></i></a>
+                      <a
+                        class="btn btn-sm btn-primary"
+                        (click)="deleteClass(class._id)"
+                        ><i class="bi bi-trash"></i
+                      ></a>
                     </td>
                   </tr>
                 </tbody>
               </table>
             </div>
             <div class="pagination">
-              <pagination-controls previousLabel="Prev" nextLabel="Next" (pageChange)="onTableDataChange($event)">
+              <pagination-controls
+                previousLabel="Prev"
+                nextLabel="Next"
+                (pageChange)="onTableDataChange($event)"
+              >
               </pagination-controls>
             </div>
           </div>
@@ -149,12 +210,23 @@
   <app-footer></app-footer>
 </div>
 
-<div class="modal fade statusmodal" id="statusmodal" tabindex="-1" aria-labelledby="statusmodal" aria-hidden="true">
+<div
+  class="modal fade statusmodal"
+  id="statusmodal"
+  tabindex="-1"
+  aria-labelledby="statusmodal"
+  aria-hidden="true"
+>
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="statusmodal">Classes</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
       </div>
       <div class="modal-body student-info">
         <div class="row px-4">

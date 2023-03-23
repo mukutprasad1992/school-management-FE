@@ -31,7 +31,7 @@ export class TeachersComponent {
 
   getAllTeachers() {
     this.teacherService
-      .getAllTeachers('users/all-users/6332d0c50c5e58b0b0e3c16e')
+      .getAllTeachers('users/all-users/641c4d6411e9ec35f85831ae')
       .subscribe((response) => {
         if (response.status) {
           this.taostrService.showSuccess(
@@ -91,4 +91,24 @@ export class TeachersComponent {
     this.getTeacherUpdate = getTeacher;
     console.log(this.getTeacherUpdate);
   }
+
+  // deleteTeacher(user_id: string) {
+  //   this.teacherService
+  //     .deleteTeacher(`roles/6332d0c50c5e58b0b0e3c16e`)
+  //     .subscribe((response) => {
+  //       console.log('Teacher is deleted', user_id);
+  //       if (response.status) {
+  //         this.taostrService.showSuccess(
+  //           messages.deleteTeacher.success.title,
+  //           messages.deleteTeacher.success.message
+  //         );
+  //       } else {
+  //         this.taostrService.showError(
+  //           messages.deleteTeacher.error.title,
+  //           messages.deleteTeacher.error.message
+  //         );
+  //       }
+  //       this.getAllTeachers();
+  //     });
+  // }  this API  will delete roles so this have to change by backend.
 }

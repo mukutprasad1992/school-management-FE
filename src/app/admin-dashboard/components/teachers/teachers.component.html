@@ -21,7 +21,9 @@
         </div>
       </div>
       <div class="row">
-        <div class="col-md-12 d-flex align-items-center justify-content-between mb-3 title-box">
+        <div
+          class="col-md-12 d-flex align-items-center justify-content-between mb-3 title-box"
+        >
           <h2 class="title">
             Hi, {{ getUser.firstName }} {{ getUser.lastName }}
           </h2>
@@ -30,12 +32,20 @@
       </div>
       <div class="row">
         <div class="col-12">
-          <div class="text-center rounded p-4 table-box" data-aos="fade-up" data-aos-delay="200">
-            <div class="d-flex align-items-center justify-content-between mb-3 table-header">
+          <div
+            class="text-center rounded p-4 table-box"
+            data-aos="fade-up"
+            data-aos-delay="200"
+          >
+            <div
+              class="d-flex align-items-center justify-content-between mb-3 table-header"
+            >
               <h6 class="mb-0 title">Teachers</h6>
             </div>
             <div class="table-responsive">
-              <table class="table text-start align-middle table-bordered table-hover mb-0">
+              <table
+                class="table text-start align-middle table-bordered table-hover mb-0"
+              >
                 <thead>
                   <tr class="text-dark">
                     <th scope="col">S No</th>
@@ -49,7 +59,8 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr *ngFor="
+                  <tr
+                    *ngFor="
                       let user of getAllTeachersFetched
                         | paginate
                           : {
@@ -58,58 +69,89 @@
                               totalItems: totalCount
                             };
                       index as i
-                    ">
+                    "
+                  >
                     <td>{{ i + 1 }}</td>
                     <td>{{ user.firstName }} {{ user.lastName }}</td>
                     <td>{{ user.email }}</td>
                     <td>{{ user.mobileNumber }}</td>
                     <td>{{ user.role.name }}</td>
                     <td class="text-center">
-                      <div [ngClass]="{
+                      <div
+                        [ngClass]="{
                           approve: user.status === 'ACTIVATED',
                           reject: user.status === 'INPROGRESS',
                           pending: user.status === 'INITIATED',
                           label: true
-                        }" href="#">
+                        }"
+                        href="#"
+                      >
                         {{ user.status.toLowerCase() }}
                       </div>
                     </td>
                     <td>
                       <div class="dropdown">
-                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
-                          aria-expanded="false">
+                        <button
+                          class="btn btn-secondary dropdown-toggle"
+                          type="button"
+                          data-bs-toggle="dropdown"
+                          aria-expanded="false"
+                        >
                           <i class="bi bi-three-dots-vertical"></i>
                         </button>
                         <ul class="dropdown-menu">
                           <li>
-                            <a class="dropdown-item pending" (click)="
+                            <a
+                              class="dropdown-item pending"
+                              (click)="
                                 getAllStatusUpdate(user._id, 'INITIATED')
-                              ">Pending</a>
+                              "
+                              >Pending</a
+                            >
                           </li>
                           <li>
-                            <a class="dropdown-item approve" (click)="
+                            <a
+                              class="dropdown-item approve"
+                              (click)="
                                 getAllStatusUpdate(user._id, 'ACTIVATED')
-                              ">Approve</a>
+                              "
+                              >Approve</a
+                            >
                           </li>
                           <li>
-                            <a class="dropdown-item reject" (click)="
+                            <a
+                              class="dropdown-item reject"
+                              (click)="
                                 getAllStatusUpdate(user._id, 'INPROGRESS')
-                              ">Reject</a>
+                              "
+                              >Reject</a
+                            >
                           </li>
                         </ul>
                       </div>
                     </td>
                     <td>
-                      <a class="btn btn-sm btn-primary" href="#" data-bs-toggle="modal" data-bs-target="#statusmodal"
-                        (click)="onTeacherSelect(user)"><i class="bi bi-eye"></i></a>
-                      <a class="btn btn-sm btn-primary" href="#"><i class="bi bi-trash"></i></a>
+                      <a
+                        class="btn btn-sm btn-primary"
+                        data-bs-toggle="modal"
+                        data-bs-target="#statusmodal"
+                        (click)="onTeacherSelect(user._id)"
+                        ><i class="bi bi-eye"></i
+                      ></a>
+                      <a class="btn btn-sm btn-primary"
+                        ><i class="bi bi-trash"></i
+                      ></a>
                     </td>
                   </tr>
                 </tbody>
               </table>
             </div>
             <div class="pagination">
-              <pagination-controls previousLabel="Prev" nextLabel="Next" (pageChange)="onTableDataChange($event)">
+              <pagination-controls
+                previousLabel="Prev"
+                nextLabel="Next"
+                (pageChange)="onTableDataChange($event)"
+              >
               </pagination-controls>
             </div>
           </div>
@@ -120,12 +162,23 @@
   <app-footer></app-footer>
 </div>
 
-<div class="modal fade statusmodal" id="statusmodal" tabindex="-1" aria-labelledby="statusmodal" aria-hidden="true">
+<div
+  class="modal fade statusmodal"
+  id="statusmodal"
+  tabindex="-1"
+  aria-labelledby="statusmodal"
+  aria-hidden="true"
+>
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="statusmodal">Teachers</h1>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
       </div>
       <div class="modal-body student-info">
         <div class="row px-4">

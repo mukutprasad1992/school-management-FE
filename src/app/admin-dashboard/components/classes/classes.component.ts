@@ -32,6 +32,7 @@ export class ClassesComponent {
   selectedOptionSchool: any;
 
   getClassesUpdate: any;
+  selectedOptionschool: any;
 
   ngOnInit() {
     this.getAllClasses();
@@ -136,6 +137,8 @@ export class ClassesComponent {
               messages.Createclass.error.message
             );
           }
+          this.classForm.reset();
+          this.selectedOptionschool = undefined;
         });
     } else {
       this.taostrService.showError(
@@ -150,10 +153,23 @@ export class ClassesComponent {
     this.getClassesUpdate = getClass;
   }
 
-  deleteRow() {
-    let delBtn = confirm('Do you want to delete this row?');
-    if (delBtn == true) {
-      console.log('row is deleted');
-    }
+  deleteClass(class_Id: string) {
+    this.classService
+      .deleteClass(`classes/${class_Id}`)
+      .subscribe((response) => {
+        console.log('class is deleted', class_Id);
+        if (response.status) {
+          this.taostrService.showSuccess(
+            messages.deleteStatus.success.title,
+            messages.deleteStatus.success.message
+          );
+          this.getAllClasses();
+        } else {
+          this.taostrService.showError(
+            messages.deleteStatus.error.title,
+            messages.deleteStatus.error.message
+          );
+        }
+      });
   }
 }
