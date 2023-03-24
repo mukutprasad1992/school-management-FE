@@ -226,6 +226,44 @@
 </div>
 
 <div
+  class="modal fade"
+  id="deleteModal"
+  tabindex="-1"
+  aria-labelledby="deleteModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header justify-content-center">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Delete</h1>
+      </div>
+      <div class="modal-body delete-body">
+        <div class="row">
+          <div class="col-12">
+            <p class="text-center">Are you sure you want to delete?</p>
+          </div>
+          <div class="col-6">
+            <button type="button" class="btn btn-sm btn-danger d-block w-100">
+              Delete
+            </button>
+          </div>
+          <div class="col-6">
+            <button
+              type="button"
+              class="btn btn-sm btn-primary d-block w-100"
+              data-bs-dismiss="modal"
+              aria-label="Close"
+            >
+              close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div
   class="modal fade statusmodal"
   id="statusmodal"
   tabindex="-1"
