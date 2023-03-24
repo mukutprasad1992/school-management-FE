@@ -72,7 +72,7 @@ export class CTAssociationComponent {
 
   getAllTeachers() {
     this.ctAssociationService
-      .getAllTeachers('users/all-users/6332d0c50c5e58b0b0e3c16e')
+      .getAllTeachers('users/all-users/641c4d6411e9ec35f85831ae')
       .subscribe((response) => {
         if (response.status) {
           this.taostrService.showSuccess(
@@ -145,5 +145,25 @@ export class CTAssociationComponent {
 
   onTeacherAssociation(classTeacherAssociation: any) {
     this.teacherAssociation = classTeacherAssociation;
+  }
+
+  deleteCTAssociation(association: string) {
+    this.ctAssociationService
+      .deleteCTAssociation(`classesTeachers/${association}`)
+      .subscribe((response) => {
+        console.log('class student is deleted', association);
+        if (response.status) {
+          this.taostrService.showSuccess(
+            messages.deleteCTAssociation.success.title,
+            messages.deleteCTAssociation.success.message
+          );
+        } else {
+          this.taostrService.showError(
+            messages.deleteCTAssociation.error.title,
+            messages.deleteCTAssociation.error.message
+          );
+        }
+        this.getClassTeacherAssociation();
+      });
   }
 }

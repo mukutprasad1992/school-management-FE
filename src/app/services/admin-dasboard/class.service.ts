@@ -38,4 +38,8 @@ export class ClassService {
       .put(`${API_URL}/${url}`, requestBody)
       .pipe(map((res) => res));
   }
+
+  public deleteClass(Id: string): Observable<any> {
+    return this.http.delete(`${API_URL}/${Id}`).pipe(map((res) => res));
+  }
 }

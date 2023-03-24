@@ -144,13 +144,17 @@
                     <td>
                       <a
                         class="btn btn-sm btn-primary"
-                        href="#"
                         data-bs-toggle="modal"
                         data-bs-target="#classteachermodal"
                         (click)="onTeacherAssociation(association)"
                         ><i class="bi bi-eye"></i
                       ></a>
-                      <a class="btn btn-sm btn-primary"
+                      <a
+                        class="btn btn-sm btn-primary"
+                        href="javascript:void(0)"
+                        data-bs-toggle="modal"
+                        data-bs-target="#deleteModal"
+                        (click)="deleteCTAssociation(association._id)"
                         ><i class="bi bi-trash"></i
                       ></a>
                     </td>

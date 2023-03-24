@@ -42,4 +42,15 @@ export const messages = {
       message: 'Error while submit',
     },
   },
+
+  deleteCTAssociation: {
+    success: {
+      title: 'Delete',
+      message: 'Successfully Deleted',
+    },
+    error: {
+      title: 'Delete',
+      message: 'Error while deeting CT Association',
+    },
+  },
 };

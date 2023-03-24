@@ -31,4 +31,15 @@ export const messages = {
       message: 'Error while updating status',
     },
   },
+
+  deleteClass: {
+    success: {
+      title: 'Class',
+      message: 'Class deleted successfully',
+    },
+    error: {
+      title: 'Class',
+      message: 'Error while deleting class',
+    },
+  },
 };

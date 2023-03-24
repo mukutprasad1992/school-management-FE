@@ -30,8 +30,8 @@ export class ClassesComponent {
   allTeachers: any = [];
   allSchools: any = [];
   selectedOptionSchool: any;
-
   getClassesUpdate: any;
+  getCurrentClassRow: any;
 
   ngOnInit() {
     this.getAllClasses();
@@ -150,10 +150,42 @@ export class ClassesComponent {
     this.getClassesUpdate = getClass;
   }
 
-  deleteRow() {
-    let delBtn = confirm('Do you want to delete this row?');
-    if (delBtn == true) {
-      console.log('row is deleted');
-    }
+  // makeAttendance(getClassesUpdate: any) {
+  //   console.log(getCurrentStudent);
+  //   let data = {
+  //     student: getCurrentStudent.student._id,
+  //     status: status,
+  //     rollNo: getCurrentStudent.rollNo,
+  //     firstName: getCurrentStudent.student.firstName,
+  //     lastName: getCurrentStudent.student.lastName,
+  //   };
+  //  // this.prepareAttendanceSheet.students.push(data);
+  // }
+
+  deleteClass(class_Id: string) {
+    this.classService
+      .deleteClass(`classes/${class_Id}`)
+      .subscribe((response) => {
+        console.log('class is deleted', class_Id);
+        if (response.status) {
+          this.taostrService.showSuccess(
+            messages.deleteClass.success.title,
+            messages.deleteClass.success.message
+          );
+          this.getAllClasses();
+        } else {
+          this.taostrService.showError(
+            messages.deleteClass.error.title,
+            messages.deleteClass.error.message
+          );
+        }
+      });
   }
+
+  onClick(classRow: any) {
+    console.log(classRow);
+    this.getCurrentClassRow = classRow;
+  }
+
+  deleteClassRow() {}
 }
