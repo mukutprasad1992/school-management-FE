@@ -101,7 +101,7 @@
                     </td>
                     <td>
                       <a class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#statusmodal"
-                        (click)="onTeacherSelect(user._id)"><i class="bi bi-eye"></i></a>
+                        (click)="onTeacherSelect(user)"><i class="bi bi-eye"></i></a>
                       <a class="btn btn-sm btn-primary" href="javascript:void(0)" data-bs-toggle="modal"
                         data-bs-target="#deleteModal"><i class="bi bi-trash"></i></a>
                     </td>
@@ -138,6 +138,15 @@
           <div class="col-6">
             <button type="button" class="btn btn-sm btn-primary d-block w-100" data-bs-dismiss="modal"
               aria-label="Close">close</button>
+            <button type="button" class="btn btn-sm btn-danger d-block w-100">
+              Delete
+            </button>
+          </div>
+          <div class="col-6">
+            <button type="button" class="btn btn-sm btn-primary d-block w-100" data-bs-dismiss="modal"
+              aria-label="Close">
+              close
+            </button>
           </div>
         </div>
       </div>

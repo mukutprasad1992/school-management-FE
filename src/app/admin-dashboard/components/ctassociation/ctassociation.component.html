@@ -107,10 +107,10 @@
                       {{ association?.employeeId }}
                     </td>
                     <td>
-                      <a class="btn btn-sm btn-primary" href="#" data-bs-toggle="modal"
-                        data-bs-target="#classteachermodal" (click)="onTeacherAssociation(association)"><i
-                          class="bi bi-eye"></i></a>
-                      <a class="btn btn-sm btn-primary" (click)="deleteCTAssociation(association._id)"><i
+                      <a class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#classteachermodal"
+                        (click)="onTeacherAssociation(association)"><i class="bi bi-eye"></i></a>
+                      <a class="btn btn-sm btn-primary" href="javascript:void(0)" data-bs-toggle="modal"
+                        data-bs-target="#deleteModal" (click)="deleteCTAssociation(association._id)"><i
                           class="bi bi-trash"></i></a>
                     </td>
                   </tr>
@@ -129,6 +129,34 @@
   <app-footer></app-footer>
 </div>
 
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header justify-content-center">
+        <h1 class="modal-title fs-5" id="exampleModalLabel">Delete</h1>
+      </div>
+      <div class="modal-body delete-body">
+        <div class="row">
+          <div class="col-12">
+            <p class="text-center">Are you sure you want to delete?</p>
+          </div>
+          <div class="col-6">
+            <button type="button" class="btn btn-sm btn-danger d-block w-100">
+              Delete
+            </button>
+          </div>
+          <div class="col-6">
+            <button type="button" class="btn btn-sm btn-primary d-block w-100" data-bs-dismiss="modal"
+              aria-label="Close">
+              close
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="modal fade" id="classteachermodal" tabindex="-1" aria-labelledby="classteachermodal" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
@@ -138,9 +166,6 @@
       </div>
       <div class="modal-body">
         <div class="py-3 px-2">
-          <!-- <div class="avatar">
-            <img src="https://i.imgur.com/hczKIze.jpg" class="rounded-circle" />
-          </div> -->
           <div class="student-detail">
             <div class="row">
               <div class="col-4">
@@ -161,7 +186,6 @@
                 </p>
               </div>
             </div>
-
             <div class="row mb-3">
               <div class="col-4">
                 <h4 class="title">Employee Id:</h4>
@@ -170,81 +194,9 @@
                 <p>{{ teacherAssociation?.employeeId }}</p>
               </div>
             </div>
-            <!-- <div class="row">
-              <div class="col-12">
-                <a href="javascript:void(0)" class="link btn"
-                  >View Full Details</a
-                >
-              </div>
-            </div> -->
-            <a class="btn btn-sm btn-primary" href="javascript:void(0)" data-bs-toggle="modal"
-              data-bs-target="#deleteModal"><i class="bi bi-trash"></i></a>
           </div>
         </div>
       </div>
     </div>
   </div>
 </div>
-
-<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered">
-    <div class="modal-content">
-      <div class="modal-header justify-content-center">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Delete</h1>
-      </div>
-      <div class="modal-body delete-body">
-        <div class="row">
-          <div class="col-12">
-            <p class="text-center">Are you sure you want to delete?</p>
-          </div>
-          <div class="col-6">
-            <button type="button" class="btn btn-sm btn-danger d-block w-100">Delete</button>
-          </div>
-          <div class="col-6">
-            <button type="button" class="btn btn-sm btn-primary d-block w-100" data-bs-dismiss="modal"
-              aria-label="Close">close</button>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- <div
-  class="modal fade"
-  id="studentModal"
-  tabindex="-1"
-  aria-labelledby="studentModalLabel"
-  aria-hidden="true"
->
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="studentModalLabel">Student Details</h5>
-        <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="modal"
-          aria-label="Close"
-        ></button>
-      </div>
-      <div class="modal-body student-info">
-        <div class="row px-4">
-          <div class="col-sm-6">
-            <p><strong>Class:</strong> {{ studentAssociation?.class?.name }}</p>
-          </div>
-          <div class="col-sm-6">
-            <p>
-              <strong>Name:</strong>
-              {{ studentAssociation?.student?.firstName }}
-              {{ studentAssociation?.student?.lastName }}
-            </p>
-          </div>
-          <div class="col-sm-6">
-            <p><strong>Roll No:</strong> {{ studentAssociation?.rollNo }}</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</div> -->

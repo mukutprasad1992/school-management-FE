@@ -107,8 +107,7 @@
                         data-bs-target="#studentModal" (click)="onStudentAssociation(association)"><i
                           class="bi bi-eye"></i></a>
                       <a class="btn btn-sm btn-primary" href="javascript:void(0)" data-bs-toggle="modal"
-                        data-bs-target="#deleteModal" (click)="deleteCSAssociation(association._id)"><i
-                          class="bi bi-trash"></i></a>
+                        data-bs-target="#deleteModal"><i class="bi bi-trash"></i></a>
                     </td>
                   </tr>
                 </tbody>
@@ -144,6 +143,17 @@
           <div class="col-6">
             <button type="button" class="btn btn-sm btn-primary d-block w-100" data-bs-dismiss="modal"
               aria-label="Close">close</button>
+
+            <button type="button" class="btn btn-sm btn-danger d-block w-100">
+              Delete
+            </button>
+          </div>
+          <div class="col-6">
+            <button type="button" class="btn btn-sm btn-primary d-block w-100" data-bs-dismiss="modal"
+              aria-label="Close">
+              close
+            </button>
+
           </div>
         </div>
       </div>
@@ -152,26 +162,28 @@
 </div>
 
 <div class="modal fade" id="studentModal" tabindex="-1" aria-labelledby="studentModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="studentModalLabel">Student Association</h5>
-        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-      </div>
-      <div class="modal-body student-info">
-        <div class="row px-4">
-          <div class="col-sm-6">
-            <p><strong>Class:</strong> {{ studentAssociation?.class?.name }}</p>
-          </div>
-          <div class="col-sm-6">
-            <p>
-              <strong>Name:</strong>
-              {{ studentAssociation?.student?.firstName }}
-              {{ studentAssociation?.student?.lastName }}
-            </p>
-          </div>
-          <div class="col-sm-6">
-            <p><strong>Roll No:</strong> {{ studentAssociation?.rollNo }}</p>
+  <div class="modal fade" id="studentModal" tabindex="-1" aria-labelledby="studentModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="studentModalLabel">Student Association</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body student-info">
+          <div class="row px-4">
+            <div class="col-sm-6">
+              <p><strong>Class:</strong> {{ studentAssociation?.class?.name }}</p>
+            </div>
+            <div class="col-sm-6">
+              <p>
+                <strong>Name:</strong>
+                {{ studentAssociation?.student?.firstName }}
+                {{ studentAssociation?.student?.lastName }}
+              </p>
+            </div>
+            <div class="col-sm-6">
+              <p><strong>Roll No:</strong> {{ studentAssociation?.rollNo }}</p>
+            </div>
           </div>
         </div>
       </div>

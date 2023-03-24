@@ -19,7 +19,7 @@ export class CTAssociationComponent {
   constructor(
     private ctAssociationService: CtAssociationService,
     private taostrService: TaostrService
-  ) {}
+  ) { }
 
   selectedOptionTeacher: any;
   selectedOptionClass: any;
@@ -148,21 +148,20 @@ export class CTAssociationComponent {
   }
 
   deleteCTAssociation(association: string) {
-    this.getClassTeacherAssociation();
     this.ctAssociationService
       .deleteCTAssociation(`classesTeachers/${association}`)
       .subscribe((response) => {
         console.log('class student is deleted', association);
         if (response.status) {
-          //   this.taostrService.showSuccess(
-          //     messages.deleteCS.success.title,
-          //     messages.deleteCS.success.message
-          //   );
-          // } else {
-          //   this.taostrService.showError(
-          //     messages.deleteCS.error.title,
-          //     messages.deleteCS.error.message
-          //   );
+          this.taostrService.showSuccess(
+            messages.deleteCTAssociation.success.title,
+            messages.deleteCTAssociation.success.message
+          );
+        } else {
+          this.taostrService.showError(
+            messages.deleteCTAssociation.error.title,
+            messages.deleteCTAssociation.error.message
+          );
         }
         this.getClassTeacherAssociation();
       });

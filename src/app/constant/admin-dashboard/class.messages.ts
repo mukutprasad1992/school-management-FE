@@ -32,10 +32,10 @@ export const messages = {
     },
   },
 
-  deleteStatus: {
+  deleteClass: {
     success: {
       title: 'Class',
-      message: 'class deleted successfully',
+      message: 'Class deleted successfully',
     },
     error: {
       title: 'Class',
