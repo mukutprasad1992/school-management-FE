@@ -149,4 +149,25 @@ export class CSAssociationComponent {
     this.studentAssociation = classStudentAssociation;
     // console.log(this.studentAssociation);
   }
+
+  deleteCSAssociation(association: string) {
+    this.getClassStudentAssociation();
+    this.csAssociationService
+      .deleteCSAssociation(`classesStudents/${association}`)
+      .subscribe((response) => {
+        console.log('class student is deleted', association);
+        if (response.status) {
+          this.taostrService.showSuccess(
+            messages.deleteCS.success.title,
+            messages.deleteCS.success.message
+          );
+        } else {
+          this.taostrService.showError(
+            messages.deleteCS.error.title,
+            messages.deleteCS.error.message
+          );
+        }
+        this.getClassStudentAssociation();
+      });
+  }
 }
