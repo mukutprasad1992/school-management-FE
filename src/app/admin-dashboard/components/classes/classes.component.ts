@@ -136,6 +136,8 @@ export class ClassesComponent {
               messages.Createclass.error.message
             );
           }
+          this.classForm.reset();
+          this.selectedOptionSchool = undefined;
         });
     } else {
       this.taostrService.showError(

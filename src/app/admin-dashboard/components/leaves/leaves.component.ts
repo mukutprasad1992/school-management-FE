@@ -69,7 +69,7 @@ export class LeavesComponent {
 
   getAllTeachers() {
     this.leaveService
-      .getAllTeachers('users/all-users/6332d0c50c5e58b0b0e3c16e')
+      .getAllTeachers('users/all-users/641c4d6411e9ec35f85831ae')
       .subscribe((response) => {
         if (response.status) {
           this.taostrService.showSuccess;
@@ -138,4 +138,8 @@ export class LeavesComponent {
     // console.log(leaveUpdate);
     this.getLeaveUpdate = leaveUpdate;
   }
+
+  // deleteLeave() {
+  //   this.leaveService.
+  // }
 }
