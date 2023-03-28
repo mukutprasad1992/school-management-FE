@@ -20,6 +20,11 @@ export class ClassesComponent {
   getAllClasesFetched: any;
   public getUser: any;
 
+  prepareAttendanceSheet = {
+    class: '',
+    school: '',
+  };
+
   constructor(
     private classService: ClassService,
     private taostrService: TaostrService
@@ -152,18 +157,6 @@ export class ClassesComponent {
     this.getClassesUpdate = getClass;
   }
 
-  // makeAttendance(getClassesUpdate: any) {
-  //   console.log(getCurrentStudent);
-  //   let data = {
-  //     student: getCurrentStudent.student._id,
-  //     status: status,
-  //     rollNo: getCurrentStudent.rollNo,
-  //     firstName: getCurrentStudent.student.firstName,
-  //     lastName: getCurrentStudent.student.lastName,
-  //   };
-  //  // this.prepareAttendanceSheet.students.push(data);
-  // }
-
   deleteClass(class_Id: string) {
     this.classService
       .deleteClass(`classes/${class_Id}`)
@@ -189,5 +182,12 @@ export class ClassesComponent {
     this.getCurrentClassRow = classRow;
   }
 
-  deleteClassRow() {}
+  deleteClassRow(status: string, getCurrentClassRow: any) {
+    console.log(status, getCurrentClassRow);
+    let data = {
+      class: getCurrentClassRow,
+      status: status,
+      school: getCurrentClassRow,
+    };
+  }
 }

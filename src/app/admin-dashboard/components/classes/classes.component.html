@@ -233,7 +233,8 @@
             <button
               type="button"
               class="btn btn-sm btn-danger d-block w-100"
-              (click)="deleteClassRow()"
+              data-bs-dismiss="modal"
+              (click)="deleteClassRow('DELETE', getCurrentClassRow)"
             >
               Delete
             </button>
@@ -244,6 +245,7 @@
               class="btn btn-sm btn-primary d-block w-100"
               data-bs-dismiss="modal"
               aria-label="Close"
+              (click)="deleteClassRow('CANCEL', getCurrentClassRow)"
             >
               close
             </button>
