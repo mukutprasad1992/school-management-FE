@@ -386,6 +386,15 @@
   <!-- End Footer -->
 </div>
 
+<a
+  href="#"
+  class="label attendance-btn"
+  data-bs-toggle="modal"
+  data-bs-target="#attendanc_status_modal"
+>
+  Attendance
+</a>
+
 <div
   class="modal fade"
   id="exampleModal"
@@ -408,9 +417,67 @@
       </div>
       <div class="modal-body">
         <div class="button-box">
-          <a href="#" class="btn btn-success">Present</a>
-          <a href="#" class="btn btn-danger">Absent</a>
+          <a
+            href="#"
+            class="btn btn-success"
+            data-bs-toggle="modal"
+            data-bs-target="#presentModal"
+            >>Present</a
+          >
+          <a
+            href="#"
+            class="btn btn-danger"
+            data-bs-toggle="modal"
+            data-bs-target="#absentModal"
+            >Absent</a
+          >
           <a href="#" class="btn btn-primary">No Response</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div
+  class="modal fade"
+  id="absentModal"
+  tabindex="-1"
+  aria-labelledby="absentModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header justify-content-center">
+        <h1 class="modal-title fs-5" id="absentModalLabel">Congratulations</h1>
+      </div>
+      <div class="modal-body delete-body">
+        <div class="row">
+          <div class="col-12">
+            <p class="text-center">Congratulations You Are Absent</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div
+  class="modal fade"
+  id="absentModal"
+  tabindex="-1"
+  aria-labelledby="presentModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header justify-content-center">
+        <h1 class="modal-title fs-5" id="presentModalLabel">Congratulations</h1>
+      </div>
+      <div class="modal-body delete-body">
+        <div class="row">
+          <div class="col-12">
+            <p class="text-center">Congratulations You Are Present</p>
+          </div>
         </div>
       </div>
     </div>

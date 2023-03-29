@@ -4,7 +4,7 @@
 
   <div class="main" style="align-items: flex-start">
     <section id="calendar" class="calendar pb-0">
-      <div class="container aos-init aos-animate" data-aos="fade-up">
+      <div class="container" data-aos="fade-up">
         <div class="row justify-content-center">
           <div class="col-md-12 text-center mb-4">
             <div class="section-title">
@@ -216,11 +216,15 @@
           <a
             class="btn btn-success"
             (click)="makeAttendance('PRESENT', getCurrentStudent)"
+            data-bs-toggle="modal"
+            data-bs-target="#presentModal"
             >Present</a
           >
           <a
             class="btn btn-danger"
             (click)="makeAttendance('ABSENT', getCurrentStudent)"
+            data-bs-toggle="modal"
+            data-bs-target="#absentModal"
             >Absent</a
           >
           <a
@@ -228,6 +232,86 @@
             (click)="makeAttendance('NO RESPONSE', getCurrentStudent)"
             >No Response</a
           >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div
+  class="modal fade"
+  id="absentModal"
+  tabindex="-1"
+  aria-labelledby="absentModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header justify-content-center">
+        <h1 class="modal-title fs-5 text-danger w-100" id="absentModalLabel">
+          Congratulations
+        </h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body absent-body">
+        <div class="row">
+          <div class="col-12">
+            <div class="image-box">
+              <img
+                class="img-fluid"
+                src="../../../../assets/img/clients/client-1.png"
+              />
+            </div>
+          </div>
+          <div class="col-12">
+            <p class="text-center text-danger">
+              Congratulations You Are Absent
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div
+  class="modal fade"
+  id="presentModal"
+  tabindex="-1"
+  aria-labelledby="presentModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header justify-content-center">
+        <h1 class="modal-title text-success fs-5 w-100" id="presentModalLabel">
+          Congratulations
+        </h1>
+        <button
+          type="button"
+          class="btn-close"
+          data-bs-dismiss="modal"
+          aria-label="Close"
+        ></button>
+      </div>
+      <div class="modal-body present-body">
+        <div class="row">
+          <div class="image-box">
+            <img
+              class="img-fluid"
+              src="../../../../assets/img/clients/client-1.png"
+            />
+          </div>
+          <div class="col-12">
+            <p class="text-center text-success">
+              Congratulations You Are Present
+            </p>
+          </div>
         </div>
       </div>
     </div>
