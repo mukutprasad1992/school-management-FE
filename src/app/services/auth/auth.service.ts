@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Router } from '@angular/router';
 
-const API_URL = 'http://localhost:3000';
+const API_URL = 'http://3.110.117.110:3000';
 @Injectable({
   providedIn: 'root',
 })
