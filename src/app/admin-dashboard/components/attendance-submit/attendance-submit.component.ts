@@ -169,6 +169,7 @@ export class AttendanceSubmitComponent {
   }
 
   onButtonClick(getClass: any) {
+    console.log('class get', getClass);
     this.getAllClasses();
     this.getSingleClass = getClass;
     this.getAttendanceClass = getClass._id;

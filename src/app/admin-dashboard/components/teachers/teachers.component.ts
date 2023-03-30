@@ -91,4 +91,29 @@ export class TeachersComponent {
     this.getTeacherUpdate = getTeacher;
     console.log(this.getTeacherUpdate);
   }
+
+  // deleteTeacher(class_Id: string, deleteCurrentClassRow: any) {
+  //   this.teacherService
+  //     .deleteTeacher(`classes/${class_Id}`)
+  //     .subscribe((response) => {
+  //       console.log(class_Id, deleteCurrentClassRow);
+  //       let data = {
+  //         class: deleteCurrentClassRow,
+  //         class_Id: class_Id,
+  //       };
+
+  //       if (response.status) {
+  //         this.taostrService.showSuccess(
+  //           messages.deleteClass.success.title,
+  //           messages.deleteClass.success.message
+  //         );
+  //         this.getAllClasses();
+  //       } else {
+  //         this.taostrService.showError(
+  //           messages.deleteClass.error.title,
+  //           messages.deleteClass.error.message
+  //         );
+  //       }
+  //     });
+  // }
 }

@@ -22,7 +22,6 @@ export class ClassesComponent {
 
   prepareAttendanceSheet = {
     class: '',
-    school: '',
   };
 
   constructor(
@@ -36,7 +35,7 @@ export class ClassesComponent {
   allSchools: any = [];
   selectedOptionSchool: any;
   getClassesUpdate: any;
-  getCurrentClassRow: any;
+  deleteCurrentClassRow: any;
 
   ngOnInit() {
     this.getAllClasses();
@@ -157,11 +156,41 @@ export class ClassesComponent {
     this.getClassesUpdate = getClass;
   }
 
-  deleteClass(class_Id: string) {
+  // deleteClass(class_Id: string) {
+  //   this.classService
+  //     .deleteClass(`classes/${class_Id}`)
+  //     .subscribe((response) => {
+  //       console.log('class is deleted', class_Id);
+  //       if (response.status) {
+  //         this.taostrService.showSuccess(
+  //           messages.deleteClass.success.title,
+  //           messages.deleteClass.success.message
+  //         );
+  //         this.getAllClasses();
+  //       } else {
+  //         this.taostrService.showError(
+  //           messages.deleteClass.error.title,
+  //           messages.deleteClass.error.message
+  //         );
+  //       }
+  //     });
+  // }
+
+  onClick(classRow: any) {
+    console.log(classRow);
+    this.deleteCurrentClassRow = classRow;
+  }
+
+  deleteClassRow(class_Id: string, deleteCurrentClassRow: any) {
     this.classService
       .deleteClass(`classes/${class_Id}`)
       .subscribe((response) => {
-        console.log('class is deleted', class_Id);
+        console.log(class_Id, deleteCurrentClassRow);
+        let data = {
+          class: deleteCurrentClassRow,
+          class_Id: class_Id,
+        };
+
         if (response.status) {
           this.taostrService.showSuccess(
             messages.deleteClass.success.title,
@@ -175,19 +204,5 @@ export class ClassesComponent {
           );
         }
       });
-  }
-
-  onClick(classRow: any) {
-    console.log(classRow);
-    this.getCurrentClassRow = classRow;
-  }
-
-  deleteClassRow(status: string, getCurrentClassRow: any) {
-    console.log(status, getCurrentClassRow);
-    let data = {
-      class: getCurrentClassRow,
-      status: status,
-      school: getCurrentClassRow,
-    };
   }
 }
