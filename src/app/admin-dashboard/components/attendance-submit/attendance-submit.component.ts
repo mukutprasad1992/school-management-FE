@@ -32,7 +32,7 @@ export class AttendanceSubmitComponent {
     private readonly http: HttpClient,
     private attendanceService: AttendanceService,
     private taostrService: TaostrService
-  ) {}
+  ) { }
 
   StudentProfilePic: any;
   apiData: any;

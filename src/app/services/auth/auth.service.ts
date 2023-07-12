@@ -4,12 +4,12 @@ import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Router } from '@angular/router';
 
-const API_URL = 'http://3.110.117.110:3000';
+const API_URL = 'http://localhost:3000';
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  constructor(private http: HttpClient, private router: Router) {}
+  constructor(private http: HttpClient, private router: Router) { }
 
   public saveAuthData(token: string, user: any, expirationDate: Date) {
     localStorage.setItem('token', token);
