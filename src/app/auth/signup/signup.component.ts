@@ -19,7 +19,7 @@ export class SignUpComponent {
     private signupService: SignupService,
     private taostrService: TaostrService,
     private router: Router
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.getAllRoles();
@@ -30,6 +30,7 @@ export class SignUpComponent {
     return this.signUpForm.get('firstName')!;
   }
   get lastName() {
+
     return this.signUpForm.get('lastName')!;
   }
   get email() {

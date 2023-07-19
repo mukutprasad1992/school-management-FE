@@ -1,26 +1,13 @@
 <section class="signup">
   <div class="container-fluid">
     <div class="row">
-      <div
-        class="col-lg-6 contact-img d-flex flex-column justify-content-center hero-img aos-init aos-animate"
-        data-aos="zoom-in"
-        data-aos-delay="200"
-      >
-        <img
-          src="assets/img/form-image.png"
-          class="img-fluid animated"
-          alt=""
-        />
+      <div class="col-lg-6 contact-img d-flex flex-column justify-content-center hero-img aos-init aos-animate"
+        data-aos="zoom-in" data-aos-delay="200">
+        <img src="assets/img/form-image.png" class="img-fluid animated" alt="" />
       </div>
-      <div
-        class="col-lg-6 d-flex flex-column justify-content-center align-items-center"
-      >
+      <div class="col-lg-6 d-flex flex-column justify-content-center align-items-center">
         <div class="form-container">
-          <form
-            class="signup-form"
-            [formGroup]="signUpForm"
-            (ngSubmit)="onSubmit()"
-          >
+          <form class="signup-form" [formGroup]="signUpForm" (ngSubmit)="onSubmit()">
             <div class="row">
               <div class="col-md-12">
                 <div class="section-title">
@@ -29,18 +16,10 @@
               </div>
               <div class="form-group col-md-6">
                 <label for="firstName">First Name</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="firstName"
-                  formControlName="firstName"
-                />
-                <div
-                  *ngIf="
+                <input type="text" class="form-control" id="firstName" formControlName="firstName" />
+                <div *ngIf="
                     firstName.invalid && (firstName.dirty || firstName.touched)
-                  "
-                  class="alert alert-danger"
-                >
+                  " class="alert alert-danger">
                   <div *ngIf="firstName.errors?.['required']">
                     Please enter first name*
                   </div>
@@ -49,18 +28,10 @@
 
               <div class="form-group col-md-6">
                 <label for="lastName">Last Name</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="lastName"
-                  formControlName="lastName"
-                />
-                <div
-                  *ngIf="
+                <input type="text" class="form-control" id="lastName" formControlName="lastName" />
+                <div *ngIf="
                     lastName.invalid && (lastName.dirty || lastName.touched)
-                  "
-                  class="alert alert-danger"
-                >
+                  " class="alert alert-danger">
                   <div *ngIf="lastName.errors?.['required']">
                     Please enter last name*
                   </div>
@@ -68,16 +39,8 @@
               </div>
               <div class="form-group col-md-6">
                 <label for="email">Your Email</label>
-                <input
-                  type="email"
-                  class="form-control"
-                  formControlName="email"
-                  id="email"
-                />
-                <div
-                  *ngIf="email.invalid && (email.dirty || email.touched)"
-                  class="alert alert-danger"
-                >
+                <input type="email" class="form-control" formControlName="email" id="email" />
+                <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert alert-danger">
                   <div *ngIf="email.errors?.['required']">
                     Please enter email address*
                   </div>
@@ -88,19 +51,11 @@
               </div>
               <div class="form-group col-md-6">
                 <label for="mobileNumber">Your Mobile</label>
-                <input
-                  type="number"
-                  class="form-control"
-                  formControlName="mobileNumber"
-                  id="mobileNumber"
-                />
-                <div
-                  *ngIf="
+                <input type="number" class="form-control" formControlName="mobileNumber" id="mobileNumber" />
+                <div *ngIf="
                     mobileNumber.invalid &&
                     (mobileNumber.dirty || mobileNumber.touched)
-                  "
-                  class="alert alert-danger"
-                >
+                  " class="alert alert-danger">
                   <div *ngIf="mobileNumber.errors?.['required']">
                     Please enter mobile number*
                   </div>
@@ -108,18 +63,10 @@
               </div>
               <div class="form-group col-md-6">
                 <label for="password">Password</label>
-                <input
-                  type="password"
-                  class="form-control"
-                  formControlName="password"
-                  id="password"
-                />
-                <div
-                  *ngIf="
+                <input type="password" class="form-control" formControlName="password" id="password" />
+                <div *ngIf="
                     password.invalid && (password.dirty || password.touched)
-                  "
-                  class="alert alert-danger"
-                >
+                  " class="alert alert-danger">
                   <div *ngIf="password.errors?.['required']">
                     Please enter password*
                   </div>
@@ -127,19 +74,11 @@
               </div>
               <div class="form-group col-md-6">
                 <label for="comfirmpassword">Confirm Password</label>
-                <input
-                  type="password"
-                  class="form-control"
-                  formControlName="comfirmpassword"
-                  id="comfirmpassword"
-                />
-                <div
-                  *ngIf="
+                <input type="password" class="form-control" formControlName="comfirmpassword" id="comfirmpassword" />
+                <div *ngIf="
                     comfirmpassword.invalid &&
                     (comfirmpassword.dirty || comfirmpassword.touched)
-                  "
-                  class="alert alert-danger"
-                >
+                  " class="alert alert-danger">
                   <div *ngIf="comfirmpassword.errors?.['required']">
                     Please enter confirm password*
                   </div>
@@ -153,10 +92,7 @@
                     {{ role.name.toUpperCase() }}
                   </option>
                 </select>
-                <div
-                  *ngIf="role.invalid && (role.dirty || role.touched)"
-                  class="alert alert-danger"
-                >
+                <div *ngIf="role.invalid && (role.dirty || role.touched)" class="alert alert-danger">
                   <div *ngIf="role.errors?.['required']">
                     Please select your role*
                   </div>

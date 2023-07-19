@@ -5,7 +5,6 @@ import { TaostrService } from '../../services/common/taostr.service';
 import { messages } from '../../constant/auth/signup.messages';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-
 @Component({
   selector: 'app-signin',
   templateUrl: './signin.component.html',
@@ -19,7 +18,7 @@ export class SignInComponent {
     private SigninService: SignInService,
     private taostrService: TaostrService,
     private authService: AuthService
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.createFormBuilder();
