@@ -27,7 +27,7 @@ export class ClassesComponent {
   constructor(
     private classService: ClassService,
     private taostrService: TaostrService
-  ) {}
+  ) { }
 
   getClassTeacherData: any = [];
   allClasses: any = [];
@@ -183,14 +183,9 @@ export class ClassesComponent {
 
   deleteClassRow(class_Id: string, deleteCurrentClassRow: any) {
     this.classService
-      .deleteClass(`classes/${class_Id}`)
+      .deleteClass(`classes/${deleteCurrentClassRow._id}`)
       .subscribe((response) => {
         console.log(class_Id, deleteCurrentClassRow);
-        let data = {
-          class: deleteCurrentClassRow,
-          class_Id: class_Id,
-        };
-
         if (response.status) {
           this.taostrService.showSuccess(
             messages.deleteClass.success.title,

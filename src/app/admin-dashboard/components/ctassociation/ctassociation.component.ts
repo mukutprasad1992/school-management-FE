@@ -19,7 +19,7 @@ export class CTAssociationComponent {
   constructor(
     private ctAssociationService: CtAssociationService,
     private taostrService: TaostrService
-  ) {}
+  ) { }
 
   selectedOptionTeacher: any;
   selectedOptionClass: any;
@@ -27,6 +27,7 @@ export class CTAssociationComponent {
   allTeachers: any = [];
   getClassTeacherAssociationData: any = [];
   teacherAssociation: any;
+  ctAssociation: any;
 
   ngOnInit() {
     this.getAllClasses();
@@ -72,7 +73,7 @@ export class CTAssociationComponent {
 
   getAllTeachers() {
     this.ctAssociationService
-      .getAllTeachers('users/all-users/641c4d6411e9ec35f85831ae')
+      .getAllTeachers('users/all-users/64b7941272205cd723117d4c')
       .subscribe((response) => {
         if (response.status) {
           this.taostrService.showSuccess(
@@ -147,7 +148,7 @@ export class CTAssociationComponent {
     this.teacherAssociation = classTeacherAssociation;
   }
 
-  deleteCTAssociation(association: string) {
+  deleteCTAssociation(association: string, ctAssociation: any) {
     this.ctAssociationService
       .deleteCTAssociation(`classesTeachers/${association}`)
       .subscribe((response) => {

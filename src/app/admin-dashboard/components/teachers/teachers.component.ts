@@ -15,14 +15,15 @@ export class TeachersComponent {
   tableSize: number = defaultPagination.defaultTableSize;
 
   getAllTeachersFetched: any;
+  deleteCurrentTeacherRow: any;
 
   public getUser: any;
-  getTeacherUpdate: any;
+  getTeacherOnSelect: any;
 
   constructor(
     private teacherService: TeacherService,
     private taostrService: TaostrService
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.getAllTeachers();
@@ -31,7 +32,7 @@ export class TeachersComponent {
 
   getAllTeachers() {
     this.teacherService
-      .getAllTeachers('users/all-users/641c4d6411e9ec35f85831ae')
+      .getAllTeachers('users/all-users/64b7941272205cd723117d4c')
       .subscribe((response) => {
         if (response.status) {
           this.taostrService.showSuccess(
@@ -87,33 +88,29 @@ export class TeachersComponent {
   }
 
   onTeacherSelect(getTeacher: any) {
-    // console.log(getTeacher);
-    this.getTeacherUpdate = getTeacher;
-    console.log(this.getTeacherUpdate);
+    this.getTeacherOnSelect = getTeacher;
+    console.log(this.getTeacherOnSelect);
   }
 
-  // deleteTeacher(class_Id: string, deleteCurrentClassRow: any) {
-  //   this.teacherService
-  //     .deleteTeacher(`classes/${class_Id}`)
-  //     .subscribe((response) => {
-  //       console.log(class_Id, deleteCurrentClassRow);
-  //       let data = {
-  //         class: deleteCurrentClassRow,
-  //         class_Id: class_Id,
-  //       };
-
-  //       if (response.status) {
-  //         this.taostrService.showSuccess(
-  //           messages.deleteClass.success.title,
-  //           messages.deleteClass.success.message
-  //         );
-  //         this.getAllClasses();
-  //       } else {
-  //         this.taostrService.showError(
-  //           messages.deleteClass.error.title,
-  //           messages.deleteClass.error.message
-  //         );
-  //       }
-  //     });
-  // }
+  deleteTeacherRow(teacher_id: string, deleteCurrentTeacherRow: any) {
+    this.teacherService
+      .deleteTeacher(`classesTeachers/${deleteCurrentTeacherRow._id}`)
+      .subscribe((response) => {
+        console.log(teacher_id, deleteCurrentTeacherRow);
+        if (response.status) {
+          this.taostrService.showSuccess(
+            messages.deleteTeacher.success.title,
+            messages.deleteTeacher.success.message
+          );
+          this.getAllTeachers();
+        } else {
+          this.taostrService.showError(
+            messages.deleteTeacher.error.title,
+            messages.deleteTeacher.error.message
+          );
+        }
+      });
+  }
 }
+
+

@@ -29,7 +29,7 @@ export class MySchoolComponent {
     private router: Router,
     private schoolService: SchoolService,
     private taostrService: TaostrService
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.createFormBuilder();
@@ -43,7 +43,7 @@ export class MySchoolComponent {
     this.schoolLogo = event.target.files[0];
     const schoolFormData = new FormData(); // For convert in form data
     schoolFormData.append('schoolLogo', this.schoolLogo, this.schoolLogo.name);
-    schoolFormData.append('schoolId', '63d10ba6b7d93566cd279e4b');
+    schoolFormData.append('schoolId', '63ce7b90b7d93566cd279e0c');
     this.schoolService
       .uploadSchoolLogo('schools/school-logo-upload', schoolFormData)
       .subscribe((response) => {

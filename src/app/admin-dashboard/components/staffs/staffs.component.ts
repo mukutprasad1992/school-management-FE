@@ -22,7 +22,7 @@ export class StaffsComponent {
   constructor(
     private staffsService: StaffService,
     private taostrService: TaostrService
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.getAllStaffs();
