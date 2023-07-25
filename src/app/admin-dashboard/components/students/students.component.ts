@@ -13,6 +13,7 @@ export class StudentsComponent {
   getAllStudntsFetched: any;
   public getUser: any;
   getStudentUpdate: any;
+  deleteCurrentStudentRow: any;
 
   page: number = defaultPagination.defaultPage;
   totalCount: number = defaultPagination.defaultTotalCount;
@@ -21,7 +22,7 @@ export class StudentsComponent {
   constructor(
     private stuentsService: StudentService,
     private taostrService: TaostrService
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.getAllStudents();
@@ -30,7 +31,7 @@ export class StudentsComponent {
 
   getAllStudents() {
     this.stuentsService
-      .getAllStudents('users/all-users/6332d11f0c5e58b0b0e3c17a')
+      .getAllStudents('users/all-users/64b7941f72205cd723117d4e')
       .subscribe((response) => {
         if (response.status) {
           this.taostrService.showSuccess(
@@ -88,4 +89,32 @@ export class StudentsComponent {
     // console.log(getTeacher);
     this.getStudentUpdate = getStudent;
   }
+
+  onClick(studentRow: any) {
+    console.info("getStudent : ", studentRow)
+    this.deleteCurrentStudentRow = studentRow;
+  }
+
+  deleteStudentRow(studentId: any, deleteCurrentStudentRow: any) {
+    console.info("deleteCurrentStudentRow", deleteCurrentStudentRow._id)
+    this.stuentsService
+      .deleteStudent(`users/${deleteCurrentStudentRow._id}`)
+      .subscribe((response) => {
+        console.info("deleteCurrentStaffRow._id", deleteCurrentStudentRow._id)
+        if (response.status) {
+          this.taostrService.showSuccess(
+            messages.deleteStudent.success.title,
+            messages.deleteStudent.success.message
+          );
+          this.getAllStudents();
+        } else {
+          this.taostrService.showError(
+            messages.deleteStudent.error.title,
+            messages.deleteStudent.error.message
+          );
+        }
+      });
+  }
+
+
 }

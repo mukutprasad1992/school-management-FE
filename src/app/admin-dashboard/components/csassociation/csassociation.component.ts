@@ -20,14 +20,14 @@ export class CSAssociationComponent {
   constructor(
     private csAssociationService: CsAssociationService,
     private taostrService: TaostrService
-  ) {}
+  ) { }
 
   selectedOptionClass: any;
   selectedOptionStudent: any;
   allClasses: any = [];
   allStudents: any = [];
   allClassStudentAssociation: any = [];
-
+  csAssociationDeleteCurrentRow: any;
   studentAssociation: any;
 
   ngOnInit() {
@@ -74,7 +74,7 @@ export class CSAssociationComponent {
 
   getAllStudents() {
     this.csAssociationService
-      .getAllStudents('users/all-users/6332d11f0c5e58b0b0e3c17a')
+      .getAllStudents('users/all-users/64b7941f72205cd723117d4e')
       .subscribe((response) => {
         if (response.status) {
           this.taostrService.showSuccess(
@@ -118,6 +118,7 @@ export class CSAssociationComponent {
 
   onSubmit() {
     if (this.csAssociationForm.valid) {
+      console.info('Student Associated')
       this.csAssociationService
         .createClassStudent('classesStudents', this.csAssociationForm.value)
         .subscribe((response) => {
@@ -150,12 +151,17 @@ export class CSAssociationComponent {
     // console.log(this.studentAssociation);
   }
 
-  deleteCSAssociation(association: string) {
+  onClick(csAssociationRow: any) {
+    console.info("ctAssociationRow: ", csAssociationRow)
+    this.csAssociationDeleteCurrentRow = csAssociationRow;
+  }
+
+  deleteCSAssociation(association: string, csAssociationDeleteCurrentRow: any) {
     this.getClassStudentAssociation();
     this.csAssociationService
-      .deleteCSAssociation(`classesStudents/${association}`)
+      .deleteCSAssociation(`classesStudents/${csAssociationDeleteCurrentRow}`)
       .subscribe((response) => {
-        console.log('class student is deleted', association);
+        console.log('class student is deleted', csAssociationDeleteCurrentRow);
         if (response.status) {
           this.taostrService.showSuccess(
             messages.deleteCS.success.title,

@@ -109,7 +109,7 @@
                       <a class="btn btn-sm btn-primary" data-bs-toggle="modal" data-bs-target="#classteachermodal"
                         (click)="onTeacherAssociation(association)"><i class="bi bi-eye"></i></a>
                       <a class="btn btn-sm btn-primary" href="javascript:void(0)" data-bs-toggle="modal"
-                        data-bs-target="#deleteModal"><i class="bi bi-trash"></i></a>
+                        data-bs-target="#deleteModal" (click)="onClick(association)"><i class="bi bi-trash"></i></a>
                     </td>
                   </tr>
                 </tbody>

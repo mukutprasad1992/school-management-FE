@@ -29,7 +29,7 @@ export class AttendanceSheetComponent {
   constructor(
     private attendanceService: AttendanceService,
     private taostrService: TaostrService
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.getAllClasses();
@@ -69,9 +69,36 @@ export class AttendanceSheetComponent {
     });
   }
 
+  // onSubmit() {
+  //   if (this.attedanceSheetForm.valid) {
+  //     console.log(this.attedanceSheetForm.value);
+  //   }
+  // }
+
   onSubmit() {
     if (this.attedanceSheetForm.valid) {
       console.log(this.attedanceSheetForm.value);
+      this.attendanceService
+        .createAttendance('classesStudents', this.attedanceSheetForm.value)
+        .subscribe((response) => {
+          if (response.status) {
+            this.taostrService.showSuccess(
+              messages.Onsubmit.success.title,
+              messages.Onsubmit.success.message
+            );
+          } else {
+            this.taostrService.showError(
+              messages.Onsubmit.error.title,
+              messages.Onsubmit.error.message
+            );
+          }
+          this.attedanceSheetForm.reset();
+        });
+    } else {
+      this.taostrService.showError(
+        messages.Onsubmit.error.title,
+        messages.Onsubmit.error.message
+      );
     }
   }
 

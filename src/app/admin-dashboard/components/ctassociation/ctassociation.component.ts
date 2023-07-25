@@ -148,11 +148,16 @@ export class CTAssociationComponent {
     this.teacherAssociation = classTeacherAssociation;
   }
 
+  onClick(ctAssociationRow: any) {
+    console.info("ctAssociationRow: ", ctAssociationRow)
+    this.ctAssociation = ctAssociationRow;
+  }
+
   deleteCTAssociation(association: string, ctAssociation: any) {
     this.ctAssociationService
-      .deleteCTAssociation(`classesTeachers/${association}`)
+      .deleteCTAssociation(`classesTeachers/${ctAssociation._id}`)
       .subscribe((response) => {
-        console.log('class student is deleted', association);
+        console.log('class student is deleted', ctAssociation);
         if (response.status) {
           this.taostrService.showSuccess(
             messages.deleteCTAssociation.success.title,

@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-const API_URL = 'http://localhost:3000';
+const API_URL = 'http://52.90.114.182';
 
 @Injectable({
   providedIn: 'root',
@@ -23,5 +23,9 @@ export class LeaveServices {
     return this.http
       .post(`${API_URL}/${url}`, requestBody)
       .pipe(map((res) => res));
+  }
+
+  public deleteLeave(Id: string): Observable<any> {
+    return this.http.delete(`${API_URL}/${Id}`).pipe(map((res) => res));
   }
 }

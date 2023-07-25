@@ -21,10 +21,7 @@
         </div>
       </div>
       <div class="row">
-        <div
-          class="col-md-12 d-flex align-items-center justify-content-between mb-3 title-box"
-          data-aos="fade-up"
-        >
+        <div class="col-md-12 d-flex align-items-center justify-content-between mb-3 title-box" data-aos="fade-up">
           <h2 class="title">
             Hi, {{ getUser.firstName }} {{ getUser.lastName }}
           </h2>
@@ -34,15 +31,11 @@
       <div class="row">
         <div class="col-12" data-aos="fade-up">
           <div class="table-box text-center rounded p-4">
-            <div
-              class="d-flex align-items-center justify-content-between mb-3 table-header"
-            >
+            <div class="d-flex align-items-center justify-content-between mb-3 table-header">
               <h6 class="mb-0 title">Students</h6>
             </div>
             <div class="table-responsive">
-              <table
-                class="table text-start align-middle table-bordered table-hover mb-0"
-              >
+              <table class="table text-start align-middle table-bordered table-hover mb-0">
                 <thead>
                   <tr class="text-dark">
                     <th scope="col">S No</th>
@@ -56,8 +49,7 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr
-                    *ngFor="
+                  <tr *ngFor="
                       let student of getAllStudntsFetched
                         | paginate
                           : {
@@ -66,93 +58,59 @@
                               totalItems: totalCount
                             };
                       index as i
-                    "
-                  >
+                    ">
                     <td>{{ i + 1 }}</td>
                     <td>{{ student?.firstName }} {{ student?.lastName }}</td>
                     <td>{{ student?.email }}</td>
                     <td>{{ student?.mobileNumber }}</td>
                     <td>{{ student?.role.name }}</td>
                     <td>
-                      <div
-                        [ngClass]="{
+                      <div [ngClass]="{
                           approve: student.status === 'ACTIVATED',
                           reject: student.status === 'INPROGRESS',
                           pending: student.status === 'INITIATED',
                           label: true
-                        }"
-                      >
+                        }">
                         {{ student.status.toLowerCase() }}
                       </div>
                     </td>
                     <td>
                       <div class="dropdown">
-                        <button
-                          class="btn btn-secondary dropdown-toggle"
-                          type="button"
-                          data-bs-toggle="dropdown"
-                          aria-expanded="false"
-                        >
+                        <button class="btn btn-secondary dropdown-toggle" type="button" data-bs-toggle="dropdown"
+                          aria-expanded="false">
                           <i class="bi bi-three-dots-vertical"></i>
                         </button>
                         <ul class="dropdown-menu">
                           <li>
-                            <a
-                              class="dropdown-item pending"
-                              (click)="
+                            <a class="dropdown-item pending" (click)="
                                 getAllStatusUpdate(student._id, 'INITIATED')
-                              "
-                              >Pending</a
-                            >
+                              ">Pending</a>
                           </li>
                           <li>
-                            <a
-                              class="dropdown-item approve"
-                              (click)="
+                            <a class="dropdown-item approve" (click)="
                                 getAllStatusUpdate(student._id, 'ACTIVATED')
-                              "
-                              >Approve</a
-                            >
+                              ">Approve</a>
                           </li>
                           <li>
-                            <a
-                              class="dropdown-item reject"
-                              (click)="
+                            <a class="dropdown-item reject" (click)="
                                 getAllStatusUpdate(student._id, 'INPROGRESS')
-                              "
-                              >Reject</a
-                            >
+                              ">Reject</a>
                           </li>
                         </ul>
                       </div>
                     </td>
                     <td>
-                      <a
-                        class="btn btn-sm btn-primary"
-                        href="#"
-                        data-bs-toggle="modal"
-                        data-bs-target="#statusmodal"
-                        (click)="onStudentSelect(student)"
-                        ><i class="bi bi-eye"></i
-                      ></a>
-                      <a
-                        class="btn btn-sm btn-primary"
-                        href="javascript:void(0)"
-                        data-bs-toggle="modal"
-                        data-bs-target="#deleteModal"
-                        ><i class="bi bi-trash"></i
-                      ></a>
+                      <a class="btn btn-sm btn-primary" href="#" data-bs-toggle="modal" data-bs-target="#statusmodal"
+                        (click)="onStudentSelect(student)"><i class="bi bi-eye"></i></a>
+                      <a class="btn btn-sm btn-primary" href="javascript:void(0)" data-bs-toggle="modal"
+                        data-bs-target="#deleteModal" (click)="onClick(student)"><i class="bi bi-trash"></i></a>
                     </td>
                   </tr>
                 </tbody>
               </table>
             </div>
             <div class="pagination">
-              <pagination-controls
-                previousLabel="Prev"
-                nextLabel="Next"
-                (pageChange)="onTableDataChange($event)"
-              >
+              <pagination-controls previousLabel="Prev" nextLabel="Next" (pageChange)="onTableDataChange($event)">
               </pagination-controls>
             </div>
           </div>
@@ -163,17 +121,11 @@
   <app-footer></app-footer>
 </div>
 
-<div
-  class="modal fade"
-  id="deleteModal"
-  tabindex="-1"
-  aria-labelledby="deleteModalLabel"
-  aria-hidden="true"
->
+<div class="modal fade" id="deleteModal" tabindex="-1" aria-labelledby="deleteModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header justify-content-center">
-        <h1 class="modal-title fs-5" id="exampleModalLabel">Delete</h1>
+        <h1 class="modal-title fs-5" id="deleteModalLabel">Delete</h1>
       </div>
       <div class="modal-body delete-body">
         <div class="row">
@@ -181,17 +133,14 @@
             <p class="text-center">Are you sure you want to delete?</p>
           </div>
           <div class="col-6">
-            <button type="button" class="btn btn-sm btn-danger d-block w-100">
+            <button type="button" class="btn btn-sm btn-danger d-block w-100" data-bs-dismiss="modal"
+              (click)="deleteStudentRow('DELETE', deleteCurrentStudentRow)">
               Delete
             </button>
           </div>
           <div class="col-6">
-            <button
-              type="button"
-              class="btn btn-sm btn-primary d-block w-100"
-              data-bs-dismiss="modal"
-              aria-label="Close"
-            >
+            <button type="button" class="btn btn-sm btn-primary d-block w-100" data-bs-dismiss="modal"
+              aria-label="Close">
               close
             </button>
           </div>
@@ -201,23 +150,12 @@
   </div>
 </div>
 
-<div
-  class="modal fade statusmodal"
-  id="statusmodal"
-  tabindex="-1"
-  aria-labelledby="statusmodal"
-  aria-hidden="true"
->
+<div class="modal fade statusmodal" id="statusmodal" tabindex="-1" aria-labelledby="statusmodal" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="statusmodal">Student Status</h1>
-        <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="modal"
-          aria-label="Close"
-        ></button>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body student-info">
         <div class="row px-4">

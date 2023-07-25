@@ -20,4 +20,15 @@ export const messages = {
       message: 'Error while updating status',
     },
   },
+
+  deleteStaff: {
+    success: {
+      title: 'Staff',
+      message: 'Staff deleted successfully',
+    },
+    error: {
+      title: 'Staff',
+      message: 'Error while deleting staff',
+    },
+  },
 };

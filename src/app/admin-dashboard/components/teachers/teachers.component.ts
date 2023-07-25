@@ -87,16 +87,16 @@ export class TeachersComponent {
     this.getAllTeachers();
   }
 
-  onTeacherSelect(getTeacher: any) {
-    this.getTeacherOnSelect = getTeacher;
-    console.log(this.getTeacherOnSelect);
+  onClick(teacherRow: any) {
+    console.info("getTeacher : ", teacherRow)
+    this.deleteCurrentTeacherRow = teacherRow;
   }
 
-  deleteTeacherRow(teacher_id: string, deleteCurrentTeacherRow: any) {
+  deleteTeacherRow(action: any, deleteCurrentTeacherRow: any) {
+    console.info("deleteCurrentTeacherRow", deleteCurrentTeacherRow)
     this.teacherService
-      .deleteTeacher(`classesTeachers/${deleteCurrentTeacherRow._id}`)
+      .deleteTeacher(`users/${deleteCurrentTeacherRow._id}`)
       .subscribe((response) => {
-        console.log(teacher_id, deleteCurrentTeacherRow);
         if (response.status) {
           this.taostrService.showSuccess(
             messages.deleteTeacher.success.title,

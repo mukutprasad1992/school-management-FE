@@ -12,6 +12,7 @@ import { defaultPagination } from '../../../constant/admin-dashboard/pagination.
 export class StaffsComponent {
   getAllStaffsFetched: any;
   getStaffUpdate: any;
+  deleteCurrentStaffRow: any
 
   page: number = defaultPagination.defaultPage;
   totalCount: number = defaultPagination.defaultTotalCount;
@@ -31,7 +32,7 @@ export class StaffsComponent {
 
   getAllStaffs() {
     this.staffsService
-      .getAllStaffs('users/all-users/6332d1120c5e58b0b0e3c178')
+      .getAllStaffs('users/all-users/64b793fa72205cd723117d4a')
       .subscribe((response) => {
         if (response.status) {
           this.taostrService.showSuccess(
@@ -88,4 +89,31 @@ export class StaffsComponent {
   onStaffSelect(getstaff: any) {
     this.getStaffUpdate = getstaff;
   }
+
+  onClick(staffRow: any) {
+    console.info("getStaff : ", staffRow)
+    this.deleteCurrentStaffRow = staffRow;
+  }
+
+  deleteStaffRow(action: any, deleteCurrentStaffRow: any) {
+    console.info("deleteCurrentStaffRow", deleteCurrentStaffRow)
+    this.staffsService
+      .deleteStaff(`users/${deleteCurrentStaffRow._id}`)
+      .subscribe((response) => {
+        console.info("deleteCurrentStaffRow._id", deleteCurrentStaffRow._id)
+        if (response.status) {
+          this.taostrService.showSuccess(
+            messages.deleteStaff.success.title,
+            messages.deleteStaff.success.message
+          );
+          this.getAllStaffs();
+        } else {
+          this.taostrService.showError(
+            messages.deleteStaff.error.title,
+            messages.deleteStaff.error.message
+          );
+        }
+      });
+  }
+
 }

@@ -31,4 +31,16 @@ export const messages = {
       message: 'Error while fetched leave',
     },
   },
+
+  deleteLeave: {
+    success: {
+      title: 'Leave',
+      message: 'Leave deleted successfully',
+    },
+    error: {
+      title: 'Leave',
+      message: 'Error while deleting leave'
+    }
+
+  }
 };

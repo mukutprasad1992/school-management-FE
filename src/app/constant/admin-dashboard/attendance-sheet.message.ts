@@ -20,4 +20,15 @@ export const messages = {
       message: 'Error while get the attendance',
     },
   },
+
+  Onsubmit: {
+    success: {
+      title: 'onsubmit',
+      message: 'Successfully submitted',
+    },
+    error: {
+      title: 'onsubmit',
+      message: 'Error while submit',
+    },
+  },
 };

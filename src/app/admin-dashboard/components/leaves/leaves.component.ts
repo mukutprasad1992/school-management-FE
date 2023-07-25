@@ -21,13 +21,14 @@ export class LeavesComponent {
   constructor(
     private leaveService: LeaveServices,
     private taostrService: TaostrService
-  ) {}
+  ) { }
 
   allTeachers: any = [];
   getLeaveData: any = [];
   selectedOptionleaveType: any;
   selectedOptiontag: any;
   getLeaveUpdate: any;
+  deleteLeaveRow: any
 
   ngOnInit() {
     this.getUserByLocalStorage();
@@ -69,7 +70,7 @@ export class LeavesComponent {
 
   getAllTeachers() {
     this.leaveService
-      .getAllTeachers('users/all-users/641c4d6411e9ec35f85831ae')
+      .getAllTeachers('users/all-users/64b7941272205cd723117d4c')
       .subscribe((response) => {
         if (response.status) {
           this.taostrService.showSuccess;
@@ -139,7 +140,31 @@ export class LeavesComponent {
     this.getLeaveUpdate = leaveUpdate;
   }
 
-  // deleteLeave() {
-  //   this.leaveService.
-  // }
+  onClick(leaveRow: any) {
+    console.info("getLeave: ", leaveRow)
+    this.deleteLeaveRow = leaveRow;
+  }
+
+  deleteCurrentLeaveRow(leaveId: any, deleteLeaveRow: any) {
+    console.info("deleteLeaveRow", deleteLeaveRow._id)
+    this.leaveService
+      .deleteLeave(`leaves/${deleteLeaveRow._id}`)
+      .subscribe((response) => {
+        console.info("deleteLeaveRow._id", deleteLeaveRow._id)
+        if (response.status) {
+          this.taostrService.showSuccess(
+            messages.deleteLeave.success.title,
+            messages.deleteLeave.success.message
+          );
+          this.getLeave();
+        } else {
+          this.taostrService.showError(
+            messages.deleteLeave.error.title,
+            messages.deleteLeave.error.message
+          );
+        }
+      });
+  }
+
+
 }
