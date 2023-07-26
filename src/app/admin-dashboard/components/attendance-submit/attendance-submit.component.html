@@ -32,16 +32,11 @@
           <div class="col-12">
             <ul class="classlist">
               <li *ngFor="let class of allClasses; index as i">
-                <input
-                  type="radio"
-                  id="class1st"
-                  name="class"
-                  value="class1st"
-                  [checked]="getSingleClass?._id === class?._id"
-                />
+                <input type="radio" id="class1st" name="class" value="class1st"
+                  [checked]="getSingleClass?._id === class?._id" />
                 <label for="class1st" (click)="onButtonClick(class)">{{
                   class?.name
-                }}</label>
+                  }}</label>
               </li>
             </ul>
           </div>
@@ -53,39 +48,22 @@
               <div class="wrapper">
                 <owl-carousel-o [options]="customOptions">
                   <ng-container *ngFor="let student of getStudenstOfClass">
-                    <div
-                      class="modal fade"
-                      id="attendanceModal-{{ student._id }}"
-                      tabindex="-1"
-                      aria-labelledby="attendanceModalLabel"
-                      aria-hidden="true"
-                    >
+                    <div class="modal fade" id="attendanceModal-{{ student._id }}" tabindex="-1"
+                      aria-labelledby="attendanceModalLabel" aria-hidden="true">
                       <div class="modal-dialog">
                         <div class="modal-content">
                           <div class="modal-header">
-                            <h1
-                              class="modal-title fs-5"
-                              id="attendanceModalLabel"
-                            >
+                            <h1 class="modal-title fs-5" id="attendanceModalLabel">
                               Attendance Status
                             </h1>
-                            <button
-                              type="button"
-                              class="btn-close"
-                              data-bs-dismiss="modal"
-                              aria-label="Close"
-                            ></button>
+                            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                           </div>
                         </div>
                       </div>
                     </div>
                     <ng-template class="slide" carouselSlide [id]="student._id">
                       <div class="avatar">
-                        <img
-                          src="assets/img/team/team-1.jpg"
-                          [alt]="student._id"
-                          [title]="student._id"
-                        />
+                        <img src="assets/img/team/team-1.jpg" [alt]="student._id" [title]="student._id" />
                       </div>
                       <div class="student-information">
                         <h5 class="name">
@@ -109,22 +87,15 @@
                           >No Response</a
                         > -->
 
-                        <div
-                          [ngClass]="{
+                        <div [ngClass]="{
                             present: student.status === 'PRESENT',
                             absent: student.status === 'ABSENT',
                             noResponce: student.status === 'NORESPONSE',
                             label: true
-                          }"
-                        ></div>
+                          }"></div>
                       </div>
-                      <a
-                        href="#"
-                        class="label attendance-btn"
-                        data-bs-toggle="modal"
-                        data-bs-target="#attendanceModal"
-                        (click)="onClick(student)"
-                      >
+                      <a href="#" class="label attendance-btn" data-bs-toggle="modal" data-bs-target="#attendanceModal"
+                        (click)="onClick(student)">
                         Attendance
                       </a>
                     </ng-template>
@@ -132,24 +103,15 @@
                 </owl-carousel-o>
               </div>
               <div class="text-center mt-5">
-                <button
-                  (click)="createAttendance()"
-                  class="btn btn-primary"
-                  routerLink="/admin/dashboard/attendance-sheet"
-                >
+                <button (click)="createAttendance()" class="btn btn-primary"
+                  routerLink="/admin/dashboard/attendance-sheet">
                   Submit
                 </button>
 
-                <p
-                  *ngIf="!selectClass && onSubmitValidation"
-                  class="mt-2 mb-0 text-danger"
-                >
+                <p *ngIf="!selectClass && onSubmitValidation" class="mt-2 mb-0 text-danger">
                   Error: Please select class!
                 </p>
-                <p
-                  *ngIf="!selectDate && onSubmitValidation"
-                  class="mt-0 mb-0 text-danger"
-                >
+                <p *ngIf="!selectDate && onSubmitValidation" class="mt-0 mb-0 text-danger">
                   Error: Please select date!
                 </p>
               </div>
@@ -163,8 +125,7 @@
   <footer id="footer">
     <div class="container footer-bottom clearfix">
       <div class="copyright">
-        &copy; Copyright <strong><span>Arsha</span></strong
-        >. All Rights Reserved
+        &copy; Copyright <strong><span>Arsha</span></strong>. All Rights Reserved
       </div>
       <div class="credits">
         <!-- All the links in the footer should remain intact. -->
@@ -178,25 +139,15 @@
   <!-- End Footer -->
 </div>
 
-<div
-  class="modal fade attendance-modal"
-  id="attendanceModal"
-  tabindex="-1"
-  aria-labelledby="attendanceModalLabel"
-  aria-hidden="true"
->
+<div class="modal fade attendance-modal" id="attendanceModal" tabindex="-1" aria-labelledby="attendanceModalLabel"
+  aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <h1 class="modal-title fs-5" id="attendanceModalLabel">
           Attendance Status
         </h1>
-        <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="modal"
-          aria-label="Close"
-        ></button>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body student-info">
         <div class="row px-4">
@@ -213,64 +164,37 @@
         </div>
 
         <div class="button-box">
-          <a
-            class="btn btn-success"
-            (click)="makeAttendance('PRESENT', getCurrentStudent)"
-            data-bs-toggle="modal"
-            data-bs-target="#presentModal"
-            >Present</a
-          >
-          <a
-            class="btn btn-danger"
-            (click)="makeAttendance('ABSENT', getCurrentStudent)"
-            data-bs-toggle="modal"
-            data-bs-target="#absentModal"
-            >Absent</a
-          >
-          <a
-            class="btn btn-primary"
-            (click)="makeAttendance('NO RESPONSE', getCurrentStudent)"
-            >No Response</a
-          >
+          <a class="btn btn-success" (click)="makeAttendance('PRESENT', getCurrentStudent)" data-bs-toggle="modal"
+            data-bs-target="#presentModal">Present</a>
+          <a class="btn btn-danger" (click)="makeAttendance('ABSENT', getCurrentStudent)" data-bs-toggle="modal"
+            data-bs-target="#absentModal">Absent</a>
+          <a class="btn btn-info" (click)="makeAttendance('NO RESPONSE', getCurrentStudent)" data-bs-toggle="modal"
+            data-bs-target="#noResponseModal">No Response</a>
         </div>
       </div>
     </div>
   </div>
 </div>
 
-<div
-  class="modal fade"
-  id="absentModal"
-  tabindex="-1"
-  aria-labelledby="absentModalLabel"
-  aria-hidden="true"
->
+<div class="modal fade" id="absentModal" tabindex="-1" aria-labelledby="absentModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header justify-content-center">
-        <h1 class="modal-title fs-5 text-danger w-100" id="absentModalLabel">
+        <!-- <h1 class="modal-title fs-5 text-danger w-100" id="absentModalLabel">
           Congratulations
-        </h1>
-        <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="modal"
-          aria-label="Close"
-        ></button>
+        </h1> -->
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body absent-body">
         <div class="row">
           <div class="col-12">
             <div class="image-box">
-              <img
-                class="img-fluid"
-                src="../../../../assets/img/clients/client-1.png"
-              />
+              <img class="img-fluid" src="../../../../assets/img/clients/absent.png" />
             </div>
           </div>
           <div class="col-12">
             <p class="text-center text-danger">
-              Congratulations You Are Absent
+              You Are Absent
             </p>
           </div>
         </div>
@@ -279,37 +203,48 @@
   </div>
 </div>
 
-<div
-  class="modal fade"
-  id="presentModal"
-  tabindex="-1"
-  aria-labelledby="presentModalLabel"
-  aria-hidden="true"
->
+<div class="modal fade" id="presentModal" tabindex="-1" aria-labelledby="presentModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header justify-content-center">
         <h1 class="modal-title text-success fs-5 w-100" id="presentModalLabel">
           Congratulations
         </h1>
-        <button
-          type="button"
-          class="btn-close"
-          data-bs-dismiss="modal"
-          aria-label="Close"
-        ></button>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <div class="modal-body present-body">
         <div class="row">
           <div class="image-box">
-            <img
-              class="img-fluid"
-              src="../../../../assets/img/clients/client-1.png"
-            />
+            <img class="img-fluid" src="../../../../assets/img/clients/congratulations.png" />
           </div>
           <div class="col-12">
             <p class="text-center text-success">
               Congratulations You Are Present
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="noResponseModal" tabindex="-1" aria-labelledby="noResponseModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header justify-content-center">
+        <h1 class="modal-title text-success fs-5 w-100" id="noResponseModalLabel">
+          Congratulations
+        </h1>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body present-body">
+        <div class="row">
+          <div class="image-box">
+            <img class="img-fluid" src="../../../../assets/img/clients/No-response.png" />
+          </div>
+          <div class="col-12">
+            <p class="text-center text-success">
+              Sadly not getting response
             </p>
           </div>
         </div>

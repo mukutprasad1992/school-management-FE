@@ -117,6 +117,7 @@ export class CTAssociationComponent {
 
   onSubmit() {
     if (this.ctAssociationForm.valid) {
+      console.info("submite is called");
       this.ctAssociationService
         .createClassTeacher('classesTeachers', this.ctAssociationForm.value)
         .subscribe((response) => {

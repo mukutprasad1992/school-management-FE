@@ -118,12 +118,13 @@ export class CSAssociationComponent {
 
   onSubmit() {
     if (this.csAssociationForm.valid) {
-      console.info('Student Associated')
+
       this.csAssociationService
         .createClassStudent('classesStudents', this.csAssociationForm.value)
         .subscribe((response) => {
           if (response.status) {
-            this.getClassStudentAssociation();
+            console.info('Student Associated')
+            //this.getClassStudentAssociation();
             this.taostrService.showSuccess(
               messages.Onsubmit.success.title,
               messages.Onsubmit.success.message
@@ -157,9 +158,9 @@ export class CSAssociationComponent {
   }
 
   deleteCSAssociation(association: string, csAssociationDeleteCurrentRow: any) {
-    this.getClassStudentAssociation();
+    // this.getClassStudentAssociation();
     this.csAssociationService
-      .deleteCSAssociation(`classesStudents/${csAssociationDeleteCurrentRow}`)
+      .deleteCSAssociation(`classesStudents/${csAssociationDeleteCurrentRow._id}`)
       .subscribe((response) => {
         console.log('class student is deleted', csAssociationDeleteCurrentRow);
         if (response.status) {
