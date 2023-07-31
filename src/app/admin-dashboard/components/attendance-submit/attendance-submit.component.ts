@@ -28,12 +28,15 @@ export interface Student {
   styleUrls: ['./attendance-submit.component.scss'],
 })
 export class AttendanceSubmitComponent {
+
+
   constructor(
     private readonly http: HttpClient,
     private attendanceService: AttendanceService,
     private taostrService: TaostrService
   ) { }
 
+  statusField: any;
   StudentProfilePic: any;
   apiData: any;
   Events: any[] = [];
@@ -76,7 +79,7 @@ export class AttendanceSubmitComponent {
   };
 
   handleDateClick(arg: any) {
-    console.info('date click! ' + typeof arg.dateStr);
+    // console.info('date click! ' + typeof arg.dateStr);
     this.getAttendanceDate = arg.dateStr;
     this.prepareAttendanceSheet.dateOfAttendance = arg.dateStr;
     this.selectDate = arg.dateStr;
@@ -169,7 +172,7 @@ export class AttendanceSubmitComponent {
   }
 
   onButtonClick(getClass: any) {
-    console.log('class get', getClass);
+    // console.log('class get', getClass);
     this.getAllClasses();
     this.getSingleClass = getClass;
     this.getAttendanceClass = getClass._id;
@@ -205,6 +208,7 @@ export class AttendanceSubmitComponent {
           );
           this.getAllClasses();
           this.getAttendanceData = response.result;
+          // console.info("getAttendanceData", this.getAttendanceData)
         } else {
           this.taostrService.showError(
             messages.GetAttendance.error.title,
@@ -238,7 +242,7 @@ export class AttendanceSubmitComponent {
   // }
 
   getStudentsId(studentId: string, status: string) {
-    console.log(studentId, status);
+    // console.log(studentId, status);
   }
 
   getClassRow(classRow: any) {
@@ -257,10 +261,12 @@ export class AttendanceSubmitComponent {
 
   createAttendance() {
     this.onSubmitValidation = true;
-    //console.info('Get Data', this.prepareAttendanceSheet);
+    console.info("Get Attendance Data", this.prepareAttendanceSheet.students);
     this.attendanceService
       .createAttendance('attendances', this.prepareAttendanceSheet)
       .subscribe((response) => {
+        console.info("response", response)
+        console.info("status", response.students)
         if (response.status) {
           this.taostrService.showSuccess(
             messages.CreateAttendance.success.title,
@@ -276,12 +282,12 @@ export class AttendanceSubmitComponent {
   }
 
   onClick(student: any) {
-    console.log(student);
+    // console.log(student);
     this.getCurrentStudent = student;
   }
 
   makeAttendance(status: string, getCurrentStudent: any) {
-    console.log(status, getCurrentStudent);
+    //console.log(status, getCurrentStudent);
     let data = {
       student: getCurrentStudent.student._id,
       status: status,
@@ -289,6 +295,8 @@ export class AttendanceSubmitComponent {
       firstName: getCurrentStudent.student.firstName,
       lastName: getCurrentStudent.student.lastName,
     };
+    this.statusField = status;
     this.prepareAttendanceSheet.students.push(data);
+    //console.log(this.prepareAttendanceSheet)
   }
 }

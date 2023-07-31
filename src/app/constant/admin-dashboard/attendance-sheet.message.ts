@@ -31,4 +31,16 @@ export const messages = {
       message: 'Error while submit',
     },
   },
+
+
+  deleteAttendanceSheet: {
+    success: {
+      title: 'Attendance Sheet',
+      message: 'Attendance deleted successfully',
+    },
+    error: {
+      title: 'Attendance Sheet',
+      message: 'Error while deleting attendance',
+    },
+  },
 };

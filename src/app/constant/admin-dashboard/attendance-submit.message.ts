@@ -49,7 +49,7 @@ export const messages = {
       message: 'Attendance Submited successfully',
     },
     error: {
-      title: 'SubCreateAttendancemit',
+      title: 'CreateAttendance',
       message: 'Error while Submit the Attendance',
     },
   },

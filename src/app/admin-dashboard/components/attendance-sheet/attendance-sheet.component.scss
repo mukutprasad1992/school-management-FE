@@ -20,15 +20,23 @@
                 font-family: "Roboto", sans-serif;
                 font-size: 14.4px;
                 line-height: 23.04px;
-                color: #47b2e4 !important;
+                // color: #47b2e4 !important;
             }
         }
     }
 }
 
-.present { color: green;}
-.absent { color: red;}
-.noresponse {color: aquamarine;}
+.present {
+    color: green;
+}
+
+.absent {
+    color: red;
+}
+
+.noresponse {
+    color: aquamarine;
+}
 
 .modal {
     .modal-header .modal-title {
@@ -59,12 +67,12 @@
             transition: 0.3s;
             white-space: nowrap;
             cursor: pointer;
-border: none;
-margin: 5px 10px;
-}
+            border: none;
+            margin: 5px 10px;
+        }
 
-.btn-primary {
-    background: #47b2e4;
-}
-}
+        .btn-primary {
+            background: #47b2e4;
+        }
+    }
 }

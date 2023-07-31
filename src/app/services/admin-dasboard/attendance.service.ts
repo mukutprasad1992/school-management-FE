@@ -50,4 +50,10 @@ export class AttendanceService {
   public getAttendanceData(url: string): Observable<any> {
     return this.http.get(`${API_URL}/${url}`).pipe(map((res) => res));
   }
+
+  public deleteAttendance(Id: string): Observable<any> {
+    return this.http.delete(`${API_URL}/${Id}`).pipe(map((res) => res));
+  }
+
+
 }

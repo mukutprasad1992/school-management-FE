@@ -25,6 +25,8 @@ export class AttendanceSheetComponent {
 
   allClasses: any = [];
   getAllAttendance: any;
+  deleteattendanceSheetRow: any;
+
 
   constructor(
     private attendanceService: AttendanceService,
@@ -69,19 +71,13 @@ export class AttendanceSheetComponent {
     });
   }
 
-  // onSubmit() {
-  //   if (this.attedanceSheetForm.valid) {
-  //     console.log(this.attedanceSheetForm.value);
-  //   }
-  // }
-
   onSubmit() {
     if (this.attedanceSheetForm.valid) {
-      console.log(this.attedanceSheetForm.value);
       this.attendanceService
         .createAttendance('classesStudents', this.attedanceSheetForm.value)
         .subscribe((response) => {
           if (response.status) {
+            console.info("response", response.value)
             this.taostrService.showSuccess(
               messages.Onsubmit.success.title,
               messages.Onsubmit.success.message
@@ -92,6 +88,7 @@ export class AttendanceSheetComponent {
               messages.Onsubmit.error.message
             );
           }
+
           this.attedanceSheetForm.reset();
         });
     } else {
@@ -104,10 +101,8 @@ export class AttendanceSheetComponent {
 
   getAttendanceData() {
     this.attendanceService
-      .getAttendanceData('attendances')
-      //console.info('Get Data', this.prepareAttendanceSheet);
+      .getAttendanceData('attendances',)
       .subscribe((response) => {
-        //console.log(response.result[0].students);
         if (response.status) {
           this.getClassStudentAttendance = response.result;
           for (
@@ -126,6 +121,7 @@ export class AttendanceSheetComponent {
                 student++
               ) {
                 this.finalClassStudentAttendence.push({
+                  _id: this.getClassStudentAttendance[attendance]._id,
                   class: this.getClassStudentAttendance[attendance].class.name,
                   dateOfAttendance:
                     this.getClassStudentAttendance[attendance].dateOfAttendance,
@@ -145,7 +141,6 @@ export class AttendanceSheetComponent {
               }
             }
           }
-          console.log(this.getClassStudentAttendance);
           this.taostrService.showSuccess(
             messages.GetAttendance.success.title,
             messages.GetAttendance.success.message
@@ -166,11 +161,33 @@ export class AttendanceSheetComponent {
 
   onTableDataChange(event: any) {
     this.page = event;
-    console.info('this.page', this.page);
     this.getAttendanceData();
   }
 
   onAttendanceUpdate(getAttendanceUpdate: any) {
     this.getAttendanceUpdate = getAttendanceUpdate;
+  }
+
+  onClick(attendanceSheetRow: any) {
+    this.deleteattendanceSheetRow = attendanceSheetRow;
+  }
+
+  deleteAttendanceRow(action: any, deleteattendanceSheetRow: any) {
+    this.attendanceService
+      .deleteAttendance(`attendances/${deleteattendanceSheetRow._id}`)
+      .subscribe((response) => {
+        if (response.status) {
+          this.taostrService.showSuccess(
+            messages.deleteAttendanceSheet.success.title,
+            messages.deleteAttendanceSheet.success.message
+          );
+          // this.getAttendanceData();
+        } else {
+          this.taostrService.showError(
+            messages.deleteAttendanceSheet.error.title,
+            messages.deleteAttendanceSheet.error.message
+          );
+        }
+      });
   }
 }

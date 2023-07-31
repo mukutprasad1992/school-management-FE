@@ -118,7 +118,6 @@ export class CSAssociationComponent {
 
   onSubmit() {
     if (this.csAssociationForm.valid) {
-
       this.csAssociationService
         .createClassStudent('classesStudents', this.csAssociationForm.value)
         .subscribe((response) => {

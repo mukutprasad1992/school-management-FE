@@ -81,6 +81,12 @@ export class TeachersComponent {
     this.getAllTeachers();
   }
 
+  onTeacherSelect(getTeacher: any) {
+    console.log(getTeacher);
+    this.getTeacherOnSelect = getTeacher;
+    console.info("getTeacherOnSelect", this.getTeacherOnSelect)
+  }
+
   onTableSizeChange(event: any): void {
     this.tableSize = event.target.value;
     this.page = 1;
