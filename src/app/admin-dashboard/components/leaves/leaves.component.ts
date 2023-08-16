@@ -93,7 +93,7 @@ export class LeavesComponent {
         this.getLeaveData = response.result;
         this.totalCount = response.result.length;
       } else {
-        this.taostrService.showSuccess(
+        this.taostrService.showError(
           messages.GetLeave.error.title,
           messages.GetLeave.error.message
         );

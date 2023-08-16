@@ -281,13 +281,12 @@ export class AttendanceSubmitComponent {
       });
   }
 
-  onClick(student: any) {
-    // console.log(student);
+  onStudentClick(student: any) {
+    console.log("student", student);
     this.getCurrentStudent = student;
   }
 
   makeAttendance(status: string, getCurrentStudent: any) {
-    //console.log(status, getCurrentStudent);
     let data = {
       student: getCurrentStudent.student._id,
       status: status,
@@ -297,6 +296,5 @@ export class AttendanceSubmitComponent {
     };
     this.statusField = status;
     this.prepareAttendanceSheet.students.push(data);
-    //console.log(this.prepareAttendanceSheet)
   }
 }

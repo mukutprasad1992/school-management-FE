@@ -26,6 +26,7 @@ export class AttendanceSheetComponent {
   allClasses: any = [];
   getAllAttendance: any;
   deleteattendanceSheetRow: any;
+  attendanceByClassAndDateSheetRow: any;
 
 
   constructor(
@@ -72,12 +73,51 @@ export class AttendanceSheetComponent {
   }
 
   onSubmit() {
+    console.info("attedanceSheetForm : ", this.attedanceSheetForm.value)
     if (this.attedanceSheetForm.valid) {
       this.attendanceService
-        .createAttendance('classesStudents', this.attedanceSheetForm.value)
+        .getAttendanceDateAndClass(`attendances/${this.attedanceSheetForm.value.class}/${this.attedanceSheetForm.value.dateOfAttendance}`)
         .subscribe((response) => {
+          console.info("response", response)
+          this.finalClassStudentAttendence = [];
           if (response.status) {
-            console.info("response", response.value)
+            this.getClassStudentAttendance = response.result;
+            for (
+              let attendance = 0;
+              attendance < this.getClassStudentAttendance.length;
+              attendance++
+            ) {
+              if (
+                this.getClassStudentAttendance[attendance] &&
+                this.getClassStudentAttendance[attendance].students.length
+              ) {
+                for (
+                  let student = 0;
+                  student <
+                  this.getClassStudentAttendance[attendance].students.length;
+                  student++
+                ) {
+                  this.finalClassStudentAttendence.push({
+                    _id: this.getClassStudentAttendance[attendance]._id,
+                    class: this.getClassStudentAttendance[attendance].class.name,
+                    dateOfAttendance:
+                      this.getClassStudentAttendance[attendance].dateOfAttendance,
+                    status:
+                      this.getClassStudentAttendance[attendance].students[student]
+                        .status,
+                    firstName:
+                      this.getClassStudentAttendance[attendance].students[student]
+                        .student.firstName,
+                    lastName:
+                      this.getClassStudentAttendance[attendance].students[student]
+                        .student.lastName,
+                    rollNo:
+                      this.getClassStudentAttendance[attendance].students[student]
+                        .rollNo,
+                  });
+                }
+              }
+            }
             this.taostrService.showSuccess(
               messages.Onsubmit.success.title,
               messages.Onsubmit.success.message
@@ -88,8 +128,7 @@ export class AttendanceSheetComponent {
               messages.Onsubmit.error.message
             );
           }
-
-          this.attedanceSheetForm.reset();
+          this.createFormBuilder()
         });
     } else {
       this.taostrService.showError(
@@ -101,7 +140,7 @@ export class AttendanceSheetComponent {
 
   getAttendanceData() {
     this.attendanceService
-      .getAttendanceData('attendances',)
+      .getAttendanceData('attendances')
       .subscribe((response) => {
         if (response.status) {
           this.getClassStudentAttendance = response.result;
@@ -172,6 +211,8 @@ export class AttendanceSheetComponent {
     this.deleteattendanceSheetRow = attendanceSheetRow;
   }
 
+
+
   deleteAttendanceRow(action: any, deleteattendanceSheetRow: any) {
     this.attendanceService
       .deleteAttendance(`attendances/${deleteattendanceSheetRow._id}`)
@@ -190,4 +231,5 @@ export class AttendanceSheetComponent {
         }
       });
   }
+
 }

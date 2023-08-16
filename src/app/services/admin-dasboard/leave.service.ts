@@ -15,6 +15,14 @@ export class LeaveServices {
     return this.http.get(`${API_URL}/${url}`).pipe(map((res) => res));
   }
 
+  public getAllStudents(url: string): Observable<any> {
+    return this.http.get(`${API_URL}/${url}`).pipe(map((res) => res));
+  }
+
+  public getAllClasses(url: string): Observable<any> {
+    return this.http.get(`${API_URL}/${url}`).pipe(map((res) => res));
+  }
+
   public getLeave(url: string): Observable<any> {
     return this.http.get(`${API_URL}/${url}`).pipe(map((res) => res));
   }

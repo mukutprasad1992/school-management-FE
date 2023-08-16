@@ -156,8 +156,36 @@
   </div>
 </div>
 
-
 <div class="modal fade" id="classteachermodal" tabindex="-1" aria-labelledby="classteachermodal" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="classteachermodal">Teacher Association</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body teacher-info">
+        <div class="row px-4">
+          <div class="col-sm-6">
+            <p><strong>Class:</strong> {{ teacherAssociation?.class?.name }}</p>
+          </div>
+          <div class="col-sm-6">
+            <p>
+              <strong>Name:</strong>
+              {{ teacherAssociation?.teacher?.firstName }}
+              {{ teacherAssociation?.teacher?.lastName }}
+            </p>
+          </div>
+          <div class="col-sm-6">
+            <p><strong>Employee Id:</strong> {{ teacherAssociation?.employeeId }}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- <div class="modal fade" id="classteachermodal" tabindex="-1" aria-labelledby="classteachermodal" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
@@ -199,4 +227,4 @@
       </div>
     </div>
   </div>
-</div>
+</div> -->
