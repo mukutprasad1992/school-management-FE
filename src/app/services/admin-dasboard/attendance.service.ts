@@ -55,5 +55,8 @@ export class AttendanceService {
     return this.http.delete(`${API_URL}/${Id}`).pipe(map((res) => res));
   }
 
+  public getAttendanceDateAndClass(url: string): Observable<any> {
+    return this.http.get(`${API_URL}/${url}`,).pipe(map((res) => res));
+  }
 
 }

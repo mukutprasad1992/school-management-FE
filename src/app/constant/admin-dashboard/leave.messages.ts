@@ -40,7 +40,28 @@ export const messages = {
     error: {
       title: 'Leave',
       message: 'Error while deleting leave'
-    }
+    },
 
-  }
+  },
+  students: {
+    success: {
+      title: 'Student',
+      message: 'Student selected successfully',
+    },
+    error: {
+      title: 'Student',
+      message: 'Error while selecting a Student',
+    },
+  },
+
+  Classes: {
+    success: {
+      title: 'Classes',
+      message: 'Class selected successfully',
+    },
+    error: {
+      title: 'Classes',
+      message: 'Error whitle selecting class'
+    },
+  },
 };

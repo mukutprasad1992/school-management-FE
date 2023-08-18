@@ -73,7 +73,7 @@
                         <p class="rollno">{{ student?.rollNo }}</p>
                       </div>
                       <div class="status">
-                        status : {{statusField}}
+                        status : {{student.status | json}}
                         <div [ngClass]="{
                             present: student.status === 'PRESENT',
                             absent: student.status === 'ABSENT',
@@ -82,7 +82,7 @@
                           }"></div>
                       </div>
                       <a href="#" class="label attendance-btn" data-bs-toggle="modal" data-bs-target="#attendanceModal"
-                        (click)="onClick(student)">
+                        (click)="onStudentClick(student)">
                         Attendance
                       </a>
                     </ng-template>

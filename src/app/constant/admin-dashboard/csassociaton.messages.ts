@@ -49,7 +49,7 @@ export const messages = {
       message: 'Successfully deleted',
     },
     error: {
-      title: 'onsubmit',
+      title: 'DeleteCS',
       message: 'Error while deleting CSAssociation',
     },
   },
