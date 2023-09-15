@@ -199,6 +199,7 @@ export class AttendanceSheetComponent {
 
   onTableDataChange(event: any) {
     this.page = event;
+    // this.getAttendanceData();
   }
 
   onAttendanceUpdate(getAttendanceUpdate: any) {
