@@ -72,12 +72,10 @@ export class AttendanceSheetComponent {
   }
 
   onSubmit() {
-    console.info("attedanceSheetForm : ", this.attedanceSheetForm.value)
     if (this.attedanceSheetForm.valid) {
       this.attendanceService
         .getAttendanceDateAndClass(`attendances/attendanceByClassAndDate/${this.attedanceSheetForm.value.class}/${this.attedanceSheetForm.value.dateOfAttendance}`)
         .subscribe((response) => {
-          console.info("response", response)
           this.finalClassStudentAttendence = [];
           if (response.status) {
             this.getClassStudentAttendance = response.result;
@@ -90,6 +88,7 @@ export class AttendanceSheetComponent {
                 this.getClassStudentAttendance[attendance] &&
                 this.getClassStudentAttendance[attendance].students.length
               ) {
+                console.info("getClassStudentAttendance", this.getClassStudentAttendance[attendance])
                 for (
                   let student = 0;
                   student <
@@ -142,6 +141,7 @@ export class AttendanceSheetComponent {
       .getAttendanceData('attendances')
       .subscribe((response) => {
         if (response.status) {
+
           this.getClassStudentAttendance = response.result;
           for (
             let attendance = 0;
@@ -160,7 +160,7 @@ export class AttendanceSheetComponent {
               ) {
                 this.finalClassStudentAttendence.push({
                   _id: this.getClassStudentAttendance[attendance]._id,
-                  class: this.getClassStudentAttendance[attendance].class.name,
+                  class: this?.getClassStudentAttendance[attendance]?.class?.name,
                   dateOfAttendance:
                     this.getClassStudentAttendance[attendance].dateOfAttendance,
                   status:
@@ -175,6 +175,7 @@ export class AttendanceSheetComponent {
                   rollNo:
                     this.getClassStudentAttendance[attendance].students[student]
                       .rollNo,
+
                 });
               }
             }
