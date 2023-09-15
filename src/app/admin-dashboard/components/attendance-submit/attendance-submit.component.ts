@@ -289,7 +289,7 @@ export class AttendanceSubmitComponent {
   makeAttendance(status: string, getCurrentStudent: any) {
     let data = {
       student: getCurrentStudent.student._id,
-      status: status,
+      status,
       rollNo: getCurrentStudent.rollNo,
       firstName: getCurrentStudent.student.firstName,
       lastName: getCurrentStudent.student.lastName,

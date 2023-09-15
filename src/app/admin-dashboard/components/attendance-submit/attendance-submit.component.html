@@ -72,8 +72,8 @@
                         </h5>
                         <p class="rollno">{{ student?.rollNo }}</p>
                       </div>
-                      <div class="status">
-                        status : {{student.status | json}}
+                      <div class="status" *ngIf="student.status">
+                        status : {{student.status}}
                         <div [ngClass]="{
                             present: student.status === 'PRESENT',
                             absent: student.status === 'ABSENT',

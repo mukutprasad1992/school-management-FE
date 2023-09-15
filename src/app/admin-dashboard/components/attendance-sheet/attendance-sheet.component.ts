@@ -22,7 +22,6 @@ export class AttendanceSheetComponent {
 
   getAllClassStudentAttendance: any;
   getAttendanceUpdate: any;
-
   allClasses: any = [];
   getAllAttendance: any;
   deleteattendanceSheetRow: any;
@@ -76,7 +75,7 @@ export class AttendanceSheetComponent {
     console.info("attedanceSheetForm : ", this.attedanceSheetForm.value)
     if (this.attedanceSheetForm.valid) {
       this.attendanceService
-        .getAttendanceDateAndClass(`attendances/${this.attedanceSheetForm.value.class}/${this.attedanceSheetForm.value.dateOfAttendance}`)
+        .getAttendanceDateAndClass(`attendances/attendanceByClassAndDate/${this.attedanceSheetForm.value.class}/${this.attedanceSheetForm.value.dateOfAttendance}`)
         .subscribe((response) => {
           console.info("response", response)
           this.finalClassStudentAttendence = [];
@@ -200,7 +199,6 @@ export class AttendanceSheetComponent {
 
   onTableDataChange(event: any) {
     this.page = event;
-    this.getAttendanceData();
   }
 
   onAttendanceUpdate(getAttendanceUpdate: any) {
@@ -211,8 +209,6 @@ export class AttendanceSheetComponent {
     this.deleteattendanceSheetRow = attendanceSheetRow;
   }
 
-
-
   deleteAttendanceRow(action: any, deleteattendanceSheetRow: any) {
     this.attendanceService
       .deleteAttendance(`attendances/${deleteattendanceSheetRow._id}`)
@@ -222,14 +218,14 @@ export class AttendanceSheetComponent {
             messages.deleteAttendanceSheet.success.title,
             messages.deleteAttendanceSheet.success.message
           );
-          // this.getAttendanceData();
+          this.getAttendanceData();
         } else {
           this.taostrService.showError(
             messages.deleteAttendanceSheet.error.title,
             messages.deleteAttendanceSheet.error.message
           );
         }
+
       });
   }
-
 }

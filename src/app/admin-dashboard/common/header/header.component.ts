@@ -17,7 +17,7 @@ export class HeaderComponent {
     private router: Router,
     private headerService: HeaderService,
     private taostrService: TaostrService
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.getUser();

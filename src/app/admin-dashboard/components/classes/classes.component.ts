@@ -185,7 +185,7 @@ export class ClassesComponent {
     this.classService
       .deleteClass(`classes/${deleteCurrentClassRow._id}`)
       .subscribe((response) => {
-        console.log(class_Id, deleteCurrentClassRow);
+        // console.log(class_Id, deleteCurrentClassRow);
         if (response.status) {
           this.taostrService.showSuccess(
             messages.deleteClass.success.title,
